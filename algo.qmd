@@ -2,9 +2,11 @@
 title: "Algorithm Design and Pseudocode"
 author: "Pamela Schlosser"
 format: html
+runtime: python
+
 ---
 
-# Automate This by Christopher Steiner
+# _Automate This_ by Christopher Steiner
 
 -   An algorithm is a set of operations (mathematical, technical) to be conducted in a certain sequence to achieve a certain goal.
 -   The rise of algorithms and their transformative impact on industries.
