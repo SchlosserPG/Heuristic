@@ -22,7 +22,7 @@ Knapsack Problem: The Knapsack problem is another classic benchmark problem in o
 * Example Run: If the generated binary string is [1, 0, 1, 1, 0, 1, 0, 1, 1, 0], the fitness would be 6, since there are six 1s in the string.
 * The objective is to maximize the number of 1s in a binary string.
 
-$\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i, \quad \text{subject to} \ s_i \in \{0, 1\}.$
+$$\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i, \quad \text{subject to} \ s_i \in \{0, 1\}.$$
 
 
 ### Optimal Solution OneMax
@@ -81,7 +81,7 @@ iterations = 20
 fitness_over_time = [np.random.randint(0, n + 1) for _ in range(iterations)]  # Random example of fitness change
 
 # Line plot of fitness over iterations
-plt.figure(figsize=(8, 4))
+plt.figure(figsize=(10, 4))
 plt.plot(range(iterations), fitness_over_time, marker='o', color='green', linestyle='-', linewidth=2)
 plt.fill_between(range(iterations), fitness_over_time, color='lightgreen', alpha=0.4)
 plt.title(f"Fitness Evolution Over Time")
@@ -116,7 +116,7 @@ solutions = [
 objective_values = [0, 1, 1, 2, 1, 2, 3, 2, 3, 3, 2, 4, 3, 3, 4, 5]
 
 # Plotting the graph
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 4))
 plt.plot(solutions, objective_values, marker='*', markersize=10, linestyle='-', color='black')
 plt.xlabel("Solution")
 plt.ylabel("Objective Value")
