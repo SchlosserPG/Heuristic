@@ -248,6 +248,8 @@ import numpy as np
 import time
 import random
 import matplotlib.pyplot as plt
+
+np.random.seed(5042) ##for consistency
 ```
 
 ## Define the Ackley Function (1D)
@@ -309,8 +311,6 @@ def hill_climbing_ackley(start_x, max_iters=100, step_size=0.1):
 
 ```{python}
 # Initialization function (I) to set the starting point
-np.random.seed(5042) ##for consistency
-
 def init_hc(range_min=-10, range_max=10):
     return random.uniform(range_min, range_max)
 
@@ -382,16 +382,160 @@ plt.grid(True)
 plt.show()
 ```
 
-* An example run of this put the points Optimal x: -7.97 and Optimal Value: 15.98, are suboptimal for the Ackley function.
+* An example run of this put the points Optimal x: 5.03 and Optimal Value: 12.75, are suboptimal for the Ackley function.
 * For the Ackley function in 1D, the global minimum occurs at $x=0$, and the function value at this point is exactly $f(0)=0$.
 * Our results are not close to the global minimum of $x=0$. Any value greater than zero indicates that the algorithm has not found the true global minimum.
 * The blue line represents the Ackley function over a range of $x$ values from -10 to 10.The red dots connected by dashed lines represent the progress of the hill climbing algorithm as it iterates through neighboring solutions.
 * The Ackley function is known for its many local minima, and hill climbing is a greedy optimization method that tends to get stuck in local minima because it only moves to the immediate best neighboring solution. Once it finds a local minimum, it stops, even if it hasn't found the global minimum.
-* In this case, the result you obtained is a local minimum but not the global minimum. Since $f(0)=0$ is the global minimum, and your result is $f(-7.97)= 15.98$, the algorithm likely got stuck in a local minimum during its search.
+* In this case, the result you obtained is a local minimum but not the global minimum. Since $f(0)=0$ is the global minimum, and your result is $f(5.03)= 12.75$, the algorithm likely got stuck in a local minimum during its search.
 * Simulated Annealing is a more advanced version of hill climbing that sometimes accepts worse solutions to escape local optima. Will discuss later.
 
 # Hill Climbing with Finance
 * Diversifying your stock portfolio?
 * The Sharpe Ratio is formula measures the performance of an investment compared to a risk-free asset, after adjusting for risk. 
 * The higher the Sharpe ratio, the better the risk-adjusted performance. 
+$S$ is the Sharpe Ratio
+$R_p$ is the expected return of the portfolio,
+$R_f$ is the risk-free rate of return,
+$\sigma_p$ is the standard deviation (volatility) of the portfolio’s excess return.
+$S = \frac{R_p - R_f}{\sigma_p}$
+
+* We store the Sharpe ratio at each successful iteration in score_history, which allows us to plot the progress of the Sharpe ratio over time.
+* This performance function calculates the Sharpe ratio based on the portfolio weights, daily returns, and the covariance matrix of the assets. 
+* The weights are normalized (sum to 1) both when generating the initial random portfolio and for the neighboring portfolio in each iteration. 
+* The code prints the best portfolio weights and the best Sharpe ratio found after the hill climbing process. The plot will show the improvement in the Sharpe ratio during the iterations.
+
+## Imports 
+```{python}
+## Hill Climbing Finance example
+import yfinance as yf
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import time
+
+np.random.seed(5042)
+```
+
+## Fetching Data
+
+```{python}
+stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] 
+start_date = '2023-10-01'
+end_date = '2024-10-1'
+
+# Fetch historical stock data
+def fetch_data(stocks, start_date, end_date):
+    data = yf.download(stocks, start=start_date, end=end_date)['Adj Close']
+    return data
+```
+
+## Calculating performance via Sharpe Ratio
+
+```{python}
+# Calculate portfolio performance (returns, risk, and Sharpe ratio)
+def portfolio_performance(weights, mean_returns, cov_matrix):
+    returns = np.sum(mean_returns * weights) * 252  # Annualized returns
+    risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk
+    sharpe_ratio = returns / risk  # Sharpe ratio
+    return returns, risk, sharpe_ratio
+
+```
+
+
+## Main Loop 
+
+```{python}
+# Hill Climbing algorithm for portfolio optimization
+def hill_climbing(mean_returns, cov_matrix, max_iterations=1000):
+    num_assets = len(mean_returns)
+    # Initial random portfolio
+    current_weights = np.random.random(num_assets)
+    current_weights /= np.sum(current_weights)  # Normalize to sum to 1
+    current_returns, current_risk, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
+    
+    # Track progress for visualization
+    score_history = [current_sharpe]
+    iteration = 0
+
+    # While loop for hill climbing
+    while iteration < max_iterations:
+        # Generate neighbor: Slight random change in weights
+        neighbor_weights = current_weights + np.random.normal(0, 0.01, num_assets)
+        neighbor_weights = np.clip(neighbor_weights, 0, 1)  # Ensure weights are between 0 and 1
+        neighbor_weights /= np.sum(neighbor_weights)  # Normalize weights to sum to 1
+        
+        neighbor_returns, neighbor_risk, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)
+        
+        # If the neighbor is better, move to the neighbor solution
+        if neighbor_sharpe > current_sharpe:
+            current_weights, current_returns, current_risk, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe
+            score_history.append(current_sharpe)
+        
+        iteration += 1  # Increment the iteration counter
+    
+    return current_weights, current_sharpe, score_history
+stock_data = fetch_data(stocks, start_date, end_date)
+returns = stock_data.pct_change().dropna()
+mean_returns = returns.mean()
+cov_matrix = returns.cov()
+
+```
+
+
+## Main Execution 
+
+```{python}
+start_time = time.time()
+
+# Run hill climbing
+best_weights, best_sharpe, score_history = hill_climbing(mean_returns, cov_matrix)
+
+end_time = time.time()
+execution_time = end_time - start_time  # Calculate elapsed time
+
+```
+
+## Output 
+```{python}
+# Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)
+plt.figure(figsize=(10, 6))
+plt.plot(score_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')
+plt.title("Hill Climbing Progress for Portfolio Optimization (Sharpe Ratio)")
+plt.xlabel("Iteration")
+plt.ylabel("Sharpe Ratio")
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# Output the best results
+returns, risk, sharpe_ratio = portfolio_performance(best_weights, mean_returns, cov_matrix)
+print(f"Best portfolio weights: {best_weights}")
+print(f"Best Sharpe ratio: {sharpe_ratio}")
+print(f"Best portfolio returns: {returns}, Best risk: {risk}")
+print(f"Hill Climbing Finance Example Execution time: {execution_time:.6f} seconds")
+```
+
+* The plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.
+* The weights are heavily concentrated in a few stocks, particularly:
+     + stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] 
+     + 19.560444 % in stock 1: AAPL: Apple
+     + 13.030724 % in stock 4: AMZN: Amazon
+     + 19.665558 % in stock 6: NFLX: Netflix
+     + 30.926036 % in stock 8: META: Facebook
+     + 16.817237 % in stock 9: DIS: Walt Disney Co
+* A Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
+* Our portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
+     + Pros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.
+     + Cons: Concentrating in a few assets can increase the overall risk due to lack of diversification.
+
+## Items To Consider
+* A Sharpe ratio of 2.800 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.
+* Whether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.
+* Given the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.
+* Things to Try Next: 
+     + Backtesting: Test this portfolio over a different time period or a longer time horizon to see if it maintains its high Sharpe ratio.
+     + Rebalancing: Consider rebalancing the portfolio periodically (monthly or quarterly) to see if the high Sharpe ratio persists.
+     + Diversification: If you are concerned about high concentration risk, you might want to introduce constraints to the hill climbing algorithm to enforce a minimum weight for diversification or limit the maximum weight of any asset.
+
 
