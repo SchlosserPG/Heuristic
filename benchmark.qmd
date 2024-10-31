@@ -1,5 +1,634 @@
 ---
-title: "About"
+title: "Benchmark Optimization Problems"
+author: "Pamela Schlosser"
+format: html
+runtime: python
+
 ---
 
-About this site
+
+# Benchmark Problems: Overview
+
+* OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods.
+Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
+* Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms' ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.
+* Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
+* These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.
+
+## OneMax Problem
+* In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.
+* Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. It can be any positive integer.
+* Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.
+* Example Run: If the generated binary string is [1, 0, 1, 1, 0, 1, 0, 1, 1, 0], the fitness would be 6, since there are six 1s in the string.
+* The objective is to maximize the number of 1s in a binary string.
+
+$\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i, \quad \text{subject to} \ s_i \in \{0, 1\}.$
+
+
+### Optimal Solution OneMax
+* The optimal solution of this problem is that all the subsolutions assume the value 1; i.e., $s_i=1$ for all $i$. 
+For instance, the optimal solution for $n=4$ is $s^*=(1111)$ and the objective value of a possible solution $s^*=(0111)$ can be easily calculated as the count of the number of ones in the solution $s$ as the objective function if $f(s) = f(0111) = 0+1+1+1 = 3$
+
+### OneMax Pseudocode 
+
+```{asis}
+Pseudocode:
+
+
+FUNCTION one_max(binary_string):
+# Calculate the fitness as the sum of 1s in the binary string
+    RETURN sum(binary_string)
+
+# Example usage
+SET n = 10  # Length of the binary string
+
+# Generate a random binary string of length n
+SET binary_string = generate a random list of 0s and 1s of size n
+
+# Calculate the fitness
+SET fitness = one_max(binary_string)
+
+# Print the binary string and its fitness
+PRINT "Binary string:", binary_string
+PRINT "Fitness (number of 1s):", fitness
+
+```
+
+### OneMax Python Implementation
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def one_max(binary_string):
+    return sum(binary_string)
+
+# Example usage: # Length of the binary string
+n = 10
+
+# Generate a random binary string of length n
+binary_string = np.random.randint(0, 2, size=n).tolist()
+
+# Calculate the fitness
+fitness = one_max(binary_string)
+
+print(f"Binary string: {binary_string}")
+print(f"Fitness (number of 1s): {fitness}")
+
+
+iterations = 20
+fitness_over_time = [np.random.randint(0, n + 1) for _ in range(iterations)]  # Random example of fitness change
+
+# Line plot of fitness over iterations
+plt.figure(figsize=(8, 4))
+plt.plot(range(iterations), fitness_over_time, marker='o', color='green', linestyle='-', linewidth=2)
+plt.fill_between(range(iterations), fitness_over_time, color='lightgreen', alpha=0.4)
+plt.title(f"Fitness Evolution Over Time")
+plt.xlabel("Iteration")
+plt.ylabel("Fitness (number of 1s)")
+plt.xticks(np.arange(0, iterations, step=1))  # Show whole numbers on the x-axis
+
+plt.grid(True)
+plt.show()
+```
+
+* The plot above tracks how fitness improves or changes across iterations in an optimization algorithm, giving insight into the convergence of the algorithm.
+
+## Comparing OneMax Problem to Greedy Algorithm
+
+* If a greedy search algorithm is used and is allowed to randomly add one to or subtract one from the current solution $s$ to create the next possible solution $v$ for solving the one-max problem, that is, it is allowed to move one and only one step to either the left or the right of the current solution in the landscape of the solution space.
+* Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.
+* Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.
+
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Defining binary solutions and their corresponding objective values
+solutions = [
+    "(0000)", "(0001)", "(0010)", "(0011)", "(0100)", "(0101)", "(0110)", 
+    "(0111)", "(1000)", "(1001)", "(1010)", "(1011)", "(1100)", "(1101)", 
+    "(1110)", "(1111)"
+]
+objective_values = [0, 1, 1, 2, 1, 2, 3, 2, 3, 3, 2, 4, 3, 3, 4, 5]
+
+# Plotting the graph
+plt.figure(figsize=(10, 6))
+plt.plot(solutions, objective_values, marker='*', markersize=10, linestyle='-', color='black')
+plt.xlabel("Solution")
+plt.ylabel("Objective Value")
+plt.title("Objective Value vs. Solution")
+plt.xticks(rotation=45)
+plt.grid(True)
+
+# Display the plot
+plt.show()
+```
+
+
+## The Knapsack Problem
+
+* The Knapsack Problem is a classic NP-complete optimization problem, where you are given a set of items, each with a weight and a value.
+* The goal is to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
+
+* Types of Knapsack Problems:
+     + 0/1 Knapsack Problem:
+          + Each item can be included (1) or excluded (0) in the knapsack.
+          + You cannot break items into smaller parts.
+$\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i v_i, \quad \text{subject to} \quad w(s) = \sum_{i=1}^{n} s_i w_i \leq W, \quad s_i \in \{0, 1\}$
+Where $v_i$ is the value associated with $s_1$  and $w_i$ is the weight associated with $s_i$ 
+     + Fractional Knapsack Problem:
+          + You can break items into smaller parts and include fractions of them in the knapsack.
+          + Ratio =  $\frac{v_i}{w_i}$, where $v_i$   is the value of item $i$, and $w_i$  is the weight of item $i$.
+
+### NP Complete
+
+* NP (Nondeterministic Polynomial Time): A problem is in NP if a solution can be verified in polynomial time by a deterministic algorithm. In other words, given a solution, it is possible to check if it is correct relatively quickly (in polynomial time). However, finding the solution itself might take much longer (potentially exponential time) unless the problem can also be solved in polynomial time.
+* NP-complete refers to a class of problems in computational complexity theory that are both NP (nondeterministic polynomial time) and every problem in NP can be reduced to it in polynomial time
+* NP-hard problems are optimization or decision problems that are at least as difficult to solve as the hardest problems in NP (nondeterministic polynomial time). 
+     + Unlike NP-complete problems, NP-hard problems do not have to be verifiable in polynomial time. This means that while it may be incredibly hard to find an optimal solution, even verifying a proposed solution might take more than polynomial time. 
+     + Essentially, NP-hard problems are hard to solve optimally, and their complexity often prevents efficient algorithms from finding or checking solutions within a reasonable time frame.
+     + NP-hard problems are broader and potentially harder than NP-complete problems because they can include problems that aren't even in NP. They may not have a polynomial-time verification process.
+
+## Key Characteristics of NP-complete Problems
+* Difficult to solve: No known algorithms can solve NP-complete problems efficiently (in polynomial time) for all instances.
+* Verification in polynomial time: If someone provides a solution, it can be verified quickly.
+Equivalence to other NP-complete problems: If one NP-complete problem can be solved in polynomial time, all NP-complete problems can be solved in polynomial time.
+
+* Knapsack Problem: The 0/1 knapsack problem is NP-complete. Finding the optimal solution is hard, but verifying if a solution meets the constraints and maximizes value can be done in polynomial time.
+* The Fractional knapsack problem is not NP-complete and can be solved in polynomial time using a greedy algorithm.
+* The Travelling Salesman is a NP-hard problem. 
+
+### Example Fractional Knapsack Problem
+
+* Knapsack Capacity: 15 kg
+     + Items Available:
+          + Item 1: Value = 10, Weight = 5 kg
+          + Item 2: Value = 40, Weight = 10 kg
+          + Item 3: Value = 30, Weight = 15 kg
+* Objective: Maximize the total value without exceeding 15 kg.
+
+* The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.
+* 0/1 Knapsack Problem requires more complex algorithms like dynamic programming to find the optimal solution over the Fractional Knapsack Problem
+
+#### Greedy Algorithm for Fractional Knapsack
+* Step 1: Calculate Value-to-Weight Ratio: 
+     + Item 1: 10/5=2 
+     + Item 2: 40/10=4 
+     + Item 3: 30/15=2 
+* Step 2: Sort Items by Ratio (Descending): Item 2, Item 1, Item 3
+     + Step 3: Fill the Knapsack:
+     + Take Item 2 (10 kg, Value = 40).
+     + Take as much of Item 1 as possible (5 kg, Value = 10).
+* Results: Total Weight = 15 kg, Total Value = 50.
+
+## Binary to Decimal (B2D) Problem: B2D-1
+
+* The binary to decimal model is often used in optimization problems, particularly in the context of genetic algorithms and heuristic methods. 
+* With a minor modification, the solution space of the one-max problem can be simplified as the solution space of another optimization problem.
+* The model uses binary strings to represent numbers. Each string represents a decimal number when interpreted in binary form.
+* The B2D-1 problem is to maximize the value of the objective function of a binary string.
+
+### Characteristics and Visualization of B2D-1
+* These two examples are possible landscapes to the B2D problem.
+* The first  chart to the left implies that there are only two possible next states (candidate solutions) that can be generated from the current solution except for solutions (0000) and (1111), which can only be moved to the right and to the left, respectively.
+* If another search algorithm can generate a new candidate solution by randomly inverting (flipping) one of the subsolutions of the current solution, the number of possible states of the new candidate solution will be $n$, where $n$ is the number of subsolutions. 
+
+
+![OneMax](Pictures/OneMax.png "OneMax")
+
+## B2D with Deception: B2D-2
+
+* B2D deception problems mislead optimization algorithms away from finding the global optimum by presenting local optima that seem promising but are actually suboptimal.
+* Used to test whether a search algorithm is capable of escaping local optima or not.
+* Deception problems highlight the necessity of exploration in heuristic algorithms, such as introducing diversity through mutation or crossover in genetic algorithms. If the algorithm becomes too greedy and focuses only on local fitness improvements (exploitation), it may get stuck at deceptive local optima.
+
+# Continuous Optimization Problems
+* Unlike the COP, the possible solutions for a continuous optimization problem are typically “uncountably infinite.” This means that the number of solutions in the solution space is tantamount to the number of real values in the given space, that is, infinite.
+     + Single-objective optimization problem (SOP)
+     + The Ackley optimization problem 
+* Multi-objective optimization problem (MOP)
+     + The Schaffer Min-Min Global Optimization Problem
+
+## Single-objective Optimization Problem (SOP)
+* A single-objective optimization problem involves finding the best solution from a set of feasible solutions based on a single objective function. The goal is to either maximize or minimize this objective function. 
+
+$$\underset{s \in \mathbb{R}^n}{\text{opt}} f(s), \quad \text{subject to } \, c_i(s) \odot b_i, \quad i = 1, 2, \ldots, m,$$
+
+* where 
+     + ${R}^n$ and ${R}$ are the domain and codomain, respectively, 
+     + $f(s) {R}^n$ and ${R}$ is the objective function to be optimized, 
+     + $c_i(s): {R}^n$ and ${R}\odot b_i, \quad i = 1, 2, \ldots, m,$ are the constraints, 
+     + and $opt$ and $\odot$ are as given in Definition 1 as <, >, =, ⩽, or ⩾.
+
+### Ackley Function: A Single Optimization Problem
+
+* The Ackley Function is a widely used benchmark function for testing optimization algorithms. It is characterized by its multi-modal nature with a nearly flat outer region and a large hole at the center.
+* Applications
+     + Used as a standard test case in evaluating the performance of optimization algorithms like genetic algorithms, simulated annealing, and particle swarm optimization.
+     + Relevant in fields such as machine learning, control systems, and operations research.
+* Limitations
+     + The function's large search space and numerous local minima make it difficult for algorithms to converge to the global minimum.
+     + Large importance of balancing exploration and exploitation in optimization strategies when dealing with the Ackley Function.
+
+#### Explanation of Ackley Function(x, y) 
+
+* Computes the value of the Ackley function given a point (x, y) in the search space.
+* The optimization algorithm optimizes the Ackley function to find the point where it reaches its minimum. It initializes a population of random solutions, evaluates their fitness (using the Ackley function), and iteratively improves them using an optimization method (like gradient descent or a genetic algorithm).
+* The best solution and corresponding function value (score) are returned as the result.
+
+#### Ackley function and B2D: Converting to Decimal
+
+* The Ackley function uses the binary representation, where the binary strings need to be converted to decimal values (i.e., real numbers). In this case, the converted decimal values correspond to points in the continuous search space.
+* For example, a binary string like 1010 can be converted into a decimal value, which can then be used as input to the Ackley function.
+Binary String: 1010, where the binary number is 1010_2.
+* Each position in the binary number represents a power of 2, starting from the right (least significant bit): 
+* The rightmost bit (0) is $2^0$,The next bit (1) is $2^1$ ,The next bit (0) is $2^2$,The leftmost bit (1) is $2^3$.
+
+$1010_2= 0 ∗ 2^0+ 1 ∗ 2^1 +0 ∗ 2^2+1 ∗ 2^3$ 
+$= 0 ∗ 1+ 1 ∗ 2 + 0 ∗ 4 + 1 ∗ 8$
+$=  0 + 2 + 0 + 8 = 10$
+Thus, the decimal equivalent of the binary string "1010" is 10. Use this value as input for the Ackley function.
+
+
+#### Characteristics and Visualization of Ackley Function
+
+* The Ackley function is evaluated in the hypercube.
+* The global optimum (minimum) of the Ackley function is 𝑓(𝑠^∗)=0 is located at $s^*=(0,0,…0)$. 
+* This function has many local optima, which makes it hard for the search algorithm to find the global optimum.
+
+![Ackley](Pictures/GenericAckley.png "Ackley")
+
+#### Ackley Function Formula
+
+$$
+\begin{array}{rl}
+\min_{s \in \mathbb{R}^n} f(s) &= -20 \exp \left(-0.2 \sqrt{\frac{1}{n} \sum_{i=1}^n s_i^2} \right) \\
+& \quad - \exp \left( \frac{1}{n} \sum_{i=1}^n \cos(2 \pi s_i) \right) + 20 + e, \\
+\text{subject to} & \quad -30 \leq s_i \leq 30, \quad i = 1, 2, \dots, n.
+\end{array}
+$$
+
+#### Ackley Function: Pseudocode
+
+* The below example uses a random function to pull a point that we want to hit the local minima. You can imagine, this might not be the best way to do this. 
+
+```{asis}
+PSEUDOCODE
+FUNCTION Ackley(s):
+    SET a = 20, b = 0.2, c = 2 * pi
+    SET n = length of s
+    COMPUTE sum_sq_term = sum of squares of all elements in s
+    COMPUTE cos_term = sum of cos(2 * pi * each element in s)
+    
+    COMPUTE term1 = -a * exp(-b * sqrt(sum_sq_term / n))
+    COMPUTE term2 = -exp(cos_term / n)
+    
+    RETURN term1 + term2 + a + e
+
+# Main Execution
+SET n = 2  # Dimension of the Ackley function
+
+# Generate random vector s with elements between -30 and 30
+SET s = random values in range [-30, 30] of length n
+
+# Compute the Ackley function result for the vector s
+SET result = Ackley(s)
+
+PRINT vector s
+PRINT Ackley function result for vector s
+
+```
+
+
+#### Ackley Function Python Implementation 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+np.random.seed(5042)
+
+# Ackley function implementation
+def ackley(s):
+    a, b, c = 20, 0.2, 2 * np.pi
+    n = len(s)
+    sum_sq_term = np.sum(s**2)
+    cos_term = np.sum(np.cos(c * s))
+    term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))
+    term2 = -np.exp(cos_term / n)
+    return term1 + term2 + a + np.e
+
+# Example usage: 
+n = 2  # Dimension 
+s = np.random.uniform(-30, 30, n)  # Generate random s_i values in the range [-30, 30]
+
+result = ackley(s)  # Evaluate the Ackley function
+
+print(f"Vector s: {s}")
+print(f"Ackley function result: {result}")
+
+# Visualization of the Ackley function
+x = np.linspace(-30, 30, 400)
+y = np.linspace(-30, 30, 400)
+X, Y = np.meshgrid(x, y)
+
+# Compute Z for the Ackley function
+Z = np.array([ackley(np.array([x_val, y_val])) for x_val, y_val in zip(np.ravel(X), np.ravel(Y))])
+Z = Z.reshape(X.shape)
+
+# Plotting the Ackley function surface
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none')
+
+# Customize the plot
+ax.set_title("Ackley Function Surface")
+ax.set_xlabel("s_1")
+ax.set_ylabel("s_2")
+ax.set_zlabel("f(s)")
+
+# Show the plot
+plt.show()
+
+```
+
+
+* Example results: Vector s: [12.8  3.16]; Ackley function result: 17.9
+* Distance from the Origin: The Ackley function reaches its global minimum of 0 at the origin (i.e., when both $x_1$ and $x_2$ are close to 0). Our vector values are quite far from the origin, which is why the function result is positive and relatively large at 17.9" 
+* The Ackley landscape has an exponentially increasing structure as you move away from the global minimum. It has many local minima, which makes optimization algorithms prone to getting stuck in suboptimal solutions. A result like 17.9 is far from zero, and indicates that the vector is located in such a suboptimal region of the function space.
+* Thus, the Ackley result of 17.9 suggests that the point [12.8  3.16]; is not close to the global minimum (which is zero at the origin) and is located in a region of higher function values.
+
+#### Differential Evolution with the Ackley Function
+
+* To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution (DE), which is effective for non-convex functions with many local minima.
+* Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.
+* The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.
+```{python}
+import numpy as np
+from scipy.optimize import differential_evolution
+import matplotlib.pyplot as plt
+
+np.random.seed(5042)
+
+# Define the Ackley function
+# Ackley function implementation
+def ackley(s):
+    a, b, c = 20, 0.2, 2 * np.pi
+    n = len(s)
+    sum_sq_term = np.sum(s**2)
+    cos_term = np.sum(np.cos(c * s))
+    term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))
+    term2 = -np.exp(cos_term / n)
+    return term1 + term2 + a + np.e
+
+# Set the bounds for the variables 
+bounds = [(-30, 30), (-30, 30)]
+
+# Use differential evolution to minimize the Ackley function
+result = differential_evolution(ackley, bounds, seed=42)
+
+# Print the result
+print(f'Optimized parameters (x1, x2): {result.x}')
+print(f'Function value at minimum: {result.fun}')
+
+
+# Visualization of the Ackley function
+x = np.linspace(-30, 30, 400)
+y = np.linspace(-30, 30, 400)
+X, Y = np.meshgrid(x, y)
+
+# Compute Z for the Ackley function
+Z = np.array([ackley(np.array([x_val, y_val])) for x_val, y_val in zip(np.ravel(X), np.ravel(Y))])
+Z = Z.reshape(X.shape)
+
+# Plotting the Ackley function surface
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none')
+
+# Customize the plot
+ax.set_title("Ackley Function Surface (2D)")
+ax.set_xlabel("s_1")
+ax.set_ylabel("s_2")
+ax.set_zlabel("f(s)")
+
+# Show the plot
+plt.show()
+
+```
+
+* Using a great function that is designed to solve problems with multiple local minimums, you can see that we got extremely close to the local minimum 0. 
+
+## Multi-objective Optimization Problem (MOP)
+
+* Given a set of functions and a set of constraints, the MOP is to find the optimal value or a set of optimal values (also called Pareto front), subject to the constraints, out of all possible solutions of these functions.
+
+
+$$\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
+\quad \mathbf{s} \in \mathbb{R}^n, 
+\quad \text{subject to } c_i(s) \odot b_i, \quad i = 1, 2, \dots, m,$$
+
+* Where 
+     + ${R}^n$ and ${R}$ are the domain and codomain, respectively, 
+     + $f(s) {R}^n$ and ${R}$ is the objective function to be optimized, 
+     + $c_i(s): {R}^n$ and ${R}\odot b_i, \quad i = 1, 2, \ldots, m,$ are the constraints, 
+     + and $opt$ and $\odot$ are as given in Definition 1 as <, >, =, ⩽, or ⩾.
+
+### The Schaffer min-min Multi-objective Optimization Problem
+* The Schaffer min-min problem is a well-known test function in the field of multi-objective optimization. 
+* It is often used to evaluate optimization algorithms due to its simplicity and well-defined structure. The problem is particularly famous for having a simple Pareto-optimal front.
+* The Schaffer function can be defined as a two-objective optimization problem, where the objectives are functions of a single variable x. 
+* The goal is to minimize both of these objective functions simultaneously. 
+
+#### Characteristics and Visualization
+* Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.
+* Uniqueness: The problem has a unique global Pareto-optimal front.
+* Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.
+* Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where $f_1(x)$ is plotted against $f_2(x)$ and the curve represents the set of optimal trade-offs between the two objectives.
+
+
+```{python}
+#| echo: false
+ 
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate points for the Pareto front curve
+f1 = np.linspace(0.5, 1.5, 100)  # Narrow range to zoom in
+f2 = 4 / f1  # Example relationship to create a Pareto front shape
+
+# Sample points for sa and sb closer together
+sa_f1, sa_f2 = 0.7, 4 / 0.7
+sb_f1, sb_f2 = 0.9, 4 / 0.9
+
+# Plot the Pareto front
+plt.figure(figsize=(8, 6))
+plt.plot(f1, f2, 'k-', label="Pareto front")  # Pareto front curve
+plt.scatter([sa_f1, sb_f1], [sa_f2, sb_f2], color="black")  
+
+# Add labels for sa and sb
+plt.text(sa_f1, sa_f2, r'$s_a$', fontsize=12, verticalalignment='bottom', horizontalalignment='right')
+plt.text(sb_f1, sb_f2, r'$s_b$', fontsize=12, verticalalignment='bottom', horizontalalignment='right')
+
+# Add vertical and horizontal lines for sa and sb projections
+plt.plot([sa_f1, sa_f1], [0, sa_f2], 'k--', linewidth=0.8)
+plt.plot([sb_f1, sb_f1], [0, sb_f2], 'k--', linewidth=0.8)
+plt.plot([0, sa_f1], [sa_f2, sa_f2], 'k--', linewidth=0.8)
+plt.plot([0, sb_f1], [sb_f2, sb_f2], 'k--', linewidth=0.8)
+
+# Axis labels and limits for the zoomed-in view
+plt.xlabel(r'$f_1$')
+plt.ylabel(r'$f_2$')
+plt.xlim(0.5, 1.5)
+plt.ylim(0, 6)
+plt.grid(True)
+
+plt.title("Schaffer Min-Min")
+
+# Display the plot
+plt.show()
+```
+
+#### scipy.optimize import minimize
+* minimize is a general-purpose function from scipy.optimize used for finding the minimum of a scalar function. 
+* Uses the BFGS (Broyden–Fletcher–Goldfarb–Shanno) algorithm when no specific method is provided. This method is a quasi-Newton optimization algorithm, particularly useful for smooth unconstrained problems.
+     + It can handle different types of optimization problems, including:
+Unconstrained minimization
+     + Constrained minimization (equality and inequality constraints)
+Bounded minimization (where variables are limited to a certain range)
+* Basic Workflow:
+     + Define the objective function (the function to minimize). Choose an initial guess for the variables.
+     + Run the minimize function with the desired method.
+     + Analyze the results: returns optimized variables, the function value, and other diagnostic information.
+
+#### Schaffer Min-Min Formula
+
+$$
+\min_{s \in \mathbb{R}^n} 
+\begin{cases}
+f_1(s) = s^2, \\
+f_2(s) = (s - 2)^2,
+\end{cases}
+\quad \text{subject to} \quad s \in [-10^3, 10^3].
+$$
+
+#### Schaffer Min-Min  Pseudocode 
+
+```{asis}
+Pseudocode
+
+# FUNCTION to calculate f1(s)
+FUNCTION f1(s):
+    RETURN s^2
+
+# FUNCTION to calculate f2(s)
+FUNCTION f2(s):
+    RETURN (s - 2)^2
+
+# FUNCTION for combined objective, weighted sum of f1 and f2
+FUNCTION combined_objective(s, w1=0.5, w2=0.5):
+    RETURN w1 * f1(s) + w2 * f2(s)
+
+# MAIN EXECUTION
+# Step 1: Set up the bounds for the solution (s ∈ [-1000, 1000])
+SET bounds = [-1000, 1000]
+
+# Step 2: Initialize a starting guess for the solution
+SET initial_guess = 0
+
+# Step 3: Minimize the combined objective function using an optimization algorithm
+CALL minimize function with combined_objective, initial_guess, and bounds
+STORE the result in result
+
+# Step 4: Print the optimization result
+PRINT "Optimal value of s:", result.x
+PRINT "f1(s):", f1(result.x)
+PRINT "f2(s):", f2(result.x)
+PRINT "Combined objective:", combined_objective(result.x)
+
+# Step 5: Visualization - Create a range of values for s from -1000 to 1000
+
+```
+
+
+#### Schaffer Min-Min Python Implementation
+
+* Population Initialization: A population of random solutions is initialized within the bounds [−1000,1000].
+Objective Function Evaluation: For each solution, both objective functions are evaluated.
+* Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.
+* Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).
+
+```{python}
+import numpy as np
+from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+
+
+# Define the two objective functions for the Schaffer problem
+def f1(s):
+    return s**2
+
+def f2(s):
+    return (s - 2)**2
+
+# Combined objective function: weighted sum of f1 and f2
+# You can adjust the weights to explore different trade-offs between the two objectives
+def combined_objective(s, w1=0.5, w2=0.5):
+    return w1 * f1(s) + w2 * f2(s)
+
+# Bounds for the solution (s ∈ [-1000, 1000])
+bounds = [(-1000, 1000)]
+
+# Initial guess for the solution
+initial_guess = np.array([0])
+
+# Use scipy's minimize function to find the solution
+result = minimize(combined_objective, initial_guess, bounds=bounds)
+
+# Print the result
+print("Optimal value of s:", result.x[0])
+print("f1(s):", f1(result.x[0]))
+print("f2(s):", f2(result.x[0]))
+print("Combined objective:", combined_objective(result.x[0]))
+
+# Visualization of the objective functions and combined objective
+s_values = np.linspace(-1000, 1000, 400)
+f1_values = f1(s_values)
+f2_values = f2(s_values)
+combined_values = combined_objective(s_values)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+
+# Plot f1(s), f2(s), and combined objective
+plt.plot(s_values, f1_values, label="f1(s) = s^2", color='blue')
+plt.plot(s_values, f2_values, label="f2(s) = (s - 2)^2", color='green')
+plt.plot(s_values, combined_values, label="Combined Objective", color='red', linestyle='--')
+
+# Mark the optimal solution found
+plt.axvline(x=result.x[0], color='black', linestyle=':', label=f"Optimal s = {result.x[0]:.2f}")
+
+# Customize the plot
+plt.title("Schaffer Min-Min Problem Visualization")
+plt.xlabel("s")
+plt.ylabel("Objective Function Value")
+plt.legend()
+plt.grid(True)
+
+# Show the plot
+plt.show()
+```
+
+* The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.
+* Optimal value of $s$ we found is nearly exactly $1$, the known optimal solution for the Schaffer function.
+     + Objective function values: $f_1(s) = s^2 = 1.000000027$
+     + : $f_2(s) = (s-2)^2 = 0.999999973$
+     * These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
+* Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
+
+

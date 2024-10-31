@@ -192,13 +192,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./greedy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Greedy Algorithms</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./benchmark.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -393,7 +393,7 @@ window.Quarto = {
 <section id="libraries-to-note" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Libraries to Note</h1>
 <p><img src="Pictures/library.png" title="libraries" class="img-fluid" alt="libraries.py"> # Revisiting Numpy ## Importing Numpy</p>
-<div id="58c5c1b7" class="cell" data-execution_count="1">
+<div id="781b0f16" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="numpy-definition" class="level2" data-number="8.1">
@@ -406,7 +406,7 @@ window.Quarto = {
 </section>
 <section id="basic-array-creation" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="basic-array-creation"><span class="header-section-number">8.2</span> Basic Array Creation</h2>
-<div id="2bbdac65" class="cell" data-execution_count="2">
+<div id="e1676f54" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a simple numpy array from a Python list</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array:"</span>, array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -429,7 +429,7 @@ window.Quarto = {
 <li>Element-wise exponentiation **</li>
 </ul></li>
 </ul>
-<div id="a4b96dce" class="cell" data-execution_count="3">
+<div id="59b41b85" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing element-wise addition</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>added_array <span class="op">=</span> array <span class="op">+</span> <span class="dv">5</span></span>
@@ -438,7 +438,7 @@ window.Quarto = {
 <pre><code>Added Array: [6 7 8 9]</code></pre>
 </div>
 </div>
-<div id="d6e88010" class="cell" data-execution_count="4">
+<div id="a8550ee8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
@@ -453,7 +453,7 @@ window.Quarto = {
 <ul>
 <li>np.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒^𝑥, where 𝑒 is Euler’s number (approximately 2.71828), and 𝑥 is the input array or scalar.</li>
 </ul>
-<div id="f1577dd8" class="cell" data-execution_count="5">
+<div id="598e11cb" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying np.exp to the array</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>exp_array <span class="op">=</span> np.exp(array)</span>
@@ -474,7 +474,7 @@ window.Quarto = {
 </ul></li>
 <li>The function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.</li>
 </ul>
-<div id="89d2b603" class="cell" data-execution_count="6">
+<div id="a78fa0b2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated annealing temperature decay</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(<span class="va">self</span>, tmp_obj_val, obj_val, temperature):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>     r <span class="op">=</span> np.random.rand()</span>
@@ -487,7 +487,7 @@ window.Quarto = {
 <ul>
 <li>np.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.</li>
 </ul>
-<div id="be863cc0" class="cell" data-execution_count="7">
+<div id="4510b950" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying np.sqrt to the array</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sqrt_array <span class="op">=</span> np.sqrt(array)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Square Root Array:"</span>, sqrt_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -498,7 +498,7 @@ window.Quarto = {
 <ul>
 <li>The Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.</li>
 </ul>
-<div id="ba1ea3e1" class="cell" data-execution_count="8">
+<div id="84bdbcfd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(s):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>     a, b, c <span class="op">=</span> <span class="dv">20</span>, <span class="fl">0.2</span>, <span class="dv">2</span> <span class="op">*</span> np.pi</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     n <span class="op">=</span> <span class="bu">len</span>(s)</span>
@@ -517,7 +517,7 @@ window.Quarto = {
 <li>By sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.</li>
 <li>The use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.</li>
 </ul>
-<div id="ded39d14" class="cell" data-execution_count="9">
+<div id="ac1e909d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dummy population and fitness values</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">10</span>]])</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -544,7 +544,7 @@ window.Quarto = {
 <ul>
 <li>Finding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.</li>
 </ul>
-<div id="67dfa1d7" class="cell" data-execution_count="10">
+<div id="e59601e6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">5</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> np.argmax(arr)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array:"</span>, arr)</span>
@@ -560,7 +560,7 @@ Max element: 7</code></pre>
 <ul>
 <li>Using np.argmax with a 2D Array (Row-wise &amp; Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.</li>
 </ul>
-<div id="6891408c" class="cell" data-execution_count="11">
+<div id="b72447f1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>]])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element in the flattened array</span></span>
@@ -576,7 +576,7 @@ Max element: 7</code></pre>
 [4 5 1]<br>
 [0 <mark>6</mark> 2]]</li>
 </ul>
-<div id="39558f21" class="cell" data-execution_count="12">
+<div id="a1437811" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element along each column (axis=0)</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>max_index_col <span class="op">=</span> np.argmax(arr_2d, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max element index for each column:"</span>, max_index_col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -589,7 +589,7 @@ Max element: 7</code></pre>
 [<mark>4</mark> 5 1]<br>
 [0 <mark>6</mark> 2]]</li>
 </ul>
-<div id="b5698f5b" class="cell" data-execution_count="13">
+<div id="bf714809" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element along each row (axis=1)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>max_index_row <span class="op">=</span> np.argmax(arr_2d, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max element index for each row:"</span>, max_index_row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -609,11 +609,11 @@ Max element: 7</code></pre>
 <ul>
 <li>Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.</li>
 </ul>
-<div id="d525e836" class="cell" data-execution_count="14">
+<div id="f714740a" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rand_nums <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rand_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0.62171793 0.89517757 0.66465335 0.50303124 0.43795229]</code></pre>
+<pre><code>[0.23310737 0.33182821 0.78032256 0.57084959 0.0802333 ]</code></pre>
 </div>
 </div>
 <section id="standard-normal-distribution" class="level2" data-number="10.1">
@@ -621,12 +621,12 @@ Max element: 7</code></pre>
 <ul>
 <li>Generating random numbers from a standard normal distribution (mean=0, std=1).</li>
 </ul>
-<div id="6039c9fe" class="cell" data-execution_count="15">
+<div id="2ff6d508" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating random values from the standard normal distribution</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>random_values <span class="op">=</span> np.random.standard_normal(<span class="dv">5</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Standard Normal Values:"</span>, random_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random Standard Normal Values: [-0.18006658  1.10806377 -0.47246597 -0.80820457  1.73849534]</code></pre>
+<pre><code>Random Standard Normal Values: [-0.74355748 -0.39906898 -0.98825145  0.1670147   0.70464814]</code></pre>
 </div>
 </div>
 </section>
@@ -635,12 +635,12 @@ Max element: 7</code></pre>
 <ul>
 <li>In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.</li>
 </ul>
-<div id="aac1360c" class="cell" data-execution_count="16">
+<div id="f4246061" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random starting point for the hill climbing algorithm</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>random_start <span class="op">=</span> np.random.uniform(low<span class="op">=-</span><span class="dv">10</span>, high<span class="op">=</span><span class="dv">10</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Random start: </span><span class="sc">{</span>random_start<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random start: [-3.94782905  2.1301365   3.00755039 -7.85677001  3.93743072]</code></pre>
+<pre><code>Random start: [ 5.58221408  8.47507526  3.86677417 -4.54529836  0.94077938]</code></pre>
 </div>
 </div>
 </section>
@@ -655,35 +655,35 @@ Max element: 7</code></pre>
 <li>dtype: The desired data type of the output array, by default int.</li>
 </ul></li>
 </ul>
-<div id="89fb677b" class="cell" data-execution_count="17">
+<div id="d02f10b6" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 5 random integers between 10 and 20</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>random_integers <span class="op">=</span> np.random.randint(<span class="dv">10</span>, <span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random_integers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[12 16 11 18 16]</code></pre>
+<pre><code>[12 15 15 19 10]</code></pre>
 </div>
 </div>
 </section>
 <section id="np.random.randint-from-simulated-annealing" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="np.random.randint-from-simulated-annealing"><span class="header-section-number">10.4</span> np.random.randint from Simulated Annealing</h2>
 <ul>
-<li>This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or “transition”) to the current solution.
+<li><p>This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or “transition”) to the current solution.</p>
 <ul>
 <li>The function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).</li>
 <li>t = sol.copy(): A copy of the solution sol is made, named t. This is important because we don’t want to modify the original solution directly; instead, we work on the copy t.</li>
 <li>i = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.</li>
 <li>t[i] ^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.</li>
 <li>return t: After flipping one bit, the modified solution t is returned.</li>
-</ul></li>
 </ul>
-<div id="6deb4719" class="cell" data-execution_count="18">
+<div id="4ddf2475" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    new_sol <span class="op">=</span> sol.copy()</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> np.random.randint(<span class="bu">len</span>(sol))</span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    new_sol[index] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> new_sol[index]  <span class="co"># Flip a random bit</span></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</div></li>
+</ul>
 </section>
 </section>
 <section id="looking-at-time" class="level1" data-number="11">
@@ -702,7 +702,7 @@ Max element: 7</code></pre>
 <li>A function x_rand() is defined to generate a list of 1,000,000 integers ranging from 0 to 999,999 and then shuffles them randomly using random.shuffle().</li>
 </ul></li>
 </ul>
-<div id="9282b491" class="cell" data-execution_count="19">
+<div id="dbb0040e" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -711,40 +711,40 @@ Max element: 7</code></pre>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    random.shuffle(x)</span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="dd458a98" class="cell" data-execution_count="20">
+<div id="313a02aa" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x_rand()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x.sort()</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time to sort random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time to sort random list: 0.33442258834838867</code></pre>
+<pre><code>Time to sort random list: 0.3227391242980957</code></pre>
 </div>
 </div>
-<div id="4ac7998d" class="cell" data-execution_count="21">
+<div id="97d3af75" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>x.sort()</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time to sort list in reverse order:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time to sort list in reverse order: 0.00499725341796875</code></pre>
+<pre><code>Time to sort list in reverse order: 0.0050048828125</code></pre>
 </div>
 </div>
-<div id="24df8873" class="cell" data-execution_count="22">
+<div id="99a3d860" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x_numpy <span class="op">=</span> np.array(x_rand())</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>x_numpy.sort()</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy quicksort of random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy quicksort of random list: 0.041510820388793945</code></pre>
+<pre><code>Time for numpy quicksort of random list: 0.04000496864318848</code></pre>
 </div>
 </div>
-<div id="6527fd99" class="cell" data-execution_count="23">
+<div id="6ca8900f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x_numpy <span class="op">=</span> np.array(x_rand())</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>x_numpy.sort(kind<span class="op">=</span><span class="st">'mergesort'</span>)</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy mergesort of random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy mergesort of random list: 0.05040311813354492</code></pre>
+<pre><code>Time for numpy mergesort of random list: 0.05200386047363281</code></pre>
 </div>
 </div>
 </section>
@@ -778,7 +778,7 @@ Max element: 7</code></pre>
 <h2 data-number="13.1" class="anchored" data-anchor-id="comparing-model-clock-time-withwithout-numpy"><span class="header-section-number">13.1</span> Comparing Model Clock Time With/Without NumPy</h2>
 <section id="without-numpy" class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="without-numpy"><span class="header-section-number">13.1.1</span> Without Numpy</h3>
-<div id="f87daa8d" class="cell" data-execution_count="24">
+<div id="7f7232eb" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> exp, sqrt</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time </span>
@@ -817,14 +817,14 @@ Max element: 7</code></pre>
 <span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"CPU times: </span><span class="sc">{</span>cpu_time<span class="sc">:.2f}</span><span class="ss"> s (user and sys combined)"</span>)</span>
 <span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: 0.39 s (user and sys combined)
-Wall time: 0.67 s</code></pre>
+<pre><code>CPU times: 0.47 s (user and sys combined)
+Wall time: 0.70 s</code></pre>
 </div>
 </div>
 </section>
 <section id="with-numpy" class="level3" data-number="13.1.2">
 <h3 data-number="13.1.2" class="anchored" data-anchor-id="with-numpy"><span class="header-section-number">13.1.2</span> With Numpy</h3>
-<div id="6f9e9ea9" class="cell" data-execution_count="25">
+<div id="307e563f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -859,7 +859,7 @@ Wall time: 0.67 s</code></pre>
 <span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"CPU times: </span><span class="sc">{</span>cpu_time<span class="sc">:.2f}</span><span class="ss"> s (user and sys combined)"</span>)</span>
 <span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: 0.02 s (user and sys combined)
+<pre><code>CPU times: 0.00 s (user and sys combined)
 Wall time: 0.02 s</code></pre>
 </div>
 </div>
@@ -1297,8 +1297,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./greedy.html" class="pagination-link" aria-label="About">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./greedy.html" class="pagination-link" aria-label="Introduction to Greedy Algorithms">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Greedy Algorithms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -34,12 +34,12 @@ Publisher: Academic Press\
 
 -   Examples include:
 
-     + **Simulated Annealing** (SA)
-     + **Tabu Search** (TS)
-     + **Genetic Algorithms** (GA)
-     + **Ant Colony Optimization** (ACO)
-     + **Particle Swarm Optimization** (PSO)
-     + **Differential Evolution** (DE)
+    -   **Simulated Annealing** (SA)
+    -   **Tabu Search** (TS)
+    -   **Genetic Algorithms** (GA)
+    -   **Ant Colony Optimization** (ACO)
+    -   **Particle Swarm Optimization** (PSO)
+    -   **Differential Evolution** (DE)
 
 -   Distinct from most supervised learning algorithms that need labeled data to learn and construct determination models, metaheuristic algorithms inherit characteristics of unsupervised learning algorithms used for solving complex engineering optimization problems without labeled data, just like self-learning, to find solutions to complex problems.
 

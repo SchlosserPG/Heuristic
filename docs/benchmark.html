@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pamela Schlosser">
 
-<title>6&nbsp; About – Probability And Business Statistics</title>
+<title>5&nbsp; Benchmark Optimization Problems – Heuristic Modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -82,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./benchmark.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./benchmark.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -97,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Probability And Business Statistics</a> 
+      <a href="./">Heuristic Modelling</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -115,68 +179,62 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to Heuristic Algorithms</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./algo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Algorithms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Algorithm Design and Pseudocode</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for Heuristics &amp; NumPy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./greedy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Greedy Algorithms</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./benchmark.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./es.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ga.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">About</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Recommended Further Reading Materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Recommended Further Reading Materials</span></span></a>
   </div>
 </li>
     </ul>
@@ -184,21 +242,66 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#benchmark-problems-overview" id="toc-benchmark-problems-overview" class="nav-link active" data-scroll-target="#benchmark-problems-overview"><span class="header-section-number">6</span> Benchmark Problems: Overview</a>
+  <ul class="collapse">
+  <li><a href="#onemax-problem" id="toc-onemax-problem" class="nav-link" data-scroll-target="#onemax-problem"><span class="header-section-number">6.1</span> OneMax Problem</a>
+  <ul class="collapse">
+  <li><a href="#optimal-solution-onemax" id="toc-optimal-solution-onemax" class="nav-link" data-scroll-target="#optimal-solution-onemax"><span class="header-section-number">6.1.1</span> Optimal Solution OneMax</a></li>
+  <li><a href="#onemax-pseudocode" id="toc-onemax-pseudocode" class="nav-link" data-scroll-target="#onemax-pseudocode"><span class="header-section-number">6.1.2</span> OneMax Pseudocode</a></li>
+  <li><a href="#onemax-python-implementation" id="toc-onemax-python-implementation" class="nav-link" data-scroll-target="#onemax-python-implementation"><span class="header-section-number">6.1.3</span> OneMax Python Implementation</a></li>
+  </ul></li>
+  <li><a href="#comparing-onemax-problem-to-greedy-algorithm" id="toc-comparing-onemax-problem-to-greedy-algorithm" class="nav-link" data-scroll-target="#comparing-onemax-problem-to-greedy-algorithm"><span class="header-section-number">6.2</span> Comparing OneMax Problem to Greedy Algorithm</a></li>
+  <li><a href="#the-knapsack-problem" id="toc-the-knapsack-problem" class="nav-link" data-scroll-target="#the-knapsack-problem"><span class="header-section-number">6.3</span> The Knapsack Problem</a>
+  <ul class="collapse">
+  <li><a href="#np-complete" id="toc-np-complete" class="nav-link" data-scroll-target="#np-complete"><span class="header-section-number">6.3.1</span> NP Complete</a></li>
+  </ul></li>
+  <li><a href="#key-characteristics-of-np-complete-problems" id="toc-key-characteristics-of-np-complete-problems" class="nav-link" data-scroll-target="#key-characteristics-of-np-complete-problems"><span class="header-section-number">6.4</span> Key Characteristics of NP-complete Problems</a>
+  <ul class="collapse">
+  <li><a href="#example-fractional-knapsack-problem" id="toc-example-fractional-knapsack-problem" class="nav-link" data-scroll-target="#example-fractional-knapsack-problem"><span class="header-section-number">6.4.1</span> Example Fractional Knapsack Problem</a></li>
+  </ul></li>
+  <li><a href="#binary-to-decimal-b2d-problem-b2d-1" id="toc-binary-to-decimal-b2d-problem-b2d-1" class="nav-link" data-scroll-target="#binary-to-decimal-b2d-problem-b2d-1"><span class="header-section-number">6.5</span> Binary to Decimal (B2D) Problem: B2D-1</a>
+  <ul class="collapse">
+  <li><a href="#characteristics-and-visualization-of-b2d-1" id="toc-characteristics-and-visualization-of-b2d-1" class="nav-link" data-scroll-target="#characteristics-and-visualization-of-b2d-1"><span class="header-section-number">6.5.1</span> Characteristics and Visualization of B2D-1</a></li>
+  </ul></li>
+  <li><a href="#b2d-with-deception-b2d-2" id="toc-b2d-with-deception-b2d-2" class="nav-link" data-scroll-target="#b2d-with-deception-b2d-2"><span class="header-section-number">6.6</span> B2D with Deception: B2D-2</a></li>
+  </ul></li>
+  <li><a href="#continuous-optimization-problems" id="toc-continuous-optimization-problems" class="nav-link" data-scroll-target="#continuous-optimization-problems"><span class="header-section-number">7</span> Continuous Optimization Problems</a>
+  <ul class="collapse">
+  <li><a href="#single-objective-optimization-problem-sop" id="toc-single-objective-optimization-problem-sop" class="nav-link" data-scroll-target="#single-objective-optimization-problem-sop"><span class="header-section-number">7.1</span> Single-objective Optimization Problem (SOP)</a>
+  <ul class="collapse">
+  <li><a href="#ackley-function-a-single-optimization-problem" id="toc-ackley-function-a-single-optimization-problem" class="nav-link" data-scroll-target="#ackley-function-a-single-optimization-problem"><span class="header-section-number">7.1.1</span> Ackley Function: A Single Optimization Problem</a></li>
+  </ul></li>
+  <li><a href="#multi-objective-optimization-problem-mop" id="toc-multi-objective-optimization-problem-mop" class="nav-link" data-scroll-target="#multi-objective-optimization-problem-mop"><span class="header-section-number">7.2</span> Multi-objective Optimization Problem (MOP)</a>
+  <ul class="collapse">
+  <li><a href="#the-schaffer-min-min-multi-objective-optimization-problem" id="toc-the-schaffer-min-min-multi-objective-optimization-problem" class="nav-link" data-scroll-target="#the-schaffer-min-min-multi-objective-optimization-problem"><span class="header-section-number">7.2.1</span> The Schaffer min-min Multi-objective Optimization Problem</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pamela Schlosser </p>
+          </div>
+  </div>
     
   
     
@@ -209,9 +312,697 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="benchmark-problems-overview" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Benchmark Problems: Overview</h1>
+<ul>
+<li>OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.</li>
+<li>Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms’ ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.</li>
+<li>Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.</li>
+<li>These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.</li>
+</ul>
+<section id="onemax-problem" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="onemax-problem"><span class="header-section-number">6.1</span> OneMax Problem</h2>
+<ul>
+<li>In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.</li>
+<li>Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. It can be any positive integer.</li>
+<li>Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.</li>
+<li>Example Run: If the generated binary string is [1, 0, 1, 1, 0, 1, 0, 1, 1, 0], the fitness would be 6, since there are six 1s in the string.</li>
+<li>The objective is to maximize the number of 1s in a binary string.</li>
+</ul>
+<p><span class="math inline">\(\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i, \quad \text{subject to} \ s_i \in \{0, 1\}.\)</span></p>
+<section id="optimal-solution-onemax" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="optimal-solution-onemax"><span class="header-section-number">6.1.1</span> Optimal Solution OneMax</h3>
+<ul>
+<li>The optimal solution of this problem is that all the subsolutions assume the value 1; i.e., <span class="math inline">\(s_i=1\)</span> for all <span class="math inline">\(i\)</span>. For instance, the optimal solution for <span class="math inline">\(n=4\)</span> is <span class="math inline">\(s^*=(1111)\)</span> and the objective value of a possible solution <span class="math inline">\(s^*=(0111)\)</span> can be easily calculated as the count of the number of ones in the solution <span class="math inline">\(s\)</span> as the objective function if <span class="math inline">\(f(s) = f(0111) = 0+1+1+1 = 3\)</span></li>
+</ul>
+</section>
+<section id="onemax-pseudocode" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="onemax-pseudocode"><span class="header-section-number">6.1.2</span> OneMax Pseudocode</h3>
+<pre class="{asis}"><code>Pseudocode:
 
 
+FUNCTION one_max(binary_string):
+# Calculate the fitness as the sum of 1s in the binary string
+    RETURN sum(binary_string)
+
+# Example usage
+SET n = 10  # Length of the binary string
+
+# Generate a random binary string of length n
+SET binary_string = generate a random list of 0s and 1s of size n
+
+# Calculate the fitness
+SET fitness = one_max(binary_string)
+
+# Print the binary string and its fitness
+PRINT "Binary string:", binary_string
+PRINT "Fitness (number of 1s):", fitness
+</code></pre>
+</section>
+<section id="onemax-python-implementation" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="onemax-python-implementation"><span class="header-section-number">6.1.3</span> OneMax Python Implementation</h3>
+<div id="2db60063" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_max(binary_string):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(binary_string)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage: # Length of the binary string</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random binary string of length n</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>binary_string <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>n).tolist()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the fitness</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fitness <span class="op">=</span> one_max(binary_string)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Binary string: </span><span class="sc">{</span>binary_string<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fitness (number of 1s): </span><span class="sc">{</span>fitness<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>iterations <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>fitness_over_time <span class="op">=</span> [np.random.randint(<span class="dv">0</span>, n <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterations)]  <span class="co"># Random example of fitness change</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Line plot of fitness over iterations</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterations), fitness_over_time, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.fill_between(<span class="bu">range</span>(iterations), fitness_over_time, color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fitness Evolution Over Time"</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteration"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Fitness (number of 1s)"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, iterations, step<span class="op">=</span><span class="dv">1</span>))  <span class="co"># Show whole numbers on the x-axis</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Binary string: [0, 1, 0, 1, 0, 1, 0, 0, 0, 1]
+Fitness (number of 1s): 4</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-2-output-2.png" width="659" height="376" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The plot above tracks how fitness improves or changes across iterations in an optimization algorithm, giving insight into the convergence of the algorithm.</li>
+</ul>
+</section>
+</section>
+<section id="comparing-onemax-problem-to-greedy-algorithm" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="comparing-onemax-problem-to-greedy-algorithm"><span class="header-section-number">6.2</span> Comparing OneMax Problem to Greedy Algorithm</h2>
+<ul>
+<li>If a greedy search algorithm is used and is allowed to randomly add one to or subtract one from the current solution <span class="math inline">\(s\)</span> to create the next possible solution <span class="math inline">\(v\)</span> for solving the one-max problem, that is, it is allowed to move one and only one step to either the left or the right of the current solution in the landscape of the solution space.</li>
+<li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
+<li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
+</ul>
+<div id="cd22c5f2" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-3-output-1.png" width="799" height="551" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-knapsack-problem" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="the-knapsack-problem"><span class="header-section-number">6.3</span> The Knapsack Problem</h2>
+<ul>
+<li><p>The Knapsack Problem is a classic NP-complete optimization problem, where you are given a set of items, each with a weight and a value.</p></li>
+<li><p>The goal is to determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</p></li>
+<li><p>Types of Knapsack Problems:</p>
+<ul>
+<li>0/1 Knapsack Problem:
+<ul>
+<li>Each item can be included (1) or excluded (0) in the knapsack.</li>
+<li>You cannot break items into smaller parts. <span class="math inline">\(\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i v_i, \quad \text{subject to} \quad w(s) = \sum_{i=1}^{n} s_i w_i \leq W, \quad s_i \in \{0, 1\}\)</span> Where <span class="math inline">\(v_i\)</span> is the value associated with <span class="math inline">\(s_1\)</span> and <span class="math inline">\(w_i\)</span> is the weight associated with <span class="math inline">\(s_i\)</span></li>
+</ul></li>
+<li>Fractional Knapsack Problem:
+<ul>
+<li>You can break items into smaller parts and include fractions of them in the knapsack.</li>
+<li>Ratio = <span class="math inline">\(\frac{v_i}{w_i}\)</span>, where <span class="math inline">\(v_i\)</span> is the value of item <span class="math inline">\(i\)</span>, and <span class="math inline">\(w_i\)</span> is the weight of item <span class="math inline">\(i\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="np-complete" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="np-complete"><span class="header-section-number">6.3.1</span> NP Complete</h3>
+<ul>
+<li>NP (Nondeterministic Polynomial Time): A problem is in NP if a solution can be verified in polynomial time by a deterministic algorithm. In other words, given a solution, it is possible to check if it is correct relatively quickly (in polynomial time). However, finding the solution itself might take much longer (potentially exponential time) unless the problem can also be solved in polynomial time.</li>
+<li>NP-complete refers to a class of problems in computational complexity theory that are both NP (nondeterministic polynomial time) and every problem in NP can be reduced to it in polynomial time</li>
+<li>NP-hard problems are optimization or decision problems that are at least as difficult to solve as the hardest problems in NP (nondeterministic polynomial time).
+<ul>
+<li>Unlike NP-complete problems, NP-hard problems do not have to be verifiable in polynomial time. This means that while it may be incredibly hard to find an optimal solution, even verifying a proposed solution might take more than polynomial time.</li>
+<li>Essentially, NP-hard problems are hard to solve optimally, and their complexity often prevents efficient algorithms from finding or checking solutions within a reasonable time frame.</li>
+<li>NP-hard problems are broader and potentially harder than NP-complete problems because they can include problems that aren’t even in NP. They may not have a polynomial-time verification process.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="key-characteristics-of-np-complete-problems" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="key-characteristics-of-np-complete-problems"><span class="header-section-number">6.4</span> Key Characteristics of NP-complete Problems</h2>
+<ul>
+<li><p>Difficult to solve: No known algorithms can solve NP-complete problems efficiently (in polynomial time) for all instances.</p></li>
+<li><p>Verification in polynomial time: If someone provides a solution, it can be verified quickly. Equivalence to other NP-complete problems: If one NP-complete problem can be solved in polynomial time, all NP-complete problems can be solved in polynomial time.</p></li>
+<li><p>Knapsack Problem: The 0/1 knapsack problem is NP-complete. Finding the optimal solution is hard, but verifying if a solution meets the constraints and maximizes value can be done in polynomial time.</p></li>
+<li><p>The Fractional knapsack problem is not NP-complete and can be solved in polynomial time using a greedy algorithm.</p></li>
+<li><p>The Travelling Salesman is a NP-hard problem.</p></li>
+</ul>
+<section id="example-fractional-knapsack-problem" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="example-fractional-knapsack-problem"><span class="header-section-number">6.4.1</span> Example Fractional Knapsack Problem</h3>
+<ul>
+<li><p>Knapsack Capacity: 15 kg</p>
+<ul>
+<li>Items Available:
+<ul>
+<li>Item 1: Value = 10, Weight = 5 kg</li>
+<li>Item 2: Value = 40, Weight = 10 kg</li>
+<li>Item 3: Value = 30, Weight = 15 kg</li>
+</ul></li>
+</ul></li>
+<li><p>Objective: Maximize the total value without exceeding 15 kg.</p></li>
+<li><p>The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.</p></li>
+<li><p>0/1 Knapsack Problem requires more complex algorithms like dynamic programming to find the optimal solution over the Fractional Knapsack Problem</p></li>
+</ul>
+<section id="greedy-algorithm-for-fractional-knapsack" class="level4" data-number="6.4.1.1">
+<h4 data-number="6.4.1.1" class="anchored" data-anchor-id="greedy-algorithm-for-fractional-knapsack"><span class="header-section-number">6.4.1.1</span> Greedy Algorithm for Fractional Knapsack</h4>
+<ul>
+<li>Step 1: Calculate Value-to-Weight Ratio:
+<ul>
+<li>Item 1: 10/5=2</li>
+<li>Item 2: 40/10=4</li>
+<li>Item 3: 30/15=2</li>
+</ul></li>
+<li>Step 2: Sort Items by Ratio (Descending): Item 2, Item 1, Item 3
+<ul>
+<li>Step 3: Fill the Knapsack:</li>
+<li>Take Item 2 (10 kg, Value = 40).</li>
+<li>Take as much of Item 1 as possible (5 kg, Value = 10).</li>
+</ul></li>
+<li>Results: Total Weight = 15 kg, Total Value = 50.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="binary-to-decimal-b2d-problem-b2d-1" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="binary-to-decimal-b2d-problem-b2d-1"><span class="header-section-number">6.5</span> Binary to Decimal (B2D) Problem: B2D-1</h2>
+<ul>
+<li>The binary to decimal model is often used in optimization problems, particularly in the context of genetic algorithms and heuristic methods.</li>
+<li>With a minor modification, the solution space of the one-max problem can be simplified as the solution space of another optimization problem.</li>
+<li>The model uses binary strings to represent numbers. Each string represents a decimal number when interpreted in binary form.</li>
+<li>The B2D-1 problem is to maximize the value of the objective function of a binary string.</li>
+</ul>
+<section id="characteristics-and-visualization-of-b2d-1" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="characteristics-and-visualization-of-b2d-1"><span class="header-section-number">6.5.1</span> Characteristics and Visualization of B2D-1</h3>
+<ul>
+<li>These two examples are possible landscapes to the B2D problem.</li>
+<li>The first chart to the left implies that there are only two possible next states (candidate solutions) that can be generated from the current solution except for solutions (0000) and (1111), which can only be moved to the right and to the left, respectively.</li>
+<li>If another search algorithm can generate a new candidate solution by randomly inverting (flipping) one of the subsolutions of the current solution, the number of possible states of the new candidate solution will be <span class="math inline">\(n\)</span>, where <span class="math inline">\(n\)</span> is the number of subsolutions.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/OneMax.png" title="OneMax" class="img-fluid figure-img"></p>
+<figcaption>OneMax</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="b2d-with-deception-b2d-2" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="b2d-with-deception-b2d-2"><span class="header-section-number">6.6</span> B2D with Deception: B2D-2</h2>
+<ul>
+<li>B2D deception problems mislead optimization algorithms away from finding the global optimum by presenting local optima that seem promising but are actually suboptimal.</li>
+<li>Used to test whether a search algorithm is capable of escaping local optima or not.</li>
+<li>Deception problems highlight the necessity of exploration in heuristic algorithms, such as introducing diversity through mutation or crossover in genetic algorithms. If the algorithm becomes too greedy and focuses only on local fitness improvements (exploitation), it may get stuck at deceptive local optima.</li>
+</ul>
+</section>
+</section>
+<section id="continuous-optimization-problems" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Continuous Optimization Problems</h1>
+<ul>
+<li>Unlike the COP, the possible solutions for a continuous optimization problem are typically “uncountably infinite.” This means that the number of solutions in the solution space is tantamount to the number of real values in the given space, that is, infinite.
+<ul>
+<li>Single-objective optimization problem (SOP)</li>
+<li>The Ackley optimization problem</li>
+</ul></li>
+<li>Multi-objective optimization problem (MOP)
+<ul>
+<li>The Schaffer Min-Min Global Optimization Problem</li>
+</ul></li>
+</ul>
+<section id="single-objective-optimization-problem-sop" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="single-objective-optimization-problem-sop"><span class="header-section-number">7.1</span> Single-objective Optimization Problem (SOP)</h2>
+<ul>
+<li>A single-objective optimization problem involves finding the best solution from a set of feasible solutions based on a single objective function. The goal is to either maximize or minimize this objective function.</li>
+</ul>
+<p><span class="math display">\[\underset{s \in \mathbb{R}^n}{\text{opt}} f(s), \quad \text{subject to } \, c_i(s) \odot b_i, \quad i = 1, 2, \ldots, m,\]</span></p>
+<ul>
+<li>where
+<ul>
+<li><span class="math inline">\({R}^n\)</span> and <span class="math inline">\({R}\)</span> are the domain and codomain, respectively,</li>
+<li><span class="math inline">\(f(s) {R}^n\)</span> and <span class="math inline">\({R}\)</span> is the objective function to be optimized,</li>
+<li><span class="math inline">\(c_i(s): {R}^n\)</span> and <span class="math inline">\({R}\odot b_i, \quad i = 1, 2, \ldots, m,\)</span> are the constraints,</li>
+<li>and <span class="math inline">\(opt\)</span> and <span class="math inline">\(\odot\)</span> are as given in Definition 1 as &lt;, &gt;, =, ⩽, or ⩾.</li>
+</ul></li>
+</ul>
+<section id="ackley-function-a-single-optimization-problem" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="ackley-function-a-single-optimization-problem"><span class="header-section-number">7.1.1</span> Ackley Function: A Single Optimization Problem</h3>
+<ul>
+<li>The Ackley Function is a widely used benchmark function for testing optimization algorithms. It is characterized by its multi-modal nature with a nearly flat outer region and a large hole at the center.</li>
+<li>Applications
+<ul>
+<li>Used as a standard test case in evaluating the performance of optimization algorithms like genetic algorithms, simulated annealing, and particle swarm optimization.</li>
+<li>Relevant in fields such as machine learning, control systems, and operations research.</li>
+</ul></li>
+<li>Limitations
+<ul>
+<li>The function’s large search space and numerous local minima make it difficult for algorithms to converge to the global minimum.</li>
+<li>Large importance of balancing exploration and exploitation in optimization strategies when dealing with the Ackley Function.</li>
+</ul></li>
+</ul>
+<section id="explanation-of-ackley-functionx-y" class="level4" data-number="7.1.1.1">
+<h4 data-number="7.1.1.1" class="anchored" data-anchor-id="explanation-of-ackley-functionx-y"><span class="header-section-number">7.1.1.1</span> Explanation of Ackley Function(x, y)</h4>
+<ul>
+<li>Computes the value of the Ackley function given a point (x, y) in the search space.</li>
+<li>The optimization algorithm optimizes the Ackley function to find the point where it reaches its minimum. It initializes a population of random solutions, evaluates their fitness (using the Ackley function), and iteratively improves them using an optimization method (like gradient descent or a genetic algorithm).</li>
+<li>The best solution and corresponding function value (score) are returned as the result.</li>
+</ul>
+</section>
+<section id="ackley-function-and-b2d-converting-to-decimal" class="level4" data-number="7.1.1.2">
+<h4 data-number="7.1.1.2" class="anchored" data-anchor-id="ackley-function-and-b2d-converting-to-decimal"><span class="header-section-number">7.1.1.2</span> Ackley function and B2D: Converting to Decimal</h4>
+<ul>
+<li>The Ackley function uses the binary representation, where the binary strings need to be converted to decimal values (i.e., real numbers). In this case, the converted decimal values correspond to points in the continuous search space.</li>
+<li>For example, a binary string like 1010 can be converted into a decimal value, which can then be used as input to the Ackley function. Binary String: 1010, where the binary number is 1010_2.</li>
+<li>Each position in the binary number represents a power of 2, starting from the right (least significant bit):</li>
+<li>The rightmost bit (0) is <span class="math inline">\(2^0\)</span>,The next bit (1) is <span class="math inline">\(2^1\)</span> ,The next bit (0) is <span class="math inline">\(2^2\)</span>,The leftmost bit (1) is <span class="math inline">\(2^3\)</span>.</li>
+</ul>
+<p><span class="math inline">\(1010_2= 0 ∗ 2^0+ 1 ∗ 2^1 +0 ∗ 2^2+1 ∗ 2^3\)</span> <span class="math inline">\(= 0 ∗ 1+ 1 ∗ 2 + 0 ∗ 4 + 1 ∗ 8\)</span> <span class="math inline">\(=  0 + 2 + 0 + 8 = 10\)</span> Thus, the decimal equivalent of the binary string “1010” is 10. Use this value as input for the Ackley function.</p>
+</section>
+<section id="characteristics-and-visualization-of-ackley-function" class="level4" data-number="7.1.1.3">
+<h4 data-number="7.1.1.3" class="anchored" data-anchor-id="characteristics-and-visualization-of-ackley-function"><span class="header-section-number">7.1.1.3</span> Characteristics and Visualization of Ackley Function</h4>
+<ul>
+<li>The Ackley function is evaluated in the hypercube.</li>
+<li>The global optimum (minimum) of the Ackley function is 𝑓(𝑠^∗)=0 is located at <span class="math inline">\(s^*=(0,0,…0)\)</span>.</li>
+<li>This function has many local optima, which makes it hard for the search algorithm to find the global optimum.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/GenericAckley.png" title="Ackley" class="img-fluid figure-img"></p>
+<figcaption>Ackley</figcaption>
+</figure>
+</div>
+</section>
+<section id="ackley-function-formula" class="level4" data-number="7.1.1.4">
+<h4 data-number="7.1.1.4" class="anchored" data-anchor-id="ackley-function-formula"><span class="header-section-number">7.1.1.4</span> Ackley Function Formula</h4>
+<p><span class="math display">\[
+\begin{array}{rl}
+\min_{s \in \mathbb{R}^n} f(s) &amp;= -20 \exp \left(-0.2 \sqrt{\frac{1}{n} \sum_{i=1}^n s_i^2} \right) \\
+&amp; \quad - \exp \left( \frac{1}{n} \sum_{i=1}^n \cos(2 \pi s_i) \right) + 20 + e, \\
+\text{subject to} &amp; \quad -30 \leq s_i \leq 30, \quad i = 1, 2, \dots, n.
+\end{array}
+\]</span></p>
+</section>
+<section id="ackley-function-pseudocode" class="level4" data-number="7.1.1.5">
+<h4 data-number="7.1.1.5" class="anchored" data-anchor-id="ackley-function-pseudocode"><span class="header-section-number">7.1.1.5</span> Ackley Function: Pseudocode</h4>
+<ul>
+<li>The below example uses a random function to pull a point that we want to hit the local minima. You can imagine, this might not be the best way to do this.</li>
+</ul>
+<pre class="{asis}"><code>PSEUDOCODE
+FUNCTION Ackley(s):
+    SET a = 20, b = 0.2, c = 2 * pi
+    SET n = length of s
+    COMPUTE sum_sq_term = sum of squares of all elements in s
+    COMPUTE cos_term = sum of cos(2 * pi * each element in s)
+    
+    COMPUTE term1 = -a * exp(-b * sqrt(sum_sq_term / n))
+    COMPUTE term2 = -exp(cos_term / n)
+    
+    RETURN term1 + term2 + a + e
+
+# Main Execution
+SET n = 2  # Dimension of the Ackley function
+
+# Generate random vector s with elements between -30 and 30
+SET s = random values in range [-30, 30] of length n
+
+# Compute the Ackley function result for the vector s
+SET result = Ackley(s)
+
+PRINT vector s
+PRINT Ackley function result for vector s
+</code></pre>
+</section>
+<section id="ackley-function-python-implementation" class="level4" data-number="7.1.1.6">
+<h4 data-number="7.1.1.6" class="anchored" data-anchor-id="ackley-function-python-implementation"><span class="header-section-number">7.1.1.6</span> Ackley Function Python Implementation</h4>
+<div id="d811fcef" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">5042</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function implementation</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(s):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    a, b, c <span class="op">=</span> <span class="dv">20</span>, <span class="fl">0.2</span>, <span class="dv">2</span> <span class="op">*</span> np.pi</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(s)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    sum_sq_term <span class="op">=</span> np.<span class="bu">sum</span>(s<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    cos_term <span class="op">=</span> np.<span class="bu">sum</span>(np.cos(c <span class="op">*</span> s))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(sum_sq_term <span class="op">/</span> n))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(cos_term <span class="op">/</span> n)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.e</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage: </span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Dimension </span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>, n)  <span class="co"># Generate random s_i values in the range [-30, 30]</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> ackley(s)  <span class="co"># Evaluate the Ackley function</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vector s: </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ackley function result: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the Ackley function</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Z for the Ackley function</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.array([ackley(np.array([x_val, y_val])) <span class="cf">for</span> x_val, y_val <span class="kw">in</span> <span class="bu">zip</span>(np.ravel(X), np.ravel(Y))])</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(X.shape)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the Ackley function surface</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>ax.plot_surface(X, Y, Z, cmap<span class="op">=</span><span class="st">'viridis'</span>, edgecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Ackley Function Surface"</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"s_1"</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"s_2"</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">"f(s)"</span>)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Vector s: [12.84779359  3.16468632]
+Ackley function result: 17.91745666838746</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-4-output-2.png" width="553" height="557" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Example results: Vector s: [12.8 3.16]; Ackley function result: 17.9</li>
+<li>Distance from the Origin: The Ackley function reaches its global minimum of 0 at the origin (i.e., when both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are close to 0). Our vector values are quite far from the origin, which is why the function result is positive and relatively large at 17.9”</li>
+<li>The Ackley landscape has an exponentially increasing structure as you move away from the global minimum. It has many local minima, which makes optimization algorithms prone to getting stuck in suboptimal solutions. A result like 17.9 is far from zero, and indicates that the vector is located in such a suboptimal region of the function space.</li>
+<li>Thus, the Ackley result of 17.9 suggests that the point [12.8 3.16]; is not close to the global minimum (which is zero at the origin) and is located in a region of higher function values.</li>
+</ul>
+</section>
+<section id="differential-evolution-with-the-ackley-function" class="level4" data-number="7.1.1.7">
+<h4 data-number="7.1.1.7" class="anchored" data-anchor-id="differential-evolution-with-the-ackley-function"><span class="header-section-number">7.1.1.7</span> Differential Evolution with the Ackley Function</h4>
+<ul>
+<li>To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution (DE), which is effective for non-convex functions with many local minima.</li>
+<li>Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
+<li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
+</ul>
+<div id="44fd1e67" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">5042</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the Ackley function</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function implementation</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(s):</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    a, b, c <span class="op">=</span> <span class="dv">20</span>, <span class="fl">0.2</span>, <span class="dv">2</span> <span class="op">*</span> np.pi</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(s)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    sum_sq_term <span class="op">=</span> np.<span class="bu">sum</span>(s<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    cos_term <span class="op">=</span> np.<span class="bu">sum</span>(np.cos(c <span class="op">*</span> s))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(sum_sq_term <span class="op">/</span> n))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(cos_term <span class="op">/</span> n)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.e</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the bounds for the variables </span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>), (<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>)]</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Use differential evolution to minimize the Ackley function</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> differential_evolution(ackley, bounds, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Optimized parameters (x1, x2): </span><span class="sc">{</span>result<span class="sc">.</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Function value at minimum: </span><span class="sc">{</span>result<span class="sc">.</span>fun<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the Ackley function</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Z for the Ackley function</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.array([ackley(np.array([x_val, y_val])) <span class="cf">for</span> x_val, y_val <span class="kw">in</span> <span class="bu">zip</span>(np.ravel(X), np.ravel(Y))])</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(X.shape)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the Ackley function surface</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>ax.plot_surface(X, Y, Z, cmap<span class="op">=</span><span class="st">'viridis'</span>, edgecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Ackley Function Surface (2D)"</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"s_1"</span>)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"s_2"</span>)</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">"f(s)"</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimized parameters (x1, x2): [0. 0.]
+Function value at minimum: 4.440892098500626e-16</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-5-output-2.png" width="553" height="557" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Using a great function that is designed to solve problems with multiple local minimums, you can see that we got extremely close to the local minimum 0.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="multi-objective-optimization-problem-mop" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="multi-objective-optimization-problem-mop"><span class="header-section-number">7.2</span> Multi-objective Optimization Problem (MOP)</h2>
+<ul>
+<li>Given a set of functions and a set of constraints, the MOP is to find the optimal value or a set of optimal values (also called Pareto front), subject to the constraints, out of all possible solutions of these functions.</li>
+</ul>
+<p><span class="math display">\[\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
+\quad \mathbf{s} \in \mathbb{R}^n,
+\quad \text{subject to } c_i(s) \odot b_i, \quad i = 1, 2, \dots, m,\]</span></p>
+<ul>
+<li>Where
+<ul>
+<li><span class="math inline">\({R}^n\)</span> and <span class="math inline">\({R}\)</span> are the domain and codomain, respectively,</li>
+<li><span class="math inline">\(f(s) {R}^n\)</span> and <span class="math inline">\({R}\)</span> is the objective function to be optimized,</li>
+<li><span class="math inline">\(c_i(s): {R}^n\)</span> and <span class="math inline">\({R}\odot b_i, \quad i = 1, 2, \ldots, m,\)</span> are the constraints,</li>
+<li>and <span class="math inline">\(opt\)</span> and <span class="math inline">\(\odot\)</span> are as given in Definition 1 as &lt;, &gt;, =, ⩽, or ⩾.</li>
+</ul></li>
+</ul>
+<section id="the-schaffer-min-min-multi-objective-optimization-problem" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="the-schaffer-min-min-multi-objective-optimization-problem"><span class="header-section-number">7.2.1</span> The Schaffer min-min Multi-objective Optimization Problem</h3>
+<ul>
+<li>The Schaffer min-min problem is a well-known test function in the field of multi-objective optimization.</li>
+<li>It is often used to evaluate optimization algorithms due to its simplicity and well-defined structure. The problem is particularly famous for having a simple Pareto-optimal front.</li>
+<li>The Schaffer function can be defined as a two-objective optimization problem, where the objectives are functions of a single variable x.</li>
+<li>The goal is to minimize both of these objective functions simultaneously.</li>
+</ul>
+<section id="characteristics-and-visualization" class="level4" data-number="7.2.1.1">
+<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="characteristics-and-visualization"><span class="header-section-number">7.2.1.1</span> Characteristics and Visualization</h4>
+<ul>
+<li>Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.</li>
+<li>Uniqueness: The problem has a unique global Pareto-optimal front.</li>
+<li>Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.</li>
+<li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
+</ul>
+<div id="d4e40d84" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-6-output-1.png" width="652" height="525" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scipy.optimize-import-minimize" class="level4" data-number="7.2.1.2">
+<h4 data-number="7.2.1.2" class="anchored" data-anchor-id="scipy.optimize-import-minimize"><span class="header-section-number">7.2.1.2</span> scipy.optimize import minimize</h4>
+<ul>
+<li>minimize is a general-purpose function from scipy.optimize used for finding the minimum of a scalar function.</li>
+<li>Uses the BFGS (Broyden–Fletcher–Goldfarb–Shanno) algorithm when no specific method is provided. This method is a quasi-Newton optimization algorithm, particularly useful for smooth unconstrained problems.
+<ul>
+<li>It can handle different types of optimization problems, including: Unconstrained minimization</li>
+<li>Constrained minimization (equality and inequality constraints) Bounded minimization (where variables are limited to a certain range)</li>
+</ul></li>
+<li>Basic Workflow:
+<ul>
+<li>Define the objective function (the function to minimize). Choose an initial guess for the variables.</li>
+<li>Run the minimize function with the desired method.</li>
+<li>Analyze the results: returns optimized variables, the function value, and other diagnostic information.</li>
+</ul></li>
+</ul>
+</section>
+<section id="schaffer-min-min-formula" class="level4" data-number="7.2.1.3">
+<h4 data-number="7.2.1.3" class="anchored" data-anchor-id="schaffer-min-min-formula"><span class="header-section-number">7.2.1.3</span> Schaffer Min-Min Formula</h4>
+<p><span class="math display">\[
+\min_{s \in \mathbb{R}^n}
+\begin{cases}
+f_1(s) = s^2, \\
+f_2(s) = (s - 2)^2,
+\end{cases}
+\quad \text{subject to} \quad s \in [-10^3, 10^3].
+\]</span></p>
+</section>
+<section id="schaffer-min-min-pseudocode" class="level4" data-number="7.2.1.4">
+<h4 data-number="7.2.1.4" class="anchored" data-anchor-id="schaffer-min-min-pseudocode"><span class="header-section-number">7.2.1.4</span> Schaffer Min-Min Pseudocode</h4>
+<pre class="{asis}"><code>Pseudocode
+
+# FUNCTION to calculate f1(s)
+FUNCTION f1(s):
+    RETURN s^2
+
+# FUNCTION to calculate f2(s)
+FUNCTION f2(s):
+    RETURN (s - 2)^2
+
+# FUNCTION for combined objective, weighted sum of f1 and f2
+FUNCTION combined_objective(s, w1=0.5, w2=0.5):
+    RETURN w1 * f1(s) + w2 * f2(s)
+
+# MAIN EXECUTION
+# Step 1: Set up the bounds for the solution (s ∈ [-1000, 1000])
+SET bounds = [-1000, 1000]
+
+# Step 2: Initialize a starting guess for the solution
+SET initial_guess = 0
+
+# Step 3: Minimize the combined objective function using an optimization algorithm
+CALL minimize function with combined_objective, initial_guess, and bounds
+STORE the result in result
+
+# Step 4: Print the optimization result
+PRINT "Optimal value of s:", result.x
+PRINT "f1(s):", f1(result.x)
+PRINT "f2(s):", f2(result.x)
+PRINT "Combined objective:", combined_objective(result.x)
+
+# Step 5: Visualization - Create a range of values for s from -1000 to 1000
+</code></pre>
+</section>
+<section id="schaffer-min-min-python-implementation" class="level4" data-number="7.2.1.5">
+<h4 data-number="7.2.1.5" class="anchored" data-anchor-id="schaffer-min-min-python-implementation"><span class="header-section-number">7.2.1.5</span> Schaffer Min-Min Python Implementation</h4>
+<ul>
+<li>Population Initialization: A population of random solutions is initialized within the bounds [−1000,1000]. Objective Function Evaluation: For each solution, both objective functions are evaluated.</li>
+<li>Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.</li>
+<li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
+</ul>
+<div id="ffc4b422" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the two objective functions for the Schaffer problem</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f1(s):</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f2(s):</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (s <span class="op">-</span> <span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Combined objective function: weighted sum of f1 and f2</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># You can adjust the weights to explore different trade-offs between the two objectives</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> combined_objective(s, w1<span class="op">=</span><span class="fl">0.5</span>, w2<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w1 <span class="op">*</span> f1(s) <span class="op">+</span> w2 <span class="op">*</span> f2(s)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bounds for the solution (s ∈ [-1000, 1000])</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="op">-</span><span class="dv">1000</span>, <span class="dv">1000</span>)]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial guess for the solution</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>initial_guess <span class="op">=</span> np.array([<span class="dv">0</span>])</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Use scipy's minimize function to find the solution</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(combined_objective, initial_guess, bounds<span class="op">=</span>bounds)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal value of s:"</span>, result.x[<span class="dv">0</span>])</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f1(s):"</span>, f1(result.x[<span class="dv">0</span>]))</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f2(s):"</span>, f2(result.x[<span class="dv">0</span>]))</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combined objective:"</span>, combined_objective(result.x[<span class="dv">0</span>]))</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the objective functions and combined objective</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>s_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">400</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>f1_values <span class="op">=</span> f1(s_values)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>f2_values <span class="op">=</span> f2(s_values)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>combined_values <span class="op">=</span> combined_objective(s_values)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot f1(s), f2(s), and combined objective</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>plt.plot(s_values, f1_values, label<span class="op">=</span><span class="st">"f1(s) = s^2"</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>plt.plot(s_values, f2_values, label<span class="op">=</span><span class="st">"f2(s) = (s - 2)^2"</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>plt.plot(s_values, combined_values, label<span class="op">=</span><span class="st">"Combined Objective"</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the optimal solution found</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>result.x[<span class="dv">0</span>], color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="ss">f"Optimal s = </span><span class="sc">{</span>result<span class="sc">.</span>x[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Schaffer Min-Min Problem Visualization"</span>)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"s"</span>)</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Objective Function Value"</span>)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal value of s: 1.0000000134831095
+f1(s): 1.0000000269662193
+f2(s): 0.9999999730337812
+Combined objective: 1.0000000000000002</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-7-output-2.png" width="812" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.</li>
+<li>Optimal value of <span class="math inline">\(s\)</span> we found is nearly exactly <span class="math inline">\(1\)</span>, the known optimal solution for the Schaffer function.
+<ul>
+<li>Objective function values: <span class="math inline">\(f_1(s) = s^2 = 1.000000027\)</span></li>
+<li>: <span class="math inline">\(f_2(s) = (s-2)^2 = 0.999999973\)</span></li>
+<li>These values are very close to 1 for both <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>, indicating that the function values at this <span class="math inline">\(s\)</span> are near-optimal.</li>
+</ul></li>
+<li>Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -636,13 +1427,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./greedy.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span>
+      <a href="./greedy.html" class="pagination-link" aria-label="Introduction to Greedy Algorithms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Greedy Algorithms</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./es.html" class="pagination-link" aria-label="About">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
