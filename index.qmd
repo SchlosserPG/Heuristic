@@ -1,0 +1,156 @@
+---
+title: "Introduction to Heuristic Algorithms"
+author: "Pamela Schlosser"
+format: html
+---
+
+# Course Overview
+
+-   Most business problems are too large or too complex to be solved optimally, where the strict meaning of "optimal" means finding the provably best solution. Finding a solution that approximates the optimal solution is, therefore, the predominant mode of problem solving found in industry: these are called heuristic solutions. Many companies gain a competitive advantage by constructing heuristics that either find better solutions than their competitors or find solutions more quickly. This course focuses on achieving such results by programming custom algorithms, which are a sequence of steps taken to provide a solution to a problem.
+
+## Course Goals
+
+-   Develop a solid process for algorithm development.
+-   Enhance Python programming skills.
+-   Understand the structure of heuristic models, focusing on:
+    -   Hill climbing
+    -   Simulated annealing
+    -   Genetic algorithms
+
+## Required Book
+
+**Handbook of Metaheuristic Algorithms**\
+Authors: Chun-Wei Tsai & Ming-Chao Chiang\
+Publisher: Academic Press\
+- Access the book free through O’Reilly’s website with school credentials. - Python code is available on the [author’s GitHub](https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python).
+
+------------------------------------------------------------------------
+
+# Introduction to Metaheuristic Algorithms
+
+-   The required textbook provides an overview of optimization and heuristic models and has a number of metaheuristic models. We will only go through a few in class, but this book may serve as a good resource in the future.
+
+-   Metaheuristic algorithms can be considered the epitome of unsupervised learning algorithms for the optimization of engineering and artificial intelligence problems.
+
+-   Examples include:
+
+     + **Simulated Annealing** (SA)
+     + **Tabu Search** (TS)
+     + **Genetic Algorithms** (GA)
+     + **Ant Colony Optimization** (ACO)
+     + **Particle Swarm Optimization** (PSO)
+     + **Differential Evolution** (DE)
+
+-   Distinct from most supervised learning algorithms that need labeled data to learn and construct determination models, metaheuristic algorithms inherit characteristics of unsupervised learning algorithms used for solving complex engineering optimization problems without labeled data, just like self-learning, to find solutions to complex problems.
+
+-   Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation.
+
+------------------------------------------------------------------------
+
+# Optimization Problems
+
+The goal of optimization is to find the best solution among many possible options within a solution space. The process generally involves:
+
+1.  Find possible solutions,
+2.  Evaluate possible solutions to obtain qualities, and
+3.  Compare qualities of solutions we have and
+4.  Determine whether or not to repeat the process until an appropriate solution is found.
+
+-   Find good solutions; estimate these solutions; and finally use the information thus obtained to make a decision. OR
+-   Simply announce that the solution for the problem in question has been found.
+
+# Example: Traveling salesman problem (TSP)
+
+-   Given a set of cities and the distance between each pair of cities, find the shortest path to visit each city and then return to the city of departure.
+
+-   To calculate how many paths there are in a TSP problem, an author might divide (n−1)! by 2 to account for the fact that in the Traveling Salesman Problem (TSP), routes that are the reverse of each other are considered equivalent.
+
+-   In this example, r1-r3 are unique routes and r4-r6 are direct reversals of r1-r3.
+
+-   This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. ![TSP Chart](Pictures/tsp1.png "TSP")
+
+-   Different paths for a truck driver in the case of four cities.
+
+```{python}
+import numpy as np
+from scipy.special import factorial
+
+# TSP paths calculation
+np.set_printoptions(suppress=True)
+n = np.arange(4, 12)
+result = factorial(n - 1) / 2
+print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
+
+```
+
+# What are Heuristics?
+
+-   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
+-   Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
+-   Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
+-   Speed vs. Accuracy Trade-off
+-   Real-world applications where exact solutions are impractical
+
+# Heuristic Algorithms
+
+-   Algorithms
+    -   A sequence of steps providing a solution
+-   “Heuristic”
+    -   Not necessarily optimal, or “approximate”
+-   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
+
+# Types of Heuristic Methods
+
+-   Constructive Heuristics
+    -   Builds a solution step-by-step.
+    -   Example: Greedy Algorithms – making the best choice at each step.
+-   Improvement Heuristics
+    -   Starts with an initial solution and makes iterative improvements.
+    -   Example: Local Search – tweaking solutions to find better ones.
+-   Metaheuristics
+    -   Higher-level procedures guiding other heuristics.
+    -   Example: Genetic Algorithms, Simulated Annealing.
+
+# Why Metaheuristics?
+
+-   Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
+-   For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.
+-   As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.
+-   Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
+
+# Organization and Structure of the Metaheuristics Book
+
+![Book Overview](Pictures/Ch1Book.png "Overview")
+
+![Book Overview](Pictures/Ch1Book2.png "Overview")
+
+# What We Cover
+
+-   How to Write and Read and Algorithm
+
+-   Summary of Optimization
+
+-   Travelling Salesman
+
+-   Greedy Algorithm
+
+-   Some Benchmark Problems
+
+-   Exhaustive Search
+
+-   Hill Climbing
+
+-   Metaheuristics
+
+    -   Simulated Annealing
+    -   Genetic Algorithm
+
+-   Algorithm -\> Pseudocode -\> Implementation in Python ![Pseudocode](Pictures/Ch1Pseudo.png "Pseudocode")
+
+# A family tree of metaheuristic algorithms
+
+-   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. ![Tree](Pictures/Tree.png "Tree")
+
+# A Critical Question
+
+-   How do we choose an applicable metaheuristic algorithm for an optimization problem in question?

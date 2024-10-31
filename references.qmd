@@ -1,0 +1,3 @@
+# Recommended Further Reading Materials
+
+Tsai, C.-W., & Chiang, M.-C. (2023). *Handbook of metaheuristic algorithms*. Academic Press. Retrieved from <https://learning.oreilly.com/library/view/handbook-of-metaheuristic/9780443191091/>

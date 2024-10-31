@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pamela Schlosser">
+
+<title>2&nbsp; Algorithm Design and Pseudocode – Heuristic Modelling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./numpy.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-64b801fe9b6685c0a799f7172ecad621.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./algo.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Algorithm Design and Pseudocode</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Heuristic Modelling</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Heuristic Algorithms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./algo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Algorithm Design and Pseudocode</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for Heuristics &amp; NumPy</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greedy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmark.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./es.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ga.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Recommended Further Reading Materials</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#automate-this-by-christopher-steiner" id="toc-automate-this-by-christopher-steiner" class="nav-link active" data-scroll-target="#automate-this-by-christopher-steiner"><span class="header-section-number">3</span> Automate This by Christopher Steiner</a>
+  <ul class="collapse">
+  <li><a href="#algorithms-key-concepts-and-examples" id="toc-algorithms-key-concepts-and-examples" class="nav-link" data-scroll-target="#algorithms-key-concepts-and-examples"><span class="header-section-number">3.1</span> Algorithms Key Concepts and Examples</a></li>
+  <li><a href="#future-implications-and-ethical-considerations" id="toc-future-implications-and-ethical-considerations" class="nav-link" data-scroll-target="#future-implications-and-ethical-considerations"><span class="header-section-number">3.2</span> Future Implications and Ethical Considerations</a></li>
+  <li><a href="#bias-in-algorithms-explored" id="toc-bias-in-algorithms-explored" class="nav-link" data-scroll-target="#bias-in-algorithms-explored"><span class="header-section-number">3.3</span> Bias in Algorithms Explored</a></li>
+  </ul></li>
+  <li><a href="#how-to-design-an-algorithm" id="toc-how-to-design-an-algorithm" class="nav-link" data-scroll-target="#how-to-design-an-algorithm"><span class="header-section-number">4</span> How to Design an Algorithm:</a>
+  <ul class="collapse">
+  <li><a href="#algorithm-development-process" id="toc-algorithm-development-process" class="nav-link" data-scroll-target="#algorithm-development-process"><span class="header-section-number">4.1</span> Algorithm Development Process:</a></li>
+  <li><a href="#understanding-the-structure-of-algorithms" id="toc-understanding-the-structure-of-algorithms" class="nav-link" data-scroll-target="#understanding-the-structure-of-algorithms"><span class="header-section-number">4.2</span> Understanding the Structure of Algorithms</a></li>
+  <li><a href="#understanding-the-structure-of-algorithms-flow-control" id="toc-understanding-the-structure-of-algorithms-flow-control" class="nav-link" data-scroll-target="#understanding-the-structure-of-algorithms-flow-control"><span class="header-section-number">4.3</span> Understanding the Structure of Algorithms: Flow Control</a></li>
+  </ul></li>
+  <li><a href="#deciphering-algorithmic-notation" id="toc-deciphering-algorithmic-notation" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation"><span class="header-section-number">5</span> Deciphering Algorithmic Notation</a>
+  <ul class="collapse">
+  <li><a href="#deciphering-algorithmic-notation-pseudocode-vs.-code" id="toc-deciphering-algorithmic-notation-pseudocode-vs.-code" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation-pseudocode-vs.-code"><span class="header-section-number">5.1</span> Deciphering Algorithmic Notation: Pseudocode vs.&nbsp;Code</a></li>
+  <li><a href="#deciphering-algorithmic-notation-mathematical-symbols" id="toc-deciphering-algorithmic-notation-mathematical-symbols" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation-mathematical-symbols"><span class="header-section-number">5.2</span> Deciphering Algorithmic Notation: Mathematical Symbols</a></li>
+  <li><a href="#design-paradigms" id="toc-design-paradigms" class="nav-link" data-scroll-target="#design-paradigms"><span class="header-section-number">5.3</span> Design Paradigms</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-algorithm-symbols" id="toc-introduction-to-algorithm-symbols" class="nav-link" data-scroll-target="#introduction-to-algorithm-symbols"><span class="header-section-number">6</span> Introduction to Algorithm Symbols</a>
+  <ul class="collapse">
+  <li><a href="#common-symbols-in-algorithms" id="toc-common-symbols-in-algorithms" class="nav-link" data-scroll-target="#common-symbols-in-algorithms"><span class="header-section-number">6.1</span> Common Symbols in Algorithms</a></li>
+  <li><a href="#examples-of-math-notation" id="toc-examples-of-math-notation" class="nav-link" data-scroll-target="#examples-of-math-notation"><span class="header-section-number">6.2</span> Examples of Math Notation</a></li>
+  <li><a href="#summation-and-loop-example" id="toc-summation-and-loop-example" class="nav-link" data-scroll-target="#summation-and-loop-example"><span class="header-section-number">6.3</span> Summation and Loop Example</a></li>
+  <li><a href="#conditional-statements-and-recursion" id="toc-conditional-statements-and-recursion" class="nav-link" data-scroll-target="#conditional-statements-and-recursion"><span class="header-section-number">6.4</span> Conditional Statements and Recursion</a></li>
+  <li><a href="#big-o-notation-and-algorithm-complexity" id="toc-big-o-notation-and-algorithm-complexity" class="nav-link" data-scroll-target="#big-o-notation-and-algorithm-complexity"><span class="header-section-number">6.5</span> Big-O Notation and Algorithm Complexity</a></li>
+  <li><a href="#basic-tsp-formulation" id="toc-basic-tsp-formulation" class="nav-link" data-scroll-target="#basic-tsp-formulation"><span class="header-section-number">6.6</span> Basic TSP Formulation</a></li>
+  <li><a href="#tsp-approximation-algorithm" id="toc-tsp-approximation-algorithm" class="nav-link" data-scroll-target="#tsp-approximation-algorithm"><span class="header-section-number">6.7</span> TSP Approximation Algorithm</a></li>
+  <li><a href="#heuristic-nearest-neighbor-example" id="toc-heuristic-nearest-neighbor-example" class="nav-link" data-scroll-target="#heuristic-nearest-neighbor-example"><span class="header-section-number">6.8</span> Heuristic Nearest Neighbor Example:</a></li>
+  </ul></li>
+  <li><a href="#pseudocode-know-how" id="toc-pseudocode-know-how" class="nav-link" data-scroll-target="#pseudocode-know-how"><span class="header-section-number">7</span> Pseudocode Know-how</a>
+  <ul class="collapse">
+  <li><a href="#tips-for-writing-good-pseudocode" id="toc-tips-for-writing-good-pseudocode" class="nav-link" data-scroll-target="#tips-for-writing-good-pseudocode"><span class="header-section-number">7.1</span> Tips for Writing Good Pseudocode</a></li>
+  <li><a href="#pseudocode-for-basic-tsp-formation" id="toc-pseudocode-for-basic-tsp-formation" class="nav-link" data-scroll-target="#pseudocode-for-basic-tsp-formation"><span class="header-section-number">7.2</span> Pseudocode for Basic TSP Formation</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">8</span> Conclusions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Algorithm Design and Pseudocode</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pamela Schlosser </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="automate-this-by-christopher-steiner" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Automate This by Christopher Steiner</h1>
+<ul>
+<li>An algorithm is a set of operations (mathematical, technical) to be conducted in a certain sequence to achieve a certain goal.</li>
+<li>The rise of algorithms and their transformative impact on industries.</li>
+<li>Algorithms have gone from being a tool used by a few specialists to becoming a driving force in business, finance, healthcare, and more.</li>
+<li>Automation through algorithms is reshaping the world, with both positive and negative implications.</li>
+</ul>
+<section id="algorithms-key-concepts-and-examples" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="algorithms-key-concepts-and-examples"><span class="header-section-number">3.1</span> Algorithms Key Concepts and Examples</h2>
+<ul>
+<li>Algorithms in Finance: High-Frequency Trading (HFT) revolutionized Wall Street by executing trades at lightning speeds, leading to both massive profits and new risks.</li>
+<li>Algorithms in Healthcare: Algorithms that diagnose diseases faster and more accurately than doctors.</li>
+<li>Music: Algorithms used by platforms like Pandora to predict and recommend songs.</li>
+<li>Impact on Jobs: Automation’s role in replacing jobs traditionally done by humans, particularly in industries like finance, journalism, and even art.</li>
+</ul>
+</section>
+<section id="future-implications-and-ethical-considerations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="future-implications-and-ethical-considerations"><span class="header-section-number">3.2</span> Future Implications and Ethical Considerations</h2>
+<ul>
+<li>Expansion of Algorithms: The growing reach of algorithms in decision-making processes, from hiring practices to legal judgments.</li>
+<li>Ethical Concerns: The potential for bias in algorithms and the importance of transparency in their design. The need for regulation and oversight as algorithms increasingly influence critical aspects of life.</li>
+<li>Looking Ahead: Steiner’s call for society to adapt to the new algorithm-driven world, balancing innovation with ethical responsibility.</li>
+</ul>
+</section>
+<section id="bias-in-algorithms-explored" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="bias-in-algorithms-explored"><span class="header-section-number">3.3</span> Bias in Algorithms Explored</h2>
+<ul>
+<li>Facial Recognition Technology algorithms have shown significant biases, particularly in accurately identifying people of different races and genders.
+<ul>
+<li>Studies have found that some facial recognition systems have higher error rates when identifying individuals with darker skin tones and women. This can lead to discriminatory outcomes, such as misidentifying people of color at higher rates than white individuals.</li>
+<li>Impact: This bias can result in wrongful accusations or the exclusion of certain groups from services that rely on facial recognition technology.</li>
+</ul></li>
+<li>Hiring algorithms are used by companies to screen job applicants, but they can unintentionally perpetuate biases present in the training data.
+<ul>
+<li>A famous case involved an AI hiring tool developed by Amazon, which was found to be biased against female applicants. The algorithm was trained on resumes submitted over the previous decade, which were predominantly from male applicants, leading the AI to favor male candidates.</li>
+<li>Impact: This bias can reinforce gender inequalities in the workplace by systematically disadvantaging qualified female applicants.</li>
+</ul></li>
+<li>Predictive Policing algorithms analyze historical crime data to predict where future crimes are likely to occur, influencing law enforcement patrols.
+<ul>
+<li>These algorithms often reflect existing biases in policing practices, such as disproportionately targeting minority neighborhoods. Because the training data may contain biased policing patterns, the algorithm can perpetuate over-policing in certain communities.</li>
+<li>Impact: This can lead to a cycle of increased surveillance and criminalization of specific racial or ethnic groups, reinforcing systemic biases in the criminal justice system.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="how-to-design-an-algorithm" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> How to Design an Algorithm:</h1>
+<ul>
+<li>A Routing Problem: Find a good path from Williamsburg to Los Angeles</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/Routing.png" title="Routing Chart" class="img-fluid figure-img"></p>
+<figcaption>Routing Chart</figcaption>
+</figure>
+</div>
+<section id="algorithm-development-process" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="algorithm-development-process"><span class="header-section-number">4.1</span> Algorithm Development Process:</h2>
+<ul>
+<li>What should you do first?</li>
+</ul>
+<p>0: Think of a conceptual approach 1: Write step-by-step outline + In words (maybe pseudo code) + Focus on sound logic 2: Plan programming implementation + Choose appropriate data structures + Speed, memory, convenience + Consider functions, which kind of loops 3: Write the program and debug + Use the outline as comment statements + Write your algorithms in chunks, write a line, then test it</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/process.png" title="Process" class="img-fluid figure-img"></p>
+<figcaption>Process</figcaption>
+</figure>
+</div>
+</section>
+<section id="understanding-the-structure-of-algorithms" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="understanding-the-structure-of-algorithms"><span class="header-section-number">4.2</span> Understanding the Structure of Algorithms</h2>
+<ul>
+<li>Identify the Purpose:
+<ul>
+<li>Start by understanding what the algorithm is supposed to achieve.</li>
+<li>Look for a brief description or goal at the beginning.</li>
+</ul></li>
+<li>Break Down the Steps:
+<ul>
+<li>Algorithms are typically presented as a sequence of steps.</li>
+<li>Each step corresponds to a specific action or decision.</li>
+<li>in words. Focus on sound logic.</li>
+</ul></li>
+<li>Recognize Input and Output:
+<ul>
+<li>Determine what inputs the algorithm requires.</li>
+<li>Identify the expected output(s) after the algorithm is executed.</li>
+</ul></li>
+</ul>
+</section>
+<section id="understanding-the-structure-of-algorithms-flow-control" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="understanding-the-structure-of-algorithms-flow-control"><span class="header-section-number">4.3</span> Understanding the Structure of Algorithms: Flow Control</h2>
+<ul>
+<li>Determine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).
+<ul>
+<li>Which data types?
+<ul>
+<li>Begin to consider speed, memory usage, convenience tradeoffs</li>
+</ul></li>
+<li>Finer details of data organization
+<ul>
+<li>What fields for dictionary labels?</li>
+<li>How should lists be sorted, if at all?</li>
+</ul></li>
+<li>Loop types
+<ul>
+<li>for or while?</li>
+<li>Ease of coding and development</li>
+</ul></li>
+<li>Use functions?</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="deciphering-algorithmic-notation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Deciphering Algorithmic Notation</h1>
+<ul>
+<li>Variables and Data Types:
+<ul>
+<li>Identify variables and understand their roles (e.g., counters, accumulators).</li>
+<li>Pay attention to the data types being used (e.g., integers, lists).</li>
+</ul></li>
+<li>Lists
+<ul>
+<li>Good if you are going to iterate through the entire list</li>
+<li>Methods: sort, iterable, reverse, append</li>
+</ul></li>
+<li>Tuples
+<ul>
+<li>Similar to lists, but when the data shouldn’t change</li>
+<li>Immutable</li>
+<li>Not many built-in methods</li>
+</ul></li>
+<li>Dictionaries
+<ul>
+<li>Fast random access: lookup by key</li>
+<li>Takes a little more memory than lists</li>
+</ul></li>
+</ul>
+<section id="deciphering-algorithmic-notation-pseudocode-vs.-code" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="deciphering-algorithmic-notation-pseudocode-vs.-code"><span class="header-section-number">5.1</span> Deciphering Algorithmic Notation: Pseudocode vs.&nbsp;Code</h2>
+<ul>
+<li>Recognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.</li>
+<li>Some feel that with Python, the pseudo-code step would not be necessary anymore</li>
+<li>Translate pseudocode into actual code if needed.
+<ul>
+<li>Program in chunks</li>
+<li>Test each chunk before moving on</li>
+<li>Use functions where reasonable
+<ul>
+<li>Easier to test</li>
+</ul></li>
+</ul></li>
+<li>Check code where solutions are known
+<ul>
+<li>Small problems</li>
+<li>Obvious solutions</li>
+</ul></li>
+<li>Check code as you write it</li>
+<li>Debug Often
+<ul>
+<li>Breakpoints</li>
+<li>Check variables in console</li>
+<li>Variable explorer</li>
+<li>Print statements</li>
+</ul></li>
+</ul>
+</section>
+<section id="deciphering-algorithmic-notation-mathematical-symbols" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="deciphering-algorithmic-notation-mathematical-symbols"><span class="header-section-number">5.2</span> Deciphering Algorithmic Notation: Mathematical Symbols</h2>
+<ul>
+<li>Mathematical Symbols:
+<ul>
+<li>Algorithms often include mathematical notation, such as sums (<span class="math inline">\(\sum\)</span>) or products (<span class="math inline">\(\prod\)</span>).</li>
+<li>Understand these as they relate to the algorithm’s operations.</li>
+</ul></li>
+<li>Big-O Notation:
+<ul>
+<li>Look for references to Big-O notation, which indicates the algorithm’s efficiency in terms of time or space.</li>
+<li>Understand the implications for performance, especially with large inputs.</li>
+</ul></li>
+<li>Commenting
+<ul>
+<li>Commenting improves code readability, reuse, and maintainability.</li>
+<li>Can transfer algorithm outline to a program as comments.</li>
+<li>Then, you have comments that provide an outline for coding.</li>
+</ul></li>
+</ul>
+</section>
+<section id="design-paradigms" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="design-paradigms"><span class="header-section-number">5.3</span> Design Paradigms</h2>
+<ul>
+<li>Algorithms can be based on:
+<ul>
+<li>Intuitive ideas</li>
+<li>Math</li>
+</ul></li>
+<li>Optimization
+<ul>
+<li>Possibly with calculus analysis (e.g., gradients)</li>
+<li>Heuristic model analysis</li>
+<li>Dynamic programming</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="introduction-to-algorithm-symbols" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Introduction to Algorithm Symbols</h1>
+<ul>
+<li><strong>Variables</strong>: Represent inputs, outputs, or intermediate values.
+<ul>
+<li>( x ): A common symbol for an input variable.</li>
+<li>( y ): Often represents an output variable.</li>
+<li>( i, j, k ): Typically used as indices in loops.</li>
+</ul></li>
+<li><strong>Sets</strong>: Collections of elements.
+<ul>
+<li>( S ): A set, e.g., ( S = {1, 2, 3} ).</li>
+<li>( ): The set of natural numbers.</li>
+<li>( ): “An element of”, used to denote membership in a set.</li>
+</ul></li>
+<li><strong>Operators</strong>: Perform operations on variables or sets.
+<ul>
+<li>( +, -, , / ): Basic arithmetic operators.</li>
+<li>( ): Union of two sets.</li>
+<li>( ): Intersection of two sets.</li>
+<li>( ): Subset relation.</li>
+</ul></li>
+</ul>
+<hr>
+<section id="common-symbols-in-algorithms" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="common-symbols-in-algorithms"><span class="header-section-number">6.1</span> Common Symbols in Algorithms</h2>
+<ul>
+<li><strong>Mathematical Symbols</strong>:
+<ul>
+<li><span class="math inline">\(\forall\)</span>: “For all”, used in universal quantification.</li>
+<li><span class="math inline">\(\exists\)</span>: “There exists”, used in existential quantification.</li>
+<li><span class="math inline">\(\sum_{i=1}^n x_i\)</span>: Summation from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
+<li><span class="math inline">\(\prod_{i=1}^n x_i\)</span>: Product from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
+</ul></li>
+<li><strong>Logical Symbols</strong>:
+<ul>
+<li><span class="math inline">\(\land\)</span>: Logical AND.</li>
+<li><span class="math inline">\(\lor\)</span>: Logical OR.</li>
+<li><span class="math inline">\(\neg\)</span>: Logical NOT.</li>
+<li><span class="math inline">\(\implies\)</span>: Logical implication.</li>
+</ul></li>
+<li><strong>Algorithm-Specific Notation</strong>:
+<ul>
+<li><span class="math inline">\(O(n)\)</span>: Big-O notation, representing algorithm complexity.</li>
+<li><span class="math inline">\(P \leftarrow Q\)</span>: Assign the value of <span class="math inline">\(Q\)</span> to <span class="math inline">\(P\)</span>.</li>
+<li><strong>for</strong> <span class="math inline">\(i = 1\)</span> <strong>to</strong> <span class="math inline">\(n\)</span>: A loop from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
+<li><strong>if</strong> <span class="math inline">\((condition)\)</span>: A conditional statement.</li>
+</ul></li>
+</ul>
+</section>
+<section id="examples-of-math-notation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="examples-of-math-notation"><span class="header-section-number">6.2</span> Examples of Math Notation</h2>
+</section>
+<section id="summation-and-loop-example" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="summation-and-loop-example"><span class="header-section-number">6.3</span> Summation and Loop Example</h2>
+<ul>
+<li><p><strong>Summation Formula</strong>: <span class="math inline">\(S = \sum_{i=1}^{n} i = 1 + 2 + 3 + \dots + n\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula calculates the sum of the first <span class="math inline">\(n\)</span> natural numbers. The symbol <span class="math inline">\(\sum\)</span> represents the summation, and <span class="math inline">\(i\)</span> is the index that runs from 1 to <span class="math inline">\(n\)</span>.</li>
+</ul></li>
+<li><p><strong>Nested Loop Calculation</strong>: <span class="math inline">\(T = \sum_{i=1}^{n} \sum_{j=1}^{m} (i \times j)\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula represents a nested summation where <span class="math inline">\(i\)</span> runs from 1 to <span class="math inline">\(n\)</span> and <span class="math inline">\(j\)</span> runs from 1 to <span class="math inline">\(m\)</span>. It calculates the sum of the product of <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> over these ranges.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="conditional-statements-and-recursion" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="conditional-statements-and-recursion"><span class="header-section-number">6.4</span> Conditional Statements and Recursion</h2>
+<ul>
+<li><p><strong>Conditional Formula</strong>: <span class="math display">\[
+f(x) =
+\begin{cases}
+0 &amp; \text{if } x &lt; 0 \\
+1 &amp; \text{if } x \geq 0
+\end{cases}
+\]</span></p>
+<ul>
+<li><strong>Explanation</strong>: This piecewise function returns 0 if ( x ) is less than 0, and 1 if ( x ) is greater than or equal to 0. It’s an example of a conditional statement in algorithmic form.</li>
+</ul></li>
+<li><p><strong>Recursive Formula</strong>: <span class="math display">\[
+F(n) =
+\begin{cases}
+1 &amp; \text{if } n = 1 \\
+n \times F(n-1) &amp; \text{if } n &gt; 1
+\end{cases}
+\]</span></p>
+<ul>
+<li><strong>Explanation</strong>: This is a recursive definition of the factorial function. For ( n = 1 ), ( F(n) = 1 ). For ( n &gt; 1 ), ( F(n) ) is defined as ( n ) times the factorial of ( n-1 ).</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="big-o-notation-and-algorithm-complexity" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="big-o-notation-and-algorithm-complexity"><span class="header-section-number">6.5</span> Big-O Notation and Algorithm Complexity</h2>
+<ul>
+<li><p><strong>Big-O Notation Example</strong>: <span class="math inline">\(T(n) = O(n^2)\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula describes the time complexity of an algorithm, where<span class="math inline">\(T(n)\)</span> represents the runtime as a function of input size <span class="math inline">\(n\)</span>. The notation <span class="math inline">\(O(n^2)\)</span> indicates that the algorithm’s runtime grows quadratically with the size of the input.</li>
+</ul></li>
+<li><p><strong>Logarithmic Complexity</strong>: <span class="math inline">\(T(n) = O(\log n)\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula represents an algorithm with logarithmic time complexity. The runtime increases logarithmically as the input size <span class="math inline">\(n\)</span> increases, which is common in algorithms like binary search.</li>
+</ul></li>
+</ul>
+</section>
+<section id="basic-tsp-formulation" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="basic-tsp-formulation"><span class="header-section-number">6.6</span> Basic TSP Formulation</h2>
+<ul>
+<li><p><strong>Objective Function</strong>: <span class="math display">\[
+\text{Minimize} \quad Z = \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
+\]</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula represents the objective function of the TSP, where <span class="math inline">\(c_{ij}\)</span> is the cost (or distance) of traveling from city <span class="math inline">\(i\)</span> to city <span class="math inline">\(j\)</span>, and <span class="math inline">\(x_{ij}\)</span> is a binary variable that equals 1 if the path from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.</li>
+</ul></li>
+<li><p><strong>Constraints</strong>:</p></li>
+<li><p><span class="math inline">\(\sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{i=1, i \neq j}^{n} x_{ij} = 1 \quad \forall j\)</span></p></li>
+<li><p><span class="math inline">\(x_{ij} \in \{0, 1\}\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: The first constraint ensures that each city <span class="math inline">\(i\)</span> is exited exactly once, and the second constraint ensures that each city <span class="math inline">\(j\)</span> is entered exactly once. The binary constraint on <span class="math inline">\(x_{ij}\)</span> ensures that the solution only includes valid paths.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="tsp-approximation-algorithm" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="tsp-approximation-algorithm"><span class="header-section-number">6.7</span> TSP Approximation Algorithm</h2>
+<ul>
+<li><p><strong>Approximation Algorithm Cost</strong>: <span class="math inline">\(Z \leq 2 \times \text{OPT}\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula represents the performance guarantee of a 2-approximation algorithm for the TSP, where <span class="math inline">\(Z\)</span> is the cost of the approximate solution and <span class="math inline">\(\text{OPT}\)</span> is the cost of the optimal solution. It guarantees that the approximate solution will be at most twice as costly as the optimal solution.</li>
+</ul></li>
+</ul>
+</section>
+<section id="heuristic-nearest-neighbor-example" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="heuristic-nearest-neighbor-example"><span class="header-section-number">6.8</span> Heuristic Nearest Neighbor Example:</h2>
+<p><span class="math inline">\(Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This is the cost calculation for the nearest neighbor heuristic, where <span class="math inline">\(\text{NN}(i)\)</span> denotes the nearest neighbor of city <span class="math inline">\(i\)</span>. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.</li>
+</ul>
+</section>
+</section>
+<section id="pseudocode-know-how" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Pseudocode Know-how</h1>
+<ul>
+<li><p>Don’t include code-specific features such as variable declarations, data types, or specific keywords.</p></li>
+<li><p>Focus on what the algorithm should do, not how to implement it.</p></li>
+<li><p>Use pseudocode to outline the flow and logic of the solution.</p></li>
+<li><p>Think of pseudocode as a blueprint that can be implemented in any programming language</p></li>
+<li><p>Bad: int sum = 0; for (i=0; i &lt; n; i++) sum += arr[i];</p></li>
+<li><p>Good: SET sum = 0, FOR each element in the list, ADD element to sum</p></li>
+</ul>
+<section id="tips-for-writing-good-pseudocode" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="tips-for-writing-good-pseudocode"><span class="header-section-number">7.1</span> Tips for Writing Good Pseudocode</h2>
+<ul>
+<li>Maintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.</li>
+<li>Be clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.</li>
+<li>Pseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.</li>
+</ul>
+</section>
+<section id="pseudocode-for-basic-tsp-formation" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="pseudocode-for-basic-tsp-formation"><span class="header-section-number">7.2</span> Pseudocode for Basic TSP Formation</h2>
+<ul>
+<li>Generic Inputs: The pseudocode is now generic and works for any TSP model where you have a set of cities and their corresponding distances.</li>
+<li>Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.</li>
+<li>Output: It outputs the route and the total distance traveled.</li>
+</ul>
+<pre class="{asis}"><code>#inputs
+SET cities = &lt;list of cities&gt;
+SET distances = &lt;distance matrix or dictionary&gt;
+SET start_city = &lt;initial city&gt;
+
+
+# FUNCTION to find the nearest unvisited city
+FUNCTION find_nearest_neighbor(current_city, unvisited, distances):
+    SET nearest_city = None
+    SET min_distance = infinity
+    
+    FOR each city IN unvisited:
+        IF distances[current_city][city] &lt; min_distance:
+            SET min_distance = distances[current_city][city]
+            SET nearest_city = city
+    
+    RETURN nearest_city, min_distance
+
+# FUNCTION to solve TSP using Nearest Neighbor algorithm
+FUNCTION nearest_neighbor_tsp(start_city, cities, distances):
+# Initialize list of unvisited cities
+    SET unvisited = list of all cities EXCEPT start_city</code></pre>
+</section>
+</section>
+<section id="conclusions" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conclusions</h1>
+<ul>
+<li>Resist the urge to start by writing code!!!
+<ul>
+<li>Invest time upfront developing your approach.
+<ul>
+<li>Conceptual and implementation plan.</li>
+</ul></li>
+</ul></li>
+<li>The code writes itself if you have a good understanding of the formula and good pseudocode.</li>
+<li>More time now planning… a lot less time later coding.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introduction to Heuristic Algorithms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Heuristic Algorithms</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./numpy.html" class="pagination-link" aria-label="Python for Heuristics &amp; NumPy">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for Heuristics &amp; NumPy</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

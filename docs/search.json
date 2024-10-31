@@ -1,0 +1,502 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Introduction to Heuristic Algorithms",
+    "section": "",
+    "text": "3 Course Overview",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#course-goals",
+    "href": "intro.html#course-goals",
+    "title": "2  Introduction to Heuristic Algorithms",
+    "section": "3.1 Course Goals",
+    "text": "3.1 Course Goals\n\nDevelop a solid process for algorithm development.\nEnhance Python programming skills.\nUnderstand the structure of heuristic models, focusing on:\n\nHill climbing\nSimulated annealing\nGenetic algorithms",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#required-book",
+    "href": "intro.html#required-book",
+    "title": "2  Introduction to Heuristic Algorithms",
+    "section": "3.2 Required Book",
+    "text": "3.2 Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n- Access the book free through O’Reilly’s website with school credentials. - Python code is available on the author’s GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html",
+    "href": "algo.html",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "",
+    "text": "3 Automate This by Christopher Steiner",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html",
+    "href": "numpy.html",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "",
+    "text": "4 Coding Know-How\nWhat problems does this code have?  * Multiple instantiations of the same code within a program cause problems + More opportunities for errors + More maintenance * Blocks of reusable code solve this problem + These are called functions",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "greedy.html",
+    "href": "greedy.html",
+    "title": "4  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "benchmark.html",
+    "href": "benchmark.html",
+    "title": "6  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "es.html",
+    "href": "es.html",
+    "title": "7  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html",
+    "href": "hc.html",
+    "title": "8  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "sa.html",
+    "href": "sa.html",
+    "title": "9  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html",
+    "href": "ga.html",
+    "title": "10  About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "10  Summary",
+    "section": "",
+    "text": "The course presents a structured approach to introducing heuristic algorithms and optimization techniques. Beginning with a broad overview, we highlight the significance of algorithms in diverse industries and introduce foundational heuristic methods, emphasizing their value for complex problem-solving where traditional approaches fall short due to scalability or computational limits: (1Intro), (2Algorithms), (3NumpyBasics).\nThe content progresses through various algorithm types: constructive methods like greedy algorithms, exhaustive search, and iterative improvement approaches, including hill climbing. Key concepts like local optima, plateaus, and ridges are explained alongside examples such as the Knapsack Problem and Traveling Salesman Problem, laying a foundation for understanding optimization challenges and strategies for improving solutions iteratively: (4Greedy); (6ExhaustiveSearch); and (7HillClimbing).\nThe later course material delves into advanced metaheuristic algorithms, specifically Simulated Annealing (SA) and Genetic Algorithms (GA). SA is explained with its cooling schedule and probabilistic acceptance of suboptimal solutions, which help avoid local optima. GA is described through its evolutionary process—selection, crossover, and mutation—illustrating how populations of solutions evolve toward optimality over generations.\nThe advantages and disadvantages of each approach are covered, along with the importance of tuning parameters for effective convergence. This framework not only familiarizes students with the mechanics of each method but also stresses the trade-offs involved, preparing them to apply these techniques to benchmark problems such as the Ackley and OneMax functions: (5BenchmarkProblems); (8-9SimulatedAnnealing); and (10-11GeneticAlgorithms)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "11  Recommended Further Reading Materials",
+    "section": "",
+    "text": "Tsai, C.-W., & Chiang, M.-C. (2023). Handbook of metaheuristic algorithms. Academic Press. Retrieved from https://learning.oreilly.com/library/view/handbook-of-metaheuristic/9780443191091/",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Recommended Further Reading Materials</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Heuristic Modelling",
+    "section": "",
+    "text": "1 Course Overview",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-goals",
+    "href": "index.html#course-goals",
+    "title": "Heuristic Modelling",
+    "section": "1.1 Course Goals",
+    "text": "1.1 Course Goals\n\nDevelop a solid process for algorithm development.\nEnhance Python programming skills.\nUnderstand the structure of heuristic models, focusing on:\n\nHill climbing\nSimulated annealing\nGenetic algorithms",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#required-book",
+    "href": "index.html#required-book",
+    "title": "Heuristic Modelling",
+    "section": "1.2 Required Book",
+    "text": "1.2 Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n- Access the book free through O’Reilly’s website with school credentials. - Python code is available on the author’s GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#summation-and-loop-example",
+    "href": "algo.html#summation-and-loop-example",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.3 Summation and Loop Example",
+    "text": "6.3 Summation and Loop Example\n\nSummation Formula: \\(S = \\sum_{i=1}^{n} i = 1 + 2 + 3 + \\dots + n\\)\n\nExplanation: This formula calculates the sum of the first \\(n\\) natural numbers. The symbol \\(\\sum\\) represents the summation, and \\(i\\) is the index that runs from 1 to \\(n\\).\n\nNested Loop Calculation: \\(T = \\sum_{i=1}^{n} \\sum_{j=1}^{m} (i \\times j)\\)\n\nExplanation: This formula represents a nested summation where \\(i\\) runs from 1 to \\(n\\) and \\(j\\) runs from 1 to \\(m\\). It calculates the sum of the product of \\(i\\) and \\(j\\) over these ranges.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#conditional-statements-and-recursion",
+    "href": "algo.html#conditional-statements-and-recursion",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.4 Conditional Statements and Recursion",
+    "text": "6.4 Conditional Statements and Recursion\n\nConditional Formula: \\[\nf(x) =\n\\begin{cases}\n0 & \\text{if } x &lt; 0 \\\\\n1 & \\text{if } x \\geq 0\n\\end{cases}\n\\]\n\nExplanation: This piecewise function returns 0 if ( x ) is less than 0, and 1 if ( x ) is greater than or equal to 0. It’s an example of a conditional statement in algorithmic form.\n\nRecursive Formula: \\[\nF(n) =\n\\begin{cases}\n1 & \\text{if } n = 1 \\\\\nn \\times F(n-1) & \\text{if } n &gt; 1\n\\end{cases}\n\\]\n\nExplanation: This is a recursive definition of the factorial function. For ( n = 1 ), ( F(n) = 1 ). For ( n &gt; 1 ), ( F(n) ) is defined as ( n ) times the factorial of ( n-1 ).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#big-o-notation-and-algorithm-complexity",
+    "href": "algo.html#big-o-notation-and-algorithm-complexity",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.5 Big-O Notation and Algorithm Complexity",
+    "text": "6.5 Big-O Notation and Algorithm Complexity\n\nBig-O Notation Example: \\(T(n) = O(n^2)\\)\n\nExplanation: This formula describes the time complexity of an algorithm, where\\(T(n)\\) represents the runtime as a function of input size \\(n\\). The notation \\(O(n^2)\\) indicates that the algorithm’s runtime grows quadratically with the size of the input.\n\nLogarithmic Complexity: \\(T(n) = O(\\log n)\\)\n\nExplanation: This formula represents an algorithm with logarithmic time complexity. The runtime increases logarithmically as the input size \\(n\\) increases, which is common in algorithms like binary search.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#basic-tsp-formulation",
+    "href": "algo.html#basic-tsp-formulation",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.6 Basic TSP Formulation",
+    "text": "6.6 Basic TSP Formulation\n\nObjective Function: \\[\n\\text{Minimize} \\quad Z = \\sum_{i=1}^{n} \\sum_{j=1, j \\neq i}^{n} c_{ij} x_{ij}\n\\]\n\nExplanation: This formula represents the objective function of the TSP, where \\(c_{ij}\\) is the cost (or distance) of traveling from city \\(i\\) to city \\(j\\), and \\(x_{ij}\\) is a binary variable that equals 1 if the path from \\(i\\) to \\(j\\) is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.\n\nConstraints:\n\\(\\sum_{j=1, j \\neq i}^{n} x_{ij} = 1 \\quad \\forall i\\)\n\\(\\sum_{i=1, i \\neq j}^{n} x_{ij} = 1 \\quad \\forall j\\)\n\\(x_{ij} \\in \\{0, 1\\}\\)\n\nExplanation: The first constraint ensures that each city \\(i\\) is exited exactly once, and the second constraint ensures that each city \\(j\\) is entered exactly once. The binary constraint on \\(x_{ij}\\) ensures that the solution only includes valid paths.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#tsp-approximation-algorithm",
+    "href": "algo.html#tsp-approximation-algorithm",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.7 TSP Approximation Algorithm",
+    "text": "6.7 TSP Approximation Algorithm\n\nApproximation Algorithm Cost: \\(Z \\leq 2 \\times \\text{OPT}\\)\n\nExplanation: This formula represents the performance guarantee of a 2-approximation algorithm for the TSP, where \\(Z\\) is the cost of the approximate solution and \\(\\text{OPT}\\) is the cost of the optimal solution. It guarantees that the approximate solution will be at most twice as costly as the optimal solution.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#heuristic-nearest-neighbor-example",
+    "href": "algo.html#heuristic-nearest-neighbor-example",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.8 Heuristic Nearest Neighbor Example:",
+    "text": "6.8 Heuristic Nearest Neighbor Example:\n\\(Z = \\sum_{i=1}^{n-1} c_{i, \\text{NN}(i)} + c_{n, \\text{NN}(1)}\\)\n\nExplanation: This is the cost calculation for the nearest neighbor heuristic, where \\(\\text{NN}(i)\\) denotes the nearest neighbor of city \\(i\\). The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#tips-for-writing-good-pseudocode",
+    "href": "algo.html#tips-for-writing-good-pseudocode",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "7.1 Tips for Writing Good Pseudocode",
+    "text": "7.1 Tips for Writing Good Pseudocode\n\nMaintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.\nBe clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.\nPseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#pseudocode-for-basic-tsp-formation",
+    "href": "algo.html#pseudocode-for-basic-tsp-formation",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "7.2 Pseudocode for Basic TSP Formation",
+    "text": "7.2 Pseudocode for Basic TSP Formation\n\nGeneric Inputs: The pseudocode is now generic and works for any TSP model where you have a set of cities and their corresponding distances.\nNearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.\nOutput: It outputs the route and the total distance traveled.\n\n#inputs\nSET cities = &lt;list of cities&gt;\nSET distances = &lt;distance matrix or dictionary&gt;\nSET start_city = &lt;initial city&gt;\n\n\n# FUNCTION to find the nearest unvisited city\nFUNCTION find_nearest_neighbor(current_city, unvisited, distances):\n    SET nearest_city = None\n    SET min_distance = infinity\n    \n    FOR each city IN unvisited:\n        IF distances[current_city][city] &lt; min_distance:\n            SET min_distance = distances[current_city][city]\n            SET nearest_city = city\n    \n    RETURN nearest_city, min_distance\n\n# FUNCTION to solve TSP using Nearest Neighbor algorithm\nFUNCTION nearest_neighbor_tsp(start_city, cities, distances):\n# Initialize list of unvisited cities\n    SET unvisited = list of all cities EXCEPT start_city",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#algorithms-key-concepts-and-examples",
+    "href": "algo.html#algorithms-key-concepts-and-examples",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "3.1 Algorithms Key Concepts and Examples",
+    "text": "3.1 Algorithms Key Concepts and Examples\n\nAlgorithms in Finance: High-Frequency Trading (HFT) revolutionized Wall Street by executing trades at lightning speeds, leading to both massive profits and new risks.\nAlgorithms in Healthcare: Algorithms that diagnose diseases faster and more accurately than doctors.\nMusic: Algorithms used by platforms like Pandora to predict and recommend songs.\nImpact on Jobs: Automation’s role in replacing jobs traditionally done by humans, particularly in industries like finance, journalism, and even art.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#future-implications-and-ethical-considerations",
+    "href": "algo.html#future-implications-and-ethical-considerations",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "3.2 Future Implications and Ethical Considerations",
+    "text": "3.2 Future Implications and Ethical Considerations\n\nExpansion of Algorithms: The growing reach of algorithms in decision-making processes, from hiring practices to legal judgments.\nEthical Concerns: The potential for bias in algorithms and the importance of transparency in their design. The need for regulation and oversight as algorithms increasingly influence critical aspects of life.\nLooking Ahead: Steiner’s call for society to adapt to the new algorithm-driven world, balancing innovation with ethical responsibility.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#bias-in-algorithms-explored",
+    "href": "algo.html#bias-in-algorithms-explored",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "3.3 Bias in Algorithms Explored",
+    "text": "3.3 Bias in Algorithms Explored\n\nFacial Recognition Technology algorithms have shown significant biases, particularly in accurately identifying people of different races and genders.\n\nStudies have found that some facial recognition systems have higher error rates when identifying individuals with darker skin tones and women. This can lead to discriminatory outcomes, such as misidentifying people of color at higher rates than white individuals.\nImpact: This bias can result in wrongful accusations or the exclusion of certain groups from services that rely on facial recognition technology.\n\nHiring algorithms are used by companies to screen job applicants, but they can unintentionally perpetuate biases present in the training data.\n\nA famous case involved an AI hiring tool developed by Amazon, which was found to be biased against female applicants. The algorithm was trained on resumes submitted over the previous decade, which were predominantly from male applicants, leading the AI to favor male candidates.\nImpact: This bias can reinforce gender inequalities in the workplace by systematically disadvantaging qualified female applicants.\n\nPredictive Policing algorithms analyze historical crime data to predict where future crimes are likely to occur, influencing law enforcement patrols.\n\nThese algorithms often reflect existing biases in policing practices, such as disproportionately targeting minority neighborhoods. Because the training data may contain biased policing patterns, the algorithm can perpetuate over-policing in certain communities.\nImpact: This can lead to a cycle of increased surveillance and criminalization of specific racial or ethnic groups, reinforcing systemic biases in the criminal justice system.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#algorithm-development-process",
+    "href": "algo.html#algorithm-development-process",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "4.1 Algorithm Development Process:",
+    "text": "4.1 Algorithm Development Process:\n\nWhat should you do first?\n\n0: Think of a conceptual approach 1: Write step-by-step outline + In words (maybe pseudo code) + Focus on sound logic 2: Plan programming implementation + Choose appropriate data structures + Speed, memory, convenience + Consider functions, which kind of loops 3: Write the program and debug + Use the outline as comment statements + Write your algorithms in chunks, write a line, then test it\n\n\n\nProcess",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#understanding-the-structure-of-algorithms",
+    "href": "algo.html#understanding-the-structure-of-algorithms",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "4.2 Understanding the Structure of Algorithms",
+    "text": "4.2 Understanding the Structure of Algorithms\n\nIdentify the Purpose:\n\nStart by understanding what the algorithm is supposed to achieve.\nLook for a brief description or goal at the beginning.\n\nBreak Down the Steps:\n\nAlgorithms are typically presented as a sequence of steps.\nEach step corresponds to a specific action or decision.\nin words. Focus on sound logic.\n\nRecognize Input and Output:\n\nDetermine what inputs the algorithm requires.\nIdentify the expected output(s) after the algorithm is executed.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#understanding-the-structure-of-algorithms-flow-control",
+    "href": "algo.html#understanding-the-structure-of-algorithms-flow-control",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "4.3 Understanding the Structure of Algorithms: Flow Control",
+    "text": "4.3 Understanding the Structure of Algorithms: Flow Control\n\nDetermine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).\n\nWhich data types?\n\nBegin to consider speed, memory usage, convenience tradeoffs\n\nFiner details of data organization\n\nWhat fields for dictionary labels?\nHow should lists be sorted, if at all?\n\nLoop types\n\nfor or while?\nEase of coding and development\n\nUse functions?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
+    "href": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "5.1 Deciphering Algorithmic Notation: Pseudocode vs. Code",
+    "text": "5.1 Deciphering Algorithmic Notation: Pseudocode vs. Code\n\nRecognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.\nSome feel that with Python, the pseudo-code step would not be necessary anymore\nTranslate pseudocode into actual code if needed.\n\nProgram in chunks\nTest each chunk before moving on\nUse functions where reasonable\n\nEasier to test\n\n\nCheck code where solutions are known\n\nSmall problems\nObvious solutions\n\nCheck code as you write it\nDebug Often\n\nBreakpoints\nCheck variables in console\nVariable explorer\nPrint statements",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
+    "href": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "5.2 Deciphering Algorithmic Notation: Mathematical Symbols",
+    "text": "5.2 Deciphering Algorithmic Notation: Mathematical Symbols\n\nMathematical Symbols:\n\nAlgorithms often include mathematical notation, such as sums (\\(\\sum\\)) or products (\\(\\prod\\)).\nUnderstand these as they relate to the algorithm’s operations.\n\nBig-O Notation:\n\nLook for references to Big-O notation, which indicates the algorithm’s efficiency in terms of time or space.\nUnderstand the implications for performance, especially with large inputs.\n\nCommenting\n\nCommenting improves code readability, reuse, and maintainability.\nCan transfer algorithm outline to a program as comments.\nThen, you have comments that provide an outline for coding.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#design-paradigms",
+    "href": "algo.html#design-paradigms",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "5.3 Design Paradigms",
+    "text": "5.3 Design Paradigms\n\nAlgorithms can be based on:\n\nIntuitive ideas\nMath\n\nOptimization\n\nPossibly with calculus analysis (e.g., gradients)\nHeuristic model analysis\nDynamic programming",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#common-symbols-in-algorithms",
+    "href": "algo.html#common-symbols-in-algorithms",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.1 Common Symbols in Algorithms",
+    "text": "6.1 Common Symbols in Algorithms\n\nMathematical Symbols:\n\n\\(\\forall\\): “For all”, used in universal quantification.\n\\(\\exists\\): “There exists”, used in existential quantification.\n\\(\\sum_{i=1}^n x_i\\): Summation from \\(i = 1\\) to \\(n\\).\n\\(\\prod_{i=1}^n x_i\\): Product from \\(i = 1\\) to \\(n\\).\n\nLogical Symbols:\n\n\\(\\land\\): Logical AND.\n\\(\\lor\\): Logical OR.\n\\(\\neg\\): Logical NOT.\n\\(\\implies\\): Logical implication.\n\nAlgorithm-Specific Notation:\n\n\\(O(n)\\): Big-O notation, representing algorithm complexity.\n\\(P \\leftarrow Q\\): Assign the value of \\(Q\\) to \\(P\\).\nfor \\(i = 1\\) to \\(n\\): A loop from \\(i = 1\\) to \\(n\\).\nif \\((condition)\\): A conditional statement.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#examples-of-math-notation",
+    "href": "algo.html#examples-of-math-notation",
+    "title": "2  Algorithm Design and Pseudocode",
+    "section": "6.2 Examples of Math Notation",
+    "text": "6.2 Examples of Math Notation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#importing-numpy",
+    "href": "numpy.html#importing-numpy",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.1 Importing Numpy",
+    "text": "8.1 Importing Numpy\n\nimport numpy as np",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#numpy-examples",
+    "href": "numpy.html#numpy-examples",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "9.1 Numpy Examples",
+    "text": "9.1 Numpy Examples\n\n9.1.1 Basic Array Creation\n\n# Creating a simple numpy array from a Python list\narray = np.array([1, 2, 3, 4])\nprint(\"Array:\", array)\n\nArray: [1 2 3 4]\n\n\n\n\n9.1.2 Element-Wise Operations\n\nElement-wise operators are mathematical or logical operations applied independently to corresponding elements in arrays or matrices of the same shape.\nEach element in one array is combined with the corresponding element in the other array using the operator.\nIn the context of arrays (such as in NumPy), common element-wise operators include basic arithmetic operators:\n\nElement-wise addition +\nElement-wise subtraction -\nElement-wise multiplication *\nElement-wise division /\nElement-wise exponentiation **\n\n\n\n# Performing element-wise addition\narray = np.array([1, 2, 3, 4])\nadded_array = array + 5\nprint(\"Added Array:\", added_array)\n\nAdded Array: [6 7 8 9]\n\n\n\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\nc = a + b\nprint(c)\n\n[5 7 9]\n\n\n\n\n9.1.3 Taking an Exponent: np.exp\n\nnp.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒^𝑥, where 𝑒 is Euler’s number (approximately 2.71828), and 𝑥 is the input array or scalar.\n\n\n# Applying np.exp to the array\narray = np.array([1, 2, 3, 4])\nexp_array = np.exp(array)\nprint(\"Exponential Array:\", exp_array)\n\nExponential Array: [ 2.71828183  7.3890561  20.08553692 54.59815003]\n\n\n\nnp.exp from Simulated Annealing example\nThis function is part of a Simulated Annealing algorithm, specifically handling the temperature decay mechanism to decide whether to accept a new solution, even if it’s worse than the current one. Here’s a breakdown of the function based on the np.exp command and the logic:\n\ntmp_obj_val: The objective value of a new (temporary) solution.\nobj_val: The objective value of the current solution. temperature: The current temperature in the simulated annealing process, which controls how likely the algorithm is to accept worse solutions.\nA random number r between 0 and 1 is generated. This represents a threshold for whether the new solution will be accepted using random.rand()\nThe probability p of accepting the new solution is computed using the exponential function.\nIf the random value r is less than the calculated probability p, the function returns True, meaning the new solution is accepted (even if it’s worse). If r is greater than p, the new solution is rejected, and the current solution is maintained.\n\nThe function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.\n\n\n# Simulated annealing temperature decay\ndef determine(self, tmp_obj_val, obj_val, temperature):\n     r = np.random.rand()\n     p = np.exp((tmp_obj_val - obj_val) / temperature)\n     return r &lt; p\n\n\n\n9.1.4 Taking a square root: np.sqrt()\n\nnp.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.\n\n\n# Applying np.sqrt to the array\nsqrt_array = np.sqrt(array)\nprint(\"Square Root Array:\", sqrt_array)\n\nSquare Root Array: [1.         1.41421356 1.73205081 2.        ]\n\n\n\nThe Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.\n\n\ndef ackley(s):\n     a, b, c = 20, 0.2, 2 * np.pi\n     n = len(s)\n     sum_sq_term = np.sum(s**2)\n     cos_term = np.sum(np.cos(c * s))\n     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))\n     term2 = -np.exp(cos_term / n)\n     return term1 + term2 + a + np.e",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#sorting-the-data-np.argsort",
+    "href": "numpy.html#sorting-the-data-np.argsort",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "9.2 Sorting the data: np.argsort",
+    "text": "9.2 Sorting the data: np.argsort\n\nIn various evolutionary algorithms (such as genetic algorithms or simulated annealing), selecting the most “fit” or optimal solutions from a population is crucial for convergence toward the global optimum.\nBy sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.\nThe use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.\n\n\n# Dummy population and fitness values\npopulation = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])\n\n# Assign dummy fitness values\nfitness = np.array([10, 30, 20, 40, 50]) \n\n# Sort population based on fitness\nindices = np.argsort(fitness)\nprint(indices) \nsorted_population = population[indices]\n\n# Select top 3 individuals\ntop_individuals = sorted_population[:3] \nprint(top_individuals)\n\n[0 2 1 3 4]\n[[1 2]\n [5 6]\n [3 4]]\n\n\n\n9.2.1 Selecting the Max: np.argmax\n\nFinding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.\n\n\narr = np.array([1, 3, 7, 2, 5])\nindex = np.argmax(arr)\nprint(\"Array:\", arr)\nprint(\"Index of max element:\", index)\nprint(\"Max element:\", arr[index])\n\nArray: [1 3 7 2 5]\nIndex of max element: 2\nMax element: 7\n\n\nArray: [1 3 7 2 5]\n\nUsing np.argmax with a 2D Array (Row-wise & Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.\n\n\narr_2d = np.array([[1, 2, 3], [4, 5, 1], [0, 6, 2]])\n\n# Find the index of the max element in the flattened array\nmax_index_flat = np.argmax(arr_2d)\nprint(\"Flattened array index:\", max_index_flat)\n\nFlattened array index: 7\n\n\n\nNumber 6 is in index 7, starting at index 0 and counting up across each row.\n[[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each column (axis=0)\nmax_index_col = np.argmax(arr_2d, axis=0)\nprint(\"Max element index for each column:\", max_index_col)\n\nMax element index for each column: [1 2 0]\n\n\n\n4 is in index 1, 6 is in index 2, and 3 is in index 0, counting across each column starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each row (axis=1)\nmax_index_row = np.argmax(arr_2d, axis=1)\nprint(\"Max element index for each row:\", max_index_row)\n\nMax element index for each row: [2 1 1]\n\n\n\n3 is in index 2 in the row, 5 is in index 1, and 6 is in index 1, counting across each row starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#random-number-generation",
+    "href": "numpy.html#random-number-generation",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "9.3 Random Number Generation",
+    "text": "9.3 Random Number Generation\n\nRandom numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.\n\n\nrand_nums = np.random.rand(5)\nprint(rand_nums)\n\n[0.49819701 0.57076305 0.3662303  0.20012644 0.55134872]\n\n\n\n9.3.1 Standard Normal Distribution\n\nGenerating random numbers from a standard normal distribution (mean=0, std=1).\n\n\n# Generating random values from the standard normal distribution\nrandom_values = np.random.standard_normal(5)\nprint(\"Random Standard Normal Values:\", random_values)\n\nRandom Standard Normal Values: [ 0.86594689  0.01918829 -2.04885417 -0.79720448 -0.52109404]\n\n\n\n\n9.3.2 np.random.uniform\n\nIn hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.\n\n\n# Generate a random starting point for the hill climbing algorithm\nrandom_start = np.random.uniform(low=-10, high=10, size=5)\nprint(f\"Random start: {random_start}\")\n\nRandom start: [ 8.54616701  3.09601167  3.54704847  3.21511143 -3.07427524]\n\n\n\n\n9.3.3 np.random.randint\n\nnp.random.randint(low, high=None, size=None, dtype=int)\n\nlow: The lower boundary of the random integers (inclusive).\nhigh: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\nsize: The shape of the output array (optional). If not provided, a single integer is returned.\ndtype: The desired data type of the output array, by default int.\n\n\n\n# Generate 5 random integers between 10 and 20\nrandom_integers = np.random.randint(10, 20, size=5)\nprint(random_integers)\n\n[11 17 11 18 18]\n\n\n\n\n9.3.4 np.random.randint from Simulated Annealing\n\nThis function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or “transition”) to the current solution.\n\nThe function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).\nt = sol.copy(): A copy of the solution sol is made, named t. This is important because we don’t want to modify the original solution directly; instead, we work on the copy t.\ni = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.\nt[i] ^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.\nreturn t: After flipping one bit, the modified solution t is returned.\n\n\n\n# Transition function (T)\ndef transit(sol):\n    new_sol = sol.copy()\n    index = np.random.randint(len(sol))\n    new_sol[index] = 1 - new_sol[index]  # Flip a random bit\n    return new_sol",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#numpy-definition",
+    "href": "numpy.html#numpy-definition",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.1 Numpy Definition",
+    "text": "8.1 Numpy Definition\n\nNumPy stands for numerical Python, suggesting that it targets scenarios that are numerically demanding. The base Python interpreter tries to be as general as possible in many areas, which often leads to quite a bit of overhead at run-time.\nNumPy uses specialization as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.\nVectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#basic-array-creation",
+    "href": "numpy.html#basic-array-creation",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.2 Basic Array Creation",
+    "text": "8.2 Basic Array Creation\n\n# Creating a simple numpy array from a Python list\narray = np.array([1, 2, 3, 4])\nprint(\"Array:\", array)\n\nArray: [1 2 3 4]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#element-wise-operations",
+    "href": "numpy.html#element-wise-operations",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.3 Element-Wise Operations",
+    "text": "8.3 Element-Wise Operations\n\nElement-wise operators are mathematical or logical operations applied independently to corresponding elements in arrays or matrices of the same shape.\nEach element in one array is combined with the corresponding element in the other array using the operator.\nIn the context of arrays (such as in NumPy), common element-wise operators include basic arithmetic operators:\n\nElement-wise addition +\nElement-wise subtraction -\nElement-wise multiplication *\nElement-wise division /\nElement-wise exponentiation **\n\n\n\n# Performing element-wise addition\narray = np.array([1, 2, 3, 4])\nadded_array = array + 5\nprint(\"Added Array:\", added_array)\n\nAdded Array: [6 7 8 9]\n\n\n\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\nc = a + b\nprint(c)\n\n[5 7 9]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#taking-an-exponent-np.exp",
+    "href": "numpy.html#taking-an-exponent-np.exp",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.4 Taking an Exponent: np.exp",
+    "text": "8.4 Taking an Exponent: np.exp\n\nnp.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒^𝑥, where 𝑒 is Euler’s number (approximately 2.71828), and 𝑥 is the input array or scalar.\n\n\n# Applying np.exp to the array\narray = np.array([1, 2, 3, 4])\nexp_array = np.exp(array)\nprint(\"Exponential Array:\", exp_array)\n\nExponential Array: [ 2.71828183  7.3890561  20.08553692 54.59815003]\n\n\n\nnp.exp from Simulated Annealing example\nThis function is part of a Simulated Annealing algorithm, specifically handling the temperature decay mechanism to decide whether to accept a new solution, even if it’s worse than the current one. Here’s a breakdown of the function based on the np.exp command and the logic:\n\ntmp_obj_val: The objective value of a new (temporary) solution.\nobj_val: The objective value of the current solution. temperature: The current temperature in the simulated annealing process, which controls how likely the algorithm is to accept worse solutions.\nA random number r between 0 and 1 is generated. This represents a threshold for whether the new solution will be accepted using random.rand()\nThe probability p of accepting the new solution is computed using the exponential function.\nIf the random value r is less than the calculated probability p, the function returns True, meaning the new solution is accepted (even if it’s worse). If r is greater than p, the new solution is rejected, and the current solution is maintained.\n\nThe function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.\n\n\n# Simulated annealing temperature decay\ndef determine(self, tmp_obj_val, obj_val, temperature):\n     r = np.random.rand()\n     p = np.exp((tmp_obj_val - obj_val) / temperature)\n     return r &lt; p",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#taking-a-square-root-np.sqrt",
+    "href": "numpy.html#taking-a-square-root-np.sqrt",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "8.5 Taking a square root: np.sqrt()",
+    "text": "8.5 Taking a square root: np.sqrt()\n\nnp.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.\n\n\n# Applying np.sqrt to the array\nsqrt_array = np.sqrt(array)\nprint(\"Square Root Array:\", sqrt_array)\n\nSquare Root Array: [1.         1.41421356 1.73205081 2.        ]\n\n\n\nThe Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.\n\n\ndef ackley(s):\n     a, b, c = 20, 0.2, 2 * np.pi\n     n = len(s)\n     sum_sq_term = np.sum(s**2)\n     cos_term = np.sum(np.cos(c * s))\n     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))\n     term2 = -np.exp(cos_term / n)\n     return term1 + term2 + a + np.e",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#selecting-the-max-np.argmax",
+    "href": "numpy.html#selecting-the-max-np.argmax",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "9.1 Selecting the Max: np.argmax",
+    "text": "9.1 Selecting the Max: np.argmax\n\nFinding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.\n\n\narr = np.array([1, 3, 7, 2, 5])\nindex = np.argmax(arr)\nprint(\"Array:\", arr)\nprint(\"Index of max element:\", index)\nprint(\"Max element:\", arr[index])\n\nArray: [1 3 7 2 5]\nIndex of max element: 2\nMax element: 7\n\n\nArray: [1 3 7 2 5]\n\nUsing np.argmax with a 2D Array (Row-wise & Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.\n\n\narr_2d = np.array([[1, 2, 3], [4, 5, 1], [0, 6, 2]])\n\n# Find the index of the max element in the flattened array\nmax_index_flat = np.argmax(arr_2d)\nprint(\"Flattened array index:\", max_index_flat)\n\nFlattened array index: 7\n\n\n\nNumber 6 is in index 7, starting at index 0 and counting up across each row.\n[[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each column (axis=0)\nmax_index_col = np.argmax(arr_2d, axis=0)\nprint(\"Max element index for each column:\", max_index_col)\n\nMax element index for each column: [1 2 0]\n\n\n\n4 is in index 1, 6 is in index 2, and 3 is in index 0, counting across each column starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each row (axis=1)\nmax_index_row = np.argmax(arr_2d, axis=1)\nprint(\"Max element index for each row:\", max_index_row)\n\nMax element index for each row: [2 1 1]\n\n\n\n3 is in index 2 in the row, 5 is in index 1, and 6 is in index 1, counting across each row starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#standard-normal-distribution",
+    "href": "numpy.html#standard-normal-distribution",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "10.1 Standard Normal Distribution",
+    "text": "10.1 Standard Normal Distribution\n\nGenerating random numbers from a standard normal distribution (mean=0, std=1).\n\n\n# Generating random values from the standard normal distribution\nrandom_values = np.random.standard_normal(5)\nprint(\"Random Standard Normal Values:\", random_values)\n\nRandom Standard Normal Values: [-0.18006658  1.10806377 -0.47246597 -0.80820457  1.73849534]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.uniform",
+    "href": "numpy.html#np.random.uniform",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "10.2 np.random.uniform",
+    "text": "10.2 np.random.uniform\n\nIn hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.\n\n\n# Generate a random starting point for the hill climbing algorithm\nrandom_start = np.random.uniform(low=-10, high=10, size=5)\nprint(f\"Random start: {random_start}\")\n\nRandom start: [-3.94782905  2.1301365   3.00755039 -7.85677001  3.93743072]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.randint",
+    "href": "numpy.html#np.random.randint",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "10.3 np.random.randint",
+    "text": "10.3 np.random.randint\n\nnp.random.randint(low, high=None, size=None, dtype=int)\n\nlow: The lower boundary of the random integers (inclusive).\nhigh: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\nsize: The shape of the output array (optional). If not provided, a single integer is returned.\ndtype: The desired data type of the output array, by default int.\n\n\n\n# Generate 5 random integers between 10 and 20\nrandom_integers = np.random.randint(10, 20, size=5)\nprint(random_integers)\n\n[12 16 11 18 16]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.randint-from-simulated-annealing",
+    "href": "numpy.html#np.random.randint-from-simulated-annealing",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "10.4 np.random.randint from Simulated Annealing",
+    "text": "10.4 np.random.randint from Simulated Annealing\n\nThis function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or “transition”) to the current solution.\n\nThe function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).\nt = sol.copy(): A copy of the solution sol is made, named t. This is important because we don’t want to modify the original solution directly; instead, we work on the copy t.\ni = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.\nt[i] ^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.\nreturn t: After flipping one bit, the modified solution t is returned.\n\n\n\n# Transition function (T)\ndef transit(sol):\n    new_sol = sol.copy()\n    index = np.random.randint(len(sol))\n    new_sol[index] = 1 - new_sol[index]  # Flip a random bit\n    return new_sol",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#comparing-model-clock-time-withwithout-numpy",
+    "href": "numpy.html#comparing-model-clock-time-withwithout-numpy",
+    "title": "3  Python for Heuristics & NumPy",
+    "section": "13.1 Comparing Model Clock Time With/Without NumPy",
+    "text": "13.1 Comparing Model Clock Time With/Without NumPy\n\n13.1.1 Without Numpy\n\nimport random\nfrom math import exp, sqrt\nimport time \n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\nvalues = []  \n\n# Start tracking wall time and CPU time\nstart_wall_time = time.time()\nstart_cpu_time = time.process_time()\n\nfor _ in range(1000000):  \n     ST = S0 * exp((r - 0.5 * sigma ** 2) * T +\n        sigma * random.gauss(0, 1) * sqrt(T))  \n     values.append(ST)  \n\n# End tracking wall time and CPU time\nend_wall_time = time.time()\nend_cpu_time = time.process_time()\n\n# Calculate time differences\nwall_time = end_wall_time - start_wall_time\ncpu_time = end_cpu_time - start_cpu_time\n\n# Print timing information\nprint(f\"CPU times: {cpu_time:.2f} s (user and sys combined)\")\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nCPU times: 0.39 s (user and sys combined)\nWall time: 0.67 s\n\n\n\n\n13.1.2 With Numpy\n\nimport numpy as np\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\n# Start tracking wall time and CPU time\nstart_wall_time = time.time()\nstart_cpu_time = time.process_time()\n\nST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +\n    sigma * np.random.standard_normal(1000000) * np.sqrt(T))\n\n# End tracking wall time and CPU time\nend_wall_time = time.time()\nend_cpu_time = time.process_time()\n\n# Calculate time differences\nwall_time = end_wall_time - start_wall_time\ncpu_time = end_cpu_time - start_cpu_time\n\n# Print timing information\nprint(f\"CPU times: {cpu_time:.2f} s (user and sys combined)\")\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nCPU times: 0.02 s (user and sys combined)\nWall time: 0.02 s",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  }
+]

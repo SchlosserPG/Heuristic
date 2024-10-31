@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Heuristic Modelling"
+  author: "Pamela Schlosser"
+  date: "5/17/2024"
+  chapters:
+    - index.qmd
+    - algo.qmd
+    - numpy.qmd
+    - greedy.qmd
+    - benchmark.qmd
+    - es.qmd
+    - hc.qmd
+    - sa.qmd
+    - ga.qmd
+    - summary.qmd
+    - references.qmd
+
+
+format:
+  html:
+    css: styles.css
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+
+
