@@ -23,7 +23,9 @@ runtime: python
 **Handbook of Metaheuristic Algorithms**\
 Authors: Chun-Wei Tsai & Ming-Chao Chiang\
 Publisher: Academic Press\
-- Access the book free through O’Reilly’s website with school credentials. - Python code is available on the [author’s GitHub](https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python).
+
+- Access the book free through O’Reilly’s website with school credentials. 
+- Python code is available on the [author’s GitHub](https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python).
 
 ------------------------------------------------------------------------
 
@@ -44,7 +46,9 @@ Publisher: Academic Press\
 
 -   Distinct from most supervised learning algorithms that need labeled data to learn and construct determination models, metaheuristic algorithms inherit characteristics of unsupervised learning algorithms used for solving complex engineering optimization problems without labeled data, just like self-learning, to find solutions to complex problems.
 
--   Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation.
+-   Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation. 
+* We will not cover the dept of knowledge in the book, and instead, just get a taste for metaheuristics. We will focus on process and how to adapt and make the right decisions given the problem type. 
+* We will also review Optimization, which is a lead into Heuristic Modelling. 
 
 ------------------------------------------------------------------------
 

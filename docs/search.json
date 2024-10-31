@@ -154,7 +154,7 @@
     "href": "index.html#required-book",
     "title": "Heuristic Modelling",
     "section": "Required Book",
-    "text": "Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n- Access the book free through O’Reilly’s website with school credentials. - Python code is available on the author’s GitHub.",
+    "text": "Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n\n\nAccess the book free through O’Reilly’s website with school credentials.\nPython code is available on the author’s GitHub.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
     ]
