@@ -30,6 +30,8 @@ ul, ol{font-size:1.0 em;}
 ul li{margin-left:15px;}
 ul li li, ol li li {color:#5B6770;list-style-type: circle;}
 
+
+
 #header{display:block; font-size:1.2em}
 .author, .date{display:none;}
 img{    display:block;
@@ -79,3 +81,8 @@ p.caption{text-align: center;font-size:.7em;}
 a {color:#3E3E3E;}
 
 figcaption{text-align: center}
+
+.toc ol, .toc ul {
+    list-style: none;
+    padding-left: 0;
+}

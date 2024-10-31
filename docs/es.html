@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pamela Schlosser">
 
-<title>6&nbsp; About – Heuristic Modelling</title>
+<title>Exhaustive Search – Heuristic Modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -82,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./es.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./es.html"><span class="chapter-title">Exhaustive Search</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,68 +173,57 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Heuristic Algorithms</span></span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction to Heuristic Algorithms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./algo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Algorithm Design and Pseudocode</span></span></a>
+  <a href="./algo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Algorithm Design and Pseudocode</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for Heuristics &amp; NumPy</span></span></a>
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Python for Heuristics &amp; NumPy</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./greedy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Greedy Algorithms</span></span></a>
+  <a href="./greedy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction to Greedy Algorithms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./benchmark.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></span></a>
+  <a href="./benchmark.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benchmark Optimization Problems</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./es.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  <a href="./es.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Exhaustive Search</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  <a href="./hc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  <a href="./sa.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ga.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  <a href="./ga.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Recommended Further Reading Materials</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recommended Further Reading Materials</span></a>
   </div>
 </li>
     </ul>
@@ -178,21 +231,53 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#exhaustive-search" id="toc-exhaustive-search" class="nav-link active" data-scroll-target="#exhaustive-search">Exhaustive Search</a>
+  <ul class="collapse">
+  <li><a href="#advantages-and-disadvantages-of-es" id="toc-advantages-and-disadvantages-of-es" class="nav-link" data-scroll-target="#advantages-and-disadvantages-of-es">Advantages and Disadvantages of ES</a>
+  <ul class="collapse">
+  <li><a href="#exhaustive-search-algorithm" id="toc-exhaustive-search-algorithm" class="nav-link" data-scroll-target="#exhaustive-search-algorithm">Exhaustive Search Algorithm</a></li>
+  </ul></li>
+  <li><a href="#the-search-strategy-of-es" id="toc-the-search-strategy-of-es" class="nav-link" data-scroll-target="#the-search-strategy-of-es">The Search Strategy of ES</a></li>
+  </ul></li>
+  <li><a href="#knapsack-problem-example-of-es" id="toc-knapsack-problem-example-of-es" class="nav-link" data-scroll-target="#knapsack-problem-example-of-es">Knapsack Problem Example of ES</a></li>
+  <li><a href="#es-with-a-one-max-problem" id="toc-es-with-a-one-max-problem" class="nav-link" data-scroll-target="#es-with-a-one-max-problem">ES with a One Max Problem</a>
+  <ul class="collapse">
+  <li><a href="#algorithmic-steps-of-es" id="toc-algorithmic-steps-of-es" class="nav-link" data-scroll-target="#algorithmic-steps-of-es">Algorithmic Steps of ES</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">Imports</a></li>
+  <li><a href="#run_exhaustive_search-function" id="toc-run_exhaustive_search-function" class="nav-link" data-scroll-target="#run_exhaustive_search-function">run_exhaustive_search function</a></li>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions">Helper Functions</a></li>
+  <li><a href="#main-loop" id="toc-main-loop" class="nav-link" data-scroll-target="#main-loop">Main Loop</a></li>
+  <li><a href="#main-execution" id="toc-main-execution" class="nav-link" data-scroll-target="#main-execution">Main Execution</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  </ul></li>
+  <li><a href="#ackley-function-with-es" id="toc-ackley-function-with-es" class="nav-link" data-scroll-target="#ackley-function-with-es">Ackley Function with ES</a></li>
+  <li><a href="#comparing-one-max-to-ackley" id="toc-comparing-one-max-to-ackley" class="nav-link" data-scroll-target="#comparing-one-max-to-ackley">Comparing One Max to Ackley</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">About</span></h1>
+<h1 class="title"><span class="chapter-title">Exhaustive Search</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pamela Schlosser </p>
+          </div>
+  </div>
     
   
     
@@ -203,9 +288,443 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="exhaustive-search" class="level1">
+<h1>Exhaustive Search</h1>
+<ul>
+<li>Exhaustive Search (also known as brute-force search) is a problem-solving technique that systematically enumerates all possible solutions to find the best one.</li>
+<li>It evaluates every potential solution against the objective function and selects the optimal one.</li>
+<li>When to use: When the problem size is small and when optimality is critical and computation time is feasible.</li>
+<li>Limitations: Computationally expensive. Not feasible for large problem spaces due to exponential time complexity.</li>
+</ul>
+<section id="advantages-and-disadvantages-of-es" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-and-disadvantages-of-es">Advantages and Disadvantages of ES</h2>
+<ul>
+<li>Advantages:
+<ul>
+<li>Guaranteed Optimal Solution: Finds the best possible solution, ensuring optimality.</li>
+<li>Simplicity: Easy to understand and implement for small-scale problems.</li>
+</ul></li>
+<li>Disadvantages:
+<ul>
+<li>Scalability Issues: Infeasible for large datasets due to exponential time complexity.</li>
+<li>Resource Intensive: High computational cost in terms of time and memory.</li>
+</ul></li>
+</ul>
+<section id="exhaustive-search-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="exhaustive-search-algorithm">Exhaustive Search Algorithm</h3>
+<ul>
+<li>Check all the candidate solutions in the solution space of the problem in question; therefore, it is always capable of finding the best solution for the problem in question.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/es.png" title="Exhaustive Search Algorithm" class="img-fluid figure-img"></p>
+<figcaption>es algorithm</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="the-search-strategy-of-es" class="level2">
+<h2 class="anchored" data-anchor-id="the-search-strategy-of-es">The Search Strategy of ES</h2>
+<div id="f5b3e896" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="es_files/figure-html/cell-2-output-1.png" width="949" height="372" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="knapsack-problem-example-of-es" class="level1">
+<h1>Knapsack Problem Example of ES</h1>
+<ul>
+<li>Finding Optimal Subset of Items to Max Value in Knapsack Problem using Exhaustive Search</li>
+</ul>
+<div id="3154ff34" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the items and maximum weight</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> [</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"weight"</span>: <span class="dv">3</span>, <span class="st">"value"</span>: <span class="dv">4</span>},  <span class="co"># Item 1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"weight"</span>: <span class="dv">4</span>, <span class="st">"value"</span>: <span class="dv">5</span>},  <span class="co"># Item 2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"weight"</span>: <span class="dv">7</span>, <span class="st">"value"</span>: <span class="dv">10</span>}  <span class="co"># Item 3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>max_weight <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Exhaustive search function with while loop to solve the knapsack problem</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> knapsack_exhaustive_while(items, max_weight):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    best_value <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    best_combination <span class="op">=</span> []</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> r <span class="op">&lt;=</span> <span class="bu">len</span>(items):  <span class="co"># Iterating over different combination sizes</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        combos <span class="op">=</span> <span class="bu">list</span>(combinations(items, r))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(combos):  <span class="co"># Iterating over each combination</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            combo <span class="op">=</span> combos[i]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            weight <span class="op">=</span> <span class="bu">sum</span>(item[<span class="st">'weight'</span>] <span class="cf">for</span> item <span class="kw">in</span> combo)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> <span class="bu">sum</span>(item[<span class="st">'value'</span>] <span class="cf">for</span> item <span class="kw">in</span> combo)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> weight <span class="op">&lt;=</span> max_weight <span class="kw">and</span> value <span class="op">&gt;</span> best_value:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                best_value <span class="op">=</span> value</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                best_combination <span class="op">=</span> combo</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Moving to the next combination</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        r <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increasing the size of combinations to check</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_value, best_combination</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the exhaustive search knapsack algorithm</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>best_value, best_combination <span class="op">=</span> knapsack_exhaustive_while(items, max_weight)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_results(best_value, best_combination):</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Optimal items selected:"</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> best_combination:</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Item with weight: </span><span class="sc">{</span>item[<span class="st">'weight'</span>]<span class="sc">}</span><span class="ss"> and value: </span><span class="sc">{</span>item[<span class="st">'value'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total Value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>print_results(best_value, best_combination)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal items selected:
+Item with weight: 3 and value: 4
+Item with weight: 7 and value: 10
+Total Value: 14</code></pre>
+</div>
+</div>
+<ul>
+<li>Step 1: Calculate Ratios
+<ul>
+<li><span class="math inline">\(wv1 = 4/3 = 1.333\)</span></li>
+<li><span class="math inline">\(wv2 = 5/4 = 1.25\)</span></li>
+<li><span class="math inline">\(wv3 = 10/7 = 1.428571\)</span></li>
+</ul></li>
+<li>Step 2: Order by Ratio (High to Low)
+<ul>
+<li><span class="math inline">\(wv3\)</span> at <span class="math inline">\(1.43\)</span></li>
+<li><span class="math inline">\(wv1\)</span> at <span class="math inline">\(1.333\)</span></li>
+<li><span class="math inline">\(wv2\)</span> at <span class="math inline">\(1.25\)</span></li>
+</ul></li>
+<li>Step 3: Fill the Sack
+<ul>
+<li>Add {7:10 and then 3:4} filled to 10 weight</li>
+<li>Optimal items: ({‘weight’: 3, ‘value’: 4}, {‘weight’: 7, ‘value’: 10}), Total Value: 14</li>
+</ul></li>
+</ul>
+</section>
+<section id="es-with-a-one-max-problem" class="level1">
+<h1>ES with a One Max Problem</h1>
+<section id="algorithmic-steps-of-es" class="level2">
+<h2 class="anchored" data-anchor-id="algorithmic-steps-of-es">Algorithmic Steps of ES</h2>
+<ul>
+<li><p>For each binary solution (up to num_bits length), the code evaluates the number of 1’s in its binary representation (which is used as the “fitness” value).</p></li>
+<li><p>It then finds the solution with the highest number of 1’s (the one with the most bits set to 1).</p></li>
+<li><p>Import necessary tools: time for timing and matplotlib for plotting results.</p></li>
+<li><p>Set up run function</p>
+<ul>
+<li>Loop through all possible solutions.</li>
+<li>Evaluate each one and track its fitness.</li>
+<li>Update the best solution as needed.</li>
+<li>Return the best solution and fitness progress.</li>
+</ul></li>
+<li><p>Define helper functions:</p>
+<ul>
+<li>Transit: Move to the next solution.</li>
+<li>Evaluate: Count the number of 1s in the binary version of the solution (higher is better).</li>
+<li>Determine: Compare fitness in order to track the best solution found so far.</li>
+</ul></li>
+</ul>
+</section>
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">Imports</h2>
+<div id="3c46e52d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="run_exhaustive_search-function" class="level2">
+<h2 class="anchored" data-anchor-id="run_exhaustive_search-function">run_exhaustive_search function</h2>
+<ul>
+<li>run_exhaustive_search(num_bits):</li>
+<li>Calculates the total number of possible solutions max_sol is the maximum possible solution, which is <span class="math inline">\(2^{numbits}\)</span>. <span class="math inline">\(2 ** numbits\)</span>: This correctly represents the total number of possible combinations when you have numbits binary bits. For example, if numbits = 3, the possible solutions range from <span class="math inline">\(000 (0)\)</span> to <span class="math inline">\(111 (7)\)</span>, resulting in <span class="math inline">\(2^3=8\)</span> solutions.</li>
+<li>Initializes <span class="math inline">\(s\)</span> is the current solution, initially set to 0.</li>
+<li>Initializes <span class="math inline">\(best_fitness\)</span> and <span class="math inline">\(best_solution\)</span> to track the best results.</li>
+<li>Initializes an empty list <span class="math inline">\(fitness_over_time\)</span> to track the fitness at each step.</li>
+</ul>
+<div id="85a863ad" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for initialization (I)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_es(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    max_sol <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> num_bits  <span class="co"># Total number of solutions</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Step 1: Set the initial solution s = (0)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    f_s <span class="op">=</span> evaluate(s)  <span class="co"># Step 2: Evaluate initial solution</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s, f_s, max_sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="helper-functions" class="level2">
+<h2 class="anchored" data-anchor-id="helper-functions">Helper Functions</h2>
+<p>transit(s): Simply increments the current solution by 1.</p>
+<div id="e9b35c7d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for transit (T)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(s):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>evaluate(s): Evaluates the “fitness” of the solution by counting how many 1’s are present in its binary representation. The more 1’s, the better the solution.</li>
+</ul>
+<div id="c9a76ea1" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for evaluation (E)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(s):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bin</span>(s).count(<span class="st">"1"</span>)  <span class="co"># Counts the number of 1s in the binary representation of s</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>determine(fv, v, fs, s): This method checks whether the fitness of the new solution (fv) is greater than the current best fitness (fs). If so, it updates the current best solution and fitness.</li>
+</ul>
+<div id="9febe2cf" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for determine (D)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(fv, v, fs, s):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> fv <span class="op">&gt;</span> fs:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        fs, s <span class="op">=</span> fv, v</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fs, s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="main-loop" class="level2">
+<h2 class="anchored" data-anchor-id="main-loop">Main Loop</h2>
+<ul>
+<li>A while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.
+<ul>
+<li>fitness is the “fitness” score of the current solution, calculated using evaluate(s) (which counts the number of 1’s in the binary representation of s).</li>
+<li>The loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.</li>
+</ul></li>
+<li>Appends the fitness value to fitness_over_time.
+<ul>
+<li>determine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.</li>
+</ul></li>
+<li>If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.
+<ul>
+<li>For each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).</li>
+</ul></li>
+<li>Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.</li>
+</ul>
+<div id="cbe49afd" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run function for exhaustive search</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_exhaustive_search(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize using init_es</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    s, f_s, max_sol <span class="op">=</span> init_es(num_bits)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Set v = s</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    best_solution <span class="op">=</span> s</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    best_fitness <span class="op">=</span> f_s</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    fitness_over_time <span class="op">=</span> []</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># While the termination criterion is not met</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> s <span class="op">&lt;</span> max_sol:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Generate the next solution v = GenNext(v)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> s</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Evaluate the new solution</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        f_v <span class="op">=</span> evaluate(v)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Track fitness over time for plotting</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        fitness_over_time.append(f_v)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print current solution and its fitness: Print command commented out for simplicity because it prints all the comparisons. </span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"{f_v} # {v:0{num_bits}b}")</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">#If f_v is better than f_s, update s = v, f_s = f_v</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f_v <span class="op">&gt;</span> f_s:</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            best_solution <span class="op">=</span> v</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            best_fitness <span class="op">=</span> f_v</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">#continued: Move to the next solution</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        s <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment solution</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Returned for Output the best solution</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fitness_over_time, best_solution</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="main-execution" class="level2">
+<h2 class="anchored" data-anchor-id="main-execution">Main Execution</h2>
+<ul>
+<li>In exhaustive search, the “main execution” often focuses on setting the number of bits because exhaustive search involves systematically evaluating all possible solutions in the search space. When the solutions are represented as binary strings, the number of bits directly determines the size of the search space.</li>
+<li>Why it matters:
+<ul>
+<li>Defining the Search Space: The number of bits defines how many unique binary strings (or configurations) are possible. For <span class="math inline">\(2^n\)</span> possible combinations. So, by setting the number of bits, you are effectively defining the boundaries of the search space.</li>
+<li>Enumerating All Possibilities: In exhaustive search, the algorithm needs to evaluate every possible configuration to ensure the optimal solution is found. Each unique binary string corresponds to a specific candidate solution, so having the number of bits set enables the algorithm to enumerate all possible configurations.</li>
+<li>Computational Complexity: The number of bits directly affects the computational complexity of exhaustive search. With <span class="math inline">\(n\)</span> bits, the search space grows exponentially, which is manageable for small <span class="math inline">\(n\)</span> but quickly becomes infeasible for larger <span class="math inline">\(n\)</span>. By controlling the number of bits, you also control the practical feasibility of the exhaustive search.</li>
+</ul></li>
+</ul>
+<p>Simplicity: Since exhaustive search doesn’t involve complex heuristics or probabilistic methods, setting the number of bits becomes the main task. The rest of the algorithm is straightforward: generate each binary string, evaluate its objective value, and keep track of the best solution.</p>
+<div id="aef6c176" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span>  <span class="co"># You can adjust the number of bits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div id="e6928428" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the exhaustive search and get fitness values</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fitness_over_time, best_solution <span class="op">=</span> run_exhaustive_search(num_bits)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time  <span class="co"># Calculate elapsed time</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Exhaustive Search One-Max Time elapsed: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)  <span class="co"># Print the elapsed time</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"# name of the search algorithm: Exhaustive Search"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"# number of bits: </span><span class="sc">{</span>num_bits<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the evolution of fitness over time</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.plot(fitness_over_time, label<span class="op">=</span><span class="st">'Fitness over time'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Exhaustive Search: Fitness Evolution (</span><span class="sc">{</span>num_bits<span class="sc">}</span><span class="ss"> bits)'</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Evaluations'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fitness (Number of 1s)'</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Exhaustive Search One-Max Time elapsed: 0.001001 seconds
+# name of the search algorithm: Exhaustive Search
+# number of bits: 10</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="es_files/figure-html/cell-11-output-2.png" width="808" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ackley-function-with-es" class="level1">
+<h1>Ackley Function with ES</h1>
+<ul>
+<li>Using exhaustive search with the Ackley function guarantees finding the global minimum because this method systematically evaluates every possible solution within a specified range, leaving no part of the search space unexplored. The Ackley function, known for its complex landscape with multiple local minima, has a known global minimum at zero when all inputs are zero, so an exhaustive search will eventually locate it by checking all candidate solutions.</li>
+<li>However, the drawback of exhaustive search is its high computational cost, especially in higher-dimensional spaces. The Ackley function’s input space grows exponentially with each additional dimension, making exhaustive search impractical beyond small problem sizes or low-dimensional cases. The method becomes computationally prohibitive because it must evaluate every point, which leads to a “combinatorial explosion” of possible solutions. This results in high time complexity and resource demands, making exhaustive search impractical for high-dimensional optimization tasks.</li>
+<li>In optimization, a 1D Ackley function is easier to model and solve than a 2D or 3D Ackley function primarily because of the exponential increase in the number of evaluations required as dimensionality rises. In 2D, the search space grows in a quadratic manner, meaning that an exhaustive search requires far fewer evaluations to cover the entire space, making it feasible to locate the global minimum with reasonable computational effort.</li>
+<li>When moving to 3D, however, the search space expands cubically. This additional dimension leads to a significant increase in the number of possible solution points, escalating the computational cost and making exhaustive search much less practical. In optimization, this curse of dimensionality complicates modeling since the function’s landscape becomes more intricate with each added dimension, and finding the global minimum among many potential local minima becomes increasingly challenging. Consequently, optimization techniques that are efficient in 2D may become impractically slow or require adaptation in 3D and beyond.</li>
+<li>The example below simplifies the Ackley function into 1D.</li>
+</ul>
+<div id="9190c0e6" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Ackley Function with Exhaustive Search</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function definition</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(x):</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.array(x)  </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(np.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> n))</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(np.<span class="bu">sum</span>(np.cos(c <span class="op">*</span> x)) <span class="op">/</span> n)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.exp(<span class="dv">1</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_es(search_range, step_size<span class="op">=</span><span class="fl">0.1</span>):</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Initial solution</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    f_s <span class="op">=</span> ackley([s])  <span class="co"># Evaluate initial solution</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    x_values <span class="op">=</span> np.arange(search_range[<span class="dv">0</span>], search_range[<span class="dv">1</span>], step_size)  <span class="co"># Create the search space</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s, f_s, x_values</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> T(s, idx, x_values):</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_values[idx]  <span class="co"># Move to the next solution</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E)</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> E(v):</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ackley([v])  <span class="co"># Evaluate the current solution</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function (D)</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> D(f_v, v, f_s, s):</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> f_v <span class="op">&lt;</span> f_s:  <span class="co"># If new solution is better, update</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> v</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        f_s <span class="op">=</span> f_v</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s, f_s</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Exhaustive search function</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exhaustive_search(search_range, step_size<span class="op">=</span><span class="fl">0.1</span>):</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize using init_es</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    s, f_s, x_values <span class="op">=</span> init_es(search_range, step_size)</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># While the termination criterion is not met</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> idx <span class="op">&lt;</span> <span class="bu">len</span>(x_values):</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Generate the next solution v using transition (T)</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> T(s, idx, x_values)   </span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Evaluate the new solution</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>        f_v <span class="op">=</span> E(v)  </span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Determine if the new solution is better</span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>        s, f_s <span class="op">=</span> D(f_v, v, f_s, s)</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Move to the next solution</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the best solution found</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s, f_s, x_values</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Main Execution</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform exhaustive search with the Ackley function over the range [-10, 10]</span></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>optimal_x_exhaustive, optimal_value_exhaustive, x_values <span class="op">=</span> exhaustive_search((<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time  <span class="co"># Calculate elapsed time</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal x: </span><span class="sc">{</span>optimal_x_exhaustive<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>optimal_value_exhaustive<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Exhaustive Search Ackley Function Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and exhaustive search results</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> [ackley([x]) <span class="cf">for</span> x <span class="kw">in</span> x_values]</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values, label<span class="op">=</span><span class="st">"Ackley Function"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>plt.scatter([optimal_x_exhaustive], [optimal_value_exhaustive], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Optimal Point (Exhaustive Search)'</span>)</span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Ackley Function in 1D with Exhaustive Search"</span>)</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"f(x)"</span>)</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal x: 0
+Optimal value: 4.440892098500626e-16
+Exhaustive Search Ackley Function Execution time: 0.002001 seconds</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="es_files/figure-html/cell-12-output-2.png" width="597" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Overall, the output confirms the accuracy and efficiency of the search in this specific case, identifying the minimum accurately in a very short time.</li>
+<li>Optimal x: The search identified <span class="math inline">\(x=0\)</span> as the value that minimizes the Ackley function at 0. Since the Ackley function’s global minimum is known to occur at zero (specifically, at <span class="math inline">\(x=0\)</span> for each input variable), this result confirms the function’s minimum in this search.</li>
+<li>Optimal value: This is the computed minimum value of the Ackley function at <span class="math inline">\(x=0\)</span>. This very small number, so close to zero but slightly above due to computational limitations or floating-point precision. It’s effectively zero for practical purposes, indicating the function reached its theoretical minimum.</li>
+<li>Execution time: 0.002003 seconds – The exhaustive search took just over 2 milliseconds to complete. This quick time suggests that the search was likely performed in a low-dimensional space (such as 1D or 2D), where an exhaustive approach can be executed efficiently. In higher dimensions, exhaustive search would generally take significantly longer due to the exponential increase in the number of points to evaluate.</li>
+</ul>
+</section>
+<section id="comparing-one-max-to-ackley" class="level1">
+<h1>Comparing One Max to Ackley</h1>
+<ul>
+<li>Initialization() Function: In an exhaustive search on the Ackley function, a step size is essential because the Ackley function operates in a continuous space, meaning the variables can take any real value within a defined range. The step size determines the resolution of the search, dictating how closely spaced the evaluation points are. A finer step size means more precise exploration of the function’s landscape, potentially identifying the global minimum more accurately, but at the cost of increased computation. Without a defined step size, exhaustive search would theoretically require an infinite number of evaluations, as there are infinitely many points in a continuous space. In contrast, the One Max problem typically operates in a discrete binary space (e.g., binary strings), where each variable can only take values of 0 or 1. This structure doesn’t require a step size, as all possible solutions are already discrete and finite. Each solution is a unique binary string, and the exhaustive search simply evaluates every possible string without needing to subdivide the space further.</li>
+<li>Transition Function: In the Ackley function, when you define a function like <span class="math inline">\(T(s, idx, x_values)\)</span> and use return x_values[idx], you are treating the search space as a continuous or discretized array of possible values. Here, x_values is typically a list or array containing the potential values for each variable dimension, and idx simply indexes into this array to retrieve a specific value. Since exhaustive search involves systematically testing all possible values in x_values, there’s no need for incremental addition <span class="math inline">\((s += 1)\)</span>; instead, the function directly retrieves the next possible value at a given index, which is common in continuous or multi-valued spaces. In contrast, the One Max problem is a binary optimization problem where the goal is to maximize the sum of binary values (0s and 1s). The search space consists of binary strings rather than a continuous or finely discretized set. Incrementing <span class="math inline">\(s\)</span> (like <span class="math inline">\(s += 1\)</span>) in this context might be used to iterate over binary configurations or to shift values systematically, as each configuration can only be either a 0 or a 1. This incremental approach is necessary in One Max because there is no list of predefined values (like x_values); rather, each binary position in the solution must be systematically altered to generate each possible solution.</li>
+<li>Evaluation() Function: E(v) in the Ackley function evaluates continuous real values for minimization, while bin(s).count(“1”) in the One Max problem evaluates binary integers for maximization. A lower evaluation result from E(v) indicates a better solution in terms of proximity to the global minimum while a higher count of “1”s in bin(s).count(“1”) represents a better solution, as it means the solution is closer to the optimal binary string of all 1s.</li>
+<li>Determine() Function: In one max, we want to maximize. In Ackley, we want to minimize. This affects the determination function: if f_v &lt; f_s (for minimize) vs f_v &gt; f_s (for maximize)</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -631,12 +1150,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./benchmark.html" class="pagination-link" aria-label="Benchmark Optimization Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Benchmark Optimization Problems</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Benchmark Optimization Problems</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./hc.html" class="pagination-link" aria-label="About">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
