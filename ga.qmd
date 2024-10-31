@@ -1,5 +1,8 @@
 ---
-title: "About"
+title: "Genetic Algorithms"
+author: "Pamela Schlosser"
+format: html
+runtime: python
 ---
 
 About this site

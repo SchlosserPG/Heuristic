@@ -1,5 +1,8 @@
 ---
-title: "About"
+title: "Simulated Annealing"
+author: "Pamela Schlosser"
+format: html
+runtime: python
 ---
 
 About this site
