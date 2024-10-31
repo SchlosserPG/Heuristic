@@ -367,7 +367,7 @@ window.Quarto = {
 <ul>
 <li>Import necessary tools: time for timing and matplotlib for plotting results.</li>
 </ul>
-<div id="2abe4d9d" class="cell" data-execution_count="1">
+<div id="23fb0e20" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -375,7 +375,7 @@ window.Quarto = {
 <ul>
 <li>Set num_bits equal to a number (10) in this case.</li>
 </ul>
-<div id="89bf980a" class="cell" data-execution_count="2">
+<div id="fa304af9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span>  <span class="co"># You can adjust the number of bits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="set-up-run-function" class="level2">
@@ -385,7 +385,7 @@ window.Quarto = {
  + Select Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor's fitness is better than the current solution’s fitness, update the current solution to this neighbor.
  + Repeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.
  + Return Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.</code></pre>
-<div id="65ef09fb" class="cell" data-execution_count="3">
+<div id="3aadf15c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run function for hill climbing</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_hc(num_bits<span class="op">=</span><span class="dv">10</span>, max_evals<span class="op">=</span><span class="dv">2</span> <span class="op">**</span> num_bits):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> init_hc(num_bits)  <span class="co"># Initialize random solution</span></span>
@@ -411,7 +411,7 @@ window.Quarto = {
 <ul>
 <li>Initiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).</li>
 </ul>
-<div id="d709cee2" class="cell" data-execution_count="4">
+<div id="5fb9afb7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for initialization (I)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_hc(num_bits):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.randint(<span class="dv">2</span>, size<span class="op">=</span>num_bits, dtype<span class="op">=</span><span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -419,7 +419,7 @@ window.Quarto = {
 <ul>
 <li>Transit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.</li>
 </ul>
-<div id="1fc9c96c" class="cell" data-execution_count="5">
+<div id="89810398" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for transit: (T) </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Flipping a random bit in the solution</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
@@ -431,7 +431,7 @@ window.Quarto = {
 <ul>
 <li>Evaluate: Count the number of 1s in the binary representation of a solution (fitness value).</li>
 </ul>
-<div id="595ba23c" class="cell" data-execution_count="6">
+<div id="bc2c3503" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for evaluation: (E) </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the number of 1s (OneMax problem)</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(sol):</span>
@@ -440,7 +440,7 @@ window.Quarto = {
 <ul>
 <li>Determine: Track and update the current best solution and its fitness as the search progresses.</li>
 </ul>
-<div id="46d8ee78" class="cell" data-execution_count="7">
+<div id="9002a1be" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for determine: (D) </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Decide whether to accept the new solution</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(tmp_sol, tmp_fitness, sol, fitness):</span>
@@ -451,7 +451,7 @@ window.Quarto = {
 <ul>
 <li></li>
 </ul>
-<div id="5a21bb53" class="cell" data-execution_count="8">
+<div id="94ea6c5c" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main Execution</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run hill climbing and get fitness values</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
@@ -462,7 +462,7 @@ window.Quarto = {
 <ul>
 <li></li>
 </ul>
-<div id="48a79215" class="cell" data-execution_count="9">
+<div id="a665b23f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output and visualize</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"# Name of the search algorithm: Hill Climbing"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"# number of bits: </span><span class="sc">{</span>num_bits<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -480,7 +480,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code># Name of the search algorithm: Hill Climbing
 # number of bits: 10
-Time elapsed: 0.006000 seconds</code></pre>
+Time elapsed: 0.004998 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -611,7 +611,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 </ul>
 <section id="load-imports" class="level2">
 <h2 class="anchored" data-anchor-id="load-imports">Load Imports</h2>
-<div id="cc9f662c" class="cell" data-execution_count="10">
+<div id="84da0586" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -624,7 +624,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <li>Function f(x): This is the function we want to optimize.</li>
 <li>In this case, Ackley function with provided formula.</li>
 </ul>
-<div id="d7bcf1c6" class="cell" data-execution_count="11">
+<div id="1e584eff" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function in 1D</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(x):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">20</span></span>
@@ -650,7 +650,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <li>The current solution and its corresponding function value are appended to the history lists (x_history and value_history). These lists will be used later to plot the progress of the algorithm.</li>
 <li>Finally, we return the results.</li>
 </ul>
-<div id="88f54e0e" class="cell" data-execution_count="12">
+<div id="b2cc9cb2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main hill climbing loop for Ackley function in 1D</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hill_climbing_ackley(start_x, max_iters<span class="op">=</span><span class="dv">100</span>, step_size<span class="op">=</span><span class="fl">0.1</span>):</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    current_x <span class="op">=</span> start_x</span>
@@ -680,7 +680,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <ul>
 <li>Initialize: This function initializes the hill climbing process by selecting a random starting point (start_x) within the given range [-10, 10]. This represents the initial solution that hill climbing will start with.</li>
 </ul>
-<div id="482e136f" class="cell" data-execution_count="13">
+<div id="7e9c8cd6" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">5042</span>) <span class="co">##for consistency</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -690,7 +690,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <ul>
 <li>Transition: This function generates two new candidate solutions by taking small steps (of size 0.1) to the left and right of the current solution (current_x). These represent possible transitions to neighboring points in the search space.</li>
 </ul>
-<div id="a0c55e32" class="cell" data-execution_count="14">
+<div id="50004067" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(current_x, step_size<span class="op">=</span><span class="fl">0.1</span>):</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> current_x <span class="op">-</span> step_size, current_x <span class="op">+</span> step_size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -698,7 +698,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <ul>
 <li>Evaluation: This function evaluates the fitness of a solution (sol) using the Ackley function. The goal of the hill climbing algorithm is to minimize this value. The Ackley function is typically used for testing optimization algorithms due to its complex landscape with many local minima.</li>
 </ul>
-<div id="54108044" class="cell" data-execution_count="15">
+<div id="f0be135f" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E) to evaluate fitness (Ackley value in this case)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(sol):</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ackley([sol])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -706,7 +706,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <ul>
 <li>Determination: This function compares the current solution’s value (current_value) with the value of a new candidate solution (new_value). If the new solution is better (i.e., has a lower Ackley value), it becomes the new current solution. Otherwise, the current solution is retained.</li>
 </ul>
-<div id="a0785c6d" class="cell" data-execution_count="16">
+<div id="2f8cdf92" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination (D)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to decide whether to accept the new solution</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(new_value, current_value, new_x, current_x):</span>
@@ -718,7 +718,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <ul>
 <li>The process starts by initializing start_x using the Initialization function (init_hc). The main function (hill_climbing_ackley) then runs for a fixed number of iterations (100 by default) using Transition to generate candidate solutions, Evaluation to evaluate them, and Determination to decide whetherr to accept a new solution.</li>
 </ul>
-<div id="67b4dc96" class="cell" data-execution_count="17">
+<div id="fb71ec3e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>start_x <span class="op">=</span> init_hc()</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
@@ -733,7 +733,7 @@ Time elapsed: 0.006000 seconds</code></pre>
 <li>The first part prints the optimal solution found (optimal_x), the corresponding function value (optimal_value), and the total time taken for the execution.</li>
 <li>The second part plots the Ackley function over the range [-10, 10] and overlays the hill climbing progress. The points in red represent the steps taken by the hill climbing algorithm as it navigates through the search space.</li>
 </ul>
-<div id="b763e0e9" class="cell" data-execution_count="18">
+<div id="ef953aca" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal x: </span><span class="sc">{</span>optimal_x<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>optimal_value<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -753,9 +753,9 @@ Time elapsed: 0.006000 seconds</code></pre>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal x: -1.9540861243637586
-Optimal value: 6.579965402959338
-Execution time: 0.002998 seconds</code></pre>
+<pre><code>Optimal x: 8.99317596210896
+Optimal value: 16.692004260704998
+Execution time: 0.003999 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
