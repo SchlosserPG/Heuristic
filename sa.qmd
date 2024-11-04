@@ -24,12 +24,12 @@ More and more studies use “the number of evaluations” to replace “the numb
 ## A Unified Framework for Metaheuristic Algorithms (UFM)
 
 * The appearance of metaheuristic algorithms has come with methods to classify them. These classification methods include: 
-     + (1) nature-inspired vs. non-nature inspired, 
-     + (2) dynamic vs. static objective function, 
-     + (3) one vs. various neighborhood structures, 
-     + (4) memory usage vs. memoryless methods, 
-     + (5) with vs. without local search method, and 
-     + (6) population-based vs. single-solution-based search.
+(1) nature-inspired vs. non-nature inspired, 
+(2) dynamic vs. static objective function, 
+(3) one vs. various neighborhood structures, 
+(4) memory usage vs. memoryless methods, 
+(5) with vs. without local search method, and 
+(6) population-based vs. single-solution-based search.
 
 ## UFM 5 Main Operators
 1. Initialization (I): The initialization operator normally plays the roles of reading the input file (e.g., dataset), initializing all the parameters of a metaheuristic algorithm, and determining the initial solutions, which is normally based on a random process.
