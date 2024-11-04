@@ -260,7 +260,7 @@ def select(curr_pop, curr_obj_vals, num_players):
 ```
 
 
-## Transition Function
+## Transition Function (T)
 * Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.
 
 ```{python}
@@ -278,12 +278,12 @@ def crossover(pop, crossover_rate):
     return new_pop
 ```
 
-## Mutation Function
+## Mutation Function (M)
 * Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
 
 
 ```{python}
-# Mutation function (T)
+# Mutation function (M)
 def mutation(pop, mutation_rate):
     for i in range(len(pop)):
         if np.random.rand() < mutation_rate:
@@ -326,7 +326,7 @@ execution_time = end_time - start_time
 ```
 
 
-## Output
+## Output (O)
 
 ```{python}
 # Output (O)

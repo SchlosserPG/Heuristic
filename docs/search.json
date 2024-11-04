@@ -112,7 +112,7 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "10  Summary",
+    "title": "Summary",
     "section": "",
     "text": "The course presents a structured approach to introducing heuristic algorithms and optimization techniques. Beginning with a broad overview, we highlight the significance of algorithms in diverse industries and introduce foundational heuristic methods, emphasizing their value for complex problem-solving where traditional approaches fall short due to scalability or computational limits: (1Intro), (2Algorithms), (3NumpyBasics).\nThe content progresses through various algorithm types: constructive methods like greedy algorithms, exhaustive search, and iterative improvement approaches, including hill climbing. Key concepts like local optima, plateaus, and ridges are explained alongside examples such as the Knapsack Problem and Traveling Salesman Problem, laying a foundation for understanding optimization challenges and strategies for improving solutions iteratively: (4Greedy); (6ExhaustiveSearch); and (7HillClimbing).\nThe later course material delves into advanced metaheuristic algorithms, specifically Simulated Annealing (SA) and Genetic Algorithms (GA). SA is explained with its cooling schedule and probabilistic acceptance of suboptimal solutions, which help avoid local optima. GA is described through its evolutionary process—selection, crossover, and mutation—illustrating how populations of solutions evolve toward optimality over generations.\nThe advantages and disadvantages of each approach are covered, along with the importance of tuning parameters for effective convergence. This framework not only familiarizes students with the mechanics of each method but also stresses the trade-offs involved, preparing them to apply these techniques to benchmark problems such as the Ackley and OneMax functions: (5BenchmarkProblems); (8-9SimulatedAnnealing); and (10-11GeneticAlgorithms)",
     "crumbs": [
@@ -1394,7 +1394,37 @@
     "href": "ga.html#output",
     "title": "Genetic Algorithms",
     "section": "Output",
-    "text": "Output\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [0.21716131]\nOptimal value: 2.340967333447104\nExecution time for Genetic Algorithm: 0.115002 seconds",
+    "text": "Output\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [0.02026291]\nOptimal value: 0.10279978743276574\nExecution time for Genetic Algorithm: 0.102004 seconds",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#transition-function-t",
+    "href": "ga.html#transition-function-t",
+    "title": "Genetic Algorithms",
+    "section": "Transition Function (T)",
+    "text": "Transition Function (T)\n\nCrossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.\n\n\n# Transition function (T): Cross over and Mutation\n# Crossover function (T)\ndef crossover(pop, crossover_rate):\n    new_pop = pop.copy()\n    for i in range(0, len(pop) - 1, 2):\n        if np.random.rand() &lt; crossover_rate:\n            crossover_point = np.random.randint(1)\n            new_pop[i, crossover_point:], new_pop[i + 1, crossover_point:] = (\n                pop[i + 1, crossover_point:], \n                pop[i, crossover_point:]\n            )\n    return new_pop",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#mutation-function-m",
+    "href": "ga.html#mutation-function-m",
+    "title": "Genetic Algorithms",
+    "section": "Mutation Function (M)",
+    "text": "Mutation Function (M)\n\nMutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.\n\n\n# Mutation function (M)\ndef mutation(pop, mutation_rate):\n    for i in range(len(pop)):\n        if np.random.rand() &lt; mutation_rate:\n            pop[i] = np.random.uniform(-10, 10)\n    return pop",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#output-o",
+    "href": "ga.html#output-o",
+    "title": "Genetic Algorithms",
+    "section": "Output (O)",
+    "text": "Output (O)\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [-0.15564561]\nOptimal value: 1.5828342614839745\nExecution time for Genetic Algorithm: 0.105998 seconds",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
