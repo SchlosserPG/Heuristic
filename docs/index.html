@@ -335,7 +335,7 @@ Publisher: Academic Press<br>
 <li><p>This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. <img src="Pictures/tsp1.png" title="TSP" class="img-fluid" alt="TSP Chart"></p></li>
 <li><p>Different paths for a truck driver in the case of four cities.</p></li>
 </ul>
-<div id="1b5f7f7a" class="cell" data-execution_count="1">
+<div id="dee9ddfb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> factorial</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -438,7 +438,38 @@ Publisher: Academic Press<br>
 <section id="a-family-tree-of-metaheuristic-algorithms" class="level1">
 <h1>A family tree of metaheuristic algorithms</h1>
 <ul>
-<li>Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. <img src="Pictures/Tree.png" title="Tree" class="img-fluid" alt="Tree"></li>
+<li><p>Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms.</p></li>
+<li><p>Local Search-Based Metaheuristics</p>
+<ul>
+<li>Aim: Incrementally improve solutions by exploring the neighborhood of the current solution.</li>
+<li>Hill Climbing</li>
+<li>Simulated Annealing: Inspired by the annealing process in metallurgy. Balances exploration (random moves) and exploitation (accepting improvements), with a temperature parameter to control randomness.</li>
+<li>Tabu Search: Uses memory structures to avoid revisiting recently explored solutions.</li>
+</ul></li>
+<li><p>Evolutionary Computation</p>
+<ul>
+<li>Aim: Mimic natural evolutionary processes, working with populations of solutions.</li>
+<li>Genetic Algorithms (GA): Inspired by natural selection, combining selection, crossover, and mutation operators to evolve solutions.</li>
+<li>Differential Evolution: Operates by recombining population members based on differences between solution vectors.</li>
+</ul></li>
+<li><p>Swarm Intelligence</p>
+<ul>
+<li>Ant Colony Optimization (ACO): Mimics the foraging behavior of ants, using pheromone trails to guide the search.</li>
+<li>Cuckoo Search: Inspired by the brood parasitism of cuckoos.</li>
+<li>Particle Swarm Optimization (PSO): Inspired by social behaviors of animals, where individuals adjust their positions based on personal and social information.</li>
+<li>Artificial Bee Colony Algorithm: Based on foraging behavior of bees, balancing local and global search.</li>
+<li>Firefly Algorithm: Inspired by the attraction behavior of fireflies.</li>
+<li>Whale Optimization Algorithm: Mimics the bubble-net feeding behavior of humpback whales.</li>
+</ul></li>
+<li><p>Human Intelligence</p>
+<ul>
+<li>Harmony Search: Mimics the improvisation process of musicians, balancing between memory considerations and random adjustments.</li>
+</ul></li>
+<li><p>Nature-Inspired Algorithms: Inspired by various natural and biological phenomena.</p>
+<ul>
+<li>Artificial Immune System: Models the immune response, maintaining diversity and adapting to threats.</li>
+<li>Flower Pollination Algorithm: The Flower Pollination Algorithm (FPA) is a nature-inspired optimization technique based on the pollination behavior of flowering plants.</li>
+</ul></li>
 </ul>
 </section>
 <section id="a-critical-question" class="level1">

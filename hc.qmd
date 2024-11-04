@@ -36,7 +36,8 @@ runtime: python
 ![hc algo](Pictures/hc3.png "Hill Climbing Algorithm")
 
 ## Challenges of HC
-*Local Maximum: Hill climbing may get stuck at a local maximum, where no neighboring solution improves, but better solutions exist further away.
+
+* Local Maximum: Hill climbing may get stuck at a local maximum, where no neighboring solution improves, but better solutions exist further away.
 * Plateaus: It can struggle on flat regions where no clear direction of improvement is evident.
 * Ridges: Difficulties in navigating narrow ridges that require moving sideways to find a better peak.
 
@@ -61,11 +62,11 @@ num_bits = 10  # You can adjust the number of bits
 ```
 
 ## Set up Run Function
-     + Evaluate the initial solution by counting the number of 1s, which serves as the "fitness" value.
-     + Search for Neighbors: Generate neighboring solutions by flipping one bit at a time in the current solution. For each neighbor, calculate its fitness (number of 1s in its binary representation).
-     + Select Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor's fitness is better than the current solution’s fitness, update the current solution to this neighbor.
-     + Repeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.
-     + Return Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.
+* Evaluate the initial solution by counting the number of 1s, which serves as the "fitness" value.
+* Search for Neighbors: Generate neighboring solutions by flipping one bit at a time in the current solution. For each neighbor, calculate its fitness (number of 1s in its binary representation).
+* Select Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor's fitness is better than the current solution’s fitness, update the current solution to this neighbor.
+* Repeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.
+* Return Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.
 
 ```{python}
 # Run function for hill climbing
@@ -131,7 +132,7 @@ def determine(tmp_sol, tmp_fitness, sol, fitness):
     return sol, fitness  # Keep the current solution
 ```
 
-*
+* The main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.
 
 ```{python}
 # Main Execution
@@ -142,7 +143,7 @@ end_time = time.time()
 execution_time = end_time - start_time  # Calculate elapsed time
 ```
 
-* 
+* The output section displays key details about the hill climbing algorithm, including its name, the number of bits used, and the time taken for execution. It then visualizes the fitness evolution across evaluations, providing a clear plot that shows how fitness values change over time as the algorithm progresses toward the best solution.
 
 ```{python}
 
@@ -162,11 +163,17 @@ plt.legend()
 plt.show()
 ```
 
+* In the chart above, the fitness score, which measures the number of 1s in a 10-bit solution, is shown over a series of evaluations. Initially, the fitness rapidly increases, suggesting that the hill climbing algorithm quickly finds improvements in the solution. Once it reaches the maximum fitness of 10, it stabilizes and remains flat, indicating that the algorithm has found an optimal solution and no further improvements are being made.
+
 ## Comparison of ES and HC for the one-max Problem of size $n=10$
-* HC-LR and HC-Rand to denote the same thing. 
-* The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., $v=s−1$ or $v=s+1$)
-* The solution v of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). 
-Only a better solution will be accepted as the next solution $v$.
+
+* HC-LR and HC-Rand to denote a similar thing. HC-Rand and HC-LR differ primarily in how they choose the next solution and handle exploration, impacting their likelihood of getting stuck in local optima.
+* HC-LR (Hill Climbing with Limited Range): HC-LR’s transition operator restricts it to move only to adjacent solutions, which makes it less flexible. The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., $v=s−1$ or $v=s+1$). As described in the example, if HC-LR starts with the solution "1000," it can only move to "0111" or "1001." If neither of these options provides an improvement, HC-LR is likely to get stuck there, leading to a local optimum. Because HC-LR only accepts moves that improve the solution, it has a high risk of getting trapped in suboptimal points without exploring further.
+* HC-Rand (Hill Climbing with Randomization): HC-Rand randomly selects a part of the current solution to invert, allowing it to explore a broader range of possible next solutions. This random approach reduces the chance of getting stuck in a local optimum since the algorithm has the flexibility to try different options, even if they are not immediately better. HC-Rand’s randomness increases the probability of escaping local optima, thus improving the chances of finding a global optimum.
+     * The solution v of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). The transition operator in the HC-Rand (Hill Climbing with Randomization) algorithm randomly selects a part (subsolution) of the current solution and inverts the chosen bit(s). For a "one-max problem" of a specific size (where the goal is to maximize the number of 1s in the solution), inverting different bits can produce several possible next solutions. 
+     * In the example given, there are four possible new solutions because there are four different bits that could be inverted from the current solution. If inverting one bit doesn’t improve the objective value (e.g., the number of 1s), HC-Rand will consider other options, allowing it to avoid getting stuck in local optima. This random inversion helps HC-Rand explore other solutions, increasing the chances of finding the global maximum (an optimal solution with the highest number of 1s).
+
+* In both cases, only a better solution will be accepted as the next solution $v$.
 
 ![hc search](Pictures/hcRand.png "Comparing Simulation Results")
 
@@ -219,12 +226,12 @@ A move to the right region is a guarantee to find the optimal solution, and a mo
 ![hc search](Pictures/hc9.png "Simulation Results")
 
 ## Deciphering Probability of Switching
-* The landscape of the “solution space” or “search space” of an optimization problem seen by a search can be different when 
+* The landscape of the “solution space” or “search space” of an optimization problem seen by a search can be different when: 
      + different ways are used to represent the solutions or 
      + different ways are used to generate new candidate solutions from current solutions. 
 * The solution space that a search algorithm sees can also be called the “search space.” 
 
-* HC-Rand-M: If we use “>=” instead of “>” in the comparison of the current solution and the possible next solution for solving the BSD-2 problem of sizes n=4 and n=10
+* HC-Rand-M: If we use “>=” instead of “>” in the comparison of the current solution and the possible next solution for solving the BSD-2 problem of sizes n=4 and n=10.
 * The results of HC-Rand-M show that with this modification, HC-Rand will be able to find the optimal solution in most cases.
 
 

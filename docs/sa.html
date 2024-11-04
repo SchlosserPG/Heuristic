@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -168,8 +231,72 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-metaheuristic-algorithm" id="toc-what-is-a-metaheuristic-algorithm" class="nav-link active" data-scroll-target="#what-is-a-metaheuristic-algorithm">What is a Metaheuristic Algorithm?</a>
+  <ul class="collapse">
+  <li><a href="#history-of-metaheuristics" id="toc-history-of-metaheuristics" class="nav-link" data-scroll-target="#history-of-metaheuristics">History of Metaheuristics</a></li>
+  <li><a href="#a-unified-framework-for-metaheuristic-algorithms-ufm" id="toc-a-unified-framework-for-metaheuristic-algorithms-ufm" class="nav-link" data-scroll-target="#a-unified-framework-for-metaheuristic-algorithms-ufm">A Unified Framework for Metaheuristic Algorithms (UFM)</a></li>
+  <li><a href="#ufm-5-main-operators" id="toc-ufm-5-main-operators" class="nav-link" data-scroll-target="#ufm-5-main-operators">UFM 5 Main Operators</a></li>
+  <li><a href="#ufm" id="toc-ufm" class="nav-link" data-scroll-target="#ufm">UFM</a></li>
+  <li><a href="#comparison-between-exhaustive-search-greedy-and-metaheuristic-algorithms" id="toc-comparison-between-exhaustive-search-greedy-and-metaheuristic-algorithms" class="nav-link" data-scroll-target="#comparison-between-exhaustive-search-greedy-and-metaheuristic-algorithms">Comparison between exhaustive search, greedy, and metaheuristic algorithms</a></li>
+  </ul></li>
+  <li><a href="#simulated-annealing-sa" id="toc-simulated-annealing-sa" class="nav-link" data-scroll-target="#simulated-annealing-sa">Simulated Annealing (SA)</a>
+  <ul class="collapse">
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#defining-sa" id="toc-defining-sa" class="nav-link" data-scroll-target="#defining-sa">Defining SA</a></li>
+  <li><a href="#usefulness-of-sa" id="toc-usefulness-of-sa" class="nav-link" data-scroll-target="#usefulness-of-sa">Usefulness of SA</a></li>
+  <li><a href="#tuning-parameters" id="toc-tuning-parameters" class="nav-link" data-scroll-target="#tuning-parameters">Tuning Parameters</a></li>
+  <li><a href="#the-search-strategy-of-sa" id="toc-the-search-strategy-of-sa" class="nav-link" data-scroll-target="#the-search-strategy-of-sa">The Search Strategy of SA</a></li>
+  <li><a href="#sa-algorithm" id="toc-sa-algorithm" class="nav-link" data-scroll-target="#sa-algorithm">SA Algorithm</a></li>
+  <li><a href="#many-versions-of-sa-exist" id="toc-many-versions-of-sa-exist" class="nav-link" data-scroll-target="#many-versions-of-sa-exist">Many Versions of SA Exist</a></li>
+  <li><a href="#advantages-and-disadvantages-of-sa" id="toc-advantages-and-disadvantages-of-sa" class="nav-link" data-scroll-target="#advantages-and-disadvantages-of-sa">Advantages and Disadvantages of SA</a>
+  <ul class="collapse">
+  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
+  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sa-algorithm-1" id="toc-sa-algorithm-1" class="nav-link" data-scroll-target="#sa-algorithm-1">SA Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#examples-of-how-value-can-change" id="toc-examples-of-how-value-can-change" class="nav-link" data-scroll-target="#examples-of-how-value-can-change">Examples of How Value Can Change</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-cases" id="toc-summary-of-cases" class="nav-link" data-scroll-target="#summary-of-cases">Summary of Cases</a></li>
+  </ul></li>
+  <li><a href="#comparing-algorithms" id="toc-comparing-algorithms" class="nav-link" data-scroll-target="#comparing-algorithms">Comparing Algorithms</a>
+  <ul class="collapse">
+  <li><a href="#when-sa-is-more-appropriate" id="toc-when-sa-is-more-appropriate" class="nav-link" data-scroll-target="#when-sa-is-more-appropriate">When SA Is More Appropriate</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#making-a-model-one-max-with-sa" id="toc-making-a-model-one-max-with-sa" class="nav-link" data-scroll-target="#making-a-model-one-max-with-sa">Making a Model: One Max with SA</a>
+  <ul class="collapse">
+  <li><a href="#imports-global-variables" id="toc-imports-global-variables" class="nav-link" data-scroll-target="#imports-global-variables">Imports, Global Variables</a></li>
+  <li><a href="#initialize" id="toc-initialize" class="nav-link" data-scroll-target="#initialize">Initialize</a>
+  <ul class="collapse">
+  <li><a href="#transition-t" id="toc-transition-t" class="nav-link" data-scroll-target="#transition-t">Transition (T)</a></li>
+  <li><a href="#evaluate-e" id="toc-evaluate-e" class="nav-link" data-scroll-target="#evaluate-e">Evaluate (E)</a></li>
+  <li><a href="#determination-d" id="toc-determination-d" class="nav-link" data-scroll-target="#determination-d">Determination (D)</a></li>
+  <li><a href="#run-function" id="toc-run-function" class="nav-link" data-scroll-target="#run-function">Run Function</a></li>
+  <li><a href="#main-execution" id="toc-main-execution" class="nav-link" data-scroll-target="#main-execution">Main Execution</a></li>
+  </ul></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  </ul></li>
+  <li><a href="#sa-with-ackley-function" id="toc-sa-with-ackley-function" class="nav-link" data-scroll-target="#sa-with-ackley-function">SA with Ackley Function</a>
+  <ul class="collapse">
+  <li><a href="#example-results" id="toc-example-results" class="nav-link" data-scroll-target="#example-results">Example Results</a>
+  <ul class="collapse">
+  <li><a href="#comparing-sa-to-hc-with-ackley-function" id="toc-comparing-sa-to-hc-with-ackley-function" class="nav-link" data-scroll-target="#comparing-sa-to-hc-with-ackley-function">Comparing SA to HC with Ackley Function</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#portfolio-diversification-with-sa" id="toc-portfolio-diversification-with-sa" class="nav-link" data-scroll-target="#portfolio-diversification-with-sa">Portfolio Diversification With SA</a>
+  <ul class="collapse">
+  <li><a href="#our-hill-climbing-finance-model-was-better.-why" id="toc-our-hill-climbing-finance-model-was-better.-why" class="nav-link" data-scroll-target="#our-hill-climbing-finance-model-was-better.-why">Our Hill Climbing Finance Model was Better. Why?</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,9 +326,782 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="what-is-a-metaheuristic-algorithm" class="level1">
+<h1>What is a Metaheuristic Algorithm?</h1>
+<ul>
+<li>One of the main attributes of a metaheuristic algorithm is that it performs a certain set of operators for a certain number of iterations to search for the optimal solution with great shrewdness.</li>
+<li>Compared to the Exhaustive Search (ES) and hill climbing (HC) algorithms, a metaheuristic algorithm will neither check all the candidate solutions of a complex optimization problem like ES nor fall into a local optimum at early iterations as easily as HC</li>
+</ul>
+<section id="history-of-metaheuristics" class="level2">
+<h2 class="anchored" data-anchor-id="history-of-metaheuristics">History of Metaheuristics</h2>
+<ul>
+<li>Although the term “metaheuristic” was introduced in the 1980s, several metaheuristic algorithms were actually presented in the 1960s or even earlier.</li>
+<li>The year 1990 can be regarded as the first watershed in the development of metaheuristic algorithms. However, the available computing power may not satisfy the requirements of some complicated metaheuristic algorithms.</li>
+<li>Since the late 1990s, the number of metaheuristic algorithms has exploded. More and more studies use “the number of evaluations” to replace “the number of iterations” for evaluating the performance of a metaheuristic algorithm because each search can be regarded as an investment of computation resource.
+<ul>
+<li>Using the number of evaluations provides a way that is more precise than using the number of iterations to evaluate the effect (improvement or outcome) of adding an additional unit of computation resource for the search</li>
+</ul></li>
+<li>From the year 2010 or even earlier, some groups have attempted to apply metaheuristic algorithms in high-performance computing environments.
+<ul>
+<li>Using distributed or parallel computing systems to accelerate the response time of metaheuristic algorithms is an intuitive approach adopted in some early studies.</li>
+<li>Some of the parallel metaheuristics are not only able to provide the end results to the user more quickly; they also can find better results than metaheuristic algorithms on a single machine because the parallel computing mechanism leads them to increase the search diversity during the convergence process.</li>
+<li>When we look at these distributed and parallel computing environments, the cloud computing platform (e.g., Hadoop, Spark, Microsoft Azure, Amazon EC2, or Google Compute Engine) can now provide an easy way to use a distributed computing system to further reduce the response time of metaheuristics.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-unified-framework-for-metaheuristic-algorithms-ufm" class="level2">
+<h2 class="anchored" data-anchor-id="a-unified-framework-for-metaheuristic-algorithms-ufm">A Unified Framework for Metaheuristic Algorithms (UFM)</h2>
+<ul>
+<li>The appearance of metaheuristic algorithms has come with methods to classify them. These classification methods include:
+<ul>
+<li><ol type="1">
+<li>nature-inspired vs.&nbsp;non-nature inspired,</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>dynamic vs.&nbsp;static objective function,</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>one vs.&nbsp;various neighborhood structures,</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>memory usage vs.&nbsp;memoryless methods,</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>with vs.&nbsp;without local search method, and</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>population-based vs.&nbsp;single-solution-based search.</li>
+</ol></li>
+</ul></li>
+</ul>
+</section>
+<section id="ufm-5-main-operators" class="level2">
+<h2 class="anchored" data-anchor-id="ufm-5-main-operators">UFM 5 Main Operators</h2>
+<ol type="1">
+<li>Initialization (I): The initialization operator normally plays the roles of reading the input file (e.g., dataset), initializing all the parameters of a metaheuristic algorithm, and determining the initial solutions, which is normally based on a random process.</li>
+<li>Transition (T): The transition operator usually plays the role of varying the search directions, such as perturbing a portion of the subsolutions of the current solution to generate a new candidate solution or generating a set of new candidate solutions each based on two or more of the current solutions.</li>
+<li>Evaluation (E): The evaluation operator is responsible for measuring the quality of solutions, such as calculating the objective value of each solution to be used by the determination operator to distinguish the quality of all the solutions. An intuitive way is to use an objective function to measure the quality of a solution for the problem in question. However, some metaheuristics do not use the “objective value” directly to measure their solutions; rather, the objective value of a solution has to undergo some sort of transformation to obtain the so-called “fitness value.”</li>
+<li>Determination (D): The determination operator plays the role of deciding the search directions by using information the evaluation operator provides during the convergence process. The performance of a metaheuristic algorithm depends to a large extent on the performance of this operator. A “good” search strategy for this operator will make it possible for the metaheuristic algorithm to find a better solution faster or to avoid falling into a local optimum at early iterations.</li>
+<li>Output (O): In spite of the fact that this operator seems to be trivial, the reality is that it can be either simple or complex depending on how much information we want to display for the metaheuristic algorithm. It can be as simple as displaying only the final result of the metaheuristic algorithm, or it can be as complex as displaying the trajectory of convergence of the metaheuristic algorithm to better understand the performance of a metaheuristic algorithm</li>
+</ol>
+</section>
+<section id="ufm" class="level2">
+<h2 class="anchored" data-anchor-id="ufm">UFM</h2>
+<ul>
+<li>In this framework, I denotes the input dataset, s denotes the current solution, <span class="math inline">\(\nu\)</span> denotes the candidate solution, <span class="math inline">\(f_s\)</span> denotes the objective value of <span class="math inline">\(s\)</span>, and <span class="math inline">\(f_\nu\)</span> denotes the objective value of <span class="math inline">\(\nu\)</span>. Also, <span class="math inline">\(s\)</span> and <span class="math inline">\(\nu\)</span> can denote either a single solution or a set of solutions, where each solution has <span class="math inline">\(n\)</span> elements or is an <span class="math inline">\(n-tuple\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/UFM.png" title="UFM" class="img-fluid figure-img"></p>
+<figcaption>UFM</figcaption>
+</figure>
+</div>
+</section>
+<section id="comparison-between-exhaustive-search-greedy-and-metaheuristic-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-between-exhaustive-search-greedy-and-metaheuristic-algorithms">Comparison between exhaustive search, greedy, and metaheuristic algorithms</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/compare.png" title="Compare Models" class="img-fluid figure-img"></p>
+<figcaption>Compare Models</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="simulated-annealing-sa" class="level1">
+<h1>Simulated Annealing (SA)</h1>
+<ul>
+<li>A single-solution-based algorithm</li>
+<li>A probabilistic optimization algorithm inspired by the annealing process in metallurgy, where materials are heated and then slowly cooled to reduce defects, thereby optimizing their structural properties.</li>
+<li>In optimization, SA is used to find a good approximation to the global minimum of a function in a large search space, particularly when the search space is discrete or contains multiple local minima.</li>
+<li>The search strategy of SA is to start with a random possible solution in the solution space and then use the Metropolis acceptance criterion to determine whether a worse solution is to be accepted or not.</li>
+<li>To emulate the annealing process for a minimization optimization problem, SA will first calculate the difference between the objective values of the new candidate solution <span class="math inline">\(\nu\)</span> and the current solution <span class="math inline">\(s\)</span> to see whether it will accept the new candidate solution or not, as follows: <span class="math inline">\(\Delta_f^{\text{min}} = f(\nu) - f(s)\)</span></li>
+</ul>
+<section id="key-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-components">Key Components</h2>
+<ul>
+<li>Solution Space:
+<ul>
+<li>This is the space of all possible solutions to the problem.</li>
+</ul></li>
+<li>Objective Function:
+<ul>
+<li>Defines the quality of a solution (usually the cost or energy to minimize).</li>
+<li>For instance, in the Travelling Salesman Problem (TSP), the objective function would be the total distance of the tour.</li>
+</ul></li>
+<li>Temperature:
+<ul>
+<li>This controls the probability of accepting worse solutions.</li>
+<li>Initially, the temperature is high, allowing the algorithm to explore the solution space more freely.</li>
+<li>As the temperature lowers, the algorithm becomes more conservative, accepting only smaller degradations in the objective.</li>
+</ul></li>
+<li>Cooling Schedule:
+<ul>
+<li>This is a function that dictates how the temperature decreases over time (iterations).</li>
+<li>Typically, it follows a geometric decay, where the temperature decreases by a factor on each iteration (e.g., <span class="math inline">\(T = T_0 * \alpha^k\)</span>, where <span class="math inline">\(T_0\)</span> is the initial temperature, alpha is a constant, and <span class="math inline">\(k\)</span> is the iteration number).</li>
+</ul></li>
+</ul>
+</section>
+<section id="defining-sa" class="level2">
+<h2 class="anchored" data-anchor-id="defining-sa">Defining SA</h2>
+<ul>
+<li>An iterative algorithm that explores the solution space of an optimization problem by considering not only improvements to the current solution but also occasional, controlled acceptance of worse solutions. This allows the algorithm to escape local minima and explore a broader range of the search space in search of a global minimum.
+<ul>
+<li>The function <span class="math inline">\(f(x)\)</span> that the algorithm seeks to minimize (or maximize)</li>
+<li>The configuration or state is a point <span class="math inline">\(x\)</span> in the solution space, representing a possible solution to the problem.</li>
+<li>The neighboring states are the set of solutions that are reachable from the current state through small modifications.</li>
+<li>A control parameter temperature <span class="math inline">\(T\)</span>) that regulates the likelihood of accepting worse solutions. It starts high and gradually decreases as the algorithm progresses.</li>
+<li>As <span class="math inline">\(T\)</span> decreases, the probability of accepting worse solutions decreases, making the search more focused on local improvements.</li>
+<li>A cooling schedule includes a function that controls the decrease of the temperature T over time</li>
+</ul></li>
+</ul>
+</section>
+<section id="usefulness-of-sa" class="level2">
+<h2 class="anchored" data-anchor-id="usefulness-of-sa">Usefulness of SA</h2>
+<ul>
+<li>The basic idea of SA is to occasionally accept non-improving solutions, which means that SA will not always move to a better solution.</li>
+<li>Simulated Annealing is widely used in various fields, such as:
+<ul>
+<li>Combinatorial Optimization: Problems like the Traveling Salesman Problem (TSP), scheduling, and circuit design.</li>
+<li>Machine Learning: Hyperparameter optimization, clustering.</li>
+<li>Engineering: Structural design, control systems.</li>
+</ul></li>
+<li>Practical Applications: real-world problems where SA shines: vehicle routing, job scheduling, or portfolio optimization.</li>
+</ul>
+</section>
+<section id="tuning-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-parameters">Tuning Parameters</h2>
+<ul>
+<li>The success of SA heavily depends on the tuning of parameters like the cooling schedule, the initial temperature, and the size of the neighborhood.
+<ul>
+<li>hyperparameter tuning and experimentation.</li>
+</ul></li>
+<li>Comparison to Other Algorithms: To compare SA to algorithms like Genetic Algorithms (GA) or Greedy Heuristics, SA is more appropriate due to its exploration-exploitation trade-off. Where <strong>exploration</strong> (searching the solution space broadly) and <strong>exploitation</strong> (focusing on refining the best solutions found so far).</li>
+</ul>
+</section>
+<section id="the-search-strategy-of-sa" class="level2">
+<h2 class="anchored" data-anchor-id="the-search-strategy-of-sa">The Search Strategy of SA</h2>
+<ul>
+<li>Start with a random possible solution in the solution space and then use the Metropolis acceptance criterion to determine whether a worse solution is to be accepted or not.</li>
+<li>In this example, <span class="math inline">\(t^{\Delta} \quad\)</span> and <span class="math inline">\(\quad t^{\nabla}\)</span> indicate that the solution at the <span class="math inline">\(t+1^{\text{th}}\)</span> iteration is either better or not better than the solution at the <span class="math inline">\(t^{\text{th}}\)</span> iteration, respectively.</li>
+<li>This example shows that if the starting point is 𝑥_9 and SA accepts only a new candidate solution that is better than the current solution, i.e., it has no escape mechanism, the search will get stuck at one of the two local optima (<span class="math inline">\(x_8\)</span> and <span class="math inline">\(x_10\)</span>) denoted <span class="math inline">\(L_1\)</span> and <span class="math inline">\(L_2\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/sa.png" title="Search Strategy of SA" class="img-fluid figure-img"></p>
+<figcaption>Search Strategy of SA</figcaption>
+</figure>
+</div>
+</section>
+<section id="sa-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="sa-algorithm">SA Algorithm</h2>
+<ul>
+<li>Initialization:
+<ul>
+<li>Choose an initial solution <span class="math inline">\(x_0\)</span> and an initial temperature <span class="math inline">\(T_0\)</span>.</li>
+</ul></li>
+<li>Iteration:
+<ul>
+<li>For each step, generate a neighboring solution <span class="math inline">\(x^′\)</span> of the current solution <span class="math inline">\(x\)</span>.</li>
+<li>Compute the change in the objective function.</li>
+<li>Decide whether to move to the new solution <span class="math inline">\(x^′\)</span> based on the acceptance probability.</li>
+<li>Gradually reduce the temperature <span class="math inline">\(T\)</span> according to the cooling schedule</li>
+</ul></li>
+<li>Termination:
+<ul>
+<li>The algorithm stops when the temperature <span class="math inline">\(T\)</span> is sufficiently low or after a predefined number of iterations.</li>
+<li>The best solution found during the process is returned.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/sa1.png" title="SA Algorithm" class="img-fluid figure-img"></p>
+<figcaption>SA Algorithm</figcaption>
+</figure>
+</div>
+</section>
+<section id="many-versions-of-sa-exist" class="level2">
+<h2 class="anchored" data-anchor-id="many-versions-of-sa-exist">Many Versions of SA Exist</h2>
+<ul>
+<li>This framework is a little bit different from the model above because there are two loops (outer and inner loops). This implies that a certain number of new candidate solutions will be generated and evaluated before the temperature is updated.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/sa2.png" title="SA Algorithm Variation" class="img-fluid figure-img"></p>
+<figcaption>SA Algorithm Variation</figcaption>
+</figure>
+</div>
+</section>
+<section id="advantages-and-disadvantages-of-sa" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-and-disadvantages-of-sa">Advantages and Disadvantages of SA</h2>
+<section id="advantages" class="level3">
+<h3 class="anchored" data-anchor-id="advantages">Advantages</h3>
+<ul>
+<li>Global Search Capability: Unlike simple greedy algorithms, simulated annealing can escape local minima and potentially find a global minimum.</li>
+<li>Flexibility: It can be applied to a wide range of optimization problems, including those with complex, multimodal landscapes.</li>
+<li>Simplicity: The algorithm is relatively easy to implement and does not require gradient information, making it suitable for non-differentiable problems.</li>
+</ul>
+</section>
+<section id="disadvantages" class="level3">
+<h3 class="anchored" data-anchor-id="disadvantages">Disadvantages</h3>
+<ul>
+<li>Computational Cost: The method can be slow, particularly for large problem spaces, as it requires many iterations to reach a good solution.</li>
+<li>Parameter Sensitivity: The performance of simulated annealing depends heavily on the choice of the cooling schedule, initial temperature, and other parameters.</li>
+<li>No Guarantee of Optimality: The algorithm does not guarantee finding the global optimum but rather a good approximation.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="sa-algorithm-1" class="level1">
+<h1>SA Algorithm</h1>
+<ul>
+<li><p>To emulate the annealing process for a minimization optimization problem, SA will first calculate the difference between the objective values of the new candidate solution v and the current solution s to see whether it will accept the new candidate solution or not. <span class="math display">\[\Delta_f^{\text{min}} = f(\nu) - f(s)\]</span></p></li>
+<li><p>In case the difference between the objective values is less than <span class="math inline">\(0\)</span>, SA will accept the new candidate solution as the current solution, which means that <span class="math inline">\(\nu\)</span> replaces; otherwise, SA will calculate a probability to decide whether or not to accept a non-improving candidate solution.</p></li>
+<li><p><span class="math inline">\(p_a^{\text{min}} = \exp \left( \frac{-(f(v) - f(s))}{\Psi_t} \right) = \exp \left( \frac{f(s) - f(v)}{\Psi_t} \right),\)</span> where where <span class="math inline">\(f(x)\)</span> denotes the evaluation function, s denotes the current solution, <span class="math inline">\(\nu\)</span> denotes the new solution, and <span class="math inline">\(\Psi_t\)</span> denotes the temperature at the <span class="math inline">\(t\)</span>-th iteration.</p></li>
+<li><p>To apply SA to a maximization optimization problem, all we have to do is to negate the difference with the following: <span class="math display">\[\Delta_f^{\text{max}} -\Delta_f^{\text{min}} = -f(v) - -f(s) = f(s)-f(v)\]</span></p></li>
+<li><p>Such a modification makes it possible to check <span class="math inline">\(\Delta_f^{\text{max}}\)</span> in a similar way; that is,<span class="math inline">\(\Delta_f^{\text{max}}&lt;0\)</span>, SA will accept the new candidate solution as the current solution; otherwise, SA will again calculate a probability to decide whether or not to accept a non-improving candidate solution for the following: <span class="math display">\[p_a^{\text{max}} = \exp \left( \frac{-(f(s) - f(v))}{\Psi_t} \right) = \exp \left( \frac{f(v) - f(s)}{\Psi_t} \right)\]</span>.</p></li>
+</ul>
+<section id="examples-of-how-value-can-change" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-how-value-can-change">Examples of How Value Can Change</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/sa3.png" title="SA Changing Values" class="img-fluid figure-img"></p>
+<figcaption>SA Changing Values</figcaption>
+</figure>
+</div>
+<ul>
+<li>In this case, <span class="math inline">\(p_a^{\text{max}}\)</span>=.329 and 0.007 for <span class="math inline">\({\Psi_t}\)</span> = .9 and 0.2, respectively. This indicates that a lower temperature Image implies a smaller probability Image to accept a non-improving candidate solution as the current solution.</li>
+<li>The value of <span class="math inline">\(f_s\)</span> goes from 2.0 to 1.1, the value of <span class="math inline">\(p_a^{\text{max}}\)</span> goes from 0.329 up to 0.895. This means that in case <span class="math inline">\(f(\nu\)</span>$ is worse than <span class="math inline">\(f(s)\)</span>, a smaller <span class="math inline">\(\Delta_f^{\text{max}}\)</span> implies a higher probability <span class="math inline">\(p_a^{\text{max}}\)</span> to accept a non-improving candidate solution as the current solution.</li>
+</ul>
+<section id="summary-of-cases" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-cases">Summary of Cases</h3>
+<ul>
+<li>The new solution v is better than the current solution s.
+<ul>
+<li>SA will always accept the new solution owing to the fact that <span class="math inline">\(P_A\)</span> will always be greater than 1.0 and <span class="math inline">\(r \in [0,1]\)</span> will always be smaller than <span class="math inline">\(P_A\)</span>. The new solution <span class="math inline">\(\nu\)</span> is worse than the current solution <span class="math inline">\(s\)</span>. SA will accept the new solution only if <span class="math inline">\(r &lt; P_A\)</span> , where <span class="math inline">\(r\)</span> is as defined above. The new solution <span class="math inline">\(\nu\)</span> is worse than the current solution s. SA will not accept the new solution because <span class="math inline">\(r \geq P_A\)</span> .</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="comparing-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-algorithms">Comparing Algorithms</h2>
+<ul>
+<li>Simulated Annealing Algorithms
+<ul>
+<li>Exploration: In the early stages, SA accepts worse solutions with high probability, which allows it to explore the search space more broadly and escape local optima.</li>
+<li>Exploitation: As the temperature decreases, the algorithm becomes more conservative and starts focusing on refining the current solution. SA balances exploration and exploitation dynamically as the temperature cools.</li>
+<li>Trade-off: SA is particularly good when the solution space is rugged (many local optima) because it has a built-in mechanism (temperature) to transition from exploration to exploitation.</li>
+</ul></li>
+<li>Genetic Algorithms
+<ul>
+<li>Exploration: GA uses processes like mutation and crossover to generate new solutions from the current population. Mutation allows for exploration by introducing random changes, while crossover exploits good solutions by combining them.</li>
+<li>Exploitation: GA exploits the best solutions through selection and crossover, where solutions with higher fitness are more likely to survive and reproduce.</li>
+<li>Trade-off: GA maintains a population of solutions, which helps with exploration, but can sometimes suffer from premature convergence if the population becomes too homogeneous, leading to poor exploitation of potentially better solutions.</li>
+</ul></li>
+<li>Greedy Algorithms
+<ul>
+<li>Exploration: Greedy algorithms have very limited exploration. They make the best immediate choice (locally optimal) at each step without considering the broader solution space.</li>
+<li>Exploitation: Greedy heuristics are purely exploitative—they focus solely on improving the current state as much as possible. They tend to get stuck in local optima because they don’t explore alternative solutions that might initially look worse but could lead to better outcomes.</li>
+<li>Trade-off: A greedy algorithm doesn’t balance exploration and exploitation well. It is fast and simple but can fail when the problem has many local optima, making it inappropriate for complex problems like TSP or scheduling.</li>
+</ul></li>
+</ul>
+<section id="when-sa-is-more-appropriate" class="level3">
+<h3 class="anchored" data-anchor-id="when-sa-is-more-appropriate">When SA Is More Appropriate</h3>
+<ul>
+<li>Rugged Solution Spaces: When there are many local optima (like in the Travelling Salesman Problem or complex scheduling), SA’s ability to accept worse solutions helps it explore more and avoid local traps.</li>
+<li>Time-Constrained Search: SA can be more useful when you don’t need an exact global optimum but want a good solution within a reasonable amount of time. The cooling schedule can be adjusted to control how fast the algorithm converges.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="making-a-model-one-max-with-sa" class="level1">
+<h1>Making a Model: One Max with SA</h1>
+<section id="imports-global-variables" class="level2">
+<h2 class="anchored" data-anchor-id="imports-global-variables">Imports, Global Variables</h2>
+<div id="afe1efc4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">##Simulated Annealing One-Max Example</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>max_iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>initial_temp <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cooling_rate <span class="op">=</span> <span class="fl">0.99</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>min_temp <span class="op">=</span> <span class="fl">0.0001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="initialize" class="level2">
+<h2 class="anchored" data-anchor-id="initialize">Initialize</h2>
+<ul>
+<li>The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits (default 10), where each element is randomly set to 0 or 1.The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1’s in the array).The function returns the initial solution and its evaluated fitness.</li>
+</ul>
+<div id="d781e37d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_sa(num_bits):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, num_bits)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sol, evaluate(sol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="transition-t" class="level3">
+<h3 class="anchored" data-anchor-id="transition-t">Transition (T)</h3>
+<ul>
+<li>The transit function generates a neighboring solution by flipping a random bit in the current solution.</li>
+<li>This is done by randomly selecting an index in the binary array and toggling the bit (changing 1 to 0 or 0 to 1).</li>
+<li>This new solution represents the neighboring candidate that will be evaluated next, which is a small random change to the current solution.</li>
+</ul>
+<div id="32e40772" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    new_sol <span class="op">=</span> sol.copy()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> np.random.randint(<span class="bu">len</span>(sol))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    new_sol[index] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> new_sol[index]  <span class="co"># Flip a random bit</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="evaluate-e" class="level3">
+<h3 class="anchored" data-anchor-id="evaluate-e">Evaluate (E)</h3>
+<ul>
+<li>The evaluate function calculates the fitness of the current solution by summing up the number of 1’s in the binary array (sol).The One-Max problem aims to maximize this value, with the goal being to find the solution with all bits set to 1.</li>
+</ul>
+<div id="ca8c0f10" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E): One-max function</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(sol):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(sol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="determination-d" class="level3">
+<h3 class="anchored" data-anchor-id="determination-d">Determination (D)</h3>
+<ul>
+<li>The determine function decides whether to accept the new neighboring solution (neighbor_value), based on its value compared to the current solution (current_value).</li>
+<li>If the neighboring solution is better (i.e., it has a higher One-Max value), it is accepted.</li>
+<li>If the neighboring solution is worse, it may still be accepted based on the probability calculated by the simulated annealing algorithm:
+<ul>
+<li>The acceptance probability depends on the temperature and the difference between the new and current values.</li>
+<li>A higher temperature allows for more exploration of worse solutions, while a lower temperature makes the algorithm more selective.</li>
+</ul></li>
+<li>The function returns True if the new solution is accepted, otherwise False.</li>
+</ul>
+<div id="dc75d955" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function for SA (D)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(neighbor_value, current_value, temperature):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> neighbor_value <span class="op">&gt;</span> current_value:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        acceptance_probability <span class="op">=</span> np.exp((neighbor_value <span class="op">-</span> current_value) <span class="op">/</span> temperature)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.random() <span class="op">&lt;</span> acceptance_probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="run-function" class="level3">
+<h3 class="anchored" data-anchor-id="run-function">Run Function</h3>
+<ul>
+<li>The init_sa function generates a random initial solution (current_sol) with a binary array of length num_bits.</li>
+<li>This solution is evaluated using the evaluate function, which counts the number of 1’s in the array.</li>
+<li>The current solution is also set as the best solution initially, since no other solutions have been explored yet.</li>
+<li>The temperature is set to initial_temp (default 10), which controls the probability of accepting worse solutions in the early stages of the algorithm.</li>
+<li>The list value_history is initialized to store the value (fitness) of the current solution over time.</li>
+<li>This main loop runs until the temperature drops below min_temp (0.0001) or the maximum number of iterations (max_iterations, default 1000) is reached. Each iteration represents one step in the simulated annealing process.</li>
+<li>A neighboring solution (neighbor_sol) is generated by the transit function, which randomly flips one bit in the current solution. * This represents exploring a new area of the search space close to the current solution.</li>
+<li>The neighboring solution is evaluated using the evaluate function, which calculates its fitness (i.e., the number of 1’s in the binary array). This value is compared to the current solution’s fitness.</li>
+<li>The determine function decides whether to accept the neighboring solution</li>
+<li>The current solution’s fitness is appended to value_history to keep a record of the solution’s fitness across iterations. This will later be used to plot the progress of the algorithm.</li>
+<li>After each iteration, the temperature is reduced by multiplying it by the cooling_rate (default 0.99). This cooling process gradually reduces the probability of accepting worse solutions, making the algorithm behave more like greedy hill climbing toward the end.</li>
+<li>The number of iterations is incremented.</li>
+<li>After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of iterations has been reached), the function returns:best_sol: The best solution found during the process.best_value: The fitness value of the best solution.value_history: A list of the fitness values over time, useful for visualizing the algorithm’s progress.</li>
+</ul>
+<div id="f09f38c0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(num_bits):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    current_sol, current_value <span class="op">=</span> init_sa(num_bits)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    best_sol, best_value <span class="op">=</span> current_sol, current_value</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> initial_temp</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    value_history <span class="op">=</span> [current_value]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    iterations <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> max_iterations:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        neighbor_sol <span class="op">=</span> transit(current_sol)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        neighbor_value <span class="op">=</span> evaluate(neighbor_sol)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> determine(neighbor_value, current_value, temperature):</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            current_sol, current_value <span class="op">=</span> neighbor_sol, neighbor_value</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> current_value <span class="op">&gt;</span> best_value:</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                best_sol, best_value <span class="op">=</span> current_sol, current_value</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Store history of values for plotting</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        value_history.append(current_value)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cool down the temperature</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        temperature <span class="op">*=</span> cooling_rate</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        iterations <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_value, value_history</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="main-execution" class="level3">
+<h3 class="anchored" data-anchor-id="main-execution">Main Execution</h3>
+<ul>
+<li>The process starts by initializing the solution using Initialization (I) (init_sa), followed by repeated transitions (T) and evaluations (E) to explore the search space.</li>
+<li>After each transition, the Determination (D) function decides whether to accept the new solution based on the current temperature and fitness values.</li>
+<li>The temperature gradually cools down, reducing the chance of accepting worse solutions as the algorithm progresses.</li>
+<li>Finally, the results are printed and plotted for visual analysis.</li>
+</ul>
+<div id="9f48577c" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>best_sol, best_value, value_history <span class="op">=</span> simulated_annealing(num_bits)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div id="a2f8028e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results (O)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best solution: </span><span class="sc">{</span>best_sol<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best value (number of 1s): </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the simulated annealing progress</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.plot(value_history, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'SA Progress'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"One-Max Problem with Simulated Annealing Progress"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteration"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Objective Value (Number of 1s)"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1]
+Best value (number of 1s): 10
+Execution time: 0.008014 seconds</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_files/figure-html/cell-9-output-2.png" width="808" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sa-with-ackley-function" class="level1">
+<h1>SA with Ackley Function</h1>
+<ul>
+<li><p>Temperature: The algorithm starts with a high temperature, which decreases gradually. The algorithm starts with an initial high temperature (initial_temp=10) and cools down at a rate (cooling_rate=0.99) after every iteration. The temperature affects the likelihood of accepting worse solutions.</p></li>
+<li><p>Acceptance of Worse Solutions: There is a probability of accepting a worse solution, which decreases as the temperature drops. If the new (neighbor) solution is worse, it is still accepted with a probability calculated as follows: <span class="math display">\[p_a^{\text{min}} = \exp\left(\frac{\text{current\_value} - \text{neighbor\_value}}{\text{temperature}}\right)\]</span></p></li>
+<li><p>This probability decreases as the temperature decreases, making it less likely to accept worse solutions later in the process.</p></li>
+<li><p>Cooling Schedule: The temperature cools down over time, usually geometrically or exponentially. The temperature decreases by multiplying it by the cooling rate (0.99 in this case) at each iteration.</p></li>
+</ul>
+<section id="example-results" class="level2">
+<h2 class="anchored" data-anchor-id="example-results">Example Results</h2>
+<div id="b999e4ee" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>num_evals <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>initial_temp <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>cooling_rate <span class="op">=</span> <span class="fl">0.99</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>min_temp <span class="op">=</span> <span class="fl">0.00001</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function (1D)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(x):</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(np.mean(np.square(x))))</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(np.mean(np.cos(c <span class="op">*</span> np.array(x))))</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.exp(<span class="dv">1</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_sa():</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    start_x <span class="op">=</span> random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_x, ackley([start_x])</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(current_x):</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    neighbor_x <span class="op">=</span> current_x <span class="op">+</span> random.uniform(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> neighbor_x</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function for SA (D)</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(neighbor_value, current_value, temperature):</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> neighbor_value <span class="op">&lt;</span> current_value:</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>        acceptance_probability <span class="op">=</span> np.exp((current_value <span class="op">-</span> neighbor_value) <span class="op">/</span> temperature)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.random.rand() <span class="op">&lt;</span> acceptance_probability</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Evaluation Function (E)</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing():</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    current_x, current_value <span class="op">=</span> init_sa()</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    best_x, best_value <span class="op">=</span> current_x, current_value</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> initial_temp</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    x_history, value_history <span class="op">=</span> [current_x], [current_value]</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    iterations <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> num_evals:</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>        neighbor_x <span class="op">=</span> transit(current_x)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>        neighbor_value <span class="op">=</span> ackley([neighbor_x])</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> determine(neighbor_value, current_value, temperature):</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>            current_x, current_value <span class="op">=</span> neighbor_x, neighbor_value</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> current_value <span class="op">&lt;</span> best_value:</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>                best_x, best_value <span class="op">=</span> current_x, current_value</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Store history of x and values for plotting</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>        x_history.append(current_x)</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>        value_history.append(current_value)</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cool down the temperature</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>        temperature <span class="op">*=</span> cooling_rate</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>        iterations <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_x, best_value, x_history, value_history</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>best_x, best_value, x_history, value_history <span class="op">=</span> simulated_annealing()</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal x: </span><span class="sc">{</span>best_x<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and simulated annealing progress</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> [ackley([x]) <span class="cf">for</span> x <span class="kw">in</span> x_values]</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values, label<span class="op">=</span><span class="st">"Ackley Function"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>plt.plot(x_history, value_history, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'SA Progress'</span>)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>plt.scatter(best_x, best_value, color<span class="op">=</span><span class="st">'green'</span>, s<span class="op">=</span><span class="dv">100</span>, zorder<span class="op">=</span><span class="dv">5</span>, label<span class="op">=</span><span class="st">'Optimal Value'</span>)</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Ackley Function in 1D with Simulated Annealing Progress"</span>)</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"f(x)"</span>)</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal x: 0.00040342405068471976
+Optimal value: 0.00162236377039493
+Execution time: 0.014235 seconds</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_files/figure-html/cell-10-output-2.png" width="821" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Optimal x: -0.0006396808092359318
+<ul>
+<li>The value -0.00063968 represents a point very close to 0 on the x-axis, where the Ackley function achieves its minimum value in the 1D case.</li>
+<li>The true global minimum of the Ackley function occurs at 𝑥=0, so this value is nearly optimal.</li>
+</ul></li>
+<li>Optimal value: 0.0025805153299995887
+<ul>
+<li>This is the optimal function value at the corresponding optimal x. It represents the Ackley function value at x=−0.00063968.</li>
+<li>The Ackley function’s global minimum is 0, which occurs exactly at 𝑥=0x=0. The value 0.0025805153299995887 is very close to this, showing that the algorithm successfully minimized the function but did not reach the exact minimum. This small difference can be due to the stochastic nature of simulated annealing and the stopping criteria (temperature and iterations).</li>
+</ul></li>
+<li>Execution time: 0.012161 seconds
+<ul>
+<li>This indicates the total time it took for the simulated annealing algorithm to run and find the optimal solution.</li>
+<li>The process completed in just 0.012 seconds, which is very fast. This fast execution time suggests that the algorithm quickly converged to a near-optimal solution, likely because the problem space (1D) is simple and small, and the Ackley function’s shape guides the algorithm efficiently toward the global minimum.</li>
+</ul></li>
+</ul>
+<section id="comparing-sa-to-hc-with-ackley-function" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-sa-to-hc-with-ackley-function">Comparing SA to HC with Ackley Function</h3>
+<ul>
+<li>In an example run, I found the following results depicted in the png image below. The simulated annealing algorithm performed well, finding a solution very close to the global minimum of the Ackley function in a short time.</li>
+<li>The slight deviation from the exact minimum value (0) is expected due to the stochastic exploration nature of simulated annealing. You can compare these results to the ones above under a different set seed.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/sa4.png" title="UFM" class="img-fluid figure-img"></p>
+<figcaption>Comparing HA with Ackley</figcaption>
+</figure>
+</div>
+<ul>
+<li>Our SA model was much better than our HC model with the Ackley Function. Why?
+<ul>
+<li>The Ackley function is known for its multimodal landscape—it has many local minima and a global minimum at 𝑥=0. The landscape consists of a broad plateau followed by sharp drops toward the global minimum, making it challenging for optimization algorithms to find the true global minimum.</li>
+<li>Hill climbing can get stuck in one of the many local minima because it only moves to a better neighboring solution. Once it reaches a local minimum, it can’t escape because no better solution is immediately available in its neighborhood.</li>
+<li>Simulated annealing, by contrast, has the ability to accept worse solutions early in the process, which allows it to escape local minima and continue searching for the global minimum.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="portfolio-diversification-with-sa" class="level1">
+<h1>Portfolio Diversification With SA</h1>
+<div id="d988308d" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simulated Annealing Finance Example</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>max_iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>initial_temp <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>cooling_rate <span class="op">=</span> <span class="fl">0.995</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>min_temp <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch historical stock data</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_data(stocks, start_date, end_date):</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> yf.download(stocks, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date)[<span class="st">'Adj Close'</span>]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E): Portfolio performance calculation</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_portfolio(weights, mean_returns, cov_matrix):</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    returns <span class="op">=</span> np.<span class="bu">sum</span>(mean_returns <span class="op">*</span> weights) <span class="op">*</span> <span class="dv">252</span>  <span class="co"># Annualized returns</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    risk <span class="op">=</span> np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) <span class="op">*</span> np.sqrt(<span class="dv">252</span>)  <span class="co"># Annualized risk</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    sharpe_ratio <span class="op">=</span> returns <span class="op">/</span> risk  <span class="co"># Sharpe ratio</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> returns, risk, sharpe_ratio</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_portfolio(stocks):</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> np.random.random(<span class="bu">len</span>(stocks))</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">/=</span> np.<span class="bu">sum</span>(weights)  <span class="co"># Ensure weights sum to 1</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> weights</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transition_portfolio(weights):</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    new_weights <span class="op">=</span> weights.copy()</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    index <span class="op">=</span> np.random.randint(<span class="bu">len</span>(weights))</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    new_weights[index] <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    new_weights <span class="op">/=</span> np.<span class="bu">sum</span>(new_weights)  <span class="co"># Ensure new weights sum to 1</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_weights</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function (D)</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine_portfolio(neighbor_sharpe, current_sharpe, temperature):</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> neighbor_sharpe <span class="op">&gt;</span> current_sharpe:</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>        acceptance_probability <span class="op">=</span> np.exp((neighbor_sharpe <span class="op">-</span> current_sharpe) <span class="op">/</span> temperature)</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.random.rand() <span class="op">&lt;</span> acceptance_probability</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_iterations, initial_temp, cooling_rate):</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    current_weights <span class="op">=</span> initialize_portfolio(stocks)</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    current_returns, current_risk, current_sharpe <span class="op">=</span> evaluate_portfolio(current_weights, mean_returns, cov_matrix)</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>    best_weights, best_sharpe <span class="op">=</span> current_weights, current_sharpe</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> initial_temp</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    sharpe_history <span class="op">=</span> [current_sharpe]</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    iterations <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> max_iterations:</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>        neighbor_weights <span class="op">=</span> transition_portfolio(current_weights)</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>        neighbor_returns, neighbor_risk, neighbor_sharpe <span class="op">=</span> evaluate_portfolio(neighbor_weights, mean_returns, cov_matrix)</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> determine_portfolio(neighbor_sharpe, current_sharpe, temperature):</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>            current_weights, current_sharpe <span class="op">=</span> neighbor_weights, neighbor_sharpe</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> neighbor_sharpe <span class="op">&gt;</span> best_sharpe:</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>                best_weights, best_sharpe <span class="op">=</span> neighbor_weights, neighbor_sharpe</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>        sharpe_history.append(current_sharpe)</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cool down the temperature</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>        temperature <span class="op">*=</span> cooling_rate</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>        iterations <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_weights, best_sharpe, sharpe_history</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="co"># List of stocks and historical data</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">'AAPL'</span>, <span class="st">'GOOGL'</span>, <span class="st">'MSFT'</span>, <span class="st">'AMZN'</span>, <span class="st">'TSLA'</span>, <span class="st">'NFLX'</span>, <span class="st">'NVDA'</span>, <span class="st">'META'</span>, <span class="st">'DIS'</span>, <span class="st">'BA'</span>]</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'2023-10-01'</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2024-10-01'</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>stock_data <span class="op">=</span> fetch_data(stocks, start_date, end_date)</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>returns <span class="op">=</span> stock_data.pct_change().dropna()</span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>mean_returns <span class="op">=</span> returns.mean()</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> returns.cov()</span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Run simulated annealing for portfolio optimization</span></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>best_weights, best_sharpe, sharpe_history <span class="op">=</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_iterations, initial_temp, cooling_rate)</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the progress of the simulated annealing algorithm</span></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>plt.plot(sharpe_history, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Sharpe Ratio Progress'</span>)</span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated Annealing Progress for Portfolio Optimization (Sharpe Ratio)"</span>)</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteration"</span>)</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Sharpe Ratio"</span>)</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimized Portfolio:"</span>)</span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, stock <span class="kw">in</span> <span class="bu">enumerate</span>(stocks):</span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>stock<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>best_weights[i]<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best Sharpe Ratio: </span><span class="sc">{</span>best_sharpe<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[                       0%                       ][**********            20%                       ]  2 of 10 completed[**************        30%                       ]  3 of 10 completed[*******************   40%                       ]  4 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_files/figure-html/cell-11-output-2.png" width="812" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimized Portfolio:
+AAPL: 0.0927
+GOOGL: 0.0024
+MSFT: 0.0000
+AMZN: 0.1218
+TSLA: 0.0000
+NFLX: 0.2651
+NVDA: 0.0569
+META: 0.3162
+DIS: 0.1450
+BA: 0.0000
+Best Sharpe Ratio: 2.7621
+Execution time: 0.097523 seconds</code></pre>
+</div>
+</div>
+<section id="our-hill-climbing-finance-model-was-better.-why" class="level2">
+<h2 class="anchored" data-anchor-id="our-hill-climbing-finance-model-was-better.-why">Our Hill Climbing Finance Model was Better. Why?</h2>
+<ul>
+<li>Hill Climbing
+<ul>
+<li>Deterministic: In each iteration, the algorithm strictly accepts a new portfolio only if it improves the Sharpe ratio (a measure of risk-adjusted returns). There’s no acceptance of worse solutions.</li>
+<li>This results in a steady and consistent increase in the Sharpe ratio because the model always moves toward better solutions without exploring worse ones.</li>
+<li>Since hill climbing is greedy and deterministic, it focuses on continuously improving the portfolio weights in a direct manner, which can be more efficient for problems where the optimization landscape is relatively smooth or doesn’t have too many local minima.</li>
+</ul></li>
+<li>Simulated Annealing:
+<ul>
+<li>Stochastic Exploration: Simulated annealing, on the other hand, allows for the acceptance of worse solutions, especially early in the process when the temperature is high. This stochastic exploration helps to avoid getting stuck in local minima, but it can sometimes lead to suboptimal moves that temporarily reduce performance.</li>
+<li>SA slowly improves the Sharpe ratio by lowering the temperature and becoming more selective over time. However, this can result in slower convergence compared to hill climbing, which directly improves the Sharpe ratio with each iteration.</li>
+<li>While simulated annealing balances exploration and exploitation, its performance might be slightly worse in this case because it explores a broader range of solutions, some of which may be worse. The stochastic nature may cause delays in reaching the global optimum in cases where the optimization problem is less prone to getting stuck in local minima.</li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<ul>
+<li>Stable and Simple Search Space: In portfolio optimization, especially with a limited number of assets, the optimization landscape might not be highly rugged, making hill climbing’s greedy approach more effective at converging quickly to a good solution.</li>
+<li>Direct Progress: Hill climbing consistently increases the Sharpe ratio by only accepting better solutions, leading to slightly higher risk-adjusted returns over the SA model, which accepts suboptimal solutions early on.</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
