@@ -104,7 +104,7 @@
     "href": "ga.html",
     "title": "Genetic Algorithms",
     "section": "",
-    "text": "About this site",
+    "text": "Genetic Algorithms",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
@@ -1217,6 +1217,186 @@
     "text": "Conclusions\n\nStable and Simple Search Space: In portfolio optimization, especially with a limited number of assets, the optimization landscape might not be highly rugged, making hill climbing’s greedy approach more effective at converging quickly to a good solution.\nDirect Progress: Hill climbing consistently increases the Sharpe ratio by only accepting better solutions, leading to slightly higher risk-adjusted returns over the SA model, which accepts suboptimal solutions early on.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Simulated Annealing</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#key-steps",
+    "href": "ga.html#key-steps",
+    "title": "Genetic Algorithms",
+    "section": "Key Steps",
+    "text": "Key Steps\n\nInitialization: Randomly generate an initial population of individuals (solutions).\nSelection: Choose the fittest individuals based on a fitness function that measures solution quality.\nCrossover (Recombination): Combine parts of two parent solutions to create offspring (new solutions).\nMutation: Introduce random changes to an individual to maintain diversity and explore new parts of the solution space.\nReplacement: Replace the old population with the new one, ensuring improvement over generations.\nTermination: Continue until a stopping condition (e.g., number of generations or convergence) is met.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#advantages",
+    "href": "ga.html#advantages",
+    "title": "Genetic Algorithms",
+    "section": "Advantages",
+    "text": "Advantages\n\nGlobal Search: Capable of exploring large solution spaces and avoiding local optima.\nFlexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.\nHeuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#genetic-algorithms-defined",
+    "href": "ga.html#genetic-algorithms-defined",
+    "title": "Genetic Algorithms",
+    "section": "Genetic Algorithms Defined",
+    "text": "Genetic Algorithms Defined\n\nEach iteration during the convergence process is called a generation. GA will search more than one candidate solution per generation.\nAll the solutions of each generation are called a population indicating that there are many candidate solutions.\nEach solution is called a chromosome or an individual.\nEach subsolution of a solution is called a gene.\nFitness is the objective function value.\nSelection is the selection based on the objective function value.\nOptimization patterned on evolution\n\nMaintain a population of solutions.\n“Survival of the fittest”.\n\nEvolution of an improving solution\n\nThe population evolves over many generations.\nThe fittest population members are more likely to reproduce and create offspring with their genetic material.\nPopulation fitness improves through the generations.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#the-relationship-between-population-s-chromosome-si-and-gene-sij",
+    "href": "ga.html#the-relationship-between-population-s-chromosome-si-and-gene-sij",
+    "title": "Genetic Algorithms",
+    "section": "The relationship between population \\(s\\), chromosome \\(si\\), and gene \\(si,j\\)",
+    "text": "The relationship between population \\(s\\), chromosome \\(si\\), and gene \\(si,j\\)\n\n\\(s\\) represents the population (a set of solutions),\n\\(s_i\\) represents a chromosome (a solution),\n\\(s_{ij}\\) represents a gene (a subsolution),\n\\(m\\) represents the number of chromosomes in the population (also called population size, and\n\\(n\\) represents the number of subsolutions in a chromosome.\nThe objective value of each chromosome will also be transformed to a value called the fitnes value by a so-called fitness function.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe Relationships between Parents and Children\n\nEach current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.\nThe parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.\nOnce the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population \\(v\\), which is called the offspring of the parents \\(s’\\).\nThe offspring at iteration \\(t\\) will become the current population s of iteration \\(t+1\\). This is referred to as the reproduction process.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.\nGA will first randomly select some of the chromosomes based on the fitness value of each chromosome.\nShows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.\nThis means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.\nShows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategy of the transition operator of GA. (a) How the crossover operator works. (b) How the mutation operator works.\nGA will typically apply the crossover and mutation operators to the chromosomes selected by the selection operator.\nTwo-dimensional landscape will be used as compared to one dimensional used in traditional methods, simulated annealing or tabu search.\n\n\n\n\nGenetic Algorithm",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#refining-genetic-algorithms",
+    "href": "ga.html#refining-genetic-algorithms",
+    "title": "Genetic Algorithms",
+    "section": "Refining Genetic Algorithms",
+    "text": "Refining Genetic Algorithms\n\nThere’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.\nGA Parameters Are Crucial: The effectiveness of GA depends heavily on carefully tuning parameters like population size, mutation rate, and the number of generations.\nPopulation Size: For more complex problems, use larger populations (e.g., 1000–2000 individuals)\nMutation Rate: A low probability, typically 0.001 to 0.002 per gene.\nNumber of Generations: For more generations (e.g., 1000–2000 generations).\nFitness Function: Carefully tailored to the specific problem being solved, as it guides the selection process.\nSelection Method: rank-based linear selection or proportional selection can be used.\nCrossover Mechanism: Single-point crossover chosen at a random location",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#fitness-function-alternatives-in-heuristic-models",
+    "href": "ga.html#fitness-function-alternatives-in-heuristic-models",
+    "title": "Genetic Algorithms",
+    "section": "Fitness Function Alternatives in Heuristic Models",
+    "text": "Fitness Function Alternatives in Heuristic Models\n\nFitness measures and selection mechanisms together determine the quality of offspring (solutions) in evolutionary or heuristic algorithms.\n\nWhile fitness measures are problem-specific, several reasonable alternatives often exist.\nIt’s essential to tailor the fitness function to the specific goals of the problem (e.g., precision, speed, or robustness).\n\nSelection strategies (e.g., roulette wheel, tournament selection) could also have significant impacts on solution quality, and finding the right balance often requires experimentation.\nSelecting the Right Fitness Function: Some fitness measures work significantly better than others depending on the problem.\nLeverage prior knowledge or insights from similar problems to guide fitness function selection.\nTrial and Error: Expect to experiment with different fitness measures to find the one that best suits your specific problem.\nCommon Distance Measures for Comparing Solutions to a Target:\n\nSum of Squared Differences: A measure of the total squared deviation of each pixel from the target, commonly used when larger errors should be penalized more.\nEuclidean Distance: The square root of the sum of squared differences, providing a more intuitive “distance” measure in the image space.\nSum of Absolute Pixel Differences: A simpler alternative that sums the absolute differences for each pixel, often less sensitive to outliers.\nMaximum Absolute Pixel Difference: Focuses on the largest deviation, highlighting the worst pixel match.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#approaches-to-optimize-the-mutation-rate",
+    "href": "ga.html#approaches-to-optimize-the-mutation-rate",
+    "title": "Genetic Algorithms",
+    "section": "Approaches to Optimize the Mutation Rate",
+    "text": "Approaches to Optimize the Mutation Rate\n\nHyperparameter Tuning: Use various fixed mutation rates and evaluate the performance of the GA over multiple runs to identify the best one. This is the simplest method but can be time-consuming as it involves manual experimentation.\nDynamic Mutation Rate: Adjust the mutation rate dynamically during the evolution process. For example, you can start with a high mutation rate to encourage exploration and gradually reduce it as the algorithm converges.\nSelf-Adaptive Mutation Rate: Introduce a mechanism in the GA where each individual in the population has its own mutation rate, which evolves over time. The mutation rate itself becomes part of the genetic material.\nCross-Validation: Use techniques like k-fold cross-validation to evaluate the impact of different mutation rates and find the one that generalizes the best.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#comparing-ga-to-sa",
+    "href": "ga.html#comparing-ga-to-sa",
+    "title": "Genetic Algorithms",
+    "section": "Comparing GA to SA",
+    "text": "Comparing GA to SA\n\nThe design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.\n\nWhen this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone’s categories\n\n\n\nThe main differences between GA, SA\n\nMultiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.\nCrossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.\nMutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#startup",
+    "href": "ga.html#startup",
+    "title": "Genetic Algorithms",
+    "section": "Startup",
+    "text": "Startup\n\n# Genetic Algorithm Ackley Example (1D)\n\nimport numpy as np\nimport random\nimport time\nimport matplotlib.pyplot as plt\n\n# Define the necessary global variables\npop_size = 50\nnum_generations = 100\ncrossover_rate = 0.7\nmutation_rate = 0.02\nnum_parents_mating = 10\nnum_players = 3\nbest_obj_val = float('inf')\nbest_sol = None\n\n# Ackley function (1D)\ndef ackley(x):\n    a = 20\n    b = 0.2\n    c = 2 * np.pi\n    term1 = -a * np.exp(-b * np.sqrt(np.mean(np.square(x))))\n    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n    return term1 + term2 + a + np.exp(1)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#initiation-i",
+    "href": "ga.html#initiation-i",
+    "title": "Genetic Algorithms",
+    "section": "Initiation (I)",
+    "text": "Initiation (I)\n\nA population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.\n\n\n# Initialization function (I) to set the starting point\ndef init_ga(pop_size):\n    return np.random.uniform(-10, 10, (pop_size, 1))",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#evaluation-e",
+    "href": "ga.html#evaluation-e",
+    "title": "Genetic Algorithms",
+    "section": "Evaluation (E)",
+    "text": "Evaluation (E)\n\nThe fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population’s fitness values.\n\n\n# Evaluation function (E)\ndef evaluate(pop):\n    return np.array([ackley(ind) for ind in pop])",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#update-function",
+    "href": "ga.html#update-function",
+    "title": "Genetic Algorithms",
+    "section": "Update function",
+    "text": "Update function\n\n# Update best solution function\ndef update_best_sol(curr_pop, curr_obj_vals):\n    global best_sol, best_obj_val\n    best_idx = np.argmin(curr_obj_vals)\n    if curr_obj_vals[best_idx] &lt; best_obj_val:\n        best_obj_val = curr_obj_vals[best_idx]\n        best_sol = curr_pop[best_idx]",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#determination-function-d",
+    "href": "ga.html#determination-function-d",
+    "title": "Genetic Algorithms",
+    "section": "Determination Function (D)",
+    "text": "Determination Function (D)\n\nSelection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.\n\n\n# Determination (D)\n# Selection function using tournament selection\ndef select(curr_pop, curr_obj_vals, num_players):\n    selected_pop = []\n    for _ in range(len(curr_pop)):\n        tournament = np.random.choice(len(curr_pop), num_players, replace=False)\n        best_idx = tournament[np.argmin(curr_obj_vals[tournament])]\n        selected_pop.append(curr_pop[best_idx])\n    return np.array(selected_pop)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#transition-function",
+    "href": "ga.html#transition-function",
+    "title": "Genetic Algorithms",
+    "section": "Transition Function",
+    "text": "Transition Function\n\nCrossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.\n\n\n# Transition function (T): Cross over and Mutation\n# Crossover function (T)\ndef crossover(pop, crossover_rate):\n    new_pop = pop.copy()\n    for i in range(0, len(pop) - 1, 2):\n        if np.random.rand() &lt; crossover_rate:\n            crossover_point = np.random.randint(1)\n            new_pop[i, crossover_point:], new_pop[i + 1, crossover_point:] = (\n                pop[i + 1, crossover_point:], \n                pop[i, crossover_point:]\n            )\n    return new_pop",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#mutation-function",
+    "href": "ga.html#mutation-function",
+    "title": "Genetic Algorithms",
+    "section": "Mutation Function",
+    "text": "Mutation Function\n\nMutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.\n\n\n# Mutation function (T)\ndef mutation(pop, mutation_rate):\n    for i in range(len(pop)):\n        if np.random.rand() &lt; mutation_rate:\n            pop[i] = np.random.uniform(-10, 10)\n    return pop",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#main-loop",
+    "href": "ga.html#main-loop",
+    "title": "Genetic Algorithms",
+    "section": "Main Loop",
+    "text": "Main Loop\n\nThe algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.\nThe new population (after crossover and mutation) replaces the old one for the next generation.\n\n\n# Genetic Algorithm function (D)\ndef genetic_algorithm():\n    global best_sol, best_obj_val\n    pop = init_ga(pop_size)\n    \n    for generation in range(num_generations):\n        obj_vals = evaluate(pop)\n        update_best_sol(pop, obj_vals)\n        \n        selected_pop = select(pop, obj_vals, num_players)\n        offspring_pop = crossover(selected_pop, crossover_rate)\n        mutated_pop = mutation(offspring_pop, mutation_rate)\n        \n        pop = mutated_pop  \n    return best_sol, best_obj_val",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#main-execution",
+    "href": "ga.html#main-execution",
+    "title": "Genetic Algorithms",
+    "section": "Main Execution",
+    "text": "Main Execution\n\n# Main execution\nstart_time = time.time()\nbest_solution, best_value = genetic_algorithm()\nend_time = time.time()\nexecution_time = end_time - start_time",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#output",
+    "href": "ga.html#output",
+    "title": "Genetic Algorithms",
+    "section": "Output",
+    "text": "Output\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [0.21716131]\nOptimal value: 2.340967333447104\nExecution time for Genetic Algorithm: 0.115002 seconds",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
   }
 ]
