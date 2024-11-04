@@ -261,7 +261,7 @@ window.Quarto = {
   <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#summary-of-greedy-algorithms" id="toc-summary-of-greedy-algorithms" class="nav-link" data-scroll-target="#summary-of-greedy-algorithms">Summary of Greedy Algorithms</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
 </nav>
     </div>
@@ -357,7 +357,7 @@ window.Quarto = {
 <p>Where <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor\)</span> is the number of coins of denomination <span class="math inline">\(c_i\)</span> is used.</p>
 <p><span class="math inline">\(A\)</span> is reduced by the value <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor \times c_i\)</span></p>
 <p>After using as many <span class="math inline">\(c_i\)</span> denomination coins as possible. The process continues until <span class="math inline">\(A=0\)</span>, at which point the minimum number of coins required to make the total amount is found.</p>
-<div id="ed7329e3" class="cell" data-execution_count="1">
+<div id="7138ab27" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
@@ -466,7 +466,7 @@ Minimum number of coins needed: 4</code></pre>
 </div>
 <section id="tsp-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="tsp-python-implementation">TSP Python Implementation</h3>
-<div id="accacf20" class="cell" data-execution_count="2">
+<div id="2e4e3504" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -527,8 +527,8 @@ Total distance traveled: 245 miles</code></pre>
 </section>
 </section>
 </section>
-<section id="summary-of-greedy-algorithms" class="level1">
-<h1>Summary of Greedy Algorithms</h1>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
 <ul>
 <li>While greedy algorithms can provide optimal solutions for certain problems (e.g., fractional knapsack), they don’t always guarantee an optimal result for all problems. Understanding when to use them is key.</li>
 <li>Greedy algorithms guarantee an optimal solution for problems that exhibit the greedy choice property. However, the Greedy Algorithm may not always yield the optimal solution. Greedy works well for certain problems like the Coin Change Problem with standard denominations.</li>

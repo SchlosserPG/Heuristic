@@ -236,22 +236,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#benchmark-problems-overview" id="toc-benchmark-problems-overview" class="nav-link active" data-scroll-target="#benchmark-problems-overview">Benchmark Problems: Overview</a>
+  <li><a href="#benchmark-problems-overview" id="toc-benchmark-problems-overview" class="nav-link active" data-scroll-target="#benchmark-problems-overview">Benchmark Problems: Overview</a></li>
+  <li><a href="#discrete-optimization-problems" id="toc-discrete-optimization-problems" class="nav-link" data-scroll-target="#discrete-optimization-problems">Discrete Optimization Problems</a>
   <ul class="collapse">
   <li><a href="#onemax-problem" id="toc-onemax-problem" class="nav-link" data-scroll-target="#onemax-problem">OneMax Problem</a>
   <ul class="collapse">
   <li><a href="#optimal-solution-onemax" id="toc-optimal-solution-onemax" class="nav-link" data-scroll-target="#optimal-solution-onemax">Optimal Solution OneMax</a></li>
   <li><a href="#onemax-pseudocode" id="toc-onemax-pseudocode" class="nav-link" data-scroll-target="#onemax-pseudocode">OneMax Pseudocode</a></li>
   <li><a href="#onemax-python-implementation" id="toc-onemax-python-implementation" class="nav-link" data-scroll-target="#onemax-python-implementation">OneMax Python Implementation</a></li>
-  </ul></li>
   <li><a href="#comparing-onemax-problem-to-greedy-algorithm" id="toc-comparing-onemax-problem-to-greedy-algorithm" class="nav-link" data-scroll-target="#comparing-onemax-problem-to-greedy-algorithm">Comparing OneMax Problem to Greedy Algorithm</a></li>
+  </ul></li>
   <li><a href="#the-knapsack-problem" id="toc-the-knapsack-problem" class="nav-link" data-scroll-target="#the-knapsack-problem">The Knapsack Problem</a>
   <ul class="collapse">
   <li><a href="#np-complete" id="toc-np-complete" class="nav-link" data-scroll-target="#np-complete">NP Complete</a></li>
-  </ul></li>
-  <li><a href="#key-characteristics-of-np-complete-problems" id="toc-key-characteristics-of-np-complete-problems" class="nav-link" data-scroll-target="#key-characteristics-of-np-complete-problems">Key Characteristics of NP-complete Problems</a>
-  <ul class="collapse">
+  <li><a href="#key-characteristics-of-np-complete-problems" id="toc-key-characteristics-of-np-complete-problems" class="nav-link" data-scroll-target="#key-characteristics-of-np-complete-problems">Key Characteristics of NP-complete Problems</a></li>
   <li><a href="#example-fractional-knapsack-problem" id="toc-example-fractional-knapsack-problem" class="nav-link" data-scroll-target="#example-fractional-knapsack-problem">Example Fractional Knapsack Problem</a></li>
+  <li><a href="#greedy-algorithm-for-fractional-knapsack" id="toc-greedy-algorithm-for-fractional-knapsack" class="nav-link" data-scroll-target="#greedy-algorithm-for-fractional-knapsack">Greedy Algorithm for Fractional Knapsack</a></li>
   </ul></li>
   <li><a href="#binary-to-decimal-b2d-problem-b2d-1" id="toc-binary-to-decimal-b2d-problem-b2d-1" class="nav-link" data-scroll-target="#binary-to-decimal-b2d-problem-b2d-1">Binary to Decimal (B2D) Problem: B2D-1</a>
   <ul class="collapse">
@@ -270,6 +270,7 @@ window.Quarto = {
   <li><a href="#the-schaffer-min-min-multi-objective-optimization-problem" id="toc-the-schaffer-min-min-multi-objective-optimization-problem" class="nav-link" data-scroll-target="#the-schaffer-min-min-multi-objective-optimization-problem">The Schaffer min-min Multi-objective Optimization Problem</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
 </nav>
     </div>
@@ -309,6 +310,9 @@ window.Quarto = {
 <li>Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.</li>
 <li>These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.</li>
 </ul>
+</section>
+<section id="discrete-optimization-problems" class="level1">
+<h1>Discrete Optimization Problems</h1>
 <section id="onemax-problem" class="level2">
 <h2 class="anchored" data-anchor-id="onemax-problem">OneMax Problem</h2>
 <ul>
@@ -350,7 +354,7 @@ PRINT "Fitness (number of 1s):", fitness
 </section>
 <section id="onemax-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="onemax-python-implementation">OneMax Python Implementation</h3>
-<div id="99104d7b" class="cell" data-execution_count="1">
+<div id="8c087900" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -386,8 +390,8 @@ PRINT "Fitness (number of 1s):", fitness
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Binary string: [1, 1, 1, 0, 0, 1, 0, 0, 1, 0]
-Fitness (number of 1s): 5</code></pre>
+<pre><code>Binary string: [0, 1, 0, 1, 0, 1, 0, 0, 0, 1]
+Fitness (number of 1s): 4</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -401,15 +405,14 @@ Fitness (number of 1s): 5</code></pre>
 <li>The plot above tracks how fitness improves or changes across iterations in an optimization algorithm, giving insight into the convergence of the algorithm.</li>
 </ul>
 </section>
-</section>
-<section id="comparing-onemax-problem-to-greedy-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-onemax-problem-to-greedy-algorithm">Comparing OneMax Problem to Greedy Algorithm</h2>
+<section id="comparing-onemax-problem-to-greedy-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-onemax-problem-to-greedy-algorithm">Comparing OneMax Problem to Greedy Algorithm</h3>
 <ul>
 <li>If a greedy search algorithm is used and is allowed to randomly add one to or subtract one from the current solution <span class="math inline">\(s\)</span> to create the next possible solution <span class="math inline">\(v\)</span> for solving the one-max problem, that is, it is allowed to move one and only one step to either the left or the right of the current solution in the landscape of the solution space.</li>
 <li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
 <li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
 </ul>
-<div id="1f1c6752" class="cell" data-execution_count="2">
+<div id="d130e1d3" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -418,6 +421,7 @@ Fitness (number of 1s): 5</code></pre>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="the-knapsack-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-knapsack-problem">The Knapsack Problem</h2>
@@ -451,9 +455,8 @@ Fitness (number of 1s): 5</code></pre>
 </ul></li>
 </ul>
 </section>
-</section>
-<section id="key-characteristics-of-np-complete-problems" class="level2">
-<h2 class="anchored" data-anchor-id="key-characteristics-of-np-complete-problems">Key Characteristics of NP-complete Problems</h2>
+<section id="key-characteristics-of-np-complete-problems" class="level3">
+<h3 class="anchored" data-anchor-id="key-characteristics-of-np-complete-problems">Key Characteristics of NP-complete Problems</h3>
 <ul>
 <li><p>Difficult to solve: No known algorithms can solve NP-complete problems efficiently (in polynomial time) for all instances.</p></li>
 <li><p>Verification in polynomial time: If someone provides a solution, it can be verified quickly. Equivalence to other NP-complete problems: If one NP-complete problem can be solved in polynomial time, all NP-complete problems can be solved in polynomial time.</p></li>
@@ -461,6 +464,7 @@ Fitness (number of 1s): 5</code></pre>
 <li><p>The Fractional knapsack problem is not NP-complete and can be solved in polynomial time using a greedy algorithm.</p></li>
 <li><p>The Travelling Salesman is a NP-hard problem.</p></li>
 </ul>
+</section>
 <section id="example-fractional-knapsack-problem" class="level3">
 <h3 class="anchored" data-anchor-id="example-fractional-knapsack-problem">Example Fractional Knapsack Problem</h3>
 <ul>
@@ -477,8 +481,9 @@ Fitness (number of 1s): 5</code></pre>
 <li><p>The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.</p></li>
 <li><p>0/1 Knapsack Problem requires more complex algorithms like dynamic programming to find the optimal solution over the Fractional Knapsack Problem</p></li>
 </ul>
-<section id="greedy-algorithm-for-fractional-knapsack" class="level4">
-<h4 class="anchored" data-anchor-id="greedy-algorithm-for-fractional-knapsack">Greedy Algorithm for Fractional Knapsack</h4>
+</section>
+<section id="greedy-algorithm-for-fractional-knapsack" class="level3">
+<h3 class="anchored" data-anchor-id="greedy-algorithm-for-fractional-knapsack">Greedy Algorithm for Fractional Knapsack</h3>
 <ul>
 <li>Step 1: Calculate Value-to-Weight Ratio:
 <ul>
@@ -494,7 +499,6 @@ Fitness (number of 1s): 5</code></pre>
 </ul></li>
 <li>Results: Total Weight = 15 kg, Total Value = 50.</li>
 </ul>
-</section>
 </section>
 </section>
 <section id="binary-to-decimal-b2d-problem-b2d-1" class="level2">
@@ -646,7 +650,7 @@ PRINT Ackley function result for vector s
 </section>
 <section id="ackley-function-python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="ackley-function-python-implementation">Ackley Function Python Implementation</h4>
-<div id="e38a4f42" class="cell" data-execution_count="3">
+<div id="003ecc9e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -720,7 +724,7 @@ Ackley function result: 17.91745666838746</code></pre>
 <li>Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
 <li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
 </ul>
-<div id="b63ee9f2" class="cell" data-execution_count="4">
+<div id="f4fbdb01" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -822,7 +826,7 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <li>Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.</li>
 <li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
 </ul>
-<div id="b8c0554c" class="cell" data-execution_count="5">
+<div id="631a5342" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -903,7 +907,7 @@ PRINT "Combined objective:", combined_objective(result.x)
 <li>Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.</li>
 <li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
 </ul>
-<div id="38d1b678" class="cell" data-execution_count="6">
+<div id="55833b3a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -986,11 +990,19 @@ Combined objective: 1.0000000000000002</code></pre>
 </ul></li>
 <li>Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.</li>
 </ul>
+</section>
+</section>
+</section>
+</section>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
+<ul>
+<li><p>We introduced a set of popular optimization benchmark problems, widely used to evaluate the performance of various algorithms across different types of optimization challenges. These benchmarks include the OneMax Problem, which is commonly used in evolutionary algorithm research to assess an algorithm’s capacity to evolve a binary string towards an optimal solution, specifically a string composed entirely of 1s. This problem is straightforward and serves as a foundation for evaluating basic evolutionary or heuristic methods. The Knapsack Problem is a classic combinatorial, NP-complete problem that tests algorithms’ abilities to maximize the total value of selected items without exceeding a weight limit. This problem is pivotal in assessing algorithms designed for discrete optimization tasks, where finding an optimal solution is computationally intensive.</p></li>
+<li><p>The Binary-to-Decimal (B2D) Problem introduces a deceptive landscape that misleads optimization algorithms toward suboptimal solutions. It is particularly useful for testing whether an algorithm can avoid getting trapped in local optima and demonstrates the importance of incorporating diversity strategies like mutation in evolutionary algorithms.</p></li>
+<li><p>The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives. Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios.</p></li>
+</ul>
 
 
-</section>
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

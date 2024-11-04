@@ -12,6 +12,8 @@ runtime: python
 -   Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
 -   These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.
 
+# Discrete Optimization Problems
+
 ## OneMax Problem
 
 -   In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.
@@ -92,7 +94,7 @@ plt.show()
 
 -   The plot above tracks how fitness improves or changes across iterations in an optimization algorithm, giving insight into the convergence of the algorithm.
 
-## Comparing OneMax Problem to Greedy Algorithm
+### Comparing OneMax Problem to Greedy Algorithm
 
 -   If a greedy search algorithm is used and is allowed to randomly add one to or subtract one from the current solution $s$ to create the next possible solution $v$ for solving the one-max problem, that is, it is allowed to move one and only one step to either the left or the right of the current solution in the landscape of the solution space.
 -   Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.
@@ -148,7 +150,7 @@ plt.show()
     -   Essentially, NP-hard problems are hard to solve optimally, and their complexity often prevents efficient algorithms from finding or checking solutions within a reasonable time frame.
     -   NP-hard problems are broader and potentially harder than NP-complete problems because they can include problems that aren't even in NP. They may not have a polynomial-time verification process.
 
-## Key Characteristics of NP-complete Problems
+### Key Characteristics of NP-complete Problems
 
 -   Difficult to solve: No known algorithms can solve NP-complete problems efficiently (in polynomial time) for all instances.
 
@@ -175,7 +177,7 @@ plt.show()
 
 -   0/1 Knapsack Problem requires more complex algorithms like dynamic programming to find the optimal solution over the Fractional Knapsack Problem
 
-#### Greedy Algorithm for Fractional Knapsack
+### Greedy Algorithm for Fractional Knapsack
 
 -   Step 1: Calculate Value-to-Weight Ratio:
     -   Item 1: 10/5=2
@@ -625,3 +627,11 @@ plt.show()
     -   : $f_2(s) = (s-2)^2 = 0.999999973$
     -   These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
 -   Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
+
+# Conclusions
+
+* We introduced a set of popular optimization benchmark problems, widely used to evaluate the performance of various algorithms across different types of optimization challenges. These benchmarks include the OneMax Problem, which is commonly used in evolutionary algorithm research to assess an algorithm’s capacity to evolve a binary string towards an optimal solution, specifically a string composed entirely of 1s. This problem is straightforward and serves as a foundation for evaluating basic evolutionary or heuristic methods. The Knapsack Problem is a classic combinatorial, NP-complete problem that tests algorithms’ abilities to maximize the total value of selected items without exceeding a weight limit. This problem is pivotal in assessing algorithms designed for discrete optimization tasks, where finding an optimal solution is computationally intensive. 
+
+* The Binary-to-Decimal (B2D) Problem introduces a deceptive landscape that misleads optimization algorithms toward suboptimal solutions. It is particularly useful for testing whether an algorithm can avoid getting trapped in local optima and demonstrates the importance of incorporating diversity strategies like mutation in evolutionary algorithms.
+
+* The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives.  Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios.
