@@ -258,6 +258,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#traveling-salesman-algorithm" id="toc-traveling-salesman-algorithm" class="nav-link" data-scroll-target="#traveling-salesman-algorithm">Traveling Salesman Algorithm</a>
   <ul class="collapse">
+  <li><a href="#greedy-tsp-solution" id="toc-greedy-tsp-solution" class="nav-link" data-scroll-target="#greedy-tsp-solution">Greedy TSP Solution</a></li>
   <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a></li>
   </ul></li>
   </ul></li>
@@ -357,7 +358,7 @@ window.Quarto = {
 <p>Where <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor\)</span> is the number of coins of denomination <span class="math inline">\(c_i\)</span> is used.</p>
 <p><span class="math inline">\(A\)</span> is reduced by the value <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor \times c_i\)</span></p>
 <p>After using as many <span class="math inline">\(c_i\)</span> denomination coins as possible. The process continues until <span class="math inline">\(A=0\)</span>, at which point the minimum number of coins required to make the total amount is found.</p>
-<div id="7138ab27" class="cell" data-execution_count="1">
+<div id="a6957a26" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
@@ -447,7 +448,14 @@ Minimum number of coins needed: 4</code></pre>
 <h2 class="anchored" data-anchor-id="traveling-salesman-algorithm">Traveling Salesman Algorithm</h2>
 <p><span class="math display">\[\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi(i+1)}\right) \right] + d\left(c_{\pi(n)}, c_{\pi(1)}\right)\]</span></p>
 <p>Where <span class="math inline">\(c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}\)</span>, that is, all permutations of the <span class="math inline">\(n\)</span> cities.</p>
-<p><img src="Pictures/GreedyMap.png" title="Greedy Map" class="img-fluid" alt="Greedy Map"> ### Greedy TSP Solution</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/GreedyMap.png" title="Greedy Map" class="img-fluid figure-img"></p>
+<figcaption>Greedy Map</figcaption>
+</figure>
+</div>
+<section id="greedy-tsp-solution" class="level3">
+<h3 class="anchored" data-anchor-id="greedy-tsp-solution">Greedy TSP Solution</h3>
 <ul>
 <li><p>Start at Richmond. Find the nearest city. From Richmond, the nearest city is Petersburg (25 miles). Move to Petersburg.</p></li>
 <li><p>From Petersburg, find the nearest unvisited city, which is Newport News (65 miles). Move to Newport News .</p></li>
@@ -464,9 +472,10 @@ Minimum number of coins needed: 4</code></pre>
 <figcaption>TSP Feasibility Map</figcaption>
 </figure>
 </div>
+</section>
 <section id="tsp-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="tsp-python-implementation">TSP Python Implementation</h3>
-<div id="2e4e3504" class="cell" data-execution_count="2">
+<div id="94cf021d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>

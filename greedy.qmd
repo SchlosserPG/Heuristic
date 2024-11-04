@@ -127,7 +127,9 @@ $$\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi
 
 Where $c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
 
-![Greedy Map](Pictures/GreedyMap.png "Greedy Map") \### Greedy TSP Solution
+![Greedy Map](Pictures/GreedyMap.png "Greedy Map") 
+
+### Greedy TSP Solution
 
 -   Start at Richmond. Find the nearest city. From Richmond, the nearest city is Petersburg (25 miles). Move to Petersburg.
 
