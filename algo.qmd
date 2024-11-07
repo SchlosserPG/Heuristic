@@ -3,10 +3,9 @@ title: "Algorithm Design and Pseudocode"
 author: "Pamela Schlosser"
 format: html
 runtime: python
-
 ---
 
-# _Automate This_ by Christopher Steiner
+# *Automate This* by Christopher Steiner
 
 -   An algorithm is a set of operations (mathematical, technical) to be conducted in a certain sequence to achieve a certain goal.
 -   The rise of algorithms and their transformative impact on industries.
@@ -139,18 +138,18 @@ runtime: python
 # Introduction to Algorithm Symbols
 
 -   **Variables**: Represent inputs, outputs, or intermediate values.
-    -   ( x ): A common symbol for an input variable.
-    -   ( y ): Often represents an output variable.
-    -   ( i, j, k ): Typically used as indices in loops.
+    -   ($x$): A common symbol for an input variable.
+    -   ($y$): Often represents an output variable.
+    -   ($i$, $j$, $k$): Typically used as indices in loops.
 -   **Sets**: Collections of elements.
-    -   ( S ): A set, e.g., ( S = {1, 2, 3} ).
-    -   ( \mathbb{N} ): The set of natural numbers.
-    -   ( \in ): "An element of", used to denote membership in a set.
+    -   ($S$): A set, e.g., ( S = {1, 2, 3} ).
+    -   ($\mathbb{N}$): The set of natural numbers.
+    -   ($\in$): "An element of", used to denote membership in a set.
 -   **Operators**: Perform operations on variables or sets.
-    -   ( +, -, \times, / ): Basic arithmetic operators.
-    -   ( \cup ): Union of two sets.
-    -   ( \cap ): Intersection of two sets.
-    -   ( \subseteq ): Subset relation.
+    -   ($+, -, \times, /$ ): Basic arithmetic operators.
+    -   ($\cup$): Union of two sets.
+    -   ($\cap$): Intersection of two sets.
+    -   ($\subseteq$): Subset relation.
 
 ------------------------------------------------------------------------
 
