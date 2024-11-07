@@ -1,3 +1,15 @@
-# Recommended Further Reading Materials
+# Required Reading Materials
+* Tsai, C.-W., & Chiang, M.-C. (2023). *Handbook of metaheuristic algorithms*. Academic Press. Retrieved from <https://learning.oreilly.com/library/view/handbook-of-metaheuristic/9780443191091/>
 
-Tsai, C.-W., & Chiang, M.-C. (2023). *Handbook of metaheuristic algorithms*. Academic Press. Retrieved from <https://learning.oreilly.com/library/view/handbook-of-metaheuristic/9780443191091/>
+# Recommended Further Reading Materials
+* Erwig, M. (2017). Once upon an algorithm: How stories explain computing. The MIT Press.
+* Holland, 1992 J.H. Holland, Adaptation in Natural and Artificial Systems. Cambridge, MA: MIT Press; 1992.
+* Holland, 1962 J.H. Holland, Outline for a logical theory of adaptive systems, Journal of the ACM 1962;9:297–314.
+* Holland, 1975 J.H. Holland, Adaptation in Natural and Artificial Systems. Ann Arbor, MI: University of Michigan Press; 1975.
+* Steiner, C. (2012). Automate this: How algorithms came to rule our world. Portfolio/Penguin.
+
+
+
+
+
+

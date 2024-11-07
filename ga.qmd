@@ -135,10 +135,6 @@ $$p_i = \frac{f_i}{\sum_{j=1}^{m} f_j}$$
 
 ## Comparing GA to SA 
 
-* The design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.
-     + _When this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone's categories_
-
-### The main differences between GA, SA
 * Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process.
 Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.
 * Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.
@@ -175,9 +171,9 @@ Selection operator: Another characteristic of GA is that it uses the selection a
      + GA uses generations and selection pressure to converge on the best solution over time.
      + SA cools down gradually, converging based on the temperature schedule.
 
-# GA Example
+# GA Example Ackley
 
-## Startup 
+## Startup Commands
 
 ```{python}
 # Genetic Algorithm Ackley Example (1D)
@@ -347,5 +343,103 @@ plt.ylabel("f(x)")
 plt.legend()
 plt.grid(True)
 plt.show()
+```
+
+# GA example One Max
+
+```{python}
+
+import numpy as np
+import random
+import matplotlib.pyplot as plt
+import time
+
+# Define the necessary global variables
+num_bits = 10
+pop_size = 50
+num_generations = 100
+crossover_rate = 0.7
+mutation_rate = 0.01
+num_players = 3  # For tournament selection
+
+# Evaluation Function (E): One-max function
+def one_max(sol):
+    return sum(sol)
+
+# Initialization function (I)
+def initialize_population(pop_size, num_bits):
+    return np.random.randint(0, 2, (pop_size, num_bits))
+
+# Selection function using tournament selection
+def select(population, fitness_vals, num_players):
+    selected_pop = []
+    for _ in range(len(population)):
+        tournament = np.random.choice(len(population), num_players, replace=False)
+        best_idx = tournament[np.argmax(fitness_vals[tournament])]
+        selected_pop.append(population[best_idx])
+    return np.array(selected_pop)
+
+# Crossover function
+def crossover(population, crossover_rate):
+    new_population = population.copy()
+    for i in range(0, len(population) - 1, 2):
+        if random.random() < crossover_rate:
+            crossover_point = np.random.randint(1, num_bits)
+            new_population[i, crossover_point:], new_population[i + 1, crossover_point:] = (
+                population[i + 1, crossover_point:], 
+                population[i, crossover_point:]
+            )
+    return new_population
+
+# Mutation function
+def mutate(population, mutation_rate):
+    for i in range(len(population)):
+        for j in range(num_bits):
+            if random.random() < mutation_rate:
+                population[i, j] = 1 - population[i, j]  # Flip the bit
+    return population
+
+# Genetic Algorithm function
+def genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate):
+    population = initialize_population(pop_size, num_bits)
+    best_sol, best_value = None, 0
+    value_history = []
+
+    for generation in range(num_generations):
+        fitness_vals = np.array([one_max(ind) for ind in population])
+        best_idx = np.argmax(fitness_vals)
+        
+        if fitness_vals[best_idx] > best_value:
+            best_sol, best_value = population[best_idx], fitness_vals[best_idx]
+        
+        value_history.append(best_value)
+        
+        selected_pop = select(population, fitness_vals, num_players)
+        offspring_pop = crossover(selected_pop, crossover_rate)
+        population = mutate(offspring_pop, mutation_rate)
+
+    return best_sol, best_value, value_history
+
+# Main execution
+start_time = time.time()
+best_sol, best_value, value_history = genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate)
+end_time = time.time()
+execution_time = end_time - start_time
+
+# Output results (O)
+print(f"Best solution: {best_sol}")
+print(f"Best fitness (one-max value): {best_value}")
+print(f"Execution time: {execution_time:.6f} seconds")
+
+# Plot the progress of the genetic algorithm
+plt.figure(figsize=(10, 6))
+plt.plot(value_history, marker='o', linestyle='-', color='b', label='Best One-Max Value')
+plt.title("Genetic Algorithm Progress for One-Max Problem")
+plt.xlabel("Generation")
+plt.ylabel("Best Fitness")
+plt.grid(True)
+plt.legend()
+plt.show()
+
 ```
 
