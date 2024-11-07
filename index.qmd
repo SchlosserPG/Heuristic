@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Heuristic Algorithms"
-author: "Pamela Schlosser"
+author: "BUAD5042: Schlosser"
 format: html
 runtime: python
 ---
@@ -24,8 +24,8 @@ runtime: python
 Authors: Chun-Wei Tsai & Ming-Chao Chiang\
 Publisher: Academic Press\
 
-- Access the book free through O’Reilly’s website with school credentials. 
-- Python code is available on the [author’s GitHub](https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python).
+-   Access the book free through O’Reilly’s website with school credentials.
+-   Python code is available on the [author’s GitHub](https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python).
 
 ------------------------------------------------------------------------
 
@@ -46,9 +46,11 @@ Publisher: Academic Press\
 
 -   Distinct from most supervised learning algorithms that need labeled data to learn and construct determination models, metaheuristic algorithms inherit characteristics of unsupervised learning algorithms used for solving complex engineering optimization problems without labeled data, just like self-learning, to find solutions to complex problems.
 
--   Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation. 
-* We will not cover the dept of knowledge in the book, and instead, just get a taste for metaheuristics. We will focus on process and how to adapt and make the right decisions given the problem type. 
-* We will also review Optimization, which is a lead into Heuristic Modelling. 
+-   Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation.
+
+-   We will not cover the dept of knowledge in the book, and instead, just get a taste for metaheuristics. We will focus on process and how to adapt and make the right decisions given the problem type.
+
+-   We will also review Optimization, which is a lead into Heuristic Modelling.
 
 ------------------------------------------------------------------------
 
@@ -74,6 +76,8 @@ The goal of optimization is to find the best solution among many possible option
 
 -   This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. ![TSP Chart](Pictures/tsp1.png "TSP")
 
+
+
 -   Different paths for a truck driver in the case of four cities.
 
 ```{python}
@@ -87,6 +91,11 @@ result = factorial(n - 1) / 2
 print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 ```
+
+* The number of routes are listed below in table form. 
+
+![tsp routes](Pictures/tsp.png "tsp routes")
+
 
 # What are Heuristics?
 
@@ -154,36 +163,38 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 # A family tree of metaheuristic algorithms
 
--   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. 
+-   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms.
 
-* Local Search-Based Metaheuristics
-     + Aim: Incrementally improve solutions by exploring the neighborhood of the current solution.
-     + Hill Climbing
-     + Simulated Annealing: Inspired by the annealing process in metallurgy. Balances exploration (random moves) and exploitation (accepting improvements), with a temperature parameter to control randomness.
-     + Tabu Search: Uses memory structures to avoid revisiting recently explored solutions.
+-   Local Search-Based Metaheuristics
 
-* Evolutionary Computation
-     + Aim: Mimic natural evolutionary processes, working with populations of solutions.
-     + Genetic Algorithms (GA): Inspired by natural selection, combining selection, crossover, and mutation operators to evolve solutions.
-     + Differential Evolution: Operates by recombining population members based on differences between solution vectors.
+    -   Aim: Incrementally improve solutions by exploring the neighborhood of the current solution.
+    -   Hill Climbing
+    -   Simulated Annealing: Inspired by the annealing process in metallurgy. Balances exploration (random moves) and exploitation (accepting improvements), with a temperature parameter to control randomness.
+    -   Tabu Search: Uses memory structures to avoid revisiting recently explored solutions.
 
+-   Evolutionary Computation
 
-* Swarm Intelligence
-     + Ant Colony Optimization (ACO): Mimics the foraging behavior of ants, using pheromone trails to guide the search.
-     + Cuckoo Search: Inspired by the brood parasitism of cuckoos.
-     + Particle Swarm Optimization (PSO): Inspired by social behaviors of animals, where individuals adjust their positions based on personal and social information.
-     + Artificial Bee Colony Algorithm: Based on foraging behavior of bees, balancing local and global search.
-     + Firefly Algorithm: Inspired by the attraction behavior of fireflies.
-     + Whale Optimization Algorithm: Mimics the bubble-net feeding behavior of humpback whales.
+    -   Aim: Mimic natural evolutionary processes, working with populations of solutions.
+    -   Genetic Algorithms (GA): Inspired by natural selection, combining selection, crossover, and mutation operators to evolve solutions.
+    -   Differential Evolution: Operates by recombining population members based on differences between solution vectors.
 
-* Human Intelligence
-     + Harmony Search: Mimics the improvisation process of musicians, balancing between memory considerations and random adjustments.
- 
+-   Swarm Intelligence
 
-* Nature-Inspired Algorithms: Inspired by various natural and biological phenomena.
-     + Artificial Immune System: Models the immune response, maintaining diversity and adapting to threats.
-     + Flower Pollination Algorithm: The Flower Pollination Algorithm (FPA) is a nature-inspired optimization technique based on the pollination behavior of flowering plants.
+    -   Ant Colony Optimization (ACO): Mimics the foraging behavior of ants, using pheromone trails to guide the search.
+    -   Cuckoo Search: Inspired by the brood parasitism of cuckoos.
+    -   Particle Swarm Optimization (PSO): Inspired by social behaviors of animals, where individuals adjust their positions based on personal and social information.
+    -   Artificial Bee Colony Algorithm: Based on foraging behavior of bees, balancing local and global search.
+    -   Firefly Algorithm: Inspired by the attraction behavior of fireflies.
+    -   Whale Optimization Algorithm: Mimics the bubble-net feeding behavior of humpback whales.
 
+-   Human Intelligence
+
+    -   Harmony Search: Mimics the improvisation process of musicians, balancing between memory considerations and random adjustments.
+
+-   Nature-Inspired Algorithms: Inspired by various natural and biological phenomena.
+
+    -   Artificial Immune System: Models the immune response, maintaining diversity and adapting to threats.
+    -   Flower Pollination Algorithm: The Flower Pollination Algorithm (FPA) is a nature-inspired optimization technique based on the pollination behavior of flowering plants.
 
 # A Critical Question
 

@@ -86,3 +86,6 @@ figcaption{text-align: center}
     list-style: none;
     padding-left: 0;
 }
+
+div.quarto-title-meta{display:none;}
+#title-block-header.quarto-title-block.default .quarto-title-meta{display:none;}
