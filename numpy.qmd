@@ -303,24 +303,25 @@ print(random_integers)
 
 # Looking at Time
 
--   The code compares the time it takes to sort lists of 1,000,000 elements using both Python’s built-in sorting method and NumPy’s sorting methods (quicksort and mergesort).
--   It tests performance for sorting random lists as well as lists initially sorted in reverse order.
+-   The code compares the time it takes to sort lists of 1,000,000 elements using both Python’s built-in sorting method and NumPy’s sorting methods (quicksort, mergesort, heapsort, and timsort).
 -   Library Imports:
     -   time: for measuring execution time.
     -   random: for shuffling a list randomly.
     -   numpy: for utilizing NumPy arrays and sorting functionalities.
--   Random List Generation:
-    -   A function x_rand() is defined to generate a list of 1,000,000 integers ranging from 0 to 999,999 and then shuffles them randomly using random.shuffle().
+-   Random List Generation using np.random.randinent:
 
+* The function x_rand() defined here generates a large array of random integers and returns it.
 ```{python}
 import time
 import random
 
 def x_rand():
-    x = list(range(1000000))
-    random.shuffle(x)
-    return x
+     x = list(range(1000000))
+     random.shuffle(x)
+     return x
 ```
+
+* The x.sort() method in Python sorts a list x in place, meaning it arranges the elements in ascending order directly within the list itself without creating a new list.
 
 ```{python}
 x = x_rand()
@@ -329,13 +330,9 @@ x.sort()
 print("Time to sort random list:",time.time() - start_time)
 ```
 
-```{python}
-x.sort(reverse=True)
-start_time = time.time()
-x.sort()
-print("Time to sort list in reverse order:",time.time() - start_time)
-
-```
+* The x_numpy.sort() function is an in-place method in NumPy that sorts the elements of an array along a specified axis. When called, it rearranges the elements of the array in ascending order by default.
+     + Quicksort (kind='quicksort'): The default sorting algorithm, generally faster but not stable.
+     + Since quicksort is the default sorting, we leave off the argument inside the function. 
 
 ```{python}
 x_numpy = np.array(x_rand())
@@ -345,14 +342,33 @@ print("Time for numpy quicksort of random list:",time.time() - start_time)
 
 ```
 
+* In NumPy, mergesort is one of the sorting algorithms that can be specified in the np.sort() function. The mergesort algorithm is a stable, comparison-based, divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts each half, and then merges the sorted halves back together.
+
 ```{python}
-x_numpy = np.array(x_rand())
 start_time = time.time()
 x_numpy.sort(kind='mergesort')
 print("Time for numpy mergesort of random list:",time.time() - start_time)
 
 ```
 
+* Heapsort (kind='heapsort'): A bit slower than quicksort, but stable.
+
+```{python}
+start_time = time.time()
+x_numpy.sort(kind='heapsort')
+print("Time for numpy heapsort of random list:",time.time() - start_time)
+```
+
+* Timsort (kind='stable'): A stable sorting algorithm that is also efficient in practical cases, particularly for partially sorted data.
+
+```{python}
+start_time = time.time()
+x_numpy.sort(kind='stable')
+print("Time for numpy timsort of random list:",time.time() - start_time)
+```
+
+ 
+     
 # Formula vs LaTex vs Python
 
 -   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.
