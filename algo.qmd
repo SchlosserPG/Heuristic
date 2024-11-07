@@ -171,8 +171,6 @@ runtime: python
     -   **for** $i = 1$ **to** $n$: A loop from $i = 1$ to $n$.
     -   **if** $(condition)$: A conditional statement.
 
-## Examples of Math Notation
-
 ## Summation and Loop Example
 
 -   **Summation Formula**: $S = \sum_{i=1}^{n} i = 1 + 2 + 3 + \dots + n$
