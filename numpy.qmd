@@ -3,7 +3,6 @@ title: "Python for Heuristics & NumPy"
 author: "Pamela Schlosser"
 format: html
 runtime: python
-
 ---
 
 # Coding Know-How
@@ -70,6 +69,8 @@ import numpy as np
 -   Vectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).
 
 ## Basic Array Creation
+
+* The np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.
 
 ```{python}
 # Creating a simple numpy array from a Python list
@@ -157,6 +158,7 @@ def ackley(s):
 ```
 
 # Sorting the data: np.argsort
+* The np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.
 
 -   In various evolutionary algorithms (such as genetic algorithms or simulated annealing), selecting the most "fit" or optimal solutions from a population is crucial for convergence toward the global optimum.
 -   By sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.
@@ -181,7 +183,7 @@ print(top_individuals)
 ```
 
 ## Selecting the Max: np.argmax
-
+* The np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.
 -   Finding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.
 
 ```{python}
@@ -236,6 +238,7 @@ print("Max element index for each row:", max_index_row)
 # Random Number Generation
 
 -   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.
+* More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
 
 ```{python}
 rand_nums = np.random.rand(5)
@@ -243,8 +246,8 @@ print(rand_nums)
 ```
 
 ## Standard Normal Distribution
-
--   Generating random numbers from a standard normal distribution (mean=0, std=1).
+* The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
+-   Generating 5 random numbers from a standard normal distribution (mean=0, std=1).
 
 ```{python}
 # Generating random values from the standard normal distribution
@@ -254,7 +257,7 @@ print("Random Standard Normal Values:", random_values)
 ```
 
 ## np.random.uniform
-
+* The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
 -   In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.
 
 ```{python}
@@ -264,6 +267,7 @@ print(f"Random start: {random_start}")
 ```
 
 ## np.random.randint
+* The np.random.randint function in NumPy is used to generate random integers within a specified range. 
 
 -   np.random.randint(low, high=None, size=None, dtype=int)
     -   low: The lower boundary of the random integers (inclusive).
