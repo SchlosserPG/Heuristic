@@ -66,6 +66,10 @@ The goal of optimization is to find the best solution among many possible option
 -   Find good solutions; estimate these solutions; and finally use the information thus obtained to make a decision. OR
 -   Simply announce that the solution for the problem in question has been found.
 
+
+* Thinking Through Optimization: What’s one part of your daily routine that you’d love to optimize? If you could use a heuristic to make it easier or faster, how would it work?
+
+
 # Example: Traveling salesman problem (TSP)
 
 -   Given a set of cities and the distance between each pair of cities, find the shortest path to visit each city and then return to the city of departure.

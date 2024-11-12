@@ -5,6 +5,8 @@ format: html
 ---
 
 # Optimization Problem
+* Sometimes, we go with the ‘greedy’ option that seems best in the moment. Can you think of a time when you made a quick decision like that? Did it pay off or backfire?
+
 
 ## Definition 1
 
@@ -127,7 +129,7 @@ $$\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi
 
 Where $c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
 
-![Greedy Map](Pictures/GreedyMap.png "Greedy Map") 
+![Greedy Map](Pictures/GreedyMap.png "Greedy Map")
 
 ### Greedy TSP Solution
 

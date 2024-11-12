@@ -296,6 +296,9 @@ window.Quarto = {
 
 <section id="optimization-problem" class="level1">
 <h1>Optimization Problem</h1>
+<ul>
+<li>Sometimes, we go with the ‘greedy’ option that seems best in the moment. Can you think of a time when you made a quick decision like that? Did it pay off or backfire?</li>
+</ul>
 <section id="definition-1" class="level2">
 <h2 class="anchored" data-anchor-id="definition-1">Definition 1</h2>
 <ul>
@@ -358,7 +361,7 @@ window.Quarto = {
 <p>Where <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor\)</span> is the number of coins of denomination <span class="math inline">\(c_i\)</span> is used.</p>
 <p><span class="math inline">\(A\)</span> is reduced by the value <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor \times c_i\)</span></p>
 <p>After using as many <span class="math inline">\(c_i\)</span> denomination coins as possible. The process continues until <span class="math inline">\(A=0\)</span>, at which point the minimum number of coins required to make the total amount is found.</p>
-<div id="a6957a26" class="cell" data-execution_count="1">
+<div id="6b3741ac" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
@@ -475,7 +478,7 @@ Minimum number of coins needed: 4</code></pre>
 </section>
 <section id="tsp-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="tsp-python-implementation">TSP Python Implementation</h3>
-<div id="94cf021d" class="cell" data-execution_count="2">
+<div id="035fde80" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>

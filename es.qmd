@@ -6,6 +6,8 @@ runtime: python
 ---
 
 # Exhaustive Search
+* If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?
+
 
 -   Exhaustive Search (also known as brute-force search) is a problem-solving technique that systematically enumerates all possible solutions to find the best one.
 -   It evaluates every potential solution against the objective function and selects the optimal one.
@@ -213,7 +215,7 @@ def init_es(num_bits=10):
 
 ## Helper Functions
 
-* transit(s): Simply increments the current solution by 1.
+-   transit(s): Simply increments the current solution by 1.
 
 ```{python}
 # Function for transit (T)

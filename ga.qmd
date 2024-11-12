@@ -6,170 +6,186 @@ runtime: python
 ---
 
 # Genetic Algorithms
-* Genetic Algorithms (GAs) are optimization techniques inspired by the process of natural selection and evolution.
-* Population: A set of potential solutions (individuals) to the problem.
-Genes/Chromosomes: Each individual is represented by a chromosome (a string of genes), typically encoded as a binary, real-number, or symbolic representation.
-* Objective: To evolve the population toward better solutions by mimicking evolutionary processes such as selection, crossover, and mutation.
-* Diagram illustrating the flow of a genetic algorithm: 
-initial population → selection → crossover → mutation → new population.
+* If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?
+
+
+-   Genetic Algorithms (GAs) are optimization techniques inspired by the process of natural selection and evolution.
+-   Population: A set of potential solutions (individuals) to the problem. Genes/Chromosomes: Each individual is represented by a chromosome (a string of genes), typically encoded as a binary, real-number, or symbolic representation.
+-   Objective: To evolve the population toward better solutions by mimicking evolutionary processes such as selection, crossover, and mutation.
+-   Diagram illustrating the flow of a genetic algorithm: initial population → selection → crossover → mutation → new population.
 
 ## Key Steps
-* Initialization: Randomly generate an initial population of individuals (solutions).
-* Selection: Choose the fittest individuals based on a fitness function that measures solution quality.
-* Crossover (Recombination): Combine parts of two parent solutions to create offspring (new solutions).
-* Mutation: Introduce random changes to an individual to maintain diversity and explore new parts of the solution space.
-* Replacement: Replace the old population with the new one, ensuring improvement over generations.
-* Termination: Continue until a stopping condition (e.g., number of generations or convergence) is met.
+
+-   Initialization: Randomly generate an initial population of individuals (solutions).
+-   Selection: Choose the fittest individuals based on a fitness function that measures solution quality.
+-   Crossover (Recombination): Combine parts of two parent solutions to create offspring (new solutions).
+-   Mutation: Introduce random changes to an individual to maintain diversity and explore new parts of the solution space.
+-   Replacement: Replace the old population with the new one, ensuring improvement over generations.
+-   Termination: Continue until a stopping condition (e.g., number of generations or convergence) is met.
 
 ## Advantages
-* Global Search: Capable of exploring large solution spaces and avoiding local optima.
-* Flexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.
-* Heuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.
 
+-   Global Search: Capable of exploring large solution spaces and avoiding local optima.
+-   Flexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.
+-   Heuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.
 
 ## Genetic Algorithms Defined
-* Each iteration during the convergence process is called a generation.
-GA will search more than one candidate solution per generation.
-* All the solutions of each generation are called a population indicating that there are many candidate solutions.
-* Each solution is called a chromosome or an individual. 
-* Each subsolution of a solution is called a gene.
-* Fitness is the objective function value.
-* Selection is the selection based on the objective function value. 
 
-* Optimization patterned on evolution 
-     + Maintain a population of solutions.
-     + “Survival of the fittest”.
-* Evolution of an improving solution
-     + The population evolves over many generations.
-     + The fittest population members are more likely to reproduce and create offspring with their genetic material.
-     + Population fitness improves through the generations.
+-   Each iteration during the convergence process is called a generation. GA will search more than one candidate solution per generation.
+
+-   All the solutions of each generation are called a population indicating that there are many candidate solutions.
+
+-   Each solution is called a chromosome or an individual.
+
+-   Each subsolution of a solution is called a gene.
+
+-   Fitness is the objective function value.
+
+-   Selection is the selection based on the objective function value.
+
+-   Optimization patterned on evolution
+
+    -   Maintain a population of solutions.
+    -   “Survival of the fittest”.
+
+-   Evolution of an improving solution
+
+    -   The population evolves over many generations.
+    -   The fittest population members are more likely to reproduce and create offspring with their genetic material.
+    -   Population fitness improves through the generations.
 
 ## The relationship between population $s$, chromosome $si$, and gene $si,j$
 
-* $s$ represents the population (a set of solutions), 
-* $s_i$ represents a chromosome (a solution), 
-* $s_{ij}$ represents a gene (a subsolution),
-* $m$ represents the number of chromosomes in the population (also called population size, and 
-* $n$ represents the number of subsolutions in a chromosome. 
-* The objective value of each chromosome will also be transformed to a value called the _fitnes value_ by a so-called fitness function.
+-   $s$ represents the population (a set of solutions),
+-   $s_i$ represents a chromosome (a solution),
+-   $s_{ij}$ represents a gene (a subsolution),
+-   $m$ represents the number of chromosomes in the population (also called population size, and
+-   $n$ represents the number of subsolutions in a chromosome.
+-   The objective value of each chromosome will also be transformed to a value called the *fitnes value* by a so-called fitness function.
 
-![Genetic Algorithm](Pictures/ga1.png "Genetic Algorithm") 
+![Genetic Algorithm](Pictures/ga1.png "Genetic Algorithm")
 
 ### The Relationships between Parents and Children
 
-* Each current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.
-* The parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.
-* Once the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population $v$, which is called the offspring of the parents $s’$.
-* The offspring at iteration $t$ will become the current population s of iteration $t+1$. This is referred to as the reproduction process.
+-   Each current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.
+-   The parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.
+-   Once the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population $v$, which is called the offspring of the parents $s’$.
+-   The offspring at iteration $t$ will become the current population s of iteration $t+1$. This is referred to as the reproduction process.
 
-![Genetic Algorithm](Pictures/ga2.png "Genetic Algorithm") 
+![Genetic Algorithm](Pictures/ga2.png "Genetic Algorithm")
 
+-   The strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.
 
-* The strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.
+-   GA will first randomly select some of the chromosomes based on the fitness value of each chromosome.
 
-* GA will first randomly select some of the chromosomes based on the fitness value of each chromosome.
-* Shows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3. 
-* This means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.
-* Shows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.
+-   Shows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.
 
-![Genetic Algorithm](Pictures/ga3.png "Genetic Algorithm") 
+-   This means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.
 
-* The strategy of the transition operator of GA. (a) How the crossover operator works. (b) How the mutation operator works.
+-   Shows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.
 
-* GA will typically apply the crossover and mutation operators to the chromosomes selected by the selection operator.
-* Two-dimensional landscape will be used as compared to one dimensional used in traditional methods, simulated annealing or tabu search.
+![Genetic Algorithm](Pictures/ga3.png "Genetic Algorithm")
 
-![Genetic Algorithm](Pictures/ga4.png "Genetic Algorithm") 
+-   The strategy of the transition operator of GA. (a) How the crossover operator works. (b) How the mutation operator works.
 
+-   GA will typically apply the crossover and mutation operators to the chromosomes selected by the selection operator.
+
+-   Two-dimensional landscape will be used as compared to one dimensional used in traditional methods, simulated annealing or tabu search.
+
+![Genetic Algorithm](Pictures/ga4.png "Genetic Algorithm")
 
 # GA Algorithm
-* Initialization: Each chromosome represents a potential solution. In our case, it's a binary vector indicating whether a DC is selected or not.
-* Fitness Function: The fitness of a solution is calculated based on how many plants can be served by the selected DCs and whether the total investment remains within the budget.
-* Selection:  Select a set of solutions based on their fitness to proceed to the next generation.
-* Crossover: Perform crossover between pairs of selected solutions to create new offspring solutions.
-* Mutation: Randomly mutate some solutions to introduce diversity.
-* Termination: Stop when a satisfactory solution is found or after a fixed number of generations.
 
-![Genetic Algorithm](Pictures/ga5.png "Genetic Algorithm") 
+-   Initialization: Each chromosome represents a potential solution. In our case, it's a binary vector indicating whether a DC is selected or not.
+-   Fitness Function: The fitness of a solution is calculated based on how many plants can be served by the selected DCs and whether the total investment remains within the budget.
+-   Selection: Select a set of solutions based on their fitness to proceed to the next generation.
+-   Crossover: Perform crossover between pairs of selected solutions to create new offspring solutions.
+-   Mutation: Randomly mutate some solutions to introduce diversity.
+-   Termination: Stop when a satisfactory solution is found or after a fixed number of generations.
+
+![Genetic Algorithm](Pictures/ga5.png "Genetic Algorithm")
 
 # The Probability Calculation
 
-* The probability of each chromosome being elected as a parent can be computed as follows: 
-$$p_i = \frac{f_i}{\sum_{j=1}^{m} f_j}$$
-* Fitness $f_i$ of member i as a proportion of sum of fitness of all population members, suggesting that $p_i = \frac{\text{fit}}{\sum \text{fit}}$
+-   The probability of each chromosome being elected as a parent can be computed as follows: $$p_i = \frac{f_i}{\sum_{j=1}^{m} f_j}$$
+-   Fitness $f_i$ of member i as a proportion of sum of fitness of all population members, suggesting that $p_i = \frac{\text{fit}}{\sum \text{fit}}$
 
 ## Refining Genetic Algorithms
 
-* There’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.
-* GA Parameters Are Crucial: The effectiveness of GA depends heavily on carefully tuning parameters like population size, mutation rate, and the number of generations.
-* Population Size: For more complex problems, use larger populations (e.g., 1000–2000 individuals) 
-* Mutation Rate: A low probability, typically 0.001 to 0.002 per gene. 
-* Number of Generations: For more generations (e.g., 1000–2000 generations).
-* Fitness Function: Carefully tailored to the specific problem being solved, as it guides the selection process. 
-* Selection Method: rank-based linear selection or proportional selection can be used.
-* Crossover Mechanism: Single-point crossover chosen at a random location 
-
+-   There’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.
+-   GA Parameters Are Crucial: The effectiveness of GA depends heavily on carefully tuning parameters like population size, mutation rate, and the number of generations.
+-   Population Size: For more complex problems, use larger populations (e.g., 1000–2000 individuals)
+-   Mutation Rate: A low probability, typically 0.001 to 0.002 per gene.
+-   Number of Generations: For more generations (e.g., 1000–2000 generations).
+-   Fitness Function: Carefully tailored to the specific problem being solved, as it guides the selection process.
+-   Selection Method: rank-based linear selection or proportional selection can be used.
+-   Crossover Mechanism: Single-point crossover chosen at a random location
 
 ## Fitness Function Alternatives in Heuristic Models
 
-* Fitness measures and selection mechanisms together determine the quality of offspring (solutions) in evolutionary or heuristic algorithms.
-     + While fitness measures are problem-specific, several reasonable alternatives often exist. 
-     + It's essential to tailor the fitness function to the specific goals of the problem (e.g., precision, speed, or robustness).
-* Selection strategies (e.g., roulette wheel, tournament selection) could also have significant impacts on solution quality, and finding the right balance often requires experimentation.
-* Selecting the Right Fitness Function: Some fitness measures work significantly better than others depending on the problem. 
-* Leverage prior knowledge or insights from similar problems to guide fitness function selection. 
-* Trial and Error: Expect to experiment with different fitness measures to find the one that best suits your specific problem.
+-   Fitness measures and selection mechanisms together determine the quality of offspring (solutions) in evolutionary or heuristic algorithms.
 
-* Common Distance Measures for Comparing Solutions to a Target:
-     + Sum of Squared Differences: A measure of the total squared deviation of each pixel from the target, commonly used when larger errors should be penalized more.
-     + Euclidean Distance: The square root of the sum of squared differences, providing a more intuitive "distance" measure in the image space.
-     + Sum of Absolute Pixel Differences: A simpler alternative that sums the absolute differences for each pixel, often less sensitive to outliers.
-     + Maximum Absolute Pixel Difference: Focuses on the largest deviation, highlighting the worst pixel match.
+    -   While fitness measures are problem-specific, several reasonable alternatives often exist.
+    -   It's essential to tailor the fitness function to the specific goals of the problem (e.g., precision, speed, or robustness).
+
+-   Selection strategies (e.g., roulette wheel, tournament selection) could also have significant impacts on solution quality, and finding the right balance often requires experimentation.
+
+-   Selecting the Right Fitness Function: Some fitness measures work significantly better than others depending on the problem.
+
+-   Leverage prior knowledge or insights from similar problems to guide fitness function selection.
+
+-   Trial and Error: Expect to experiment with different fitness measures to find the one that best suits your specific problem.
+
+-   Common Distance Measures for Comparing Solutions to a Target:
+
+    -   Sum of Squared Differences: A measure of the total squared deviation of each pixel from the target, commonly used when larger errors should be penalized more.
+    -   Euclidean Distance: The square root of the sum of squared differences, providing a more intuitive "distance" measure in the image space.
+    -   Sum of Absolute Pixel Differences: A simpler alternative that sums the absolute differences for each pixel, often less sensitive to outliers.
+    -   Maximum Absolute Pixel Difference: Focuses on the largest deviation, highlighting the worst pixel match.
 
 ## Approaches to Optimize the Mutation Rate
 
-* Hyperparameter Tuning: Use various fixed mutation rates and evaluate the performance of the GA over multiple runs to identify the best one. This is the simplest method but can be time-consuming as it involves manual experimentation.
-* Dynamic Mutation Rate: Adjust the mutation rate dynamically during the evolution process. For example, you can start with a high mutation rate to encourage exploration and gradually reduce it as the algorithm converges.
-* Self-Adaptive Mutation Rate: Introduce a mechanism in the GA where each individual in the population has its own mutation rate, which evolves over time. The mutation rate itself becomes part of the genetic material.
-* Cross-Validation: Use techniques like k-fold cross-validation to evaluate the impact of different mutation rates and find the one that generalizes the best.
+-   Hyperparameter Tuning: Use various fixed mutation rates and evaluate the performance of the GA over multiple runs to identify the best one. This is the simplest method but can be time-consuming as it involves manual experimentation.
+-   Dynamic Mutation Rate: Adjust the mutation rate dynamically during the evolution process. For example, you can start with a high mutation rate to encourage exploration and gradually reduce it as the algorithm converges.
+-   Self-Adaptive Mutation Rate: Introduce a mechanism in the GA where each individual in the population has its own mutation rate, which evolves over time. The mutation rate itself becomes part of the genetic material.
+-   Cross-Validation: Use techniques like k-fold cross-validation to evaluate the impact of different mutation rates and find the one that generalizes the best.
 
-## Comparing GA to SA 
+## Comparing GA to SA
 
-* Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process.
-Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.
-* Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.
-* Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.
-
-
+-   Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.
+-   Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.
+-   Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.
 
 # Genetic Algorithms
-* To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
-     + Performance: Compare the final optimized values.
-     + Convergence Speed: How fast each algorithm converges to a solution.
-     + Exploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).
+
+-   To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
+    -   Performance: Compare the final optimized values.
+    -   Convergence Speed: How fast each algorithm converges to a solution.
+    -   Exploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).
 
 ### Genetic Algorithm for Ackley Function
-* The key components of a genetic algorithm include:
-     + Population: A set of candidate solutions.
-     + Selection: Selecting parents based on their fitness (Ackley function value).
-     + Crossover: Combining parents to produce offspring.
-     + Mutation: Introducing random changes to maintain diversity.
-     + Fitness Function: The objective function we are minimizing, which is the Ackley function in this case.
 
+-   The key components of a genetic algorithm include:
+    -   Population: A set of candidate solutions.
+    -   Selection: Selecting parents based on their fitness (Ackley function value).
+    -   Crossover: Combining parents to produce offspring.
+    -   Mutation: Introducing random changes to maintain diversity.
+    -   Fitness Function: The objective function we are minimizing, which is the Ackley function in this case.
 
 ### Comparison with Simulated Annealing (SA)
-* Population-based vs. Single Solution:
-     + GA maintains and evolves a population of solutions.
-     + SA operates on a single solution and modifies it over time.
-* Exploration Strategy:
-     + GA uses crossover and mutation to explore the solution space, encouraging diversity.
-     + SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).
-* Deterministic vs. Probabilistic:
-     + GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.
-     + SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.
-* Convergence:
-     + GA uses generations and selection pressure to converge on the best solution over time.
-     + SA cools down gradually, converging based on the temperature schedule.
+
+-   Population-based vs. Single Solution:
+    -   GA maintains and evolves a population of solutions.
+    -   SA operates on a single solution and modifies it over time.
+-   Exploration Strategy:
+    -   GA uses crossover and mutation to explore the solution space, encouraging diversity.
+    -   SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).
+-   Deterministic vs. Probabilistic:
+    -   GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.
+    -   SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.
+-   Convergence:
+    -   GA uses generations and selection pressure to converge on the best solution over time.
+    -   SA cools down gradually, converging based on the temperature schedule.
 
 # GA Example Ackley
 
@@ -204,7 +220,8 @@ def ackley(x):
 ```
 
 ## Initiation (I)
-* A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.
+
+-   A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.
 
 ```{python}
 # Initialization function (I) to set the starting point
@@ -213,10 +230,9 @@ def init_ga(pop_size):
 
 ```
 
-
 ## Evaluation (E)
-* The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population's fitness values.
 
+-   The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population's fitness values.
 
 ```{python}
 # Evaluation function (E)
@@ -224,7 +240,6 @@ def evaluate(pop):
     return np.array([ackley(ind) for ind in pop])
 
 ```
-
 
 ## Update function
 
@@ -240,8 +255,8 @@ def update_best_sol(curr_pop, curr_obj_vals):
 ```
 
 ## Determination Function (D)
-* Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.
 
+-   Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.
 
 ```{python}
 # Determination (D)
@@ -255,9 +270,9 @@ def select(curr_pop, curr_obj_vals, num_players):
     return np.array(selected_pop)
 ```
 
-
 ## Transition Function (T)
-* Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.
+
+-   Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.
 
 ```{python}
 # Transition function (T): Cross over and Mutation
@@ -275,8 +290,8 @@ def crossover(pop, crossover_rate):
 ```
 
 ## Mutation Function (M)
-* Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
 
+-   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
 
 ```{python}
 # Mutation function (M)
@@ -287,10 +302,10 @@ def mutation(pop, mutation_rate):
     return pop
 ```
 
-
 ## Main Loop
-* The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.
-* The new population (after crossover and mutation) replaces the old one for the next generation.
+
+-   The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.
+-   The new population (after crossover and mutation) replaces the old one for the next generation.
 
 ```{python}
 # Genetic Algorithm function (D)
@@ -320,7 +335,6 @@ best_solution, best_value = genetic_algorithm()
 end_time = time.time()
 execution_time = end_time - start_time
 ```
-
 
 ## Output (O)
 
@@ -442,4 +456,3 @@ plt.legend()
 plt.show()
 
 ```
-

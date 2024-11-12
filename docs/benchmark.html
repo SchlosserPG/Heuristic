@@ -241,6 +241,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#onemax-problem" id="toc-onemax-problem" class="nav-link" data-scroll-target="#onemax-problem">OneMax Problem</a>
   <ul class="collapse">
+  <li><a href="#one-max-formula" id="toc-one-max-formula" class="nav-link" data-scroll-target="#one-max-formula">One Max Formula</a></li>
   <li><a href="#optimal-solution-onemax" id="toc-optimal-solution-onemax" class="nav-link" data-scroll-target="#optimal-solution-onemax">Optimal Solution OneMax</a></li>
   <li><a href="#onemax-pseudocode" id="toc-onemax-pseudocode" class="nav-link" data-scroll-target="#onemax-pseudocode">OneMax Pseudocode</a></li>
   <li><a href="#onemax-python-implementation" id="toc-onemax-python-implementation" class="nav-link" data-scroll-target="#onemax-python-implementation">OneMax Python Implementation</a></li>
@@ -316,13 +317,19 @@ window.Quarto = {
 <section id="onemax-problem" class="level2">
 <h2 class="anchored" data-anchor-id="onemax-problem">OneMax Problem</h2>
 <ul>
-<li>In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.</li>
+<li><p>In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.</p></li>
+<li><p>Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them?</p></li>
+</ul>
+<section id="one-max-formula" class="level3">
+<h3 class="anchored" data-anchor-id="one-max-formula">One Max Formula</h3>
+<ul>
 <li>Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. It can be any positive integer.</li>
 <li>Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.</li>
 <li>Example Run: If the generated binary string is [1, 0, 1, 1, 0, 1, 0, 1, 1, 0], the fitness would be 6, since there are six 1s in the string.</li>
 <li>The objective is to maximize the number of 1s in a binary string.</li>
 </ul>
 <p><span class="math display">\[\max_{s \in A} f(s) = \sum_{i=1}^{n} s_i, \quad \text{subject to} \ s_i \in \{0, 1\}.\]</span></p>
+</section>
 <section id="optimal-solution-onemax" class="level3">
 <h3 class="anchored" data-anchor-id="optimal-solution-onemax">Optimal Solution OneMax</h3>
 <ul>
@@ -354,7 +361,7 @@ PRINT "Fitness (number of 1s):", fitness
 </section>
 <section id="onemax-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="onemax-python-implementation">OneMax Python Implementation</h3>
-<div id="210a29ed" class="cell" data-execution_count="1">
+<div id="c3fd91aa" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -390,8 +397,8 @@ PRINT "Fitness (number of 1s):", fitness
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Binary string: [0, 1, 1, 0, 1, 0, 0, 1, 1, 1]
-Fitness (number of 1s): 6</code></pre>
+<pre><code>Binary string: [1, 1, 1, 0, 0, 0, 0, 1, 1, 0]
+Fitness (number of 1s): 5</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -412,7 +419,7 @@ Fitness (number of 1s): 6</code></pre>
 <li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
 <li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
 </ul>
-<div id="d6341f5e" class="cell" data-execution_count="2">
+<div id="6009c2fc" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -650,7 +657,7 @@ PRINT Ackley function result for vector s
 </section>
 <section id="ackley-function-python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="ackley-function-python-implementation">Ackley Function Python Implementation</h4>
-<div id="affd0597" class="cell" data-execution_count="3">
+<div id="26184966" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -724,7 +731,7 @@ Ackley function result: 17.91745666838746</code></pre>
 <li>Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
 <li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
 </ul>
-<div id="4a7b4b66" class="cell" data-execution_count="4">
+<div id="c1870676" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -826,7 +833,7 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <li>Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.</li>
 <li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
 </ul>
-<div id="5d53f9ba" class="cell" data-execution_count="5">
+<div id="0074cabb" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -907,7 +914,7 @@ PRINT "Combined objective:", combined_objective(result.x)
 <li>Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.</li>
 <li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
 </ul>
-<div id="4c764ad8" class="cell" data-execution_count="6">
+<div id="7a4806e9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
