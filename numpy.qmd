@@ -65,7 +65,7 @@ import numpy as np
 ## Numpy Definition
 
 -   NumPy stands for numerical Python, suggesting that it targets scenarios that are numerically demanding. The base Python interpreter tries to be as general as possible in many areas, which often leads to quite a bit of overhead at run-time.
--   NumPy uses specialization as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.
+-   NumPy uses specialization for numerical components as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.
 -   Vectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).
 
 ## Basic Array Creation
@@ -485,17 +485,16 @@ print(f"Wall time: {wall_time:.2f} s")
 ```
 
 # Using AI
-* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-* Reusable Code: Why is using functions in Python important? Write a function to calculate the sum of a list and explain how it makes the code more maintainable.
-* Internal vs External Functions: Compare internal and external function definitions in Python. Create a simple example using an external Python file for function imports.
-* OOP vs Procedural Programming: Explain the differences between Object-Oriented Programming and Procedural Programming. Which approach would you choose for building a reusable library, and why?
-* Array Operations: Create a NumPy array from a Python list and perform element-wise addition, subtraction, multiplication, and division. Discuss the advantages of using NumPy arrays over Python lists for such operations.
-* Vectorization: Explain the concept of vectorization in NumPy. Write vectorized code to add two arrays and compare its performance to a loop-based implementation.
-* Exponential Function: Using np.exp, implement a function that computes the probability of accepting a new solution in a simulated annealing algorithm. Explain how the exponential function impacts the search process.
-* Square Root: Write a Python script to compute the square root of all elements in a NumPy array using np.sqrt. Discuss a practical application of this operation.
-* Sorting with np.argsort: Create a NumPy array of random fitness scores. Use np.argsort to rank individuals and extract the top three scores.
-* Uniform Distribution: Generate an array of random numbers between -10 and 10 using np.random.uniform. How might this be useful in optimization algorithms like hill climbing?
-* Normal Distribution: Use np.random.standard_normal to generate random numbers from a normal distribution. Visualize the distribution using a histogram.
-* Sorting Performance: Compare the execution times of Python’s sort and NumPy’s np.sort using Stable and Quicksort. Which method is faster, and why?
 
-
+-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+-   Reusable Code: Why is using functions in Python important? Write a function to calculate the sum of a list and explain how it makes the code more maintainable.
+-   Internal vs External Functions: Compare internal and external function definitions in Python. Create a simple example using an external Python file for function imports.
+-   OOP vs Procedural Programming: Explain the differences between Object-Oriented Programming and Procedural Programming. Which approach would you choose for building a reusable library, and why?
+-   Array Operations: Create a NumPy array from a Python list and perform element-wise addition, subtraction, multiplication, and division. Discuss the advantages of using NumPy arrays over Python lists for such operations.
+-   Vectorization: Explain the concept of vectorization in NumPy. Write vectorized code to add two arrays and compare its performance to a loop-based implementation.
+-   Exponential Function: Using np.exp, implement a function that computes the probability of accepting a new solution in a simulated annealing algorithm. Explain how the exponential function impacts the search process.
+-   Square Root: Write a Python script to compute the square root of all elements in a NumPy array using np.sqrt. Discuss a practical application of this operation.
+-   Sorting with np.argsort: Create a NumPy array of random fitness scores. Use np.argsort to rank individuals and extract the top three scores.
+-   Uniform Distribution: Generate an array of random numbers between -10 and 10 using np.random.uniform. How might this be useful in optimization algorithms like hill climbing?
+-   Normal Distribution: Use np.random.standard_normal to generate random numbers from a normal distribution. Visualize the distribution using a histogram.
+-   Sorting Performance: Compare the execution times of Python’s sort and NumPy’s np.sort using Stable and Quicksort. Which method is faster, and why?

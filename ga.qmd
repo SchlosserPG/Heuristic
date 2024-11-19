@@ -465,7 +465,7 @@ plt.show()
 
 -   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
 * Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?
-* Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = (x-3)^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?
+* Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = x^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?
 * Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.
 * Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?
 * Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.

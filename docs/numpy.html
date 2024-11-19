@@ -383,14 +383,14 @@ window.Quarto = {
 <section id="libraries-to-note" class="level1">
 <h1>Libraries to Note</h1>
 <p><img src="Pictures/library.png" title="libraries" class="img-fluid" alt="libraries.py"> # Revisiting Numpy ## Importing Numpy</p>
-<div id="978dc701" class="cell" data-execution_count="1">
+<div id="a499f37a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="numpy-definition" class="level2">
 <h2 class="anchored" data-anchor-id="numpy-definition">Numpy Definition</h2>
 <ul>
 <li>NumPy stands for numerical Python, suggesting that it targets scenarios that are numerically demanding. The base Python interpreter tries to be as general as possible in many areas, which often leads to quite a bit of overhead at run-time.</li>
-<li>NumPy uses specialization as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.</li>
+<li>NumPy uses specialization for numerical components as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.</li>
 <li>Vectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).</li>
 </ul>
 </section>
@@ -399,7 +399,7 @@ window.Quarto = {
 <ul>
 <li>The np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.</li>
 </ul>
-<div id="073fd1b3" class="cell" data-execution_count="2">
+<div id="189d5fd4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a simple numpy array from a Python list</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array:"</span>, array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -422,7 +422,7 @@ window.Quarto = {
 <li>Element-wise exponentiation **</li>
 </ul></li>
 </ul>
-<div id="026879ce" class="cell" data-execution_count="3">
+<div id="634eb02e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing element-wise addition</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>added_array <span class="op">=</span> array <span class="op">+</span> <span class="dv">5</span></span>
@@ -431,7 +431,7 @@ window.Quarto = {
 <pre><code>Added Array: [6 7 8 9]</code></pre>
 </div>
 </div>
-<div id="1b4d9f96" class="cell" data-execution_count="4">
+<div id="a811a1d3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
@@ -446,7 +446,7 @@ window.Quarto = {
 <ul>
 <li>np.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒^𝑥, where 𝑒 is Euler’s number (approximately 2.71828), and 𝑥 is the input array or scalar.</li>
 </ul>
-<div id="9cdc2691" class="cell" data-execution_count="5">
+<div id="8e595ee3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying np.exp to the array</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>exp_array <span class="op">=</span> np.exp(array)</span>
@@ -467,7 +467,7 @@ window.Quarto = {
 </ul></li>
 <li>The function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.</li>
 </ul>
-<div id="7bb5e1c4" class="cell" data-execution_count="6">
+<div id="a0b7872b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated annealing temperature decay</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(<span class="va">self</span>, tmp_obj_val, obj_val, temperature):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>     r <span class="op">=</span> np.random.rand()</span>
@@ -480,7 +480,7 @@ window.Quarto = {
 <ul>
 <li>np.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.</li>
 </ul>
-<div id="6a748e55" class="cell" data-execution_count="7">
+<div id="bff724cb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying np.sqrt to the array</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sqrt_array <span class="op">=</span> np.sqrt(array)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Square Root Array:"</span>, sqrt_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -491,7 +491,7 @@ window.Quarto = {
 <ul>
 <li>The Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.</li>
 </ul>
-<div id="0f6f7bb5" class="cell" data-execution_count="8">
+<div id="e3b2e74b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(s):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>     a, b, c <span class="op">=</span> <span class="dv">20</span>, <span class="fl">0.2</span>, <span class="dv">2</span> <span class="op">*</span> np.pi</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     n <span class="op">=</span> <span class="bu">len</span>(s)</span>
@@ -511,7 +511,7 @@ window.Quarto = {
 <li><p>By sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.</p></li>
 <li><p>The use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.</p></li>
 </ul>
-<div id="82a58ec9" class="cell" data-execution_count="9">
+<div id="6c3525d1" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dummy population and fitness values</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">10</span>]])</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -539,7 +539,7 @@ window.Quarto = {
 <li>The np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.</li>
 <li>Finding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.</li>
 </ul>
-<div id="1006b44c" class="cell" data-execution_count="10">
+<div id="86340310" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">5</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> np.argmax(arr)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Array:"</span>, arr)</span>
@@ -555,7 +555,7 @@ Max element: 7</code></pre>
 <ul>
 <li>Using np.argmax with a 2D Array (Row-wise &amp; Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.</li>
 </ul>
-<div id="0939462f" class="cell" data-execution_count="11">
+<div id="a8b3cc7b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>]])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element in the flattened array</span></span>
@@ -571,7 +571,7 @@ Max element: 7</code></pre>
 [4 5 1]<br>
 [0 <mark>6</mark> 2]]</li>
 </ul>
-<div id="351d8b2f" class="cell" data-execution_count="12">
+<div id="401b328b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element along each column (axis=0)</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>max_index_col <span class="op">=</span> np.argmax(arr_2d, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max element index for each column:"</span>, max_index_col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -584,7 +584,7 @@ Max element: 7</code></pre>
 [<mark>4</mark> 5 1]<br>
 [0 <mark>6</mark> 2]]</li>
 </ul>
-<div id="7af37f52" class="cell" data-execution_count="13">
+<div id="fc4f9493" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the max element along each row (axis=1)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>max_index_row <span class="op">=</span> np.argmax(arr_2d, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max element index for each row:"</span>, max_index_row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -605,11 +605,11 @@ Max element: 7</code></pre>
 <li>Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.</li>
 <li>More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).</li>
 </ul>
-<div id="752c00f9" class="cell" data-execution_count="14">
+<div id="35ca2b97" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rand_nums <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rand_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0.24247204 0.82710453 0.70738795 0.64165158 0.4410984 ]</code></pre>
+<pre><code>[0.84628449 0.81229994 0.04193824 0.29443022 0.08083291]</code></pre>
 </div>
 </div>
 <section id="standard-normal-distribution" class="level2">
@@ -618,12 +618,12 @@ Max element: 7</code></pre>
 <li>The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.</li>
 <li>Generating 5 random numbers from a standard normal distribution (mean=0, std=1).</li>
 </ul>
-<div id="b6e70c90" class="cell" data-execution_count="15">
+<div id="edbb826e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating random values from the standard normal distribution</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>random_values <span class="op">=</span> np.random.standard_normal(<span class="dv">5</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Standard Normal Values:"</span>, random_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random Standard Normal Values: [ 0.91626697  0.69645091  1.99424914  1.02256386 -1.14973636]</code></pre>
+<pre><code>Random Standard Normal Values: [-0.94237248  0.75741448 -0.39590407 -0.80237505 -0.61731953]</code></pre>
 </div>
 </div>
 </section>
@@ -633,12 +633,12 @@ Max element: 7</code></pre>
 <li>The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.</li>
 <li>In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.</li>
 </ul>
-<div id="34c3c9ea" class="cell" data-execution_count="16">
+<div id="5548e072" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random starting point for the hill climbing algorithm</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>random_start <span class="op">=</span> np.random.uniform(low<span class="op">=-</span><span class="dv">10</span>, high<span class="op">=</span><span class="dv">10</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Random start: </span><span class="sc">{</span>random_start<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random start: [-1.25617887  2.06764152  7.610034   -6.30455286 -2.03748047]</code></pre>
+<pre><code>Random start: [ 4.23756184 -0.8125299  -2.66499294  6.15530474  6.55030076]</code></pre>
 </div>
 </div>
 </section>
@@ -654,12 +654,12 @@ Max element: 7</code></pre>
 <li>dtype: The desired data type of the output array, by default int.</li>
 </ul></li>
 </ul>
-<div id="09974198" class="cell" data-execution_count="17">
+<div id="c697176f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 5 random integers between 10 and 20</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>random_integers <span class="op">=</span> np.random.randint(<span class="dv">10</span>, <span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random_integers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[19 16 15 14 10]</code></pre>
+<pre><code>[12 16 18 12 18]</code></pre>
 </div>
 </div>
 </section>
@@ -674,7 +674,7 @@ Max element: 7</code></pre>
 <li>t[i] ^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.</li>
 <li>return t: After flipping one bit, the modified solution t is returned.</li>
 </ul>
-<div id="6414a820" class="cell" data-execution_count="18">
+<div id="0df760ea" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    new_sol <span class="op">=</span> sol.copy()</span>
@@ -697,7 +697,7 @@ Max element: 7</code></pre>
 <li>numpy: for utilizing NumPy arrays and sorting functionalities.</li>
 </ul></li>
 </ul>
-<div id="96361b39" class="cell" data-execution_count="19">
+<div id="009e833d" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -705,7 +705,7 @@ Max element: 7</code></pre>
 <ul>
 <li>The x_rand() function generates a list of integers from 0 to 999,999 and shuffles it into a random order. The random.shuffle function from Python’s random module modifies x directly, randomizing the order of its elements.</li>
 </ul>
-<div id="cacc4b41" class="cell" data-execution_count="20">
+<div id="e7443aab" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> x_rand():</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>     x <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>     random.shuffle(x)</span>
@@ -715,24 +715,24 @@ Max element: 7</code></pre>
 <li>The x.sort() method in Python sorts a list x in place, meaning it arranges the elements in ascending order directly within the list itself without creating a new list.</li>
 <li>Timsort is the default sorting algorithm for Python’s built-in sorted() function and the .sort() method for lists. Timsort is specifically designed as a hybrid sorting algorithm combining merge sort and insertion sort.</li>
 </ul>
-<div id="d0cfbc78" class="cell" data-execution_count="21">
+<div id="130c4f23" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x_rand()</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>x.sort()</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time to sort random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time to sort random list: 0.25426554679870605</code></pre>
+<pre><code>Time to sort random list: 0.27323365211486816</code></pre>
 </div>
 </div>
 <ul>
 <li>Quicksort (kind=‘quicksort’): Timsort is stable, while quicksort is unstable (it does not preserve the order of equal elements). Quicksort relies on recursive partitioning and pivot selection, which makes it faster in many scenarios but not adaptive to pre-sorted data.</li>
 </ul>
-<div id="4684a68b" class="cell" data-execution_count="22">
+<div id="6516e330" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.sort(x, kind<span class="op">=</span><span class="st">'quicksort'</span>)  </span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy quicksort of random list:"</span>, time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy quicksort of random list: 0.04152941703796387</code></pre>
+<pre><code>Time for numpy quicksort of random list: 0.038816213607788086</code></pre>
 </div>
 </div>
 <ul>
@@ -740,36 +740,36 @@ Max element: 7</code></pre>
 <li>In NumPy’s np.sort() function, the kind=‘heapsort’ argument specifies the use of the heapsort algorithm for sorting. Heapsort is a comparison-based sorting algorithm that uses a binary heap data structure to sort elements. It sorts elements by repeatedly selecting the largest (or smallest, depending on implementation) element and placing it in the correct position in the sorted array.</li>
 <li>Timsort is not related to heapsort, as heapsort is an unstable sorting algorithm that uses a heap data structure to sort the data in <span class="math inline">\(O(n \log n)\)</span>.</li>
 </ul>
-<div id="f10a9c83" class="cell" data-execution_count="23">
+<div id="5e94e27f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.sort(x, kind<span class="op">=</span><span class="st">'heapsort'</span>) </span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy heapsort of random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy heapsort of random list: 0.02800154685974121</code></pre>
+<pre><code>Time for numpy heapsort of random list: 0.02900409698486328</code></pre>
 </div>
 </div>
 <ul>
 <li>Stable (kind=‘stable’): A stable sorting algorithm that is also efficient in practical cases, particularly for partially sorted data. When the kind=‘stable’ parameter is used in np.sort(), it ensures that the relative order of equal elements is preserved. This property is essential when you want to maintain the order of identical elements, especially in datasets where you’re sorting based on multiple attributes in sequence.</li>
 <li>It was designed to perform well on many kinds of real-world data. Its main advantage is its ability to efficiently sort data that is already partially sorted.</li>
 </ul>
-<div id="200f5280" class="cell" data-execution_count="24">
+<div id="604600ee" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.sort(x, kind<span class="op">=</span><span class="st">'stable'</span>) </span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy stable of random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy stable of random list: 0.002002239227294922</code></pre>
+<pre><code>Time for numpy stable of random list: 0.0019998550415039062</code></pre>
 </div>
 </div>
 <ul>
 <li>mergesort (kind=’mergesort) is one of the sorting algorithms that can be specified in the np.sort() function.</li>
 <li>The mergesort algorithm is a stable, comparison-based, divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts each half, and then merges the sorted halves back together. Because it is stable, it is slower for real-world data.</li>
 </ul>
-<div id="ae19a4db" class="cell" data-execution_count="25">
+<div id="0c0d5642" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.sort(x, kind<span class="op">=</span><span class="st">'mergesort'</span>) </span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Time for numpy mergesort of random list:"</span>,time.time() <span class="op">-</span> start_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time for numpy mergesort of random list: 0.0020024776458740234</code></pre>
+<pre><code>Time for numpy mergesort of random list: 0.002004384994506836</code></pre>
 </div>
 </div>
 </section>
@@ -803,7 +803,7 @@ Max element: 7</code></pre>
 <h2 class="anchored" data-anchor-id="comparing-model-clock-time-withwithout-numpy">Comparing Model Clock Time With/Without NumPy</h2>
 <section id="without-numpy" class="level3">
 <h3 class="anchored" data-anchor-id="without-numpy">Without Numpy</h3>
-<div id="6f401591" class="cell" data-execution_count="26">
+<div id="2468e2bc" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> exp, sqrt</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time </span>
@@ -842,14 +842,14 @@ Max element: 7</code></pre>
 <span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"CPU times: </span><span class="sc">{</span>cpu_time<span class="sc">:.2f}</span><span class="ss"> s (user and sys combined)"</span>)</span>
 <span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: 0.28 s (user and sys combined)
-Wall time: 0.71 s</code></pre>
+<pre><code>CPU times: 0.27 s (user and sys combined)
+Wall time: 0.76 s</code></pre>
 </div>
 </div>
 </section>
 <section id="with-numpy" class="level3">
 <h3 class="anchored" data-anchor-id="with-numpy">With Numpy</h3>
-<div id="ec4409dd" class="cell" data-execution_count="27">
+<div id="8e798740" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time </span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -885,7 +885,7 @@ Wall time: 0.71 s</code></pre>
 <span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>CPU times: 0.00 s (user and sys combined)
-Wall time: 0.02 s</code></pre>
+Wall time: 0.03 s</code></pre>
 </div>
 </div>
 </section>
