@@ -6,12 +6,15 @@ runtime: python
 ---
 
 # Exhaustive Search
-* If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?
 
+-   If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?
 
 -   Exhaustive Search (also known as brute-force search) is a problem-solving technique that systematically enumerates all possible solutions to find the best one.
+
 -   It evaluates every potential solution against the objective function and selects the optimal one.
+
 -   When to use: When the problem size is small and when optimality is critical and computation time is feasible.
+
 -   Limitations: Computationally expensive. Not feasible for large problem spaces due to exponential time complexity.
 
 ## Advantages and Disadvantages of ES
@@ -440,3 +443,14 @@ plt.show()
 -   Transition() Function: In the Ackley function, when you define a function like $T(s, idx, x_values)$ and use return x_values\[idx\], you are treating the search space as a continuous or discretized array of possible values. Here, x_values is typically a list or array containing the potential values for each variable dimension, and idx simply indexes into this array to retrieve a specific value. Since exhaustive search involves systematically testing all possible values in x_values, there’s no need for incremental addition $(s += 1)$; instead, the function directly retrieves the next possible value at a given index, which is common in continuous or multi-valued spaces. In contrast, the One Max problem is a binary optimization problem where the goal is to maximize the sum of binary values (0s and 1s). The search space consists of binary strings rather than a continuous or finely discretized set. Incrementing $s$ (like $s += 1$) in this context might be used to iterate over binary configurations or to shift values systematically, as each configuration can only be either a 0 or a 1. This incremental approach is necessary in One Max because there is no list of predefined values (like x_values); rather, each binary position in the solution must be systematically altered to generate each possible solution.
 -   Evaluation() Function: E(v) in the Ackley function evaluates continuous real values for minimization, while bin(s).count("1") in the One Max problem evaluates binary integers for maximization. A lower evaluation result from E(v) indicates a better solution in terms of proximity to the global minimum while a higher count of "1"s in bin(s).count("1") represents a better solution, as it means the solution is closer to the optimal binary string of all 1s.
 -   Determine() Function: In one max, we want to maximize. In Ackley, we want to minimize. This affects the determination function: if f_v \< f_s (for minimize) vs f_v \> f_s (for maximize)
+
+
+# Using AI
+* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+* Concept of Exhaustive Search: Explain, in your own words, what an exhaustive search is and how it systematically explores all possible solutions. Why is this method guaranteed to find the optimal solution?
+* Advantages and Limitations: Discuss the advantages and disadvantages of using exhaustive search for solving optimization problems. When would you avoid using it?
+* Comparison with Heuristics: Compare exhaustive search with heuristic methods (like greedy algorithms). When would you prioritize optimality over computational efficiency?
+* Greedy vs. Exhaustive: Reflect on a problem where you would instinctively use a greedy approach but later realize an exhaustive search would yield a better result. What changed your decision?
+* Continuous vs Discrete Domains: Discuss how exhaustive search differs when applied to continuous domains (e.g., Ackley function) versus discrete domains (e.g., knapsack problem). Why does step size matter in continuous optimization?
+* Trade-Offs in Optimization: Reflect on a scenario where exhaustive search would be impractical. How would you modify the problem or approach to make it solvable within reasonable time and resources?
+* Visualization Insights: How does visualizing the search process (e.g., fitness evolution over time) help in understanding and debugging optimization algorithms?

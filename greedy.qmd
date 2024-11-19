@@ -5,8 +5,8 @@ format: html
 ---
 
 # Optimization Problem
-* Sometimes, we go with the ‘greedy’ option that seems best in the moment. Can you think of a time when you made a quick decision like that? Did it pay off or backfire?
 
+-   Sometimes, we go with the ‘greedy’ option that seems best in the moment. Can you think of a time when you made a quick decision like that? Did it pay off or backfire?
 
 ## Definition 1
 
@@ -151,27 +151,26 @@ Where $c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all 
 
 ![TSP Feasibility Map](Pictures/tsp2.png "TSP Feasibility Map")
 
-
-
-
 ### TSP Python Implementation
 
-* A distance matrix is helpful in implementing a TSP model in python. A distance map stores the distances between each pair of locations.
-     + For simplicity, let’s use three cities (e.g., City1, City2, and City3).
-* Structure in Python (Dictionary of Dictionaries):
-     + Outer Dictionary: Each key represents a city.
-     + Inner Dictionary: Contains distances to other cities from that city.
-```{python}
-distances = {
-    'City1': {'City2': 5, 'City3': 10},
-    'City2': {'City1': 5, 'City3': 8},
-    'City3': {'City1': 10, 'City2': 8}
-}
-```
+-   A distance matrix is helpful in implementing a TSP model in python. A distance map stores the distances between each pair of locations.
 
-* Each key (e.g., 'City1') represents a location. Each inner dictionary provides distances to the other cities.
+    -   For simplicity, let’s use three cities (e.g., City1, City2, and City3).
 
+-   Structure in Python (Dictionary of Dictionaries):
 
+    -   Outer Dictionary: Each key represents a city.
+    -   Inner Dictionary: Contains distances to other cities from that city.
+
+    ```{python}
+    distances = {
+        'City1': {'City2': 5, 'City3': 10},
+        'City2': {'City1': 5, 'City3': 8},
+        'City3': {'City1': 10, 'City2': 8}
+    }
+    ```
+
+-   Each key (e.g., 'City1') represents a location. Each inner dictionary provides distances to the other cities.
 
 ```{python}
 # Define the cities and distances between them
@@ -229,6 +228,17 @@ print("Total distance traveled:", total_distance, "miles")
 
 
 ```
+
+# Using AI
+* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+* Greedy Decisions: Think of a real-world example where you made a "greedy" choice (choosing the option that seemed best at the moment). Did it lead to the best possible outcome? Why or why not?
+* Optimization Problems: Explain the difference between discrete and continuous optimization problems. Give a real-world example of each type.
+* Coin Change Problem: Implement the greedy_coin_change function from the slides. Then, modify it to handle cases where the denominations do not lead to an optimal solution. Explain the changes made.
+* Nearest Neighbor TSP: Given a distance matrix for a Traveling Salesman Problem (TSP), write Python code using the greedy nearest neighbor approach. Compare its solution to the optimal path for the same problem.
+* Greedy Limitations: Discuss a problem where a greedy algorithm does not guarantee the optimal solution. How could this limitation be addressed (e.g., using dynamic programming or exhaustive search)?
+* Practical Scenarios: Discuss a real-world system (e.g., ride-sharing, network routing, or resource allocation) where greedy algorithms are used. What trade-offs do they involve?
+* Designing a Greedy Algorithm: Create your own optimization problem and solve it using a greedy algorithm. Explain your reasoning and solution step-by-step.
+
 
 # Conclusions
 
