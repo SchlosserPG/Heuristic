@@ -230,15 +230,15 @@ print("Total distance traveled:", total_distance, "miles")
 ```
 
 # Using AI
-* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-* Greedy Decisions: Think of a real-world example where you made a "greedy" choice (choosing the option that seemed best at the moment). Did it lead to the best possible outcome? Why or why not?
-* Optimization Problems: Explain the difference between discrete and continuous optimization problems. Give a real-world example of each type.
-* Coin Change Problem: Implement the greedy_coin_change function from the slides. Then, modify it to handle cases where the denominations do not lead to an optimal solution. Explain the changes made.
-* Nearest Neighbor TSP: Given a distance matrix for a Traveling Salesman Problem (TSP), write Python code using the greedy nearest neighbor approach. Compare its solution to the optimal path for the same problem.
-* Greedy Limitations: Discuss a problem where a greedy algorithm does not guarantee the optimal solution. How could this limitation be addressed (e.g., using dynamic programming or exhaustive search)?
-* Practical Scenarios: Discuss a real-world system (e.g., ride-sharing, network routing, or resource allocation) where greedy algorithms are used. What trade-offs do they involve?
-* Designing a Greedy Algorithm: Create your own optimization problem and solve it using a greedy algorithm. Explain your reasoning and solution step-by-step.
 
+-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+-   Greedy Decisions: Think of a real-world example where you made a "greedy" choice (choosing the option that seemed best at the moment). Did it lead to the best possible outcome? Why or why not?
+-   Optimization Problems: Explain the difference between discrete and continuous optimization problems. Give a real-world example of each type.
+-   Coin Change Problem: Implement the greedy_coin_change function from the slides. Then, modify it to handle cases where the denominations do not lead to an optimal solution. Explain the changes made.
+-   Nearest Neighbor TSP: Given a distance matrix for a Traveling Salesman Problem (TSP), write Python code using the greedy nearest neighbor approach. Compare its solution to the optimal path for the same problem.
+-   Greedy Limitations: Discuss a problem where a greedy algorithm does not guarantee the optimal solution. How could this limitation be addressed (e.g., using dynamic programming or exhaustive search)?
+-   Practical Scenarios: Discuss a real-world system (e.g., ride-sharing, network routing, or resource allocation) where greedy algorithms are used. What trade-offs do they involve?
+-   Designing a Greedy Algorithm: Create your own optimization problem and solve it using a greedy algorithm. Explain your reasoning and solution step-by-step.
 
 # Conclusions
 
