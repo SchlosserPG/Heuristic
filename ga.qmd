@@ -6,12 +6,15 @@ runtime: python
 ---
 
 # Genetic Algorithms
-* If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?
 
+-   If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?
 
 -   Genetic Algorithms (GAs) are optimization techniques inspired by the process of natural selection and evolution.
+
 -   Population: A set of potential solutions (individuals) to the problem. Genes/Chromosomes: Each individual is represented by a chromosome (a string of genes), typically encoded as a binary, real-number, or symbolic representation.
+
 -   Objective: To evolve the population toward better solutions by mimicking evolutionary processes such as selection, crossover, and mutation.
+
 -   Diagram illustrating the flow of a genetic algorithm: initial population → selection → crossover → mutation → new population.
 
 ## Key Steps
@@ -456,3 +459,18 @@ plt.legend()
 plt.show()
 
 ```
+
+
+# Using AI
+
+-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+* Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?
+* Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = (x-3)^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?
+* Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.
+* Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?
+* Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.
+* How does the diversity of the population change as the genetic algorithm progresses over generations?
+
+# Conclusions
+
+* Our discussions on Genetic Algorithms (GA) provide a comprehensive exploration of one of the most versatile and biologically inspired optimization techniques. GA mimics the principles of natural selection and evolution, employing operators like selection, crossover, and mutation to iteratively refine solutions within a population. The method’s ability to balance exploration (via genetic diversity) and exploitation (via selection pressure) makes it particularly effective for solving complex, non-linear, and multimodal optimization problems. Key advantages include its flexibility to adapt to a wide range of applications, such as scheduling, portfolio optimization, and function minimization, and its capacity to avoid local optima by maintaining a diverse population. However, success depends heavily on careful parameter tuning, including population size, mutation rate, and crossover probability. By comparing GA with other methods like Simulated Annealing, the slides highlight GA's strengths in global search and parallel exploration. Ultimately, Genetic Algorithms emerge as a powerful heuristic, especially when the optimization landscape demands both creativity and robustness in the search for solutions.

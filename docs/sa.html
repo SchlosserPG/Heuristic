@@ -293,6 +293,9 @@ window.Quarto = {
   <li><a href="#portfolio-diversification-with-sa" id="toc-portfolio-diversification-with-sa" class="nav-link" data-scroll-target="#portfolio-diversification-with-sa">Portfolio Diversification With SA</a>
   <ul class="collapse">
   <li><a href="#our-hill-climbing-finance-model-was-better.-why" id="toc-our-hill-climbing-finance-model-was-better.-why" class="nav-link" data-scroll-target="#our-hill-climbing-finance-model-was-better.-why">Our Hill Climbing Finance Model was Better. Why?</a></li>
+  </ul></li>
+  <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a>
+  <ul class="collapse">
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul></li>
   </ul>
@@ -606,7 +609,7 @@ window.Quarto = {
 <h1>Making a Model: One Max with SA</h1>
 <section id="imports-global-variables" class="level2">
 <h2 class="anchored" data-anchor-id="imports-global-variables">Imports, Global Variables</h2>
-<div id="65c953e3" class="cell" data-execution_count="1">
+<div id="ad1c176a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">##Simulated Annealing One-Max Example</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -626,7 +629,7 @@ window.Quarto = {
 <ul>
 <li>The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits (default 10), where each element is randomly set to 0 or 1.The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1’s in the array).The function returns the initial solution and its evaluated fitness.</li>
 </ul>
-<div id="39d0c06b" class="cell" data-execution_count="2">
+<div id="efba43db" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_sa(num_bits):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, num_bits)</span>
@@ -639,7 +642,7 @@ window.Quarto = {
 <li>This is done by randomly selecting an index in the binary array and toggling the bit (changing 1 to 0 or 0 to 1).</li>
 <li>This new solution represents the neighboring candidate that will be evaluated next, which is a small random change to the current solution.</li>
 </ul>
-<div id="a703a16c" class="cell" data-execution_count="3">
+<div id="93beb13a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    new_sol <span class="op">=</span> sol.copy()</span>
@@ -653,7 +656,7 @@ window.Quarto = {
 <ul>
 <li>The evaluate function calculates the fitness of the current solution by summing up the number of 1’s in the binary array (sol).The One-Max problem aims to maximize this value, with the goal being to find the solution with all bits set to 1.</li>
 </ul>
-<div id="86f10902" class="cell" data-execution_count="4">
+<div id="9876290d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E): One-max function</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(sol):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(sol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -671,7 +674,7 @@ window.Quarto = {
 </ul></li>
 <li>The function returns True if the new solution is accepted, otherwise False.</li>
 </ul>
-<div id="097512e1" class="cell" data-execution_count="5">
+<div id="5e182c70" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function for SA (D)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(neighbor_value, current_value, temperature):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> neighbor_value <span class="op">&gt;</span> current_value:</span>
@@ -698,7 +701,7 @@ window.Quarto = {
 <li>The number of iterations is incremented.</li>
 <li>After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of iterations has been reached), the function returns:best_sol: The best solution found during the process.best_value: The fitness value of the best solution.value_history: A list of the fitness values over time, useful for visualizing the algorithm’s progress.</li>
 </ul>
-<div id="57afe0a2" class="cell" data-execution_count="6">
+<div id="581fdff4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(num_bits):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    current_sol, current_value <span class="op">=</span> init_sa(num_bits)</span>
@@ -734,7 +737,7 @@ window.Quarto = {
 <li>The temperature gradually cools down, reducing the chance of accepting worse solutions as the algorithm progresses.</li>
 <li>Finally, the results are printed and plotted for visual analysis.</li>
 </ul>
-<div id="acf64aad" class="cell" data-execution_count="7">
+<div id="d5306198" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>best_sol, best_value, value_history <span class="op">=</span> simulated_annealing(num_bits)</span>
@@ -745,7 +748,7 @@ window.Quarto = {
 </section>
 <section id="output" class="level2">
 <h2 class="anchored" data-anchor-id="output">Output</h2>
-<div id="508ef9db" class="cell" data-execution_count="8">
+<div id="31ef9b4c" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results (O)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best solution: </span><span class="sc">{</span>best_sol<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best value (number of 1s): </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -763,7 +766,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1]
 Best value (number of 1s): 10
-Execution time: 0.005998 seconds</code></pre>
+Execution time: 0.007002 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -785,7 +788,7 @@ Execution time: 0.005998 seconds</code></pre>
 </ul>
 <section id="example-results" class="level2">
 <h2 class="anchored" data-anchor-id="example-results">Example Results</h2>
-<div id="832caa93" class="cell" data-execution_count="9">
+<div id="8be3a1ff" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -880,9 +883,9 @@ Execution time: 0.005998 seconds</code></pre>
 <span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal x: 0.004131106783712646
-Optimal value: 0.017433105102722113
-Execution time: 0.015002 seconds</code></pre>
+<pre><code>Optimal x: -0.0006119567509434987
+Optimal value: 0.002467771081370973
+Execution time: 0.011997 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -934,7 +937,7 @@ Execution time: 0.015002 seconds</code></pre>
 </section>
 <section id="portfolio-diversification-with-sa" class="level1">
 <h1>Portfolio Diversification With SA</h1>
-<div id="d9b90eed" class="cell" data-execution_count="10">
+<div id="725456fd" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simulated Annealing Finance Example</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -1039,7 +1042,7 @@ Execution time: 0.015002 seconds</code></pre>
 <span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best Sharpe Ratio: </span><span class="sc">{</span>best_sharpe<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>[                       0%                       ][**********            20%                       ]  2 of 10 completed[**************        30%                       ]  3 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed</code></pre>
+<pre><code>[                       0%                       ][**********            20%                       ]  2 of 10 completed[**********            20%                       ]  2 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1050,18 +1053,18 @@ Execution time: 0.015002 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimized Portfolio:
-AAPL: 0.1410
-GOOGL: 0.0259
-MSFT: 0.0000
-AMZN: 0.0349
-TSLA: 0.0000
-NFLX: 0.2626
-NVDA: 0.0055
-META: 0.3644
-DIS: 0.1658
+AAPL: 0.1722
+GOOGL: 0.0133
+MSFT: 0.0013
+AMZN: 0.0591
+TSLA: 0.0400
+NFLX: 0.2764
+NVDA: 0.0060
+META: 0.2234
+DIS: 0.2083
 BA: 0.0000
-Best Sharpe Ratio: 2.7623
-Execution time: 0.077525 seconds</code></pre>
+Best Sharpe Ratio: 2.7241
+Execution time: 0.082006 seconds</code></pre>
 </div>
 </div>
 <section id="our-hill-climbing-finance-model-was-better.-why" class="level2">
@@ -1081,6 +1084,21 @@ Execution time: 0.077525 seconds</code></pre>
 </ul></li>
 </ul>
 </section>
+</section>
+<section id="using-ai" class="level1">
+<h1>Using AI</h1>
+<ul>
+<li>Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.</li>
+<li>Metaheuristics Overview: What is a metaheuristic algorithm, and how does it differ from other optimization approaches like exhaustive search and hill climbing? Provide an example of a real-world problem suitable for metaheuristic algorithms.</li>
+<li>Simulated Annealing Basics: Explain the key components of simulated annealing, including its transition, evaluation, and determination steps. Why is temperature an essential factor in the algorithm?</li>
+<li>Exploration vs.&nbsp;Exploitation: Discuss how simulated annealing balances exploration and exploitation during the optimization process. How does this compare to greedy and hill climbing algorithms?</li>
+<li>Parameter Tuning: Why is tuning parameters like cooling schedule and neighborhood size crucial in simulated annealing? Suggest strategies for finding optimal parameter values.</li>
+<li>Fitness Evolution: How does the cooling rate affect the trajectory of fitness improvement in a simulated annealing for the One-Max problem?</li>
+<li>Solution Space Exploration: Discuss how the simulated annealing algorithm explores the rugged landscape of an Ackley Function and converges to a solution.</li>
+<li>Industry Use Cases: Discuss real-world applications of simulated annealing in fields such as machine learning, logistics, and engineering. Why is SA particularly suited for these problems?</li>
+<li>Challenges in SA: Reflect on the challenges of applying simulated annealing to real-world problems. How do computational cost and parameter sensitivity influence its practicality?</li>
+<li>Algorithm Design: How does understanding the strengths and limitations of simulated annealing inform the design of new metaheuristic algorithms?</li>
+</ul>
 <section id="conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
 <ul>
