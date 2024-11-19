@@ -307,3 +307,21 @@ FUNCTION nearest_neighbor_tsp(start_city, cities, distances):
         -   Conceptual and implementation plan.
 -   The code writes itself if you have a good understanding of the formula and good pseudocode.
 -   More time now planning… a lot less time later coding.
+
+# Using AI
+* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+
+
+* Defining Algorithms: Explain, in your own words, what an algorithm is and provide an example from everyday life (e.g., a recipe or a set of instructions).
+* Ethics and Bias: Discuss one example of algorithmic bias, such as facial recognition or hiring algorithms. What could be done to address these biases?
+* Routing Problem: Given a problem like finding the shortest path from point A to point B, outline a step-by-step algorithm using pseudocode.
+* Flow Control: Illustrate how flow control structures (e.g., loops and conditionals) help manage decision-making in algorithms. Provide a simple example in pseudocode.
+* Optimization Considerations: Discuss how tradeoffs between speed, memory usage, and convenience influence algorithm design. Can you think of a scenario where one must be prioritized over others?
+* Pseudocode to Code: Write a pseudocode for a basic task (e.g., calculating the average of a list of numbers) and then translate it into Python code.
+* Interpreting Pseudocode: Given a pseudocode example from the slides (e.g., the TSP example), explain the purpose and main steps of the algorithm.
+* Choosing Data Structures: Compare lists, tuples, and dictionaries in Python. Provide examples of when each would be the most appropriate choice in an algorithm.
+* Sorting and Searching: Write pseudocode for a simple sorting algorithm (e.g., bubble sort) and explain its time complexity in terms of Big-O notation.
+* TSP Complexity: Explain why the Traveling Salesman Problem (TSP) is computationally challenging. How does the Nearest Neighbor approach simplify the problem?
+* Algorithm Design Paradigms: Compare heuristic-based algorithms to optimization-based approaches. When might a heuristic be preferred over an exact method?
+* Debugging Steps: What are some strategies to debug algorithms effectively during implementation? Share an experience or hypothetical scenario where one of these strategies was crucial.
+* Ethical Considerations in Practice: Imagine you are tasked with designing a hiring algorithm. How would you ensure it is free from bias and promotes equity?

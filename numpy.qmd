@@ -70,7 +70,7 @@ import numpy as np
 
 ## Basic Array Creation
 
-* The np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.
+-   The np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.
 
 ```{python}
 # Creating a simple numpy array from a Python list
@@ -158,10 +158,13 @@ def ackley(s):
 ```
 
 # Sorting the data: np.argsort
-* The np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.
+
+-   The np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.
 
 -   In various evolutionary algorithms (such as genetic algorithms or simulated annealing), selecting the most "fit" or optimal solutions from a population is crucial for convergence toward the global optimum.
+
 -   By sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.
+
 -   The use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.
 
 ```{python}
@@ -183,7 +186,8 @@ print(top_individuals)
 ```
 
 ## Selecting the Max: np.argmax
-* The np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.
+
+-   The np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.
 -   Finding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.
 
 ```{python}
@@ -238,7 +242,7 @@ print("Max element index for each row:", max_index_row)
 # Random Number Generation
 
 -   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.
-* More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
+-   More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
 
 ```{python}
 rand_nums = np.random.rand(5)
@@ -246,7 +250,8 @@ print(rand_nums)
 ```
 
 ## Standard Normal Distribution
-* The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
+
+-   The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
 -   Generating 5 random numbers from a standard normal distribution (mean=0, std=1).
 
 ```{python}
@@ -257,7 +262,8 @@ print("Random Standard Normal Values:", random_values)
 ```
 
 ## np.random.uniform
-* The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
+
+-   The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
 -   In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.
 
 ```{python}
@@ -267,9 +273,11 @@ print(f"Random start: {random_start}")
 ```
 
 ## np.random.randint
-* The np.random.randint function in NumPy is used to generate random integers within a specified range. 
+
+-   The np.random.randint function in NumPy is used to generate random integers within a specified range.
 
 -   np.random.randint(low, high=None, size=None, dtype=int)
+
     -   low: The lower boundary of the random integers (inclusive).
     -   high: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.
     -   size: The shape of the output array (optional). If not provided, a single integer is returned.
@@ -303,19 +311,21 @@ print(random_integers)
 
 # Looking at Time
 
--   The Time examples below compare the time it takes to sort lists of 1,000,000 elements using both Python’s built-in sorting method and NumPy’s sorting methods (quicksort, mergesort, heapsort, and timsort).
+-   Based on data type, the default sorting method changes. If x is a Python list, the default sort is Timsort (stable). If x is a NumPy array, the default sort is quicksort (unstable). Here, we are sorting a list.
+-   The Time examples below compare the time it takes to sort lists of 1,000,000 elements using both Python’s built-in sorting method and NumPy’s sorting methods (quicksort, heapsort, mergesort, and stable).
 -   Library Imports:
     -   time: for measuring execution time.
     -   random: for shuffling a list randomly.
     -   numpy: for utilizing NumPy arrays and sorting functionalities.
-    
+
 ```{python}
 import time
 import random
 import numpy as np
 ```
-    
-* The x_rand() function generates a list of integers from 0 to 999,999 and shuffles it into a random order. The random.shuffle function from Python’s random module modifies x directly, randomizing the order of its elements.
+
+-   The x_rand() function generates a list of integers from 0 to 999,999 and shuffles it into a random order. The random.shuffle function from Python’s random module modifies x directly, randomizing the order of its elements.
+
 ```{python}
 def x_rand():
      x = list(range(1000000))
@@ -323,7 +333,8 @@ def x_rand():
      return x
 ```
 
-* The x.sort() method in Python sorts a list x in place, meaning it arranges the elements in ascending order directly within the list itself without creating a new list.
+-   The x.sort() method in Python sorts a list x in place, meaning it arranges the elements in ascending order directly within the list itself without creating a new list.
+-   Timsort is the default sorting algorithm for Python's built-in sorted() function and the .sort() method for lists. Timsort is specifically designed as a hybrid sorting algorithm combining merge sort and insertion sort.
 
 ```{python}
 x = x_rand()
@@ -332,9 +343,7 @@ x.sort()
 print("Time to sort random list:",time.time() - start_time)
 ```
 
-* The x_numpy.sort() function is an in-place method in NumPy that sorts the elements of an array along a specified axis. When called, it rearranges the elements of the array in ascending order by default.
-     + Quicksort (kind='quicksort'): The default sorting algorithm, generally faster but not stable.
-     + Since quicksort is the default sorting, we leave off the argument inside the function. 
+-   Quicksort (kind='quicksort'): Timsort is stable, while quicksort is unstable (it does not preserve the order of equal elements). Quicksort relies on recursive partitioning and pivot selection, which makes it faster in many scenarios but not adaptive to pre-sorted data.
 
 ```{python}
 start_time = time.time()
@@ -343,18 +352,9 @@ print("Time for numpy quicksort of random list:", time.time() - start_time)
 
 ```
 
-* In NumPy, mergesort is one of the sorting algorithms that can be specified in the np.sort() function. 
-* The mergesort algorithm is a stable, comparison-based, divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts each half, and then merges the sorted halves back together.
-
-```{python}
-start_time = time.time()
-x = np.sort(x, kind='mergesort') 
-print("Time for numpy mergesort of random list:",time.time() - start_time)
-
-```
-
-* Heapsort (kind='heapsort'): A bit slower than quicksort, but stable.
-* In NumPy's np.sort() function, the kind='heapsort' argument specifies the use of the heapsort algorithm for sorting. Heapsort is a comparison-based sorting algorithm that uses a binary heap data structure to sort elements. It sorts elements by repeatedly selecting the largest (or smallest, depending on implementation) element and placing it in the correct position in the sorted array.
+-   Heapsort (kind='heapsort'): A bit slower than quicksort, but stable.
+-   In NumPy's np.sort() function, the kind='heapsort' argument specifies the use of the heapsort algorithm for sorting. Heapsort is a comparison-based sorting algorithm that uses a binary heap data structure to sort elements. It sorts elements by repeatedly selecting the largest (or smallest, depending on implementation) element and placing it in the correct position in the sorted array.
+-   Timsort is not related to heapsort, as heapsort is an unstable sorting algorithm that uses a heap data structure to sort the data in $O(n \log n)$.
 
 ```{python}
 start_time = time.time()
@@ -363,7 +363,8 @@ print("Time for numpy heapsort of random list:",time.time() - start_time)
 
 ```
 
-* Stable (kind='stable'): A stable sorting algorithm that is also efficient in practical cases, particularly for partially sorted data. When the kind='stable' parameter is used in np.sort(), it ensures that the relative order of equal elements is preserved. This property is essential when you want to maintain the order of identical elements, especially in datasets where you’re sorting based on multiple attributes in sequence.
+-   Stable (kind='stable'): A stable sorting algorithm that is also efficient in practical cases, particularly for partially sorted data. When the kind='stable' parameter is used in np.sort(), it ensures that the relative order of equal elements is preserved. This property is essential when you want to maintain the order of identical elements, especially in datasets where you’re sorting based on multiple attributes in sequence.
+-   It was designed to perform well on many kinds of real-world data. Its main advantage is its ability to efficiently sort data that is already partially sorted.
 
 ```{python}
 start_time = time.time()
@@ -371,8 +372,16 @@ x = np.sort(x, kind='stable')
 print("Time for numpy stable of random list:",time.time() - start_time)
 ```
 
- 
-     
+-   mergesort (kind=‘mergesort) is one of the sorting algorithms that can be specified in the np.sort() function.
+-   The mergesort algorithm is a stable, comparison-based, divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts each half, and then merges the sorted halves back together. Because it is stable, it is slower for real-world data.
+
+```{python}
+start_time = time.time()
+x = np.sort(x, kind='mergesort') 
+print("Time for numpy mergesort of random list:",time.time() - start_time)
+
+```
+
 # Formula vs LaTex vs Python
 
 -   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.
@@ -474,3 +483,19 @@ cpu_time = end_cpu_time - start_cpu_time
 print(f"CPU times: {cpu_time:.2f} s (user and sys combined)")
 print(f"Wall time: {wall_time:.2f} s")
 ```
+
+# Using AI
+* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
+* Reusable Code: Why is using functions in Python important? Write a function to calculate the sum of a list and explain how it makes the code more maintainable.
+* Internal vs External Functions: Compare internal and external function definitions in Python. Create a simple example using an external Python file for function imports.
+* OOP vs Procedural Programming: Explain the differences between Object-Oriented Programming and Procedural Programming. Which approach would you choose for building a reusable library, and why?
+* Array Operations: Create a NumPy array from a Python list and perform element-wise addition, subtraction, multiplication, and division. Discuss the advantages of using NumPy arrays over Python lists for such operations.
+* Vectorization: Explain the concept of vectorization in NumPy. Write vectorized code to add two arrays and compare its performance to a loop-based implementation.
+* Exponential Function: Using np.exp, implement a function that computes the probability of accepting a new solution in a simulated annealing algorithm. Explain how the exponential function impacts the search process.
+* Square Root: Write a Python script to compute the square root of all elements in a NumPy array using np.sqrt. Discuss a practical application of this operation.
+* Sorting with np.argsort: Create a NumPy array of random fitness scores. Use np.argsort to rank individuals and extract the top three scores.
+* Uniform Distribution: Generate an array of random numbers between -10 and 10 using np.random.uniform. How might this be useful in optimization algorithms like hill climbing?
+* Normal Distribution: Use np.random.standard_normal to generate random numbers from a normal distribution. Visualize the distribution using a histogram.
+* Sorting Performance: Compare the execution times of Python’s sort and NumPy’s np.sort using Stable and Quicksort. Which method is faster, and why?
+
+
