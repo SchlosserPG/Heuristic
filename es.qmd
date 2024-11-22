@@ -5,7 +5,6 @@ format: html
 runtime: python
 ---
 
-
 -   If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?
 
 -   Exhaustive Search (also known as brute-force search) is a problem-solving technique that systematically enumerates all possible solutions to find the best one.
@@ -30,6 +29,34 @@ runtime: python
 -   Check all the candidate solutions in the solution space of the problem in question; therefore, it is always capable of finding the best solution for the problem in question.
 
 ![es algorithm](Pictures/es.png "Exhaustive Search Algorithm")
+
+## Exhaustive Search in Continuous vs. Discrete Domains
+* Continuous Domains: Require discretization (using a step size) to make exhaustive search feasible. 
+     + Example: Ackley function.
+* Discrete Domains: Solutions can be explicitly enumerated without discretization. 
+     + Example: Knapsack problem.
+
+* Challenges in Continuous Domains:
+     + Infinite solution space makes direct enumeration impossible.
+     + Step size is critical for balancing resolution and computational cost.
+
+### Role of Step Size in Continuous Optimization
+* Why Step Size Matters: Controls the granularity of the search. 
+     + Smaller steps increase resolution but significantly raise computation time. 
+     + Larger steps reduce computational cost but risk missing the optimal solution.
+
+* Practical Considerations:
+     + Optimal step size depends on the problem's scale and the required precision.
+     + Trade-off between efficiency and accuracy.
+
+* When is Exhaustive Search Practical?
+     + Discrete Domains:
+          + Feasible if the solution space is small (manageable number of combinations).
+          + Guarantees finding the exact optimal solution.
+     + Continuous Domains:
+          + Only practical when the domain is small and can be discretized effectively.
+     + Higher dimensions increase complexity exponentially (curse of dimensionality).
+
 
 ## The Search Strategy of ES
 
@@ -453,3 +480,8 @@ plt.show()
 -   Continuous vs Discrete Domains: Discuss how exhaustive search differs when applied to continuous domains (e.g., Ackley function) versus discrete domains (e.g., knapsack problem). Why does step size matter in continuous optimization?
 -   Trade-Offs in Optimization: Reflect on a scenario where exhaustive search would be impractical. How would you modify the problem or approach to make it solvable within reasonable time and resources?
 -   Visualization Insights: How does visualizing the search process (e.g., fitness evolution over time) help in understanding and debugging optimization algorithms?
+
+
+# Conclusions
+* Choose exhaustive search for small-scale problems where optimality is critical.
+Use heuristics for large, complex, or high-dimensional spaces.

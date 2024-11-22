@@ -694,7 +694,7 @@
     "href": "es.html#output",
     "title": "Exhaustive Search",
     "section": "Output",
-    "text": "Output\n\n# Run the exhaustive search and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_exhaustive_search(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n# Output (O)\nprint(f\"Exhaustive Search One-Max Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\nprint(f\"# name of the search algorithm: Exhaustive Search\")\nprint(f\"# number of bits: {num_bits}\")\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Exhaustive Search: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\nExhaustive Search One-Max Time elapsed: 0.000000 seconds\n# name of the search algorithm: Exhaustive Search\n# number of bits: 10",
+    "text": "Output\n\n# Run the exhaustive search and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_exhaustive_search(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n# Output (O)\nprint(f\"Exhaustive Search One-Max Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\nprint(f\"# name of the search algorithm: Exhaustive Search\")\nprint(f\"# number of bits: {num_bits}\")\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Exhaustive Search: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\nExhaustive Search One-Max Time elapsed: 0.000998 seconds\n# name of the search algorithm: Exhaustive Search\n# number of bits: 10",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
     ]
@@ -1437,6 +1437,46 @@
     "text": "Startup Commands\n\n# Genetic Algorithm Ackley Example (1D)\n\nimport numpy as np\nimport random\nimport time\nimport matplotlib.pyplot as plt\n\n# Define the necessary global variables\npop_size = 50\nnum_generations = 100\ncrossover_rate = 0.7\nmutation_rate = 0.02\nnum_parents_mating = 10\nnum_players = 3\nbest_obj_val = float('inf')\nbest_sol = None\n\n# Ackley function (1D)\ndef ackley(x):\n    a = 20\n    b = 0.2\n    c = 2 * np.pi\n    term1 = -a * np.exp(-b * np.sqrt(np.mean(np.square(x))))\n    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n    return term1 + term2 + a + np.exp(1)",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "es.html#exhaustive-search-in-continuous-vs.-discrete-domains",
+    "href": "es.html#exhaustive-search-in-continuous-vs.-discrete-domains",
+    "title": "Exhaustive Search",
+    "section": "Exhaustive Search in Continuous vs. Discrete Domains",
+    "text": "Exhaustive Search in Continuous vs. Discrete Domains\n\nContinuous Domains: Require discretization (using a step size) to make exhaustive search feasible.\n\nExample: Ackley function.\n\nDiscrete Domains: Solutions can be explicitly enumerated without discretization.\n\nExample: Knapsack problem.\n\nChallenges in Continuous Domains:\n\nInfinite solution space makes direct enumeration impossible.\nStep size is critical for balancing resolution and computational cost.\n\n\n\nRole of Step Size in Continuous Optimization\n\nWhy Step Size Matters: Controls the granularity of the search.\n\nSmaller steps increase resolution but significantly raise computation time.\nLarger steps reduce computational cost but risk missing the optimal solution.\n\nPractical Considerations:\n\nOptimal step size depends on the problem’s scale and the required precision.\nTrade-off between efficiency and accuracy.\n\nWhen is Exhaustive Search Practical?\n\nDiscrete Domains:\n\nFeasible if the solution space is small (manageable number of combinations).\nGuarantees finding the exact optimal solution.\n\nContinuous Domains:\n\nOnly practical when the domain is small and can be discretized effectively.\n\nHigher dimensions increase complexity exponentially (curse of dimensionality).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#activity",
+    "href": "algo.html#activity",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Activity:",
+    "text": "Activity:\n\nState what the following algorithms do:\n\n\\[Z = \\sum_{i=1}^n \\left( x_i \\times y_i \\right)\\] \\[ \\bar{X} = \\frac{\\sum_{i=1}^{n} w_i x_i}{\\sum_{i=1}^{n} w_i}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#examples",
+    "href": "algo.html#examples",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Examples",
+    "text": "Examples\n\nThis pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.\n\n# Pseudocode for finding the minimum number in a list\nSET min_number = Infinity\nFOR each number IN list:\n    IF number &lt; min_number:\n        SET min_number = number\nRETURN min_number\n\n\nThis pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.\nedge cases: an empty list, all even numbers, or no numbers greater than the threshold.\n\n# Pseudocode for summing numbers greater than a given threshold\nSET sum = 0\nFOR each number IN list:\n    IF number &gt; threshold:\n        ADD number TO sum\nRETURN sum",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#activity-read-this-pseudocode",
+    "href": "algo.html#activity-read-this-pseudocode",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Activity: Read this Pseudocode",
+    "text": "Activity: Read this Pseudocode\nSET min_even = Infinity \nFOR each number IN list: \n    IF number is even AND number &lt; min_even: \n        SET min_even = number \nRETURN min_even",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
     ]
   }
 ]
