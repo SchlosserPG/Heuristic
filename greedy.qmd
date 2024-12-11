@@ -151,16 +151,24 @@ Where $c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all 
 
 ![TSP Feasibility Map](Pictures/tsp2.png "TSP Feasibility Map")
 
-### TSP Python Implementation
+# TSP Python Implementation
 
--   A distance matrix is helpful in implementing a TSP model in python. A distance map stores the distances between each pair of locations.
+# Dictionary vs Dictionary of Dictionaries
 
-    -   For simplicity, let’s use three cities (e.g., City1, City2, and City3).
+* A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries.
+```{python}
+my_dict = {
+     "key1": "value1",
+     "key2": "value2",
+     "key3": "value3"
+}
 
--   Structure in Python (Dictionary of Dictionaries):
+```
 
-    -   Outer Dictionary: Each key represents a city.
-    -   Inner Dictionary: Contains distances to other cities from that city.
+* A dictionary of dictionaries is a nested data structure in Python where the values of a dictionary are themselves dictionaries. It allows for organizing hierarchical or complex data in a structured way. This type of dictionary is especially useful for representing relationships, groupings, or matrices where each primary key maps to another dictionary of key-value pairs.
+* A distance matrix or distance map is helpful in implementing a TSP model in python can use the dictionary of dictionaries structure in python to implement. A distance map stores the distances between each pair of locations.
+     + Outer Dictionary: Each key represents a city.
+     + Inner Dictionary: Contains distances to other cities from that city.
 
     ```{python}
     distances = {

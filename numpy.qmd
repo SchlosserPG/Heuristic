@@ -10,10 +10,24 @@ runtime: python
 -   In the field of heuristic modeling, coding know-how is not just a tool—it’s an essential skill that enables you to experiment, adapt, and optimize solutions for complex, real-world problems. As we explore heuristic methods in this MSBA course, having a strong foundation in coding, especially in Python, will allow you to implement and test algorithms efficiently.
 -   Good coding practices, such as writing clear, modular code and incorporating meaningful comments, are critical for both readability and collaboration. By starting with simple Python examples that highlight these principles, we’ll build the groundwork for more sophisticated modeling tasks, from randomization techniques to optimization algorithms, equipping you with both technical skills and best practices for professional code development.
 
-What problems does this code have? ![program.py](Pictures/programPY.png "program.py") \* Multiple instantiations of the same code within a program cause problems + More opportunities for errors + More maintenance \* Blocks of reusable code solve this problem + These are called functions
+What problems does this code have? ![program.py](Pictures/programPY.png "program.py") 
+
+* Multiple instantiations of the same code within a program cause problems + More opportunities for errors 
+     + More maintenance 
+* Blocks of reusable code solve this problem 
+     + These are called functions
 
 -   To avoid resetting the value of result and preserve the sum of both lists, you can accumulate the sums in a single loop or retain the value of result between the loops.
--   Alternatively, you can use Python's built-in sum() function to simplify the code:
+-   Alternatively, you can use Python's built-in sum() function to simplify the code like below. 
+
+```{python}
+x1 = [0, 1, 2, 3, 4, 5]
+x2 = [6, 7, 8, 9, 10]
+
+print(sum(x1))
+print(sum(x2))
+```
+
 
 # Writing Programs with Internal Functions
 
@@ -28,15 +42,34 @@ What problems does this code have? ![program.py](Pictures/programPY.png "program
 -   Place all functions above the “main” program
     -   Must be defined before they are used
 
-![program.py](Pictures/internalfun.png "program.py")
+```{python}
+def my_sum(a_list):
+    result = 0
+    for y in a_list:
+        result += y
+    return result
+    
+x = [0,1,2,3,4,5]
+print(my_sum(x))
+```
 
-# Internal vs External Functions
 
--   Python looks in a few places for functions you import
--   Easiest is to place them in the same folder as the program that is using the function
--   You can have an external program that is referenced in your code to outsource functions.
--   For example, B_ProgramWithInternalFunction.py includes the function definition my_sum.
--   BWOInternalFunction.py references B_ext_function to import my_sum, where ext_function is a python file in the same folder.
+# Understanding The Loop
+
+```{asis}
+for y in a_list:
+   result += y
+return result
+```
+
+* A loop is a way to repeat the same action for every item in a collection (like a list).
+* For y in a_list means, take each item in a_list one at a time, and call it y.
+     + For example, if a_list is [0, 1, 2, 3, 4, 5], the loop will do the following:
+     + First loop: set y = 0, result = 0 + 0 (result is now 0).
+     + Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).
+     + Third loop: then y = 2, result = 1 + 2 (result is now 3).
+and so on, until all the numbers in the list have been used.
+
 
 ![program.py](Pictures/programs.png "program.py")
 
@@ -58,15 +91,16 @@ What problems does this code have? ![program.py](Pictures/programPY.png "program
 
 ![libraries.py](Pictures/library.png "libraries") \# Revisiting Numpy \## Importing Numpy
 
-```{python}
-import numpy as np
-```
-
-## Numpy Definition
+# Numpy Basics
 
 -   NumPy stands for numerical Python, suggesting that it targets scenarios that are numerically demanding. The base Python interpreter tries to be as general as possible in many areas, which often leads to quite a bit of overhead at run-time.
 -   NumPy uses specialization for numerical components as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.
 -   Vectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).
+
+```{python}
+import numpy as np
+```
+
 
 ## Basic Array Creation
 
@@ -157,7 +191,77 @@ def ackley(s):
      return term1 + term2 + a + np.e
 ```
 
-# Sorting the data: np.argsort
+## Random Number Generation
+
+-   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.
+-   More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
+
+```{python}
+rand_nums = np.random.rand(5)
+print(rand_nums)
+```
+
+## Standard Normal Distribution
+
+-   The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
+-   Generating 5 random numbers from a standard normal distribution (mean=0, std=1).
+
+```{python}
+# Generating random values from the standard normal distribution
+random_values = np.random.standard_normal(5)
+print("Random Standard Normal Values:", random_values)
+
+```
+
+## np.random.uniform
+
+-   The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
+-   In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.
+
+```{python}
+# Generate a random starting point for the hill climbing algorithm
+random_start = np.random.uniform(low=-10, high=10, size=5)
+print(f"Random start: {random_start}")
+```
+
+## np.random.randint
+
+-   The np.random.randint function in NumPy is used to generate random integers within a specified range.
+
+-   np.random.randint(low, high=None, size=None, dtype=int)
+
+    -   low: The lower boundary of the random integers (inclusive).
+    -   high: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.
+    -   size: The shape of the output array (optional). If not provided, a single integer is returned.
+    -   dtype: The desired data type of the output array, by default int.
+
+```{python}
+# Generate 5 random integers between 10 and 20
+random_integers = np.random.randint(10, 20, size=5)
+print(random_integers)
+
+```
+
+## np.random.randint from Simulated Annealing
+
+-   This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or "transition") to the current solution.
+
+    -   The function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).
+    -   t = sol.copy(): A copy of the solution sol is made, named t. This is important because we don't want to modify the original solution directly; instead, we work on the copy t.
+    -   i = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.
+    -   t\[i\] \^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t\[i\] is 0, it becomes 1.If t\[i\] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.
+    -   return t: After flipping one bit, the modified solution t is returned.
+
+    ```{python}
+    # Transition function (T)
+    def transit(sol):
+        new_sol = sol.copy()
+        index = np.random.randint(len(sol))
+        new_sol[index] = 1 - new_sol[index]  # Flip a random bit
+        return new_sol
+    ```
+
+## Sorting the data: np.argsort
 
 -   The np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.
 
@@ -239,76 +343,6 @@ print("Max element index for each row:", max_index_row)
     \[4 <mark>5</mark> 1\]\
     \[0 <mark>6</mark> 2\]\]
 
-# Random Number Generation
-
--   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.
--   More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
-
-```{python}
-rand_nums = np.random.rand(5)
-print(rand_nums)
-```
-
-## Standard Normal Distribution
-
--   The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
--   Generating 5 random numbers from a standard normal distribution (mean=0, std=1).
-
-```{python}
-# Generating random values from the standard normal distribution
-random_values = np.random.standard_normal(5)
-print("Random Standard Normal Values:", random_values)
-
-```
-
-## np.random.uniform
-
--   The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
--   In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.
-
-```{python}
-# Generate a random starting point for the hill climbing algorithm
-random_start = np.random.uniform(low=-10, high=10, size=5)
-print(f"Random start: {random_start}")
-```
-
-## np.random.randint
-
--   The np.random.randint function in NumPy is used to generate random integers within a specified range.
-
--   np.random.randint(low, high=None, size=None, dtype=int)
-
-    -   low: The lower boundary of the random integers (inclusive).
-    -   high: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.
-    -   size: The shape of the output array (optional). If not provided, a single integer is returned.
-    -   dtype: The desired data type of the output array, by default int.
-
-```{python}
-# Generate 5 random integers between 10 and 20
-random_integers = np.random.randint(10, 20, size=5)
-print(random_integers)
-
-```
-
-## np.random.randint from Simulated Annealing
-
--   This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or "transition") to the current solution.
-
-    -   The function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).
-    -   t = sol.copy(): A copy of the solution sol is made, named t. This is important because we don't want to modify the original solution directly; instead, we work on the copy t.
-    -   i = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.
-    -   t\[i\] \^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t\[i\] is 0, it becomes 1.If t\[i\] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.
-    -   return t: After flipping one bit, the modified solution t is returned.
-
-    ```{python}
-    # Transition function (T)
-    def transit(sol):
-        new_sol = sol.copy()
-        index = np.random.randint(len(sol))
-        new_sol[index] = 1 - new_sol[index]  # Flip a random bit
-        return new_sol
-    ```
-
 
 # Formula vs LaTex vs Python
 
@@ -318,7 +352,32 @@ print(random_integers)
     -   In LaTex: S_T = S_0 \exp((r - 0.5 \sigma\^2) T + \sigma z \sqrt{T})
     -   In Python this translates to the following: S_T = S_0 \* exp((r - 0.5 \* sigma \*\* 2) \* T + sigma \* z \* sqrt(T))
 
-# Modelling Stock Prices
+# Calculating Wall Time
+
+* Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.
+* time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable. 
+```{python}
+import time
+start_time = time.time()
+```
+
+* Execute the block of code you want to measure and end the time.
+```{python}
+end_time = time.time()
+```
+
+* Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time. 
+
+```{python}
+elapsed_time = end_time - start_time
+print(f"Wall time: {elapsed_time:.2f} seconds")
+```
+
+
+
+## An Example Modelling Stock Prices
+* The model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).
+* The model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.
 
 $S_T = S_0 \exp\left( (r - 0.5 \sigma^2) T + \sigma Z \sqrt{T} \right)$
 
@@ -332,12 +391,16 @@ $S_T = S_0 \exp\left( (r - 0.5 \sigma^2) T + \sigma Z \sqrt{T} \right)$
 
 ## Comparing Model Clock Time With/Without NumPy
 
+* The primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python's built-in modules and loops.
+
 ### Without Numpy
 
+* a Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python's interpreted loop and the sequential calls to these functions.
 ```{python}
 import random
 from math import exp, sqrt
 import time 
+
 # Initial stock price
 S0 = 100 
 
@@ -352,30 +415,29 @@ sigma = 0.2
 
 values = []  
 
-# Start tracking wall time and CPU time
-start_wall_time = time.time()
-start_cpu_time = time.process_time()
+# Start tracking wall time
+start_time = time.time()
 
 for _ in range(1000000):  
      ST = S0 * exp((r - 0.5 * sigma ** 2) * T +
         sigma * random.gauss(0, 1) * sqrt(T))  
      values.append(ST)  
 
-# End tracking wall time and CPU time
-end_wall_time = time.time()
-end_cpu_time = time.process_time()
+# End tracking wall time
+end_time = time.time()
 
-# Calculate time differences
-wall_time = end_wall_time - start_wall_time
-cpu_time = end_cpu_time - start_cpu_time
+
+# Calculate time difference
+wall_time = end_time - start_time
 
 # Print timing information
-print(f"CPU times: {cpu_time:.2f} s (user and sys combined)")
 print(f"Wall time: {wall_time:.2f} s")
 ```
 
 ### With Numpy
-
+* In contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:
+     + The entire random sample generation is done in one call (np.random.standard_normal(1000000)).
+     
 ```{python}
 import numpy as np
 import time 
@@ -392,25 +454,24 @@ T = 1.0
 # Volatility
 sigma = 0.2 
 
-# Start tracking wall time and CPU time
-start_wall_time = time.time()
-start_cpu_time = time.process_time()
+# Start tracking wall time
+start_time = time.time()
 
 ST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +
     sigma * np.random.standard_normal(1000000) * np.sqrt(T))
 
-# End tracking wall time and CPU time
-end_wall_time = time.time()
-end_cpu_time = time.process_time()
+# End tracking wall time
+end_time = time.time()
 
-# Calculate time differences
-wall_time = end_wall_time - start_wall_time
-cpu_time = end_cpu_time - start_cpu_time
+# Calculate time difference
+wall_time = end_time - start_time
 
 # Print timing information
-print(f"CPU times: {cpu_time:.2f} s (user and sys combined)")
 print(f"Wall time: {wall_time:.2f} s")
 ```
+
+* Mathematical operations like exp and sqrt are applied to entire arrays at once.
+These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.
 
 # Using AI
 

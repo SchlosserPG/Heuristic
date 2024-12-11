@@ -201,7 +201,7 @@
         "\n",
         "## Startup Commands\n"
       ],
-      "id": "7f5c2638"
+      "id": "337b21f0"
     },
     {
       "cell_type": "code",
@@ -233,7 +233,7 @@
         "    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n",
         "    return term1 + term2 + a + np.exp(1)"
       ],
-      "id": "94292d8f",
+      "id": "51c5d6d0",
       "execution_count": null,
       "outputs": []
     },
@@ -241,11 +241,11 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Initiation (I)\n",
+        "## Initiation Function (I)\n",
         "\n",
         "-   A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.\n"
       ],
-      "id": "bc780809"
+      "id": "afd48793"
     },
     {
       "cell_type": "code",
@@ -255,7 +255,7 @@
         "def init_ga(pop_size):\n",
         "    return np.random.uniform(-10, 10, (pop_size, 1))"
       ],
-      "id": "03ab686d",
+      "id": "b8994f12",
       "execution_count": null,
       "outputs": []
     },
@@ -263,11 +263,11 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Evaluation (E)\n",
+        "## Evaluation Function (E)\n",
         "\n",
         "-   The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population's fitness values.\n"
       ],
-      "id": "6c967dd8"
+      "id": "62e01e74"
     },
     {
       "cell_type": "code",
@@ -277,7 +277,7 @@
         "def evaluate(pop):\n",
         "    return np.array([ackley(ind) for ind in pop])"
       ],
-      "id": "8664543d",
+      "id": "b3ef4e4c",
       "execution_count": null,
       "outputs": []
     },
@@ -285,9 +285,13 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Update function\n"
+        "## Determination (D): Update Function\n",
+        "* This function, update_best_sol, is responsible for keeping track of the best solution found so far in a genetic algorithm. It compares the fitness values of the current population (curr_obj_vals) to the global best objective value (best_obj_val).\n",
+        "     + It identifies the index (best_idx) of the individual in the current population with the lowest objective value (best fitness) using np.argmin.\n",
+        "     + If this individual's objective value is better (lower) than the current global best (best_obj_val), it updates best_obj_val to this new lower value and updates best_sol to the corresponding individual from the current population.\n",
+        "* This ensures that best_sol and best_obj_val always store the best solution and its fitness value found across all generations during the algorithm's execution. The use of global allows the function to modify these variables outside its local scope.\n"
       ],
-      "id": "a5f8f651"
+      "id": "82d892c2"
     },
     {
       "cell_type": "code",
@@ -301,7 +305,7 @@
         "        best_obj_val = curr_obj_vals[best_idx]\n",
         "        best_sol = curr_pop[best_idx]"
       ],
-      "id": "6c8ab586",
+      "id": "955c275f",
       "execution_count": null,
       "outputs": []
     },
@@ -309,11 +313,15 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Determination Function (D)\n",
+        "## Determination (D): Selection Function\n",
         "\n",
-        "-   Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.\n"
+        "-   Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.\n",
+        "     + This code implements a tournament selection mechanism in a genetic algorithm to select individuals for reproduction based on their fitness values. \n",
+        "     + For each individual in the current population (curr_pop), a tournament is conducted by randomly selecting a subset of individuals (of size num_players) without replacement. \n",
+        "     + Within this subset, the individual with the best fitness value (lowest objective value in curr_obj_vals) is identified using np.argmin and added to the selected population (selected_pop). This process ensures that fitter individuals have a higher chance of being chosen, promoting the propagation of good solutions while maintaining diversity through randomness. \n",
+        "     + The function returns the newly selected population as a NumPy array.\n"
       ],
-      "id": "7fdf6d6b"
+      "id": "cb25ad6c"
     },
     {
       "cell_type": "code",
@@ -329,7 +337,7 @@
         "        selected_pop.append(curr_pop[best_idx])\n",
         "    return np.array(selected_pop)"
       ],
-      "id": "07336fc4",
+      "id": "eea272a3",
       "execution_count": null,
       "outputs": []
     },
@@ -337,17 +345,22 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Transition Function (T)\n",
+        "## Transition (T): Crossover Function\n",
+        "* In genetic algorithms, the transition function refers to the combined operations of crossover and mutation that generate a new population (offspring) from the current population. The transition function first applies crossover to exchange genetic material between selected parent solutions, creating new offspring, and then applies mutation to introduce small random changes in the offspring, maintaining diversity and enabling exploration of the solution space. This ensures a balance between exploitation of good solutions (via crossover) and exploration of new solutions (via mutation).\n",
         "\n",
-        "-   Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.\n"
+        "-   Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.\n",
+        "* A new population (new_pop) is initialized as a copy of the current population (pop).\n",
+        "The loop iterates over the population in pairs. For each pair, a random number is generated using np.random.rand(). If this number is less than the crossover_rate, crossover occurs:\n",
+        "     + A crossover point is chosen randomly (here, using np.random.randint(1)), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions. \n",
+        "     + If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation."
       ],
-      "id": "a875ff26"
+      "id": "b8acd6b7"
     },
     {
       "cell_type": "code",
       "metadata": {},
       "source": [
-        "# Transition function (T): Cross over and Mutation\n",
+        "# Transition function (T): Crossover and Mutation\n",
         "# Crossover function (T)\n",
         "def crossover(pop, crossover_rate):\n",
         "    new_pop = pop.copy()\n",
@@ -360,7 +373,7 @@
         "            )\n",
         "    return new_pop"
       ],
-      "id": "164dcd01",
+      "id": "958569ef",
       "execution_count": null,
       "outputs": []
     },
@@ -368,11 +381,12 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "## Mutation Function (M)\n",
+        "## Transition (T): Mutation Function\n",
         "\n",
-        "-   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.\n"
+        "-   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.\n",
+        "* It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function.\n"
       ],
-      "id": "b7391b6f"
+      "id": "d87b5f25"
     },
     {
       "cell_type": "code",
@@ -385,7 +399,7 @@
         "            pop[i] = np.random.uniform(-10, 10)\n",
         "    return pop"
       ],
-      "id": "0e21845e",
+      "id": "62a6ae7e",
       "execution_count": null,
       "outputs": []
     },
@@ -398,7 +412,7 @@
         "-   The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.\n",
         "-   The new population (after crossover and mutation) replaces the old one for the next generation.\n"
       ],
-      "id": "6296e29f"
+      "id": "ee9c030a"
     },
     {
       "cell_type": "code",
@@ -420,7 +434,7 @@
         "        pop = mutated_pop  \n",
         "    return best_sol, best_obj_val"
       ],
-      "id": "b049fc67",
+      "id": "7d7c582c",
       "execution_count": null,
       "outputs": []
     },
@@ -430,7 +444,7 @@
       "source": [
         "## Main Execution\n"
       ],
-      "id": "be72481d"
+      "id": "d9351d1c"
     },
     {
       "cell_type": "code",
@@ -442,7 +456,7 @@
         "end_time = time.time()\n",
         "execution_time = end_time - start_time"
       ],
-      "id": "fbb45a2d",
+      "id": "766c844e",
       "execution_count": null,
       "outputs": []
     },
@@ -452,7 +466,7 @@
       "source": [
         "## Output (O)\n"
       ],
-      "id": "523c20de"
+      "id": "b384fc76"
     },
     {
       "cell_type": "code",
@@ -477,7 +491,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "83bbbd6a",
+      "id": "03c57d87",
       "execution_count": null,
       "outputs": []
     },
@@ -487,7 +501,7 @@
       "source": [
         "# GA example One Max\n"
       ],
-      "id": "1524577e"
+      "id": "da794bb0"
     },
     {
       "cell_type": "code",
@@ -504,9 +518,9 @@
         "num_generations = 100\n",
         "crossover_rate = 0.7\n",
         "mutation_rate = 0.01\n",
-        "num_players = 3  # For tournament selection\n",
+        "num_players = 3  \n",
         "\n",
-        "# Evaluation Function (E): One-max function\n",
+        "# Evaluation Function (E)\n",
         "def one_max(sol):\n",
         "    return sum(sol)\n",
         "\n",
@@ -514,7 +528,7 @@
         "def initialize_population(pop_size, num_bits):\n",
         "    return np.random.randint(0, 2, (pop_size, num_bits))\n",
         "\n",
-        "# Selection function using tournament selection\n",
+        "# Selection function using tournament selection (D)\n",
         "def select(population, fitness_vals, num_players):\n",
         "    selected_pop = []\n",
         "    for _ in range(len(population)):\n",
@@ -523,7 +537,7 @@
         "        selected_pop.append(population[best_idx])\n",
         "    return np.array(selected_pop)\n",
         "\n",
-        "# Crossover function\n",
+        "# Crossover function (T)\n",
         "def crossover(population, crossover_rate):\n",
         "    new_population = population.copy()\n",
         "    for i in range(0, len(population) - 1, 2):\n",
@@ -535,7 +549,7 @@
         "            )\n",
         "    return new_population\n",
         "\n",
-        "# Mutation function\n",
+        "# Mutation function (T)\n",
         "def mutate(population, mutation_rate):\n",
         "    for i in range(len(population)):\n",
         "        for j in range(num_bits):\n",
@@ -553,6 +567,7 @@
         "        fitness_vals = np.array([one_max(ind) for ind in population])\n",
         "        best_idx = np.argmax(fitness_vals)\n",
         "        \n",
+        "        #Update solution (D)\n",
         "        if fitness_vals[best_idx] > best_value:\n",
         "            best_sol, best_value = population[best_idx], fitness_vals[best_idx]\n",
         "        \n",
@@ -585,7 +600,7 @@
         "plt.legend()\n",
         "plt.show()"
       ],
-      "id": "d395bbf8",
+      "id": "3a3441aa",
       "execution_count": null,
       "outputs": []
     },
@@ -596,18 +611,18 @@
         "# Using AI\n",
         "\n",
         "-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.\n",
-        "* Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?\n",
-        "* Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = x^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?\n",
-        "* Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.\n",
-        "* Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?\n",
-        "* Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.\n",
-        "* How does the diversity of the population change as the genetic algorithm progresses over generations?\n",
+        "-   Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?\n",
+        "-   Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = x^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?\n",
+        "-   Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.\n",
+        "-   Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?\n",
+        "-   Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.\n",
+        "-   How does the diversity of the population change as the genetic algorithm progresses over generations?\n",
         "\n",
         "# Conclusions\n",
         "\n",
-        "* Our discussions on Genetic Algorithms (GA) provide a comprehensive exploration of one of the most versatile and biologically inspired optimization techniques. GA mimics the principles of natural selection and evolution, employing operators like selection, crossover, and mutation to iteratively refine solutions within a population. The method’s ability to balance exploration (via genetic diversity) and exploitation (via selection pressure) makes it particularly effective for solving complex, non-linear, and multimodal optimization problems. Key advantages include its flexibility to adapt to a wide range of applications, such as scheduling, portfolio optimization, and function minimization, and its capacity to avoid local optima by maintaining a diverse population. However, success depends heavily on careful parameter tuning, including population size, mutation rate, and crossover probability. By comparing GA with other methods like Simulated Annealing, the slides highlight GA's strengths in global search and parallel exploration. Ultimately, Genetic Algorithms emerge as a powerful heuristic, especially when the optimization landscape demands both creativity and robustness in the search for solutions."
+        "-   Our discussions on Genetic Algorithms (GA) provide a comprehensive exploration of one of the most versatile and biologically inspired optimization techniques. GA mimics the principles of natural selection and evolution, employing operators like selection, crossover, and mutation to iteratively refine solutions within a population. The method’s ability to balance exploration (via genetic diversity) and exploitation (via selection pressure) makes it particularly effective for solving complex, non-linear, and multimodal optimization problems. Key advantages include its flexibility to adapt to a wide range of applications, such as scheduling, portfolio optimization, and function minimization, and its capacity to avoid local optima by maintaining a diverse population. However, success depends heavily on careful parameter tuning, including population size, mutation rate, and crossover probability. By comparing GA with other methods like Simulated Annealing, the slides highlight GA's strengths in global search and parallel exploration. Ultimately, Genetic Algorithms emerge as a powerful heuristic, especially when the optimization landscape demands both creativity and robustness in the search for solutions."
       ],
-      "id": "00ff258f"
+      "id": "d7d457ba"
     }
   ],
   "metadata": {

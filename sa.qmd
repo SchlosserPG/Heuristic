@@ -8,7 +8,7 @@ runtime: python
 # What is a Metaheuristic Algorithm?
 
 -   One of the main attributes of a metaheuristic algorithm is that it performs a certain set of operators for a certain number of iterations to search for the optimal solution with great shrewdness.
--   Compared to the Exhaustive Search (ES) and hill climbing (HC) algorithms, a metaheuristic algorithm will neither check all the candidate solutions of a complex optimization problem like ES nor fall into a local optimum at early iterations as easily as HC
+-   Compared to the Exhaustive Search (ES) and hill climbing (HC) algorithms, a metaheuristic algorithm will neither check all the candidate solutions of a complex optimization problem like ES nor fall into a local optimum at early iterations as easily as HC.
 
 ## History of Metaheuristics
 
@@ -38,7 +38,7 @@ runtime: python
 2.  Transition (T): The transition operator usually plays the role of varying the search directions, such as perturbing a portion of the subsolutions of the current solution to generate a new candidate solution or generating a set of new candidate solutions each based on two or more of the current solutions.
 3.  Evaluation (E): The evaluation operator is responsible for measuring the quality of solutions, such as calculating the objective value of each solution to be used by the determination operator to distinguish the quality of all the solutions. An intuitive way is to use an objective function to measure the quality of a solution for the problem in question. However, some metaheuristics do not use the “objective value” directly to measure their solutions; rather, the objective value of a solution has to undergo some sort of transformation to obtain the so-called “fitness value.”
 4.  Determination (D): The determination operator plays the role of deciding the search directions by using information the evaluation operator provides during the convergence process. The performance of a metaheuristic algorithm depends to a large extent on the performance of this operator. A “good” search strategy for this operator will make it possible for the metaheuristic algorithm to find a better solution faster or to avoid falling into a local optimum at early iterations.
-5.  Output (O): In spite of the fact that this operator seems to be trivial, the reality is that it can be either simple or complex depending on how much information we want to display for the metaheuristic algorithm. It can be as simple as displaying only the final result of the metaheuristic algorithm, or it can be as complex as displaying the trajectory of convergence of the metaheuristic algorithm to better understand the performance of a metaheuristic algorithm
+5.  Output (O): In spite of the fact that this operator seems to be trivial, the reality is that it can be either simple or complex depending on how much information we want to display for the metaheuristic algorithm. It can be as simple as displaying only the final result of the metaheuristic algorithm, or it can be as complex as displaying the trajectory of convergence of the metaheuristic algorithm to better understand the performance of a metaheuristic algorithm.
 
 ## UFM
 
@@ -599,15 +599,15 @@ print(f"Execution time: {execution_time:.6f} seconds")
 # Using AI
 
 -   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-* Metaheuristics Overview: What is a metaheuristic algorithm, and how does it differ from other optimization approaches like exhaustive search and hill climbing? Provide an example of a real-world problem suitable for metaheuristic algorithms.
-* Simulated Annealing Basics: Explain the key components of simulated annealing, including its transition, evaluation, and determination steps. Why is temperature an essential factor in the algorithm?
-* Exploration vs. Exploitation: Discuss how simulated annealing balances exploration and exploitation during the optimization process. How does this compare to greedy and hill climbing algorithms?
-* Parameter Tuning: Why is tuning parameters like cooling schedule and neighborhood size crucial in simulated annealing? Suggest strategies for finding optimal parameter values.
-* Fitness Evolution: How does the cooling rate affect the trajectory of fitness improvement in a simulated annealing for the One-Max problem?
-* Solution Space Exploration: Discuss how the simulated annealing algorithm explores the rugged landscape of an Ackley Function and converges to a solution.
-* Industry Use Cases: Discuss real-world applications of simulated annealing in fields such as machine learning, logistics, and engineering. Why is SA particularly suited for these problems?
-* Challenges in SA: Reflect on the challenges of applying simulated annealing to real-world problems. How do computational cost and parameter sensitivity influence its practicality?
-* Algorithm Design: How does understanding the strengths and limitations of simulated annealing inform the design of new metaheuristic algorithms?
+-   Metaheuristics Overview: What is a metaheuristic algorithm, and how does it differ from other optimization approaches like exhaustive search and hill climbing? Provide an example of a real-world problem suitable for metaheuristic algorithms.
+-   Simulated Annealing Basics: Explain the key components of simulated annealing, including its transition, evaluation, and determination steps. Why is temperature an essential factor in the algorithm?
+-   Exploration vs. Exploitation: Discuss how simulated annealing balances exploration and exploitation during the optimization process. How does this compare to greedy and hill climbing algorithms?
+-   Parameter Tuning: Why is tuning parameters like cooling schedule and neighborhood size crucial in simulated annealing? Suggest strategies for finding optimal parameter values.
+-   Fitness Evolution: How does the cooling rate affect the trajectory of fitness improvement in a simulated annealing for the One-Max problem?
+-   Solution Space Exploration: Discuss how the simulated annealing algorithm explores the rugged landscape of an Ackley Function and converges to a solution.
+-   Industry Use Cases: Discuss real-world applications of simulated annealing in fields such as machine learning, logistics, and engineering. Why is SA particularly suited for these problems?
+-   Challenges in SA: Reflect on the challenges of applying simulated annealing to real-world problems. How do computational cost and parameter sensitivity influence its practicality?
+-   Algorithm Design: How does understanding the strengths and limitations of simulated annealing inform the design of new metaheuristic algorithms?
 
 ## Conclusions
 

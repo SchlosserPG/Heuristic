@@ -13,6 +13,8 @@
         "\n",
         "\n",
         "# Hill Climbing (HC)\n",
+        "* If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?\n",
+        "\n",
         "\n",
         "-   Hill Climbing is an optimization algorithm that starts with an arbitrary solution to a problem and iteratively makes small changes to the solution, choosing the change that improves the solution the most.\n",
         "-   Characteristics\n",
@@ -64,7 +66,7 @@
         "\n",
         "-   Import necessary tools: time for timing and matplotlib for plotting results.\n"
       ],
-      "id": "f505e402"
+      "id": "6b484ad1"
     },
     {
       "cell_type": "code",
@@ -74,7 +76,7 @@
         "import time\n",
         "import matplotlib.pyplot as plt"
       ],
-      "id": "c30479e4",
+      "id": "263b2e9b",
       "execution_count": null,
       "outputs": []
     },
@@ -84,7 +86,7 @@
       "source": [
         "-   Set num_bits equal to a number (10) in this case.\n"
       ],
-      "id": "2978f7fe"
+      "id": "c1279ae2"
     },
     {
       "cell_type": "code",
@@ -92,7 +94,7 @@
       "source": [
         "num_bits = 10  # You can adjust the number of bits"
       ],
-      "id": "63a2d164",
+      "id": "ab1d9ff2",
       "execution_count": null,
       "outputs": []
     },
@@ -108,7 +110,7 @@
         "-   Repeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.\n",
         "-   Return Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.\n"
       ],
-      "id": "0e14d220"
+      "id": "bff69506"
     },
     {
       "cell_type": "code",
@@ -133,7 +135,7 @@
         "        \n",
         "    return fitness_over_time, sol"
       ],
-      "id": "e5668a11",
+      "id": "9a19978a",
       "execution_count": null,
       "outputs": []
     },
@@ -145,7 +147,7 @@
         "\n",
         "-   Initiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).\n"
       ],
-      "id": "cc8f2b56"
+      "id": "2b8977fb"
     },
     {
       "cell_type": "code",
@@ -155,7 +157,7 @@
         "def init_hc(num_bits):\n",
         "    return np.random.randint(2, size=num_bits, dtype=int)"
       ],
-      "id": "bfd9873e",
+      "id": "b1f6de63",
       "execution_count": null,
       "outputs": []
     },
@@ -165,7 +167,7 @@
       "source": [
         "-   Transit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.\n"
       ],
-      "id": "722d5653"
+      "id": "27721466"
     },
     {
       "cell_type": "code",
@@ -179,7 +181,7 @@
         "    new_sol[flip_index] = 1 - new_sol[flip_index]  # Flip the bit (0 to 1, or 1 to 0)\n",
         "    return new_sol"
       ],
-      "id": "ffffcb68",
+      "id": "b60a06e6",
       "execution_count": null,
       "outputs": []
     },
@@ -189,7 +191,7 @@
       "source": [
         "-   Evaluate: Count the number of 1s in the binary representation of a solution (fitness value).\n"
       ],
-      "id": "895cbc2b"
+      "id": "3ec7e37e"
     },
     {
       "cell_type": "code",
@@ -200,7 +202,7 @@
         "def evaluate(sol):\n",
         "    return np.sum(sol)"
       ],
-      "id": "55541637",
+      "id": "b9851d5f",
       "execution_count": null,
       "outputs": []
     },
@@ -210,7 +212,7 @@
       "source": [
         "-   Determine: Track and update the current best solution and its fitness as the search progresses.\n"
       ],
-      "id": "87b895b7"
+      "id": "183215a7"
     },
     {
       "cell_type": "code",
@@ -223,7 +225,7 @@
         "        return tmp_sol, tmp_fitness  # Accept the new solution\n",
         "    return sol, fitness  # Keep the current solution"
       ],
-      "id": "2d088b61",
+      "id": "c77c04e6",
       "execution_count": null,
       "outputs": []
     },
@@ -233,7 +235,7 @@
       "source": [
         "-   The main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.\n"
       ],
-      "id": "74805407"
+      "id": "8375d85b"
     },
     {
       "cell_type": "code",
@@ -246,7 +248,7 @@
         "end_time = time.time()\n",
         "execution_time = end_time - start_time  # Calculate elapsed time"
       ],
-      "id": "a2236971",
+      "id": "3d698314",
       "execution_count": null,
       "outputs": []
     },
@@ -256,7 +258,7 @@
       "source": [
         "-   The output section displays key details about the hill climbing algorithm, including its name, the number of bits used, and the time taken for execution. It then visualizes the fitness evolution across evaluations, providing a clear plot that shows how fitness values change over time as the algorithm progresses toward the best solution.\n"
       ],
-      "id": "30cf3632"
+      "id": "d697ac92"
     },
     {
       "cell_type": "code",
@@ -277,7 +279,7 @@
         "plt.legend()\n",
         "plt.show()"
       ],
-      "id": "d3a1ff95",
+      "id": "dfb8d96f",
       "execution_count": null,
       "outputs": []
     },
@@ -374,7 +376,7 @@
         "\n",
         "## Load Imports\n"
       ],
-      "id": "643fe8f1"
+      "id": "d3530431"
     },
     {
       "cell_type": "code",
@@ -387,7 +389,7 @@
         "\n",
         "np.random.seed(5042) ##for consistency"
       ],
-      "id": "2216c719",
+      "id": "a0ba0800",
       "execution_count": null,
       "outputs": []
     },
@@ -400,7 +402,7 @@
         "-   Function f(x): This is the function we want to optimize.\n",
         "-   In this case, Ackley function with provided formula.\n"
       ],
-      "id": "8469e5e9"
+      "id": "5f21130c"
     },
     {
       "cell_type": "code",
@@ -415,7 +417,7 @@
         "    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n",
         "    return term1 + term2 + a + np.exp(1)"
       ],
-      "id": "b646d31a",
+      "id": "348ded83",
       "execution_count": null,
       "outputs": []
     },
@@ -435,7 +437,7 @@
         "-   The current solution and its corresponding function value are appended to the history lists (x_history and value_history). These lists will be used later to plot the progress of the algorithm.\n",
         "-   Finally, we return the results.\n"
       ],
-      "id": "958a1396"
+      "id": "8670d270"
     },
     {
       "cell_type": "code",
@@ -464,7 +466,7 @@
         "\n",
         "    return current_x, current_value, x_history, value_history"
       ],
-      "id": "5ad0f2df",
+      "id": "e9712223",
       "execution_count": null,
       "outputs": []
     },
@@ -476,7 +478,7 @@
         "\n",
         "-   Initialize: This function initializes the hill climbing process by selecting a random starting point (start_x) within the given range \\[-10, 10\\]. This represents the initial solution that hill climbing will start with.\n"
       ],
-      "id": "7df1ee8a"
+      "id": "a44c009e"
     },
     {
       "cell_type": "code",
@@ -486,7 +488,7 @@
         "def init_hc(range_min=-10, range_max=10):\n",
         "    return random.uniform(range_min, range_max)"
       ],
-      "id": "27846ff9",
+      "id": "f55e39ad",
       "execution_count": null,
       "outputs": []
     },
@@ -496,7 +498,7 @@
       "source": [
         "-   Transition: This function generates two new candidate solutions by taking small steps (of size 0.1) to the left and right of the current solution (current_x). These represent possible transitions to neighboring points in the search space.\n"
       ],
-      "id": "14732a1c"
+      "id": "316d59d6"
     },
     {
       "cell_type": "code",
@@ -506,7 +508,7 @@
         "def transit(current_x, step_size=0.1):\n",
         "    return current_x - step_size, current_x + step_size"
       ],
-      "id": "12580788",
+      "id": "3ad0e46f",
       "execution_count": null,
       "outputs": []
     },
@@ -516,7 +518,7 @@
       "source": [
         "-   Evaluation: This function evaluates the fitness of a solution (sol) using the Ackley function. The goal of the hill climbing algorithm is to minimize this value. The Ackley function is typically used for testing optimization algorithms due to its complex landscape with many local minima.\n"
       ],
-      "id": "2a18d7eb"
+      "id": "9ed25ebd"
     },
     {
       "cell_type": "code",
@@ -526,7 +528,7 @@
         "def evaluate(sol):\n",
         "    return ackley([sol])"
       ],
-      "id": "30f43ff8",
+      "id": "0bec6dcf",
       "execution_count": null,
       "outputs": []
     },
@@ -536,7 +538,7 @@
       "source": [
         "-   Determination: This function compares the current solution's value (current_value) with the value of a new candidate solution (new_value). If the new solution is better (i.e., has a lower Ackley value), it becomes the new current solution. Otherwise, the current solution is retained.\n"
       ],
-      "id": "fa225b90"
+      "id": "3f1e33c9"
     },
     {
       "cell_type": "code",
@@ -547,7 +549,7 @@
         "def determine(new_value, current_value, new_x, current_x):\n",
         "    return (new_x, new_value) if new_value < current_value else (current_x, current_value)"
       ],
-      "id": "cd16be4c",
+      "id": "877e6469",
       "execution_count": null,
       "outputs": []
     },
@@ -559,7 +561,7 @@
         "\n",
         "-   The process starts by initializing start_x using the Initialization function (init_hc). The main function (hill_climbing_ackley) then runs for a fixed number of iterations (100 by default) using Transition to generate candidate solutions, Evaluation to evaluate them, and Determination to decide whetherr to accept a new solution.\n"
       ],
-      "id": "a5c16794"
+      "id": "64d418b3"
     },
     {
       "cell_type": "code",
@@ -572,7 +574,7 @@
         "end_time = time.time()\n",
         "execution_time = end_time - start_time"
       ],
-      "id": "1bf1d2c2",
+      "id": "0d5e70ed",
       "execution_count": null,
       "outputs": []
     },
@@ -585,7 +587,7 @@
         "-   The first part prints the optimal solution found (optimal_x), the corresponding function value (optimal_value), and the total time taken for the execution.\n",
         "-   The second part plots the Ackley function over the range \\[-10, 10\\] and overlays the hill climbing progress. The points in red represent the steps taken by the hill climbing algorithm as it navigates through the search space.\n"
       ],
-      "id": "a1839eb1"
+      "id": "74268f28"
     },
     {
       "cell_type": "code",
@@ -610,7 +612,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "974e0076",
+      "id": "ce9ad60c",
       "execution_count": null,
       "outputs": []
     },
@@ -644,7 +646,7 @@
         "\n",
         "## Imports\n"
       ],
-      "id": "02e2f8c3"
+      "id": "2f1b13ad"
     },
     {
       "cell_type": "code",
@@ -659,7 +661,7 @@
         "\n",
         "np.random.seed(5042)"
       ],
-      "id": "db9f746a",
+      "id": "fcced22c",
       "execution_count": null,
       "outputs": []
     },
@@ -669,7 +671,7 @@
       "source": [
         "## Fetching Data\n"
       ],
-      "id": "aa924fcb"
+      "id": "f3292614"
     },
     {
       "cell_type": "code",
@@ -684,7 +686,7 @@
         "    data = yf.download(stocks, start=start_date, end=end_date)['Adj Close']\n",
         "    return data"
       ],
-      "id": "25137ca0",
+      "id": "4d4d9628",
       "execution_count": null,
       "outputs": []
     },
@@ -694,7 +696,7 @@
       "source": [
         "## Calculating performance via Sharpe Ratio\n"
       ],
-      "id": "f127ab36"
+      "id": "6314c80d"
     },
     {
       "cell_type": "code",
@@ -707,7 +709,7 @@
         "    sharpe_ratio = returns / risk  # Sharpe ratio\n",
         "    return returns, risk, sharpe_ratio"
       ],
-      "id": "50d3084b",
+      "id": "299fc3f6",
       "execution_count": null,
       "outputs": []
     },
@@ -717,7 +719,7 @@
       "source": [
         "## Main Loop\n"
       ],
-      "id": "29a224f8"
+      "id": "df878b37"
     },
     {
       "cell_type": "code",
@@ -757,7 +759,7 @@
         "mean_returns = returns.mean()\n",
         "cov_matrix = returns.cov()"
       ],
-      "id": "887e7ce7",
+      "id": "3fd54415",
       "execution_count": null,
       "outputs": []
     },
@@ -767,7 +769,7 @@
       "source": [
         "## Main Execution\n"
       ],
-      "id": "4219aefb"
+      "id": "d4f2ca3d"
     },
     {
       "cell_type": "code",
@@ -781,7 +783,7 @@
         "end_time = time.time()\n",
         "execution_time = end_time - start_time  # Calculate elapsed time"
       ],
-      "id": "a2597be9",
+      "id": "1511e896",
       "execution_count": null,
       "outputs": []
     },
@@ -791,7 +793,7 @@
       "source": [
         "## Output\n"
       ],
-      "id": "78db350a"
+      "id": "34453ea9"
     },
     {
       "cell_type": "code",
@@ -814,7 +816,7 @@
         "print(f\"Best portfolio returns: {returns}, Best risk: {risk}\")\n",
         "print(f\"Hill Climbing Finance Example Execution time: {execution_time:.6f} seconds\")"
       ],
-      "id": "de0c7d59",
+      "id": "02619b61",
       "execution_count": null,
       "outputs": []
     },
@@ -848,21 +850,19 @@
         "# Using AI\n",
         "\n",
         "-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.\n",
-        "* Hill Climbing Basics: Explain, in your own words, what hill climbing is and how it works as an optimization algorithm. How does it differ from exhaustive search?\n",
-        "* Key Characteristics: Discuss the characteristics of hill climbing, such as its greedy approach and focus on local search. Why might these features cause hill climbing to get stuck in local optima?\n",
-        "* Hill Climbing Steps: Implement the hill climbing algorithm for the OneMax problem using the pseudocode provided in the slides. How does the algorithm ensure progress toward an optimal solution?\n",
-        "* Binary String Optimization: Modify the run_hc function to allow the comparison operator >= instead of >. Analyze how this change affects the results when applied to a deceptive problem.\n",
-        "* Challenges of Hill Climbing: Identify scenarios where hill climbing would fail to find the global optimum due to local maxima, plateaus, or ridges. Propose modifications to overcome these limitations.\n",
-        "* Compare the results of hill climbing and exhaustive search for the same problem (e.g., OneMax). Under what conditions does hill climbing achieve similar results to exhaustive search?\n",
-        "* Local vs Global Optima: Reflect on the importance of distinguishing between local and global optima in optimization problems. How can a better understanding of the solution landscape help in designing more effective algorithms?\n",
-        "\n",
-        "\n",
+        "-   Hill Climbing Basics: Explain, in your own words, what hill climbing is and how it works as an optimization algorithm. How does it differ from exhaustive search?\n",
+        "-   Key Characteristics: Discuss the characteristics of hill climbing, such as its greedy approach and focus on local search. Why might these features cause hill climbing to get stuck in local optima?\n",
+        "-   Hill Climbing Steps: Implement the hill climbing algorithm for the OneMax problem using the pseudocode provided in the slides. How does the algorithm ensure progress toward an optimal solution?\n",
+        "-   Binary String Optimization: Modify the run_hc function to allow the comparison operator \\>= instead of \\>. Analyze how this change affects the results when applied to a deceptive problem.\n",
+        "-   Challenges of Hill Climbing: Identify scenarios where hill climbing would fail to find the global optimum due to local maxima, plateaus, or ridges. Propose modifications to overcome these limitations.\n",
+        "-   Compare the results of hill climbing and exhaustive search for the same problem (e.g., OneMax). Under what conditions does hill climbing achieve similar results to exhaustive search?\n",
+        "-   Local vs Global Optima: Reflect on the importance of distinguishing between local and global optima in optimization problems. How can a better understanding of the solution landscape help in designing more effective algorithms?\n",
         "\n",
         "# Conlcusions\n",
         "\n",
         "-   In conclusion, the Hill Climbing algorithm provides a powerful yet straightforward approach for optimization by iteratively improving upon a solution within its local neighborhood. While its simplicity and efficiency make it suitable for various applications, it is inherently limited by its tendency to get stuck in local optima, especially in complex search landscapes with plateaus or ridges. The algorithm’s effectiveness can be enhanced with variations like stochastic hill climbing or simulated annealing, which help in navigating these challenges. In applied scenarios, such as portfolio optimization, Hill Climbing can efficiently identify solutions that maximize objectives like the Sharpe ratio, though it may lead to highly concentrated solutions that require careful consideration regarding diversification and risk management."
       ],
-      "id": "e8c23880"
+      "id": "d813d41d"
     }
   ],
   "metadata": {

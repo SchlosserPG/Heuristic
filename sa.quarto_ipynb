@@ -15,7 +15,7 @@
         "# What is a Metaheuristic Algorithm?\n",
         "\n",
         "-   One of the main attributes of a metaheuristic algorithm is that it performs a certain set of operators for a certain number of iterations to search for the optimal solution with great shrewdness.\n",
-        "-   Compared to the Exhaustive Search (ES) and hill climbing (HC) algorithms, a metaheuristic algorithm will neither check all the candidate solutions of a complex optimization problem like ES nor fall into a local optimum at early iterations as easily as HC\n",
+        "-   Compared to the Exhaustive Search (ES) and hill climbing (HC) algorithms, a metaheuristic algorithm will neither check all the candidate solutions of a complex optimization problem like ES nor fall into a local optimum at early iterations as easily as HC.\n",
         "\n",
         "## History of Metaheuristics\n",
         "\n",
@@ -45,7 +45,7 @@
         "2.  Transition (T): The transition operator usually plays the role of varying the search directions, such as perturbing a portion of the subsolutions of the current solution to generate a new candidate solution or generating a set of new candidate solutions each based on two or more of the current solutions.\n",
         "3.  Evaluation (E): The evaluation operator is responsible for measuring the quality of solutions, such as calculating the objective value of each solution to be used by the determination operator to distinguish the quality of all the solutions. An intuitive way is to use an objective function to measure the quality of a solution for the problem in question. However, some metaheuristics do not use the “objective value” directly to measure their solutions; rather, the objective value of a solution has to undergo some sort of transformation to obtain the so-called “fitness value.”\n",
         "4.  Determination (D): The determination operator plays the role of deciding the search directions by using information the evaluation operator provides during the convergence process. The performance of a metaheuristic algorithm depends to a large extent on the performance of this operator. A “good” search strategy for this operator will make it possible for the metaheuristic algorithm to find a better solution faster or to avoid falling into a local optimum at early iterations.\n",
-        "5.  Output (O): In spite of the fact that this operator seems to be trivial, the reality is that it can be either simple or complex depending on how much information we want to display for the metaheuristic algorithm. It can be as simple as displaying only the final result of the metaheuristic algorithm, or it can be as complex as displaying the trajectory of convergence of the metaheuristic algorithm to better understand the performance of a metaheuristic algorithm\n",
+        "5.  Output (O): In spite of the fact that this operator seems to be trivial, the reality is that it can be either simple or complex depending on how much information we want to display for the metaheuristic algorithm. It can be as simple as displaying only the final result of the metaheuristic algorithm, or it can be as complex as displaying the trajectory of convergence of the metaheuristic algorithm to better understand the performance of a metaheuristic algorithm.\n",
         "\n",
         "## UFM\n",
         "\n",
@@ -202,7 +202,7 @@
         "\n",
         "## Imports, Global Variables\n"
       ],
-      "id": "46a31fa6"
+      "id": "4317a983"
     },
     {
       "cell_type": "code",
@@ -221,7 +221,7 @@
         "cooling_rate = 0.99\n",
         "min_temp = 0.0001"
       ],
-      "id": "454e7b9d",
+      "id": "dd6c3447",
       "execution_count": null,
       "outputs": []
     },
@@ -233,7 +233,7 @@
         "\n",
         "-   The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits (default 10), where each element is randomly set to 0 or 1.The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1's in the array).The function returns the initial solution and its evaluated fitness.\n"
       ],
-      "id": "9b9c83d8"
+      "id": "cd558850"
     },
     {
       "cell_type": "code",
@@ -244,7 +244,7 @@
         "    sol = np.random.randint(0, 2, num_bits)\n",
         "    return sol, evaluate(sol)"
       ],
-      "id": "e171985d",
+      "id": "0f3ed1ad",
       "execution_count": null,
       "outputs": []
     },
@@ -258,7 +258,7 @@
         "-   This is done by randomly selecting an index in the binary array and toggling the bit (changing 1 to 0 or 0 to 1).\n",
         "-   This new solution represents the neighboring candidate that will be evaluated next, which is a small random change to the current solution.\n"
       ],
-      "id": "52987400"
+      "id": "421416aa"
     },
     {
       "cell_type": "code",
@@ -271,7 +271,7 @@
         "    new_sol[index] = 1 - new_sol[index]  # Flip a random bit\n",
         "    return new_sol"
       ],
-      "id": "c734ee1d",
+      "id": "57b6b0ef",
       "execution_count": null,
       "outputs": []
     },
@@ -283,7 +283,7 @@
         "\n",
         "-   The evaluate function calculates the fitness of the current solution by summing up the number of 1's in the binary array (sol).The One-Max problem aims to maximize this value, with the goal being to find the solution with all bits set to 1.\n"
       ],
-      "id": "56713967"
+      "id": "833824fa"
     },
     {
       "cell_type": "code",
@@ -293,7 +293,7 @@
         "def evaluate(sol):\n",
         "    return np.sum(sol)"
       ],
-      "id": "476d8bf1",
+      "id": "f3fb612e",
       "execution_count": null,
       "outputs": []
     },
@@ -310,7 +310,7 @@
         "    -   A higher temperature allows for more exploration of worse solutions, while a lower temperature makes the algorithm more selective.\n",
         "-   The function returns True if the new solution is accepted, otherwise False.\n"
       ],
-      "id": "91aee560"
+      "id": "b5c1cd11"
     },
     {
       "cell_type": "code",
@@ -324,7 +324,7 @@
         "        acceptance_probability = np.exp((neighbor_value - current_value) / temperature)\n",
         "        return random.random() < acceptance_probability"
       ],
-      "id": "44d06ee8",
+      "id": "e3c2bc9d",
       "execution_count": null,
       "outputs": []
     },
@@ -348,7 +348,7 @@
         "-   The number of iterations is incremented.\n",
         "-   After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of iterations has been reached), the function returns:best_sol: The best solution found during the process.best_value: The fitness value of the best solution.value_history: A list of the fitness values over time, useful for visualizing the algorithm's progress.\n"
       ],
-      "id": "b975595c"
+      "id": "4c98ca56"
     },
     {
       "cell_type": "code",
@@ -380,7 +380,7 @@
         "\n",
         "    return best_sol, best_value, value_history"
       ],
-      "id": "049c928a",
+      "id": "a82aa290",
       "execution_count": null,
       "outputs": []
     },
@@ -395,7 +395,7 @@
         "-   The temperature gradually cools down, reducing the chance of accepting worse solutions as the algorithm progresses.\n",
         "-   Finally, the results are printed and plotted for visual analysis.\n"
       ],
-      "id": "0a31d26a"
+      "id": "bbcc0c05"
     },
     {
       "cell_type": "code",
@@ -407,7 +407,7 @@
         "end_time = time.time()\n",
         "execution_time = end_time - start_time"
       ],
-      "id": "d082a9f9",
+      "id": "25c88191",
       "execution_count": null,
       "outputs": []
     },
@@ -417,7 +417,7 @@
       "source": [
         "## Output\n"
       ],
-      "id": "acecc720"
+      "id": "c6d9578d"
     },
     {
       "cell_type": "code",
@@ -438,7 +438,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "5a400ecb",
+      "id": "98cc5214",
       "execution_count": null,
       "outputs": []
     },
@@ -458,7 +458,7 @@
         "\n",
         "## Example Results\n"
       ],
-      "id": "bf5d4172"
+      "id": "42e7faaa"
     },
     {
       "cell_type": "code",
@@ -558,7 +558,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "7fbe6870",
+      "id": "5668a6e4",
       "execution_count": null,
       "outputs": []
     },
@@ -590,7 +590,7 @@
         "\n",
         "# Portfolio Diversification With SA\n"
       ],
-      "id": "3c35850f"
+      "id": "28ef2714"
     },
     {
       "cell_type": "code",
@@ -700,7 +700,7 @@
         "print(f\"Best Sharpe Ratio: {best_sharpe:.4f}\")\n",
         "print(f\"Execution time: {execution_time:.6f} seconds\")"
       ],
-      "id": "b8b7d5f0",
+      "id": "81525a84",
       "execution_count": null,
       "outputs": []
     },
@@ -722,22 +722,22 @@
         "# Using AI\n",
         "\n",
         "-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.\n",
-        "* Metaheuristics Overview: What is a metaheuristic algorithm, and how does it differ from other optimization approaches like exhaustive search and hill climbing? Provide an example of a real-world problem suitable for metaheuristic algorithms.\n",
-        "* Simulated Annealing Basics: Explain the key components of simulated annealing, including its transition, evaluation, and determination steps. Why is temperature an essential factor in the algorithm?\n",
-        "* Exploration vs. Exploitation: Discuss how simulated annealing balances exploration and exploitation during the optimization process. How does this compare to greedy and hill climbing algorithms?\n",
-        "* Parameter Tuning: Why is tuning parameters like cooling schedule and neighborhood size crucial in simulated annealing? Suggest strategies for finding optimal parameter values.\n",
-        "* Fitness Evolution: How does the cooling rate affect the trajectory of fitness improvement in a simulated annealing for the One-Max problem?\n",
-        "* Solution Space Exploration: Discuss how the simulated annealing algorithm explores the rugged landscape of an Ackley Function and converges to a solution.\n",
-        "* Industry Use Cases: Discuss real-world applications of simulated annealing in fields such as machine learning, logistics, and engineering. Why is SA particularly suited for these problems?\n",
-        "* Challenges in SA: Reflect on the challenges of applying simulated annealing to real-world problems. How do computational cost and parameter sensitivity influence its practicality?\n",
-        "* Algorithm Design: How does understanding the strengths and limitations of simulated annealing inform the design of new metaheuristic algorithms?\n",
+        "-   Metaheuristics Overview: What is a metaheuristic algorithm, and how does it differ from other optimization approaches like exhaustive search and hill climbing? Provide an example of a real-world problem suitable for metaheuristic algorithms.\n",
+        "-   Simulated Annealing Basics: Explain the key components of simulated annealing, including its transition, evaluation, and determination steps. Why is temperature an essential factor in the algorithm?\n",
+        "-   Exploration vs. Exploitation: Discuss how simulated annealing balances exploration and exploitation during the optimization process. How does this compare to greedy and hill climbing algorithms?\n",
+        "-   Parameter Tuning: Why is tuning parameters like cooling schedule and neighborhood size crucial in simulated annealing? Suggest strategies for finding optimal parameter values.\n",
+        "-   Fitness Evolution: How does the cooling rate affect the trajectory of fitness improvement in a simulated annealing for the One-Max problem?\n",
+        "-   Solution Space Exploration: Discuss how the simulated annealing algorithm explores the rugged landscape of an Ackley Function and converges to a solution.\n",
+        "-   Industry Use Cases: Discuss real-world applications of simulated annealing in fields such as machine learning, logistics, and engineering. Why is SA particularly suited for these problems?\n",
+        "-   Challenges in SA: Reflect on the challenges of applying simulated annealing to real-world problems. How do computational cost and parameter sensitivity influence its practicality?\n",
+        "-   Algorithm Design: How does understanding the strengths and limitations of simulated annealing inform the design of new metaheuristic algorithms?\n",
         "\n",
         "## Conclusions\n",
         "\n",
         "-   Stable and Simple Search Space: In portfolio optimization, especially with a limited number of assets, the optimization landscape might not be highly rugged, making hill climbing's greedy approach more effective at converging quickly to a good solution.\n",
         "-   Direct Progress: Hill climbing consistently increases the Sharpe ratio by only accepting better solutions, leading to slightly higher risk-adjusted returns over the SA model, which accepts suboptimal solutions early on."
       ],
-      "id": "c1652c06"
+      "id": "c85a12b8"
     }
   ],
   "metadata": {

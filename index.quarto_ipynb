@@ -91,7 +91,7 @@
         "\n",
         "-   Different paths for a truck driver in the case of four cities.\n"
       ],
-      "id": "fa74ea33"
+      "id": "9af3431a"
     },
     {
       "cell_type": "code",
@@ -106,7 +106,7 @@
         "result = factorial(n - 1) / 2\n",
         "print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]"
       ],
-      "id": "45d84a64",
+      "id": "d746f217",
       "execution_count": null,
       "outputs": []
     },
@@ -222,7 +222,7 @@
         "\n",
         "-   How do we choose an applicable metaheuristic algorithm for an optimization problem in question?"
       ],
-      "id": "b54b3e13"
+      "id": "2186e2ae"
     }
   ],
   "metadata": {

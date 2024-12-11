@@ -67,7 +67,7 @@
         "\n",
         "## The Search Strategy of ES\n"
       ],
-      "id": "7c844b09"
+      "id": "765ec8d2"
     },
     {
       "cell_type": "code",
@@ -141,7 +141,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "5325c4af",
+      "id": "39ed9084",
       "execution_count": null,
       "outputs": []
     },
@@ -153,7 +153,7 @@
         "\n",
         "-   Finding Optimal Subset of Items to Max Value in Knapsack Problem using Exhaustive Search\n"
       ],
-      "id": "eff10aff"
+      "id": "98ea3e6c"
     },
     {
       "cell_type": "code",
@@ -204,7 +204,7 @@
         "# Print the results\n",
         "print_results(best_value, best_combination)"
       ],
-      "id": "ac3a76ee",
+      "id": "7b9743f4",
       "execution_count": null,
       "outputs": []
     },
@@ -249,7 +249,7 @@
         "\n",
         "## Imports\n"
       ],
-      "id": "d407859f"
+      "id": "8f6177ad"
     },
     {
       "cell_type": "code",
@@ -258,7 +258,7 @@
         "import time\n",
         "import matplotlib.pyplot as plt"
       ],
-      "id": "d91585dd",
+      "id": "30096eee",
       "execution_count": null,
       "outputs": []
     },
@@ -274,7 +274,7 @@
         "-   Initializes $best_fitness$ and $best_solution$ to track the best results.\n",
         "-   Initializes an empty list $fitness_over_time$ to track the fitness at each step.\n"
       ],
-      "id": "183306f6"
+      "id": "dc32b2c2"
     },
     {
       "cell_type": "code",
@@ -287,7 +287,7 @@
         "    f_s = evaluate(s)  # Step 2: Evaluate initial solution\n",
         "    return s, f_s, max_sol"
       ],
-      "id": "a56bce05",
+      "id": "871c7cf7",
       "execution_count": null,
       "outputs": []
     },
@@ -299,7 +299,7 @@
         "\n",
         "-   transit(s): Simply increments the current solution by 1.\n"
       ],
-      "id": "863c1d2e"
+      "id": "373c0da8"
     },
     {
       "cell_type": "code",
@@ -310,7 +310,7 @@
         "    s += 1\n",
         "    return s"
       ],
-      "id": "fee2e303",
+      "id": "b38ef275",
       "execution_count": null,
       "outputs": []
     },
@@ -320,7 +320,7 @@
       "source": [
         "-   evaluate(s): Evaluates the \"fitness\" of the solution by counting how many 1's are present in its binary representation. The more 1's, the better the solution.\n"
       ],
-      "id": "565274d6"
+      "id": "43807063"
     },
     {
       "cell_type": "code",
@@ -330,7 +330,7 @@
         "def evaluate(s):\n",
         "    return bin(s).count(\"1\")  # Counts the number of 1s in the binary representation of s"
       ],
-      "id": "8ceed93d",
+      "id": "a9565413",
       "execution_count": null,
       "outputs": []
     },
@@ -340,7 +340,7 @@
       "source": [
         "-   determine(fv, v, fs, s): This method checks whether the fitness of the new solution (fv) is greater than the current best fitness (fs). If so, it updates the current best solution and fitness.\n"
       ],
-      "id": "d04c7c96"
+      "id": "63336ca6"
     },
     {
       "cell_type": "code",
@@ -352,7 +352,7 @@
         "        fs, s = fv, v\n",
         "    return fs, s"
       ],
-      "id": "306236f8",
+      "id": "a07c2f8e",
       "execution_count": null,
       "outputs": []
     },
@@ -371,7 +371,7 @@
         "    -   For each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).\n",
         "-   Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.\n"
       ],
-      "id": "53dc0219"
+      "id": "d96b016e"
     },
     {
       "cell_type": "code",
@@ -413,7 +413,7 @@
         "    #Returned for Output the best solution\n",
         "    return fitness_over_time, best_solution"
       ],
-      "id": "5a5b4363",
+      "id": "608ba887",
       "execution_count": null,
       "outputs": []
     },
@@ -431,7 +431,7 @@
         "\n",
         "Simplicity: Since exhaustive search doesn’t involve complex heuristics or probabilistic methods, setting the number of bits becomes the main task. The rest of the algorithm is straightforward: generate each binary string, evaluate its objective value, and keep track of the best solution.\n"
       ],
-      "id": "4e0f569a"
+      "id": "25f66b44"
     },
     {
       "cell_type": "code",
@@ -440,7 +440,7 @@
         "# Main execution\n",
         "num_bits = 10  # You can adjust the number of bits"
       ],
-      "id": "546b14f8",
+      "id": "79eba4e9",
       "execution_count": null,
       "outputs": []
     },
@@ -450,7 +450,7 @@
       "source": [
         "## Output\n"
       ],
-      "id": "3f9dc3ab"
+      "id": "a5ccc284"
     },
     {
       "cell_type": "code",
@@ -477,7 +477,7 @@
         "plt.legend()\n",
         "plt.show()"
       ],
-      "id": "e15281d6",
+      "id": "2828ae0b",
       "execution_count": null,
       "outputs": []
     },
@@ -493,7 +493,7 @@
         "-   When moving to 3D, however, the search space expands cubically. This additional dimension leads to a significant increase in the number of possible solution points, escalating the computational cost and making exhaustive search much less practical. In optimization, this curse of dimensionality complicates modeling since the function’s landscape becomes more intricate with each added dimension, and finding the global minimum among many potential local minima becomes increasingly challenging. Consequently, optimization techniques that are efficient in 2D may become impractically slow or require adaptation in 3D and beyond.\n",
         "-   The example below simplifies the Ackley function into 1D.\n"
       ],
-      "id": "04643ec6"
+      "id": "87483406"
     },
     {
       "cell_type": "code",
@@ -584,7 +584,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "972fe49d",
+      "id": "93ac6bae",
       "execution_count": null,
       "outputs": []
     },
@@ -620,7 +620,7 @@
         "* Choose exhaustive search for small-scale problems where optimality is critical.\n",
         "Use heuristics for large, complex, or high-dimensional spaces."
       ],
-      "id": "997d8b5e"
+      "id": "97045f71"
     }
   ],
   "metadata": {

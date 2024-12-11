@@ -47,7 +47,22 @@ runtime: python
 
 -   What should you do first?
 
-0: Think of a conceptual approach 1: Write step-by-step outline + In words (maybe pseudo code) + Focus on sound logic 2: Plan programming implementation + Choose appropriate data structures + Speed, memory, convenience + Consider functions, which kind of loops 3: Write the program and debug + Use the outline as comment statements + Write your algorithms in chunks, write a line, then test it
+-   0: Think of a conceptual approach
+
+-   1: Write step-by-step outline
+
+    -   In words (maybe pseudo code)
+    -   Focus on sound logic
+
+-   2: Plan programming implementation
+
+    -   Choose appropriate data structures + Speed, memory, convenience
+    -   Consider functions, which kind of loops
+
+-   3: Write the program and debug
+
+    -   Use the outline as comment statements
+    -   Write your algorithms in chunks, write a line, then test it
 
 ![Process](Pictures/process.png "Process")
 
@@ -249,13 +264,11 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 
 -   **Explanation**: This is the cost calculation for the nearest neighbor heuristic, where $\text{NN}(i)$ denotes the nearest neighbor of city $i$. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.
 
-## Activity: 
-* State what the following algorithms do: 
+## Activity:
 
-$$Z = \sum_{i=1}^n \left( x_i \times y_i \right)$$
-$$ \bar{X} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$$
+-   State what the following algorithms do:
 
-
+$$Z = \sum_{i=1}^n \left( x_i \times y_i \right)$$ $$ \bar{X} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$$
 
 # Pseudocode Know-how
 
@@ -279,8 +292,7 @@ $$ \bar{X} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$$
 
 ## Examples
 
-* This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.
-
+-   This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.
 
 ```{asis}
 # Pseudocode for finding the minimum number in a list
@@ -292,9 +304,8 @@ RETURN min_number
 
 ```
 
-* This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.
-* edge cases: an empty list, all even numbers, or no numbers greater than the threshold.
-
+-   This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.
+-   edge cases: an empty list, all even numbers, or no numbers greater than the threshold.
 
 ```{asis}
 # Pseudocode for summing numbers greater than a given threshold
@@ -307,6 +318,7 @@ RETURN sum
 ```
 
 ## Activity: Read this Pseudocode
+
 ```{asis}
 SET min_even = Infinity 
 FOR each number IN list: 
@@ -315,8 +327,6 @@ FOR each number IN list:
 RETURN min_even
 
 ```
-
-
 
 ## Pseudocode for Basic TSP Formation
 

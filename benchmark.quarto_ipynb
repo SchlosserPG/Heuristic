@@ -69,7 +69,7 @@
         "\n",
         "### OneMax Python Implementation\n"
       ],
-      "id": "dd52fc80"
+      "id": "4708269e"
     },
     {
       "cell_type": "code",
@@ -110,7 +110,7 @@
         "plt.grid(True)\n",
         "plt.show()"
       ],
-      "id": "50a7c1c4",
+      "id": "6bd4a763",
       "execution_count": null,
       "outputs": []
     },
@@ -126,7 +126,7 @@
         "-   Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.\n",
         "-   Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.\n"
       ],
-      "id": "73e0d556"
+      "id": "729f6978"
     },
     {
       "cell_type": "code",
@@ -156,7 +156,7 @@
         "# Display the plot\n",
         "plt.show()"
       ],
-      "id": "8500b0ba",
+      "id": "b5a3803f",
       "execution_count": null,
       "outputs": []
     },
@@ -346,7 +346,7 @@
         "\n",
         "#### Ackley Function Python Implementation\n"
       ],
-      "id": "5c4693f0"
+      "id": "13287c51"
     },
     {
       "cell_type": "code",
@@ -400,7 +400,7 @@
         "# Show the plot\n",
         "plt.show()"
       ],
-      "id": "1f2cee54",
+      "id": "c03e07fe",
       "execution_count": null,
       "outputs": []
     },
@@ -419,7 +419,7 @@
         "-   Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.\n",
         "-   The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.\n"
       ],
-      "id": "958af415"
+      "id": "30189c0f"
     },
     {
       "cell_type": "code",
@@ -476,7 +476,7 @@
         "# Show the plot\n",
         "plt.show()"
       ],
-      "id": "cccf8364",
+      "id": "83b35b21",
       "execution_count": null,
       "outputs": []
     },
@@ -514,7 +514,7 @@
         "-   Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.\n",
         "-   Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where $f_1(x)$ is plotted against $f_2(x)$ and the curve represents the set of optimal trade-offs between the two objectives.\n"
       ],
-      "id": "39a1b283"
+      "id": "a6e8e132"
     },
     {
       "cell_type": "code",
@@ -560,7 +560,7 @@
         "# Display the plot\n",
         "plt.show()"
       ],
-      "id": "5a901d4a",
+      "id": "9274d86d",
       "execution_count": null,
       "outputs": []
     },
@@ -636,7 +636,7 @@
         "-   Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.\n",
         "-   Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).\n"
       ],
-      "id": "1c9a21be"
+      "id": "eab766db"
     },
     {
       "cell_type": "code",
@@ -701,7 +701,7 @@
         "# Show the plot\n",
         "plt.show()"
       ],
-      "id": "b0d4b004",
+      "id": "76cf3599",
       "execution_count": null,
       "outputs": []
     },
@@ -740,7 +740,7 @@
         "\n",
         "-   The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives. Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios."
       ],
-      "id": "2c1754d9"
+      "id": "07b75035"
     }
   ],
   "metadata": {

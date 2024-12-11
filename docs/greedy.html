@@ -259,9 +259,10 @@ window.Quarto = {
   <li><a href="#traveling-salesman-algorithm" id="toc-traveling-salesman-algorithm" class="nav-link" data-scroll-target="#traveling-salesman-algorithm">Traveling Salesman Algorithm</a>
   <ul class="collapse">
   <li><a href="#greedy-tsp-solution" id="toc-greedy-tsp-solution" class="nav-link" data-scroll-target="#greedy-tsp-solution">Greedy TSP Solution</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#dictionary-vs-dictionary-of-dictionaries" id="toc-dictionary-vs-dictionary-of-dictionaries" class="nav-link" data-scroll-target="#dictionary-vs-dictionary-of-dictionaries">Dictionary vs Dictionary of Dictionaries</a></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
@@ -362,7 +363,7 @@ window.Quarto = {
 <p>Where <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor\)</span> is the number of coins of denomination <span class="math inline">\(c_i\)</span> is used.</p>
 <p><span class="math inline">\(A\)</span> is reduced by the value <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor \times c_i\)</span></p>
 <p>After using as many <span class="math inline">\(c_i\)</span> denomination coins as possible. The process continues until <span class="math inline">\(A=0\)</span>, at which point the minimum number of coins required to make the total amount is found.</p>
-<div id="bf82a51e" class="cell" data-execution_count="1">
+<div id="cf473473" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
@@ -477,28 +478,34 @@ Minimum number of coins needed: 4</code></pre>
 </figure>
 </div>
 </section>
-<section id="tsp-python-implementation" class="level3">
-<h3 class="anchored" data-anchor-id="tsp-python-implementation">TSP Python Implementation</h3>
+</section>
+</section>
+<section id="tsp-python-implementation" class="level1">
+<h1>TSP Python Implementation</h1>
+</section>
+<section id="dictionary-vs-dictionary-of-dictionaries" class="level1">
+<h1>Dictionary vs Dictionary of Dictionaries</h1>
 <ul>
-<li><p>A distance matrix is helpful in implementing a TSP model in python. A distance map stores the distances between each pair of locations.</p>
+<li>A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries.</li>
+</ul>
+<div id="d6fe94f7" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key1"</span>: <span class="st">"value1"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key2"</span>: <span class="st">"value2"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key3"</span>: <span class="st">"value3"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
-<li>For simplicity, let’s use three cities (e.g., City1, City2, and City3).</li>
-</ul></li>
-<li><p>Structure in Python (Dictionary of Dictionaries):</p>
+<li><p>A dictionary of dictionaries is a nested data structure in Python where the values of a dictionary are themselves dictionaries. It allows for organizing hierarchical or complex data in a structured way. This type of dictionary is especially useful for representing relationships, groupings, or matrices where each primary key maps to another dictionary of key-value pairs.</p></li>
+<li><p>A distance matrix or distance map is helpful in implementing a TSP model in python can use the dictionary of dictionaries structure in python to implement. A distance map stores the distances between each pair of locations.</p>
 <ul>
 <li>Outer Dictionary: Each key represents a city.</li>
 <li>Inner Dictionary: Contains distances to other cities from that city.</li>
 </ul>
-<div id="f11d0fcf" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'City1'</span>: {<span class="st">'City2'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">10</span>},</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'City2'</span>: {<span class="st">'City1'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">8</span>},</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'City3'</span>: {<span class="st">'City1'</span>: <span class="dv">10</span>, <span class="st">'City2'</span>: <span class="dv">8</span>}</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
+<p>::: {#60660fb6 .cell execution_count=3} <code>{.python .cell-code}   distances = {       'City1': {'City2': 5, 'City3': 10},       'City2': {'City1': 5, 'City3': 8},       'City3': {'City1': 10, 'City2': 8}   }</code> :::</p></li>
 <li><p>Each key (e.g., ‘City1’) represents a location. Each inner dictionary provides distances to the other cities.</p></li>
 </ul>
-<div id="1324ed81" class="cell" data-execution_count="3">
+<div id="80e0422d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -556,8 +563,6 @@ Minimum number of coins needed: 4</code></pre>
 Total distance traveled: 245 miles</code></pre>
 </div>
 </div>
-</section>
-</section>
 </section>
 <section id="using-ai" class="level1">
 <h1>Using AI</h1>

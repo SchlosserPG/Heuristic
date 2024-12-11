@@ -6,6 +6,8 @@ runtime: python
 ---
 
 # Hill Climbing (HC)
+* If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?
+
 
 -   Hill Climbing is an optimization algorithm that starts with an arbitrary solution to a problem and iteratively makes small changes to the solution, choosing the change that improves the solution the most.
 -   Characteristics
@@ -565,15 +567,13 @@ print(f"Hill Climbing Finance Example Execution time: {execution_time:.6f} secon
 # Using AI
 
 -   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-* Hill Climbing Basics: Explain, in your own words, what hill climbing is and how it works as an optimization algorithm. How does it differ from exhaustive search?
-* Key Characteristics: Discuss the characteristics of hill climbing, such as its greedy approach and focus on local search. Why might these features cause hill climbing to get stuck in local optima?
-* Hill Climbing Steps: Implement the hill climbing algorithm for the OneMax problem using the pseudocode provided in the slides. How does the algorithm ensure progress toward an optimal solution?
-* Binary String Optimization: Modify the run_hc function to allow the comparison operator >= instead of >. Analyze how this change affects the results when applied to a deceptive problem.
-* Challenges of Hill Climbing: Identify scenarios where hill climbing would fail to find the global optimum due to local maxima, plateaus, or ridges. Propose modifications to overcome these limitations.
-* Compare the results of hill climbing and exhaustive search for the same problem (e.g., OneMax). Under what conditions does hill climbing achieve similar results to exhaustive search?
-* Local vs Global Optima: Reflect on the importance of distinguishing between local and global optima in optimization problems. How can a better understanding of the solution landscape help in designing more effective algorithms?
-
-
+-   Hill Climbing Basics: Explain, in your own words, what hill climbing is and how it works as an optimization algorithm. How does it differ from exhaustive search?
+-   Key Characteristics: Discuss the characteristics of hill climbing, such as its greedy approach and focus on local search. Why might these features cause hill climbing to get stuck in local optima?
+-   Hill Climbing Steps: Implement the hill climbing algorithm for the OneMax problem using the pseudocode provided in the slides. How does the algorithm ensure progress toward an optimal solution?
+-   Binary String Optimization: Modify the run_hc function to allow the comparison operator \>= instead of \>. Analyze how this change affects the results when applied to a deceptive problem.
+-   Challenges of Hill Climbing: Identify scenarios where hill climbing would fail to find the global optimum due to local maxima, plateaus, or ridges. Propose modifications to overcome these limitations.
+-   Compare the results of hill climbing and exhaustive search for the same problem (e.g., OneMax). Under what conditions does hill climbing achieve similar results to exhaustive search?
+-   Local vs Global Optima: Reflect on the importance of distinguishing between local and global optima in optimization problems. How can a better understanding of the solution landscape help in designing more effective algorithms?
 
 # Conlcusions
 

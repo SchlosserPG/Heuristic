@@ -222,7 +222,7 @@ def ackley(x):
     return term1 + term2 + a + np.exp(1)
 ```
 
-## Initiation (I)
+## Initiation Function (I)
 
 -   A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.
 
@@ -233,7 +233,7 @@ def init_ga(pop_size):
 
 ```
 
-## Evaluation (E)
+## Evaluation Function (E)
 
 -   The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population's fitness values.
 
@@ -244,7 +244,11 @@ def evaluate(pop):
 
 ```
 
-## Update function
+## Determination (D): Update Function
+* This function, update_best_sol, is responsible for keeping track of the best solution found so far in a genetic algorithm. It compares the fitness values of the current population (curr_obj_vals) to the global best objective value (best_obj_val).
+     + It identifies the index (best_idx) of the individual in the current population with the lowest objective value (best fitness) using np.argmin.
+     + If this individual's objective value is better (lower) than the current global best (best_obj_val), it updates best_obj_val to this new lower value and updates best_sol to the corresponding individual from the current population.
+* This ensures that best_sol and best_obj_val always store the best solution and its fitness value found across all generations during the algorithm's execution. The use of global allows the function to modify these variables outside its local scope.
 
 ```{python}
 # Update best solution function
@@ -257,9 +261,13 @@ def update_best_sol(curr_pop, curr_obj_vals):
 
 ```
 
-## Determination Function (D)
+## Determination (D): Selection Function
 
 -   Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.
+     + This code implements a tournament selection mechanism in a genetic algorithm to select individuals for reproduction based on their fitness values. 
+     + For each individual in the current population (curr_pop), a tournament is conducted by randomly selecting a subset of individuals (of size num_players) without replacement. 
+     + Within this subset, the individual with the best fitness value (lowest objective value in curr_obj_vals) is identified using np.argmin and added to the selected population (selected_pop). This process ensures that fitter individuals have a higher chance of being chosen, promoting the propagation of good solutions while maintaining diversity through randomness. 
+     + The function returns the newly selected population as a NumPy array.
 
 ```{python}
 # Determination (D)
@@ -273,12 +281,16 @@ def select(curr_pop, curr_obj_vals, num_players):
     return np.array(selected_pop)
 ```
 
-## Transition Function (T)
+## Transition (T): Crossover Function
+* In genetic algorithms, the transition function refers to the combined operations of crossover and mutation that generate a new population (offspring) from the current population. The transition function first applies crossover to exchange genetic material between selected parent solutions, creating new offspring, and then applies mutation to introduce small random changes in the offspring, maintaining diversity and enabling exploration of the solution space. This ensures a balance between exploitation of good solutions (via crossover) and exploration of new solutions (via mutation).
 
 -   Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.
-
+* A new population (new_pop) is initialized as a copy of the current population (pop).
+The loop iterates over the population in pairs. For each pair, a random number is generated using np.random.rand(). If this number is less than the crossover_rate, crossover occurs:
+     + A crossover point is chosen randomly (here, using np.random.randint(1)), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions. 
+     + If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.
 ```{python}
-# Transition function (T): Cross over and Mutation
+# Transition function (T): Crossover and Mutation
 # Crossover function (T)
 def crossover(pop, crossover_rate):
     new_pop = pop.copy()
@@ -292,9 +304,10 @@ def crossover(pop, crossover_rate):
     return new_pop
 ```
 
-## Mutation Function (M)
+## Transition (T): Mutation Function
 
 -   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
+* It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function.
 
 ```{python}
 # Mutation function (M)
@@ -377,9 +390,9 @@ pop_size = 50
 num_generations = 100
 crossover_rate = 0.7
 mutation_rate = 0.01
-num_players = 3  # For tournament selection
+num_players = 3  
 
-# Evaluation Function (E): One-max function
+# Evaluation Function (E)
 def one_max(sol):
     return sum(sol)
 
@@ -387,7 +400,7 @@ def one_max(sol):
 def initialize_population(pop_size, num_bits):
     return np.random.randint(0, 2, (pop_size, num_bits))
 
-# Selection function using tournament selection
+# Selection function using tournament selection (D)
 def select(population, fitness_vals, num_players):
     selected_pop = []
     for _ in range(len(population)):
@@ -396,7 +409,7 @@ def select(population, fitness_vals, num_players):
         selected_pop.append(population[best_idx])
     return np.array(selected_pop)
 
-# Crossover function
+# Crossover function (T)
 def crossover(population, crossover_rate):
     new_population = population.copy()
     for i in range(0, len(population) - 1, 2):
@@ -408,7 +421,7 @@ def crossover(population, crossover_rate):
             )
     return new_population
 
-# Mutation function
+# Mutation function (T)
 def mutate(population, mutation_rate):
     for i in range(len(population)):
         for j in range(num_bits):
@@ -426,6 +439,7 @@ def genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutat
         fitness_vals = np.array([one_max(ind) for ind in population])
         best_idx = np.argmax(fitness_vals)
         
+        #Update solution (D)
         if fitness_vals[best_idx] > best_value:
             best_sol, best_value = population[best_idx], fitness_vals[best_idx]
         
@@ -460,17 +474,16 @@ plt.show()
 
 ```
 
-
 # Using AI
 
 -   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-* Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?
-* Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = x^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?
-* Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.
-* Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?
-* Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.
-* How does the diversity of the population change as the genetic algorithm progresses over generations?
+-   Concept of Genetic Algorithms: Explain the biological inspiration behind Genetic Algorithms. How do the concepts of selection, crossover, and mutation in GA mimic natural evolution?
+-   Write a Python implementation of a Genetic Algorithm to minimize a simple quadratic function $f(x) = x^2$ include steps for initialization, selection, crossover, mutation, and termination. How does the choice of parameters like mutation rate and population size affect the outcome?
+-   Comparison with Simulated Annealing: Compare Genetic Algorithms to Simulated Annealing for solving the Ackley function. Discuss their strengths and weaknesses in terms of convergence speed, exploration, and exploitation.
+-   Real-World Applications: Identify three real-world problems where Genetic Algorithms are commonly used (e.g., scheduling, vehicle routing, or portfolio optimization). Why are GAs particularly suited for these problems?
+-   Parameter Tuning: Discuss how to determine the optimal mutation rate and crossover probability for a given problem. Explore techniques like self-adaptive mutation rates and their impact on performance.
+-   How does the diversity of the population change as the genetic algorithm progresses over generations?
 
 # Conclusions
 
-* Our discussions on Genetic Algorithms (GA) provide a comprehensive exploration of one of the most versatile and biologically inspired optimization techniques. GA mimics the principles of natural selection and evolution, employing operators like selection, crossover, and mutation to iteratively refine solutions within a population. The method’s ability to balance exploration (via genetic diversity) and exploitation (via selection pressure) makes it particularly effective for solving complex, non-linear, and multimodal optimization problems. Key advantages include its flexibility to adapt to a wide range of applications, such as scheduling, portfolio optimization, and function minimization, and its capacity to avoid local optima by maintaining a diverse population. However, success depends heavily on careful parameter tuning, including population size, mutation rate, and crossover probability. By comparing GA with other methods like Simulated Annealing, the slides highlight GA's strengths in global search and parallel exploration. Ultimately, Genetic Algorithms emerge as a powerful heuristic, especially when the optimization landscape demands both creativity and robustness in the search for solutions.
+-   Our discussions on Genetic Algorithms (GA) provide a comprehensive exploration of one of the most versatile and biologically inspired optimization techniques. GA mimics the principles of natural selection and evolution, employing operators like selection, crossover, and mutation to iteratively refine solutions within a population. The method’s ability to balance exploration (via genetic diversity) and exploitation (via selection pressure) makes it particularly effective for solving complex, non-linear, and multimodal optimization problems. Key advantages include its flexibility to adapt to a wide range of applications, such as scheduling, portfolio optimization, and function minimization, and its capacity to avoid local optima by maintaining a diverse population. However, success depends heavily on careful parameter tuning, including population size, mutation rate, and crossover probability. By comparing GA with other methods like Simulated Annealing, the slides highlight GA's strengths in global search and parallel exploration. Ultimately, Genetic Algorithms emerge as a powerful heuristic, especially when the optimization landscape demands both creativity and robustness in the search for solutions.

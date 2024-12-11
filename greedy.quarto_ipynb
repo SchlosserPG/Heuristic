@@ -68,7 +68,7 @@
         "\n",
         "After using as many $c_i$ denomination coins as possible. The process continues until $A=0$, at which point the minimum number of coins required to make the total amount is found.\n"
       ],
-      "id": "31d4bcd9"
+      "id": "4efa1a39"
     },
     {
       "cell_type": "code",
@@ -100,7 +100,7 @@
         "\n",
         "print(f\"Minimum number of coins needed: {num_coins}\")"
       ],
-      "id": "d5c556c0",
+      "id": "d8d816b4",
       "execution_count": null,
       "outputs": []
     },
@@ -169,18 +169,38 @@
         "\n",
         "![TSP Feasibility Map](Pictures/tsp2.png \"TSP Feasibility Map\")\n",
         "\n",
-        "### TSP Python Implementation\n",
+        "# TSP Python Implementation\n",
         "\n",
-        "-   A distance matrix is helpful in implementing a TSP model in python. A distance map stores the distances between each pair of locations.\n",
+        "# Dictionary vs Dictionary of Dictionaries\n",
         "\n",
-        "    -   For simplicity, let’s use three cities (e.g., City1, City2, and City3).\n",
-        "\n",
-        "-   Structure in Python (Dictionary of Dictionaries):\n",
-        "\n",
-        "    -   Outer Dictionary: Each key represents a city.\n",
-        "    -   Inner Dictionary: Contains distances to other cities from that city.\n"
+        "* A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries."
       ],
-      "id": "1e3994fa"
+      "id": "4cd66756"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict = {\n",
+        "     \"key1\": \"value1\",\n",
+        "     \"key2\": \"value2\",\n",
+        "     \"key3\": \"value3\"\n",
+        "}"
+      ],
+      "id": "417ef670",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* A dictionary of dictionaries is a nested data structure in Python where the values of a dictionary are themselves dictionaries. It allows for organizing hierarchical or complex data in a structured way. This type of dictionary is especially useful for representing relationships, groupings, or matrices where each primary key maps to another dictionary of key-value pairs.\n",
+        "* A distance matrix or distance map is helpful in implementing a TSP model in python can use the dictionary of dictionaries structure in python to implement. A distance map stores the distances between each pair of locations.\n",
+        "     + Outer Dictionary: Each key represents a city.\n",
+        "     + Inner Dictionary: Contains distances to other cities from that city.\n"
+      ],
+      "id": "cae09a06"
     },
     {
       "cell_type": "code",
@@ -194,7 +214,7 @@
         "    'City3': {'City1': 10, 'City2': 8}\n",
         "}"
       ],
-      "id": "987334bc",
+      "id": "26f7b70c",
       "execution_count": null,
       "outputs": []
     },
@@ -204,7 +224,7 @@
       "source": [
         "-   Each key (e.g., 'City1') represents a location. Each inner dictionary provides distances to the other cities.\n"
       ],
-      "id": "e2f33de0"
+      "id": "0d7ac022"
     },
     {
       "cell_type": "code",
@@ -263,7 +283,7 @@
         "print(\"Optimal route using Nearest Neighbor:\", \" -> \".join(route))\n",
         "print(\"Total distance traveled:\", total_distance, \"miles\")\n"
       ],
-      "id": "314ba724",
+      "id": "435ca59a",
       "execution_count": null,
       "outputs": []
     },
@@ -289,7 +309,7 @@
         "-   Greedy algorithms can be faster and more efficient in terms of time complexity compared to other approaches (like dynamic programming or exhaustive search), especially when the problem size is large.\n",
         "-   The approach is simple and efficient, making it ideal for many practical scenarios. Greedy algorithms typically use less memory because they do not need to store all possible solutions or intermediate results, unlike dynamic programming or exhaustive search methods."
       ],
-      "id": "b1845828"
+      "id": "8869a9ac"
     }
   ],
   "metadata": {
