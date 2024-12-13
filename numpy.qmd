@@ -10,15 +10,14 @@ runtime: python
 -   In the field of heuristic modeling, coding know-how is not just a tool—it’s an essential skill that enables you to experiment, adapt, and optimize solutions for complex, real-world problems. As we explore heuristic methods in this MSBA course, having a strong foundation in coding, especially in Python, will allow you to implement and test algorithms efficiently.
 -   Good coding practices, such as writing clear, modular code and incorporating meaningful comments, are critical for both readability and collaboration. By starting with simple Python examples that highlight these principles, we’ll build the groundwork for more sophisticated modeling tasks, from randomization techniques to optimization algorithms, equipping you with both technical skills and best practices for professional code development.
 
-What problems does this code have? ![program.py](Pictures/programPY.png "program.py") 
+What problems does this code have? ![program.py](Pictures/programPY.png "program.py")
 
-* Multiple instantiations of the same code within a program cause problems + More opportunities for errors 
-     + More maintenance 
-* Blocks of reusable code solve this problem 
-     + These are called functions
-
+-   Multiple instantiations of the same code within a program cause problems + More opportunities for errors
+    -   More maintenance
+-   Blocks of reusable code solve this problem
+    -   These are called functions
 -   To avoid resetting the value of result and preserve the sum of both lists, you can accumulate the sums in a single loop or retain the value of result between the loops.
--   Alternatively, you can use Python's built-in sum() function to simplify the code like below. 
+-   Alternatively, you can use Python's built-in sum() function to simplify the code like below.
 
 ```{python}
 x1 = [0, 1, 2, 3, 4, 5]
@@ -27,7 +26,6 @@ x2 = [6, 7, 8, 9, 10]
 print(sum(x1))
 print(sum(x2))
 ```
-
 
 # Writing Programs with Internal Functions
 
@@ -53,7 +51,6 @@ x = [0,1,2,3,4,5]
 print(my_sum(x))
 ```
 
-
 # Understanding The Loop
 
 ```{asis}
@@ -62,14 +59,12 @@ for y in a_list:
 return result
 ```
 
-* A loop is a way to repeat the same action for every item in a collection (like a list).
-* For y in a_list means, take each item in a_list one at a time, and call it y.
-     + For example, if a_list is [0, 1, 2, 3, 4, 5], the loop will do the following:
-     + First loop: set y = 0, result = 0 + 0 (result is now 0).
-     + Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).
-     + Third loop: then y = 2, result = 1 + 2 (result is now 3).
-and so on, until all the numbers in the list have been used.
-
+-   A loop is a way to repeat the same action for every item in a collection (like a list).
+-   For y in a_list means, take each item in a_list one at a time, and call it y.
+    -   For example, if a_list is \[0, 1, 2, 3, 4, 5\], the loop will do the following:
+    -   First loop: set y = 0, result = 0 + 0 (result is now 0).
+    -   Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).
+    -   Third loop: then y = 2, result = 1 + 2 (result is now 3). and so on, until all the numbers in the list have been used.
 
 ![program.py](Pictures/programs.png "program.py")
 
@@ -89,7 +84,8 @@ and so on, until all the numbers in the list have been used.
 
 # Libraries to Note
 
-![libraries.py](Pictures/library.png "libraries") \# Revisiting Numpy \## Importing Numpy
+![libraries.py](Pictures/library.png "libraries") 
+
 
 # Numpy Basics
 
@@ -100,7 +96,6 @@ and so on, until all the numbers in the list have been used.
 ```{python}
 import numpy as np
 ```
-
 
 ## Basic Array Creation
 
@@ -343,7 +338,6 @@ print("Max element index for each row:", max_index_row)
     \[4 <mark>5</mark> 1\]\
     \[0 <mark>6</mark> 2\]\]
 
-
 # Formula vs LaTex vs Python
 
 -   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.
@@ -354,30 +348,31 @@ print("Max element index for each row:", max_index_row)
 
 # Calculating Wall Time
 
-* Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.
-* time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable. 
+-   Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.
+-   time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable.
+
 ```{python}
 import time
 start_time = time.time()
 ```
 
-* Execute the block of code you want to measure and end the time.
+-   Execute the block of code you want to measure and end the time.
+
 ```{python}
 end_time = time.time()
 ```
 
-* Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time. 
+-   Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time.
 
 ```{python}
 elapsed_time = end_time - start_time
 print(f"Wall time: {elapsed_time:.2f} seconds")
 ```
 
-
-
 ## An Example Modelling Stock Prices
-* The model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).
-* The model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.
+
+-   The model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).
+-   The model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.
 
 $S_T = S_0 \exp\left( (r - 0.5 \sigma^2) T + \sigma Z \sqrt{T} \right)$
 
@@ -391,11 +386,12 @@ $S_T = S_0 \exp\left( (r - 0.5 \sigma^2) T + \sigma Z \sqrt{T} \right)$
 
 ## Comparing Model Clock Time With/Without NumPy
 
-* The primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python's built-in modules and loops.
+-   The primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python's built-in modules and loops.
 
 ### Without Numpy
 
-* a Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python's interpreted loop and the sequential calls to these functions.
+-   a Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python's interpreted loop and the sequential calls to these functions.
+
 ```{python}
 import random
 from math import exp, sqrt
@@ -435,9 +431,10 @@ print(f"Wall time: {wall_time:.2f} s")
 ```
 
 ### With Numpy
-* In contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:
-     + The entire random sample generation is done in one call (np.random.standard_normal(1000000)).
-     
+
+-   In contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:
+    -   The entire random sample generation is done in one call (np.random.standard_normal(1000000)).
+
 ```{python}
 import numpy as np
 import time 
@@ -470,8 +467,7 @@ wall_time = end_time - start_time
 print(f"Wall time: {wall_time:.2f} s")
 ```
 
-* Mathematical operations like exp and sqrt are applied to entire arrays at once.
-These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.
+-   Mathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.
 
 # Using AI
 
