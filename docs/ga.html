@@ -103,6 +103,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XC0ZP42MWM"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-XC0ZP42MWM');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -541,7 +558,7 @@ window.Quarto = {
 <h1>GA Example Ackley</h1>
 <section id="startup-commands" class="level2">
 <h2 class="anchored" data-anchor-id="startup-commands">Startup Commands</h2>
-<div id="72cb2821" class="cell" data-execution_count="1">
+<div id="3c820ae6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm Ackley Example (1D)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -574,7 +591,7 @@ window.Quarto = {
 <ul>
 <li>A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.</li>
 </ul>
-<div id="90d0c961" class="cell" data-execution_count="2">
+<div id="823c77cb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_ga(pop_size):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, (pop_size, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -585,7 +602,7 @@ window.Quarto = {
 <ul>
 <li>The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population’s fitness values.</li>
 </ul>
-<div id="6d21980f" class="cell" data-execution_count="3">
+<div id="827841a2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(pop):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([ackley(ind) <span class="cf">for</span> ind <span class="kw">in</span> pop])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -601,7 +618,7 @@ window.Quarto = {
 </ul></li>
 <li>This ensures that best_sol and best_obj_val always store the best solution and its fitness value found across all generations during the algorithm’s execution. The use of global allows the function to modify these variables outside its local scope.</li>
 </ul>
-<div id="170056e8" class="cell" data-execution_count="4">
+<div id="e1bdea58" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update best solution function</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_best_sol(curr_pop, curr_obj_vals):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
@@ -622,7 +639,7 @@ window.Quarto = {
 <li>The function returns the newly selected population as a NumPy array.</li>
 </ul></li>
 </ul>
-<div id="4bd23700" class="cell" data-execution_count="5">
+<div id="4f616e39" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination (D)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(curr_pop, curr_obj_vals, num_players):</span>
@@ -645,7 +662,7 @@ window.Quarto = {
 <li>If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.</li>
 </ul></li>
 </ul>
-<div id="5dfacb02" class="cell" data-execution_count="6">
+<div id="7e63de14" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T): Crossover and Mutation</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(pop, crossover_rate):</span>
@@ -666,7 +683,7 @@ window.Quarto = {
 <li>Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.</li>
 <li>It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function.</li>
 </ul>
-<div id="a05505c7" class="cell" data-execution_count="7">
+<div id="a070f809" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (M)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutation(pop, mutation_rate):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pop)):</span>
@@ -681,7 +698,7 @@ window.Quarto = {
 <li>The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.</li>
 <li>The new population (after crossover and mutation) replaces the old one for the next generation.</li>
 </ul>
-<div id="8e82dd31" class="cell" data-execution_count="8">
+<div id="c9134497" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function (D)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm():</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
@@ -701,7 +718,7 @@ window.Quarto = {
 </section>
 <section id="main-execution" class="level2">
 <h2 class="anchored" data-anchor-id="main-execution">Main Execution</h2>
-<div id="166a5587" class="cell" data-execution_count="9">
+<div id="f407388b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>best_solution, best_value <span class="op">=</span> genetic_algorithm()</span>
@@ -711,7 +728,7 @@ window.Quarto = {
 </section>
 <section id="output-o" class="level2">
 <h2 class="anchored" data-anchor-id="output-o">Output (O)</h2>
-<div id="f7066735" class="cell" data-execution_count="10">
+<div id="ef4b6c5a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal solution: </span><span class="sc">{</span>best_solution<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -731,9 +748,9 @@ window.Quarto = {
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal solution: [-0.20703494]
-Optimal value: 2.223874200573516
-Execution time for Genetic Algorithm: 0.107507 seconds</code></pre>
+<pre><code>Optimal solution: [0.10963092]
+Optimal value: 0.9879658433073399
+Execution time for Genetic Algorithm: 0.102999 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -747,7 +764,7 @@ Execution time for Genetic Algorithm: 0.107507 seconds</code></pre>
 </section>
 <section id="ga-example-one-max" class="level1">
 <h1>GA example One Max</h1>
-<div id="38756bed" class="cell" data-execution_count="11">
+<div id="6442a641" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -843,12 +860,12 @@ Execution time for Genetic Algorithm: 0.107507 seconds</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1]
 Best fitness (one-max value): 10
-Execution time: 0.060024 seconds</code></pre>
+Execution time: 0.063495 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ga_files/figure-html/cell-12-output-2.png" width="821" height="523" class="figure-img"></p>
+<p><img src="ga_files/figure-html/cell-12-output-2.png" width="829" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
