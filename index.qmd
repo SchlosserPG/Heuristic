@@ -64,11 +64,10 @@ The goal of optimization is to find the best solution among many possible option
 4.  Determine whether or not to repeat the process until an appropriate solution is found.
 
 -   Find good solutions; estimate these solutions; and finally use the information thus obtained to make a decision. OR
+
 -   Simply announce that the solution for the problem in question has been found.
 
-
-* Thinking Through Optimization: What’s one part of your daily routine that you’d love to optimize? If you could use a heuristic to make it easier or faster, how would it work?
-
+-   Thinking Through Optimization: What’s one part of your daily routine that you’d love to optimize? If you could use a heuristic to make it easier or faster, how would it work?
 
 # Example: Traveling salesman problem (TSP)
 
@@ -79,8 +78,6 @@ The goal of optimization is to find the best solution among many possible option
 -   In this example, r1-r3 are unique routes and r4-r6 are direct reversals of r1-r3.
 
 -   This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. ![TSP Chart](Pictures/tsp1.png "TSP")
-
-
 
 -   Different paths for a truck driver in the case of four cities.
 
@@ -96,16 +93,15 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 ```
 
-* The number of routes are listed below in table form. 
+-   The number of routes are listed below in table form.
 
 ![tsp routes](Pictures/tsp.png "tsp routes")
-
 
 # What are Heuristics?
 
 -   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
--   Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
--   Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
+     + Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
+     + Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
 -   Speed vs. Accuracy Trade-off
 -   Real-world applications where exact solutions are impractical
 
@@ -113,8 +109,9 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 -   Algorithms
     -   A sequence of steps providing a solution
--   “Heuristic”
+-   Heuristic
     -   Not necessarily optimal, or “approximate”
+
 -   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
 
 # Types of Heuristic Methods
@@ -132,9 +129,8 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 # Why Metaheuristics?
 
 -   Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
--   For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.
--   As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.
--   Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
+     + For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.
+     + As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.
 
 # Organization and Structure of the Metaheuristics Book
 
@@ -167,7 +163,7 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 # A family tree of metaheuristic algorithms
 
--   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms.
+-   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. Some example of Metaheuristics are below: 
 
 -   Local Search-Based Metaheuristics
 

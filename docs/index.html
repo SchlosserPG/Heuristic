@@ -353,7 +353,7 @@ Publisher: Academic Press<br>
 <li><p>This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. <img src="Pictures/tsp1.png" title="TSP" class="img-fluid" alt="TSP Chart"></p></li>
 <li><p>Different paths for a truck driver in the case of four cities.</p></li>
 </ul>
-<div id="73aa87dd" class="cell" data-execution_count="1">
+<div id="8a1b7056" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> factorial</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -379,9 +379,11 @@ Publisher: Academic Press<br>
 <section id="what-are-heuristics" class="level1">
 <h1>What are Heuristics?</h1>
 <ul>
-<li>Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.</li>
+<li>Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
+<ul>
 <li>Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.</li>
 <li>Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.</li>
+</ul></li>
 <li>Speed vs.&nbsp;Accuracy Trade-off</li>
 <li>Real-world applications where exact solutions are impractical</li>
 </ul>
@@ -393,7 +395,7 @@ Publisher: Academic Press<br>
 <ul>
 <li>A sequence of steps providing a solution</li>
 </ul></li>
-<li>“Heuristic”
+<li>Heuristic
 <ul>
 <li>Not necessarily optimal, or “approximate”</li>
 </ul></li>
@@ -423,10 +425,11 @@ Publisher: Academic Press<br>
 <section id="why-metaheuristics" class="level1">
 <h1>Why Metaheuristics?</h1>
 <ul>
-<li>Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”</li>
+<li>Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
+<ul>
 <li>For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.</li>
 <li>As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.</li>
-<li>Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”</li>
+</ul></li>
 </ul>
 </section>
 <section id="organization-and-structure-of-the-metaheuristics-book" class="level1">
@@ -465,7 +468,7 @@ Publisher: Academic Press<br>
 <section id="a-family-tree-of-metaheuristic-algorithms" class="level1">
 <h1>A family tree of metaheuristic algorithms</h1>
 <ul>
-<li><p>Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms.</p></li>
+<li><p>Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. Some example of Metaheuristics are below:</p></li>
 <li><p>Local Search-Based Metaheuristics</p>
 <ul>
 <li>Aim: Incrementally improve solutions by exploring the neighborhood of the current solution.</li>

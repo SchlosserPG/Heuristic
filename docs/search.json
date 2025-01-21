@@ -1,0 +1,252 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Heuristic Modelling",
+    "section": "",
+    "text": "Course Overview",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-goals",
+    "href": "index.html#course-goals",
+    "title": "Heuristic Modelling",
+    "section": "Course Goals",
+    "text": "Course Goals\n\nDevelop a solid process for algorithm development.\nEnhance Python programming skills.\nUnderstand the structure of heuristic models, focusing on:\n\nHill climbing\nSimulated annealing\nGenetic algorithms",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#required-book",
+    "href": "index.html#required-book",
+    "title": "Heuristic Modelling",
+    "section": "Required Book",
+    "text": "Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n\n\nAccess the book free through O’Reilly’s website with school credentials.\nPython code is available on the author’s GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html",
+    "href": "algo.html",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "",
+    "text": "Automate This by Christopher Steiner",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#algorithms-key-concepts-and-examples",
+    "href": "algo.html#algorithms-key-concepts-and-examples",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Algorithms Key Concepts and Examples",
+    "text": "Algorithms Key Concepts and Examples\n\nAlgorithms in Finance: High-Frequency Trading (HFT) revolutionized Wall Street by executing trades at lightning speeds, leading to both massive profits and new risks.\nAlgorithms in Healthcare: Algorithms that diagnose diseases faster and more accurately than doctors.\nMusic: Algorithms used by platforms like Pandora to predict and recommend songs.\nImpact on Jobs: Automation’s role in replacing jobs traditionally done by humans, particularly in industries like finance, journalism, and even art.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#future-implications-and-ethical-considerations",
+    "href": "algo.html#future-implications-and-ethical-considerations",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Future Implications and Ethical Considerations",
+    "text": "Future Implications and Ethical Considerations\n\nExpansion of Algorithms: The growing reach of algorithms in decision-making processes, from hiring practices to legal judgments.\nEthical Concerns: The potential for bias in algorithms and the importance of transparency in their design. The need for regulation and oversight as algorithms increasingly influence critical aspects of life.\nLooking Ahead: Steiner’s call for society to adapt to the new algorithm-driven world, balancing innovation with ethical responsibility.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#bias-in-algorithms-explored",
+    "href": "algo.html#bias-in-algorithms-explored",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Bias in Algorithms Explored",
+    "text": "Bias in Algorithms Explored\n\nFacial Recognition Technology algorithms have shown significant biases, particularly in accurately identifying people of different races and genders.\n\nStudies have found that some facial recognition systems have higher error rates when identifying individuals with darker skin tones and women. This can lead to discriminatory outcomes, such as misidentifying people of color at higher rates than white individuals.\nImpact: This bias can result in wrongful accusations or the exclusion of certain groups from services that rely on facial recognition technology.\n\nHiring algorithms are used by companies to screen job applicants, but they can unintentionally perpetuate biases present in the training data.\n\nA famous case involved an AI hiring tool developed by Amazon, which was found to be biased against female applicants. The algorithm was trained on resumes submitted over the previous decade, which were predominantly from male applicants, leading the AI to favor male candidates.\nImpact: This bias can reinforce gender inequalities in the workplace by systematically disadvantaging qualified female applicants.\n\nPredictive Policing algorithms analyze historical crime data to predict where future crimes are likely to occur, influencing law enforcement patrols.\n\nThese algorithms often reflect existing biases in policing practices, such as disproportionately targeting minority neighborhoods. Because the training data may contain biased policing patterns, the algorithm can perpetuate over-policing in certain communities.\nImpact: This can lead to a cycle of increased surveillance and criminalization of specific racial or ethnic groups, reinforcing systemic biases in the criminal justice system.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#algorithm-development-process",
+    "href": "algo.html#algorithm-development-process",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Algorithm Development Process:",
+    "text": "Algorithm Development Process:\n\nWhat should you do first?\n0: Think of a conceptual approach\n1: Write step-by-step outline\n\nIn words (maybe pseudo code)\nFocus on sound logic\n\n2: Plan programming implementation\n\nChoose appropriate data structures + Speed, memory, convenience\nConsider functions, which kind of loops\n\n3: Write the program and debug\n\nUse the outline as comment statements\nWrite your algorithms in chunks, write a line, then test it\n\n\n\n\n\nProcess",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#understanding-the-structure-of-algorithms",
+    "href": "algo.html#understanding-the-structure-of-algorithms",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Understanding the Structure of Algorithms",
+    "text": "Understanding the Structure of Algorithms\n\nIdentify the Purpose:\n\nStart by understanding what the algorithm is supposed to achieve.\nLook for a brief description or goal at the beginning.\n\nBreak Down the Steps:\n\nAlgorithms are typically presented as a sequence of steps.\nEach step corresponds to a specific action or decision.\nin words. Focus on sound logic.\n\nRecognize Input and Output:\n\nDetermine what inputs the algorithm requires.\nIdentify the expected output(s) after the algorithm is executed.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#understanding-the-structure-of-algorithms-flow-control",
+    "href": "algo.html#understanding-the-structure-of-algorithms-flow-control",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Understanding the Structure of Algorithms: Flow Control",
+    "text": "Understanding the Structure of Algorithms: Flow Control\n\nDetermine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).\n\nWhich data types?\n\nBegin to consider speed, memory usage, convenience tradeoffs\n\nFiner details of data organization\n\nWhat fields for dictionary labels?\nHow should lists be sorted, if at all?\n\nLoop types\n\nfor or while?\nEase of coding and development\n\nUse functions?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
+    "href": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Deciphering Algorithmic Notation: Pseudocode vs. Code",
+    "text": "Deciphering Algorithmic Notation: Pseudocode vs. Code\n\nRecognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.\nSome feel that with Python, the pseudo-code step would not be necessary anymore\nTranslate pseudocode into actual code if needed.\n\nProgram in chunks\nTest each chunk before moving on\nUse functions where reasonable\n\nEasier to test\n\n\nCheck code where solutions are known\n\nSmall problems\nObvious solutions\n\nCheck code as you write it\nDebug Often\n\nBreakpoints\nCheck variables in console\nVariable explorer\nPrint statements",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
+    "href": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Deciphering Algorithmic Notation: Mathematical Symbols",
+    "text": "Deciphering Algorithmic Notation: Mathematical Symbols\n\nMathematical Symbols:\n\nAlgorithms often include mathematical notation, such as sums (\\(\\sum\\)) or products (\\(\\prod\\)).\nUnderstand these as they relate to the algorithm’s operations.\n\nBig-O Notation:\n\nLook for references to Big-O notation, which indicates the algorithm’s efficiency in terms of time or space.\nUnderstand the implications for performance, especially with large inputs.\n\nCommenting\n\nCommenting improves code readability, reuse, and maintainability.\nCan transfer algorithm outline to a program as comments.\nThen, you have comments that provide an outline for coding.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#design-paradigms",
+    "href": "algo.html#design-paradigms",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Design Paradigms",
+    "text": "Design Paradigms\n\nAlgorithms can be based on:\n\nIntuitive ideas\nMath\n\nOptimization\n\nPossibly with calculus analysis (e.g., gradients)\nHeuristic model analysis\nDynamic programming",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#common-symbols-in-algorithms",
+    "href": "algo.html#common-symbols-in-algorithms",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Common Symbols in Algorithms",
+    "text": "Common Symbols in Algorithms\n\nMathematical Symbols:\n\n\\(\\forall\\): “For all”, used in universal quantification.\n\\(\\exists\\): “There exists”, used in existential quantification.\n\\(\\sum_{i=1}^n x_i\\): Summation from \\(i = 1\\) to \\(n\\).\n\\(\\prod_{i=1}^n x_i\\): Product from \\(i = 1\\) to \\(n\\).\n\nLogical Symbols:\n\n\\(\\land\\): Logical AND.\n\\(\\lor\\): Logical OR.\n\\(\\neg\\): Logical NOT.\n\\(\\implies\\): Logical implication.\n\nAlgorithm-Specific Notation:\n\n\\(O(n)\\): Big-O notation, representing algorithm complexity.\n\\(P \\leftarrow Q\\): Assign the value of \\(Q\\) to \\(P\\).\nfor \\(i = 1\\) to \\(n\\): A loop from \\(i = 1\\) to \\(n\\).\nif \\((condition)\\): A conditional statement.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#summation-and-loop-example",
+    "href": "algo.html#summation-and-loop-example",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Summation and Loop Example",
+    "text": "Summation and Loop Example\n\nSummation Formula: \\(S = \\sum_{i=1}^{n} i = 1 + 2 + 3 + \\dots + n\\)\n\nExplanation: This formula calculates the sum of the first \\(n\\) natural numbers. The symbol \\(\\sum\\) represents the summation, and \\(i\\) is the index that runs from 1 to \\(n\\).\n\nNested Loop Calculation: \\(T = \\sum_{i=1}^{n} \\sum_{j=1}^{m} (i \\times j)\\)\n\nExplanation: This formula represents a nested summation where \\(i\\) runs from 1 to \\(n\\) and \\(j\\) runs from 1 to \\(m\\). It calculates the sum of the product of \\(i\\) and \\(j\\) over these ranges.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#conditional-statements-and-recursion",
+    "href": "algo.html#conditional-statements-and-recursion",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Conditional Statements and Recursion",
+    "text": "Conditional Statements and Recursion\n\nConditional Formula: \\[\nf(x) =\n\\begin{cases}\n0 & \\text{if } x &lt; 0 \\\\\n1 & \\text{if } x \\geq 0\n\\end{cases}\n\\]\n\nExplanation: This piecewise function returns 0 if ( x ) is less than 0, and 1 if ( x ) is greater than or equal to 0. It’s an example of a conditional statement in algorithmic form.\n\nRecursive Formula: \\[\nF(n) =\n\\begin{cases}\n1 & \\text{if } n = 1 \\\\\nn \\times F(n-1) & \\text{if } n &gt; 1\n\\end{cases}\n\\]\n\nExplanation: This is a recursive definition of the factorial function. For ( n = 1 ), ( F(n) = 1 ). For ( n &gt; 1 ), ( F(n) ) is defined as ( n ) times the factorial of ( n-1 ).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#big-o-notation-and-algorithm-complexity",
+    "href": "algo.html#big-o-notation-and-algorithm-complexity",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Big-O Notation and Algorithm Complexity",
+    "text": "Big-O Notation and Algorithm Complexity\n\nBig-O Notation Example: \\(T(n) = O(n^2)\\)\n\nExplanation: This formula describes the time complexity of an algorithm, where\\(T(n)\\) represents the runtime as a function of input size \\(n\\). The notation \\(O(n^2)\\) indicates that the algorithm’s runtime grows quadratically with the size of the input.\n\nLogarithmic Complexity: \\(T(n) = O(\\log n)\\)\n\nExplanation: This formula represents an algorithm with logarithmic time complexity. The runtime increases logarithmically as the input size \\(n\\) increases, which is common in algorithms like binary search.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#basic-tsp-formulation",
+    "href": "algo.html#basic-tsp-formulation",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Basic TSP Formulation",
+    "text": "Basic TSP Formulation\n\nObjective Function: \\[\n\\text{Minimize} \\quad Z = \\sum_{i=1}^{n} \\sum_{j=1, j \\neq i}^{n} c_{ij} x_{ij}\n\\]\n\nExplanation: This formula represents the objective function of the TSP, where \\(c_{ij}\\) is the cost (or distance) of traveling from city \\(i\\) to city \\(j\\), and \\(x_{ij}\\) is a binary variable that equals 1 if the path from \\(i\\) to \\(j\\) is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.\n\nConstraints:\n\\(\\sum_{j=1, j \\neq i}^{n} x_{ij} = 1 \\quad \\forall i\\)\n\\(\\sum_{i=1, i \\neq j}^{n} x_{ij} = 1 \\quad \\forall j\\)\n\\(x_{ij} \\in \\{0, 1\\}\\)\n\nExplanation: The first constraint ensures that each city \\(i\\) is exited exactly once, and the second constraint ensures that each city \\(j\\) is entered exactly once. The binary constraint on \\(x_{ij}\\) ensures that the solution only includes valid paths.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#tsp-approximation-algorithm",
+    "href": "algo.html#tsp-approximation-algorithm",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "TSP Approximation Algorithm",
+    "text": "TSP Approximation Algorithm\n\nApproximation Algorithm Cost: \\(Z \\leq 2 \\times \\text{OPT}\\)\n\nExplanation: This formula represents the performance guarantee of a 2-approximation algorithm for the TSP, where \\(Z\\) is the cost of the approximate solution and \\(\\text{OPT}\\) is the cost of the optimal solution. It guarantees that the approximate solution will be at most twice as costly as the optimal solution.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#heuristic-nearest-neighbor-example",
+    "href": "algo.html#heuristic-nearest-neighbor-example",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Heuristic Nearest Neighbor Example:",
+    "text": "Heuristic Nearest Neighbor Example:\n\\(Z = \\sum_{i=1}^{n-1} c_{i, \\text{NN}(i)} + c_{n, \\text{NN}(1)}\\)\n\nExplanation: This is the cost calculation for the nearest neighbor heuristic, where \\(\\text{NN}(i)\\) denotes the nearest neighbor of city \\(i\\). The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#activity",
+    "href": "algo.html#activity",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Activity:",
+    "text": "Activity:\n\nState what the following algorithms do:\n\n\\[Z = \\sum_{i=1}^n \\left( x_i \\times y_i \\right)\\] \\[ \\bar{X} = \\frac{\\sum_{i=1}^{n} w_i x_i}{\\sum_{i=1}^{n} w_i}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#tips-for-writing-good-pseudocode",
+    "href": "algo.html#tips-for-writing-good-pseudocode",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Tips for Writing Good Pseudocode",
+    "text": "Tips for Writing Good Pseudocode\n\nMaintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.\nBe clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.\nPseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#examples",
+    "href": "algo.html#examples",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Examples",
+    "text": "Examples\n\nThis pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.\n\n# Pseudocode for finding the minimum number in a list\nSET min_number = Infinity\nFOR each number IN list:\n    IF number &lt; min_number:\n        SET min_number = number\nRETURN min_number\n\n\nThis pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.\nedge cases: an empty list, all even numbers, or no numbers greater than the threshold.\n\n# Pseudocode for summing numbers greater than a given threshold\nSET sum = 0\nFOR each number IN list:\n    IF number &gt; threshold:\n        ADD number TO sum\nRETURN sum",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#activity-read-this-pseudocode",
+    "href": "algo.html#activity-read-this-pseudocode",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Activity: Read this Pseudocode",
+    "text": "Activity: Read this Pseudocode\nSET min_even = Infinity \nFOR each number IN list: \n    IF number is even AND number &lt; min_even: \n        SET min_even = number \nRETURN min_even",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  },
+  {
+    "objectID": "algo.html#pseudocode-for-basic-tsp-formation",
+    "href": "algo.html#pseudocode-for-basic-tsp-formation",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Pseudocode for Basic TSP Formation",
+    "text": "Pseudocode for Basic TSP Formation\n\nGeneric Inputs: The pseudocode is now generic and works for any TSP model where you have a set of cities and their corresponding distances.\nNearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.\nOutput: It outputs the route and the total distance traveled.\n\n#inputs\nSET cities = &lt;list of cities&gt;\nSET distances = &lt;distance matrix or dictionary&gt;\nSET start_city = &lt;initial city&gt;\n\n\n# FUNCTION to find the nearest unvisited city\nFUNCTION find_nearest_neighbor(current_city, unvisited, distances):\n    SET nearest_city = None\n    SET min_distance = infinity\n    \n    FOR each city IN unvisited:\n        IF distances[current_city][city] &lt; min_distance:\n            SET min_distance = distances[current_city][city]\n            SET nearest_city = city\n    \n    RETURN nearest_city, min_distance\n\n# FUNCTION to solve TSP using Nearest Neighbor algorithm\nFUNCTION nearest_neighbor_tsp(start_city, cities, distances):\n# Initialize list of unvisited cities\n    SET unvisited = list of all cities EXCEPT start_city",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
+  }
+]
