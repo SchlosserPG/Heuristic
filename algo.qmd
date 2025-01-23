@@ -82,15 +82,16 @@ runtime: python
 ## Understanding the Structure of Algorithms: Flow Control
 
 -   Determine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).
-    -   Which data types?
+    -   Which data types should we use?
         -   Begin to consider speed, memory usage, convenience tradeoffs
     -   Finer details of data organization
         -   What fields for dictionary labels?
         -   How should lists be sorted, if at all?
     -   Loop types
-        -   for or while?
-        -   Ease of coding and development
-    -   Use functions?
+        -   Should  we use a for or while  loop?
+        -   How to we increase the ease of coding and development?
+    -   Should we use functions?
+
 
 # Deciphering Algorithmic Notation
 
@@ -120,7 +121,6 @@ runtime: python
 -   Check code where solutions are known
     -   Small problems
     -   Obvious solutions
--   Check code as you write it
 -   Debug Often
     -   Breakpoints
     -   Check variables in console

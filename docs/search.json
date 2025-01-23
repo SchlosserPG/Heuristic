@@ -94,7 +94,7 @@
     "href": "algo.html#understanding-the-structure-of-algorithms-flow-control",
     "title": "Algorithm Design and Pseudocode",
     "section": "Understanding the Structure of Algorithms: Flow Control",
-    "text": "Understanding the Structure of Algorithms: Flow Control\n\nDetermine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).\n\nWhich data types?\n\nBegin to consider speed, memory usage, convenience tradeoffs\n\nFiner details of data organization\n\nWhat fields for dictionary labels?\nHow should lists be sorted, if at all?\n\nLoop types\n\nfor or while?\nEase of coding and development\n\nUse functions?",
+    "text": "Understanding the Structure of Algorithms: Flow Control\n\nDetermine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).\n\nWhich data types should we use?\n\nBegin to consider speed, memory usage, convenience tradeoffs\n\nFiner details of data organization\n\nWhat fields for dictionary labels?\nHow should lists be sorted, if at all?\n\nLoop types\n\nShould we use a for or while loop?\nHow to we increase the ease of coding and development?\n\nShould we use functions?",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
     "title": "Algorithm Design and Pseudocode",
     "section": "Deciphering Algorithmic Notation: Pseudocode vs. Code",
-    "text": "Deciphering Algorithmic Notation: Pseudocode vs. Code\n\nRecognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.\nSome feel that with Python, the pseudo-code step would not be necessary anymore\nTranslate pseudocode into actual code if needed.\n\nProgram in chunks\nTest each chunk before moving on\nUse functions where reasonable\n\nEasier to test\n\n\nCheck code where solutions are known\n\nSmall problems\nObvious solutions\n\nCheck code as you write it\nDebug Often\n\nBreakpoints\nCheck variables in console\nVariable explorer\nPrint statements",
+    "text": "Deciphering Algorithmic Notation: Pseudocode vs. Code\n\nRecognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.\nSome feel that with Python, the pseudo-code step would not be necessary anymore\nTranslate pseudocode into actual code if needed.\n\nProgram in chunks\nTest each chunk before moving on\nUse functions where reasonable\n\nEasier to test\n\n\nCheck code where solutions are known\n\nSmall problems\nObvious solutions\n\nDebug Often\n\nBreakpoints\nCheck variables in console\nVariable explorer\nPrint statements",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
     ]
