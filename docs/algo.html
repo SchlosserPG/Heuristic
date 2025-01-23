@@ -246,13 +246,11 @@ window.Quarto = {
   <li><a href="#basic-tsp-formulation" id="toc-basic-tsp-formulation" class="nav-link" data-scroll-target="#basic-tsp-formulation">Basic TSP Formulation</a></li>
   <li><a href="#tsp-approximation-algorithm" id="toc-tsp-approximation-algorithm" class="nav-link" data-scroll-target="#tsp-approximation-algorithm">TSP Approximation Algorithm</a></li>
   <li><a href="#heuristic-nearest-neighbor-example" id="toc-heuristic-nearest-neighbor-example" class="nav-link" data-scroll-target="#heuristic-nearest-neighbor-example">Heuristic Nearest Neighbor Example:</a></li>
-  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity">Activity:</a></li>
   </ul></li>
   <li><a href="#pseudocode-know-how" id="toc-pseudocode-know-how" class="nav-link" data-scroll-target="#pseudocode-know-how">Pseudocode Know-how</a>
   <ul class="collapse">
   <li><a href="#tips-for-writing-good-pseudocode" id="toc-tips-for-writing-good-pseudocode" class="nav-link" data-scroll-target="#tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#activity-read-this-pseudocode" id="toc-activity-read-this-pseudocode" class="nav-link" data-scroll-target="#activity-read-this-pseudocode">Activity: Read this Pseudocode</a></li>
   <li><a href="#pseudocode-for-basic-tsp-formation" id="toc-pseudocode-for-basic-tsp-formation" class="nav-link" data-scroll-target="#pseudocode-for-basic-tsp-formation">Pseudocode for Basic TSP Formation</a></li>
   </ul></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
@@ -648,13 +646,6 @@ n \times F(n-1) &amp; \text{if } n &gt; 1
 <li><strong>Explanation</strong>: This is the cost calculation for the nearest neighbor heuristic, where <span class="math inline">\(\text{NN}(i)\)</span> denotes the nearest neighbor of city <span class="math inline">\(i\)</span>. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.</li>
 </ul>
 </section>
-<section id="activity" class="level2">
-<h2 class="anchored" data-anchor-id="activity">Activity:</h2>
-<ul>
-<li>State what the following algorithms do:</li>
-</ul>
-<p><span class="math display">\[Z = \sum_{i=1}^n \left( x_i \times y_i \right)\]</span> <span class="math display">\[ \bar{X} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}\]</span></p>
-</section>
 </section>
 <section id="pseudocode-know-how" class="level1">
 <h1>Pseudocode Know-how</h1>
@@ -696,15 +687,6 @@ FOR each number IN list:
     IF number &gt; threshold:
         ADD number TO sum
 RETURN sum
-</code></pre>
-</section>
-<section id="activity-read-this-pseudocode" class="level2">
-<h2 class="anchored" data-anchor-id="activity-read-this-pseudocode">Activity: Read this Pseudocode</h2>
-<pre class="{asis}"><code>SET min_even = Infinity 
-FOR each number IN list: 
-    IF number is even AND number &lt; min_even: 
-        SET min_even = number 
-RETURN min_even
 </code></pre>
 </section>
 <section id="pseudocode-for-basic-tsp-formation" class="level2">

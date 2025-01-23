@@ -248,5 +248,145 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
     ]
+  },
+  {
+    "objectID": "numpy.html",
+    "href": "numpy.html",
+    "title": "Python for Heuristics & NumPy",
+    "section": "",
+    "text": "Coding Know-How\nWhat problems does this code have?\nx1 = [0, 1, 2, 3, 4, 5]\nx2 = [6, 7, 8, 9, 10]\n\nprint(sum(x1))\nprint(sum(x2))\n\n15\n40",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#basic-array-creation",
+    "href": "numpy.html#basic-array-creation",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Basic Array Creation",
+    "text": "Basic Array Creation\n\nThe np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.\n\n\n# Creating a simple numpy array from a Python list\narray = np.array([1, 2, 3, 4])\nprint(\"Array:\", array)\n\nArray: [1 2 3 4]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#element-wise-operations",
+    "href": "numpy.html#element-wise-operations",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Element-Wise Operations",
+    "text": "Element-Wise Operations\n\nElement-wise operators are mathematical or logical operations applied independently to corresponding elements in arrays or matrices of the same shape.\nEach element in one array is combined with the corresponding element in the other array using the operator.\nIn the context of arrays (such as in NumPy), common element-wise operators include basic arithmetic operators:\n\nElement-wise addition +\nElement-wise subtraction -\nElement-wise multiplication *\nElement-wise division /\nElement-wise exponentiation **\n\n\n\n# Performing element-wise addition\narray = np.array([1, 2, 3, 4])\nadded_array = array + 5\nprint(\"Added Array:\", added_array)\n\nAdded Array: [6 7 8 9]\n\n\n\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\nc = a + b\nprint(c)\n\n[5 7 9]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#taking-an-exponent-np.exp",
+    "href": "numpy.html#taking-an-exponent-np.exp",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Taking an Exponent: np.exp",
+    "text": "Taking an Exponent: np.exp\n\nnp.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒^𝑥, where 𝑒 is Euler’s number (approximately 2.71828), and 𝑥 is the input array or scalar.\n\n\n# Applying np.exp to the array\narray = np.array([1, 2, 3, 4])\nexp_array = np.exp(array)\nprint(\"Exponential Array:\", exp_array)\n\nExponential Array: [ 2.71828183  7.3890561  20.08553692 54.59815003]\n\n\n\nnp.exp from Simulated Annealing example\nThis function is part of a Simulated Annealing algorithm, specifically handling the temperature decay mechanism to decide whether to accept a new solution, even if it’s worse than the current one. Here’s a breakdown of the function based on the np.exp command and the logic:\n\ntmp_obj_val: The objective value of a new (temporary) solution.\nobj_val: The objective value of the current solution. temperature: The current temperature in the simulated annealing process, which controls how likely the algorithm is to accept worse solutions.\nA random number r between 0 and 1 is generated. This represents a threshold for whether the new solution will be accepted using random.rand()\nThe probability p of accepting the new solution is computed using the exponential function.\nIf the random value r is less than the calculated probability p, the function returns True, meaning the new solution is accepted (even if it’s worse). If r is greater than p, the new solution is rejected, and the current solution is maintained.\n\nThe function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.\n\n\n# Simulated annealing temperature decay\ndef determine(self, tmp_obj_val, obj_val, temperature):\n     r = np.random.rand()\n     p = np.exp((tmp_obj_val - obj_val) / temperature)\n     return r &lt; p",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#taking-a-square-root-np.sqrt",
+    "href": "numpy.html#taking-a-square-root-np.sqrt",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Taking a square root: np.sqrt()",
+    "text": "Taking a square root: np.sqrt()\n\nnp.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.\n\n\n# Applying np.sqrt to the array\nsqrt_array = np.sqrt(array)\nprint(\"Square Root Array:\", sqrt_array)\n\nSquare Root Array: [1.         1.41421356 1.73205081 2.        ]\n\n\n\nThe Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.\n\n\ndef ackley(s):\n     a, b, c = 20, 0.2, 2 * np.pi\n     n = len(s)\n     sum_sq_term = np.sum(s**2)\n     cos_term = np.sum(np.cos(c * s))\n     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))\n     term2 = -np.exp(cos_term / n)\n     return term1 + term2 + a + np.e",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#random-number-generation",
+    "href": "numpy.html#random-number-generation",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Random Number Generation",
+    "text": "Random Number Generation\n\nRandom numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.\nMore specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).\n\n\nrand_nums = np.random.rand(5)\nprint(rand_nums)\n\n[0.8271546  0.32704367 0.51459818 0.95117466 0.35429231]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#standard-normal-distribution",
+    "href": "numpy.html#standard-normal-distribution",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Standard Normal Distribution",
+    "text": "Standard Normal Distribution\n\nThe np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.\nGenerating 5 random numbers from a standard normal distribution (mean=0, std=1).\n\n\n# Generating random values from the standard normal distribution\nrandom_values = np.random.standard_normal(5)\nprint(\"Random Standard Normal Values:\", random_values)\n\nRandom Standard Normal Values: [ 0.78469228  0.44220889  0.03488201 -1.28582266  0.67767628]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.uniform",
+    "href": "numpy.html#np.random.uniform",
+    "title": "Python for Heuristics & NumPy",
+    "section": "np.random.uniform",
+    "text": "np.random.uniform\n\nThe np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.\nIn hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.\n\n\n# Generate a random starting point for the hill climbing algorithm\nrandom_start = np.random.uniform(low=-10, high=10, size=5)\nprint(f\"Random start: {random_start}\")\n\nRandom start: [ 4.89711483  9.33593704 -8.73194115 -7.35531841  8.08261889]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.randint",
+    "href": "numpy.html#np.random.randint",
+    "title": "Python for Heuristics & NumPy",
+    "section": "np.random.randint",
+    "text": "np.random.randint\n\nThe np.random.randint function in NumPy is used to generate random integers within a specified range.\nnp.random.randint(low, high=None, size=None, dtype=int)\n\nlow: The lower boundary of the random integers (inclusive).\nhigh: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\nsize: The shape of the output array (optional). If not provided, a single integer is returned.\ndtype: The desired data type of the output array, by default int.\n\n\n\n# Generate 5 random integers between 10 and 20\nrandom_integers = np.random.randint(10, 20, size=5)\nprint(random_integers)\n\n[14 19 14 14 14]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#np.random.randint-from-simulated-annealing",
+    "href": "numpy.html#np.random.randint-from-simulated-annealing",
+    "title": "Python for Heuristics & NumPy",
+    "section": "np.random.randint from Simulated Annealing",
+    "text": "np.random.randint from Simulated Annealing\n\nThis function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or “transition”) to the current solution.\n\nThe function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).\nt = sol.copy(): A copy of the solution sol is made, named t. This is important because we don’t want to modify the original solution directly; instead, we work on the copy t.\ni = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.\nt[i] ^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.\nreturn t: After flipping one bit, the modified solution t is returned.\n\n\n# Transition function (T)\ndef transit(sol):\n    new_sol = sol.copy()\n    index = np.random.randint(len(sol))\n    new_sol[index] = 1 - new_sol[index]  # Flip a random bit\n    return new_sol",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#sorting-the-data-np.argsort",
+    "href": "numpy.html#sorting-the-data-np.argsort",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Sorting the data: np.argsort",
+    "text": "Sorting the data: np.argsort\n\nThe np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.\nIn various evolutionary algorithms (such as genetic algorithms or simulated annealing), selecting the most “fit” or optimal solutions from a population is crucial for convergence toward the global optimum.\nBy sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.\nThe use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.\n\n\n# Dummy population and fitness values\npopulation = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])\n\n# Assign dummy fitness values\nfitness = np.array([10, 30, 20, 40, 50]) \n\n# Sort population based on fitness\nindices = np.argsort(fitness)\nprint(indices) \nsorted_population = population[indices]\n\n# Select top 3 individuals\ntop_individuals = sorted_population[:3] \nprint(top_individuals)\n\n[0 2 1 3 4]\n[[1 2]\n [5 6]\n [3 4]]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#selecting-the-max-np.argmax",
+    "href": "numpy.html#selecting-the-max-np.argmax",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Selecting the Max: np.argmax",
+    "text": "Selecting the Max: np.argmax\n\nThe np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.\nFinding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.\n\n\narr = np.array([1, 3, 7, 2, 5])\nindex = np.argmax(arr)\nprint(\"Array:\", arr)\nprint(\"Index of max element:\", index)\nprint(\"Max element:\", arr[index])\n\nArray: [1 3 7 2 5]\nIndex of max element: 2\nMax element: 7\n\n\nArray: [1 3 7 2 5]\n\nUsing np.argmax with a 2D Array (Row-wise & Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.\n\n\narr_2d = np.array([[1, 2, 3], [4, 5, 1], [0, 6, 2]])\n\n# Find the index of the max element in the flattened array\nmax_index_flat = np.argmax(arr_2d)\nprint(\"Flattened array index:\", max_index_flat)\n\nFlattened array index: 7\n\n\n\nNumber 6 is in index 7, starting at index 0 and counting up across each row.\n[[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each column (axis=0)\nmax_index_col = np.argmax(arr_2d, axis=0)\nprint(\"Max element index for each column:\", max_index_col)\n\nMax element index for each column: [1 2 0]\n\n\n\n4 is in index 1, 6 is in index 2, and 3 is in index 0, counting across each column starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]\n\n\n# Find the index of the max element along each row (axis=1)\nmax_index_row = np.argmax(arr_2d, axis=1)\nprint(\"Max element index for each row:\", max_index_row)\n\nMax element index for each row: [2 1 1]\n\n\n\n3 is in index 2 in the row, 5 is in index 1, and 6 is in index 1, counting across each row starting at index 0. [[1 2 3]\n[4 5 1]\n[0 6 2]]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#an-example-modelling-stock-prices",
+    "href": "numpy.html#an-example-modelling-stock-prices",
+    "title": "Python for Heuristics & NumPy",
+    "section": "An Example Modelling Stock Prices",
+    "text": "An Example Modelling Stock Prices\n\nThe model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).\nThe model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.\n\n\\(S_T = S_0 \\exp\\left( (r - 0.5 \\sigma^2) T + \\sigma Z \\sqrt{T} \\right)\\)\n\nThe terminal stock price \\(S_T\\) is modeled using the Geometric Brownian Motion (GBM), a common approach to model stock prices.\n\n\\(S_0\\): The initial stock price.\n\\(r\\): The risk-free interest rate.\n\\(T\\): Time to maturity (in years).\n\\(\\sigma\\): The volatility of the stock.\n\\(S_T\\): The terminal stock price at time \\(T\\).\n\\(Z\\): A random variable drawn from a standard normal distribution.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#comparing-model-clock-time-withwithout-numpy",
+    "href": "numpy.html#comparing-model-clock-time-withwithout-numpy",
+    "title": "Python for Heuristics & NumPy",
+    "section": "Comparing Model Clock Time With/Without NumPy",
+    "text": "Comparing Model Clock Time With/Without NumPy\n\nThe primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python’s built-in modules and loops.\n\n\nWithout Numpy\n\na Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python’s interpreted loop and the sequential calls to these functions.\n\n\nimport random\nfrom math import exp, sqrt\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\nvalues = []  \n\n# Start tracking wall time\nstart_time = time.time()\n\nfor _ in range(1000000):  \n     ST = S0 * exp((r - 0.5 * sigma ** 2) * T +\n        sigma * random.gauss(0, 1) * sqrt(T))  \n     values.append(ST)  \n\n# End tracking wall time\nend_time = time.time()\n\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.72 s\n\n\n\n\nWith Numpy\n\nIn contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:\n\nThe entire random sample generation is done in one call (np.random.standard_normal(1000000)).\n\n\n\nimport numpy as np\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\n# Start tracking wall time\nstart_time = time.time()\n\nST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +\n    sigma * np.random.standard_normal(1000000) * np.sqrt(T))\n\n# End tracking wall time\nend_time = time.time()\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.03 s\n\n\n\nMathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
+    ]
   }
 ]

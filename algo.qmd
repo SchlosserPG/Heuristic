@@ -264,11 +264,6 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 
 -   **Explanation**: This is the cost calculation for the nearest neighbor heuristic, where $\text{NN}(i)$ denotes the nearest neighbor of city $i$. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.
 
-## Activity:
-
--   State what the following algorithms do:
-
-$$Z = \sum_{i=1}^n \left( x_i \times y_i \right)$$ $$ \bar{X} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$$
 
 # Pseudocode Know-how
 
@@ -317,16 +312,6 @@ RETURN sum
 
 ```
 
-## Activity: Read this Pseudocode
-
-```{asis}
-SET min_even = Infinity 
-FOR each number IN list: 
-	IF number is even AND number < min_even: 
-		SET min_even = number 
-RETURN min_even
-
-```
 
 ## Pseudocode for Basic TSP Formation
 
