@@ -8,9 +8,10 @@ runtime: python
 # *Automate This* by Christopher Steiner
 
 -   An algorithm is a set of operations (mathematical, technical) to be conducted in a certain sequence to achieve a certain goal.
--   The rise of algorithms and their transformative impact on industries.
--   Algorithms have gone from being a tool used by a few specialists to becoming a driving force in business, finance, healthcare, and more.
--   Automation through algorithms is reshaping the world, with both positive and negative implications.
+-   This book discusses the rise of algorithms and their transformative impact on industries.
+
+     + Algorithms have gone from being a tool used by a few specialists to becoming a driving force in business, finance, healthcare, and more.
+     + Automation through algorithms is reshaping the world, with both positive and negative implications.
 
 ## Algorithms Key Concepts and Examples
 
