@@ -655,7 +655,7 @@ n \times F(n-1) &amp; \text{if } n &gt; 1
 <li><p>Use pseudocode to outline the flow and logic of the solution.</p></li>
 <li><p>Think of pseudocode as a blueprint that can be implemented in any programming language</p></li>
 <li><p>Bad: int sum = 0; for (i=0; i &lt; n; i++) sum += arr[i];</p></li>
-<li><p>Good: SET sum = 0, FOR each element in the list, ADD element to sum</p></li>
+<li><p>Good: SET sum = 0, FOR each element in the list, sum = sum + number</p></li>
 </ul>
 <section id="tips-for-writing-good-pseudocode" class="level2">
 <h2 class="anchored" data-anchor-id="tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</h2>
@@ -685,7 +685,7 @@ RETURN min_number
 SET sum = 0
 FOR each number IN list:
     IF number &gt; threshold:
-        ADD number TO sum
+        SET sum = sum + number
 RETURN sum
 </code></pre>
 </section>

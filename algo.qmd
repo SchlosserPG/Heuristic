@@ -277,7 +277,8 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 
 -   Bad: int sum = 0; for (i=0; i \< n; i++) sum += arr\[i\];
 
--   Good: SET sum = 0, FOR each element in the list, ADD element to sum
+-   Good: SET sum = 0, FOR each element in the list, sum = sum + number
+
 
 ## Tips for Writing Good Pseudocode
 
@@ -307,7 +308,7 @@ RETURN min_number
 SET sum = 0
 FOR each number IN list:
     IF number > threshold:
-        ADD number TO sum
+        SET sum = sum + number
 RETURN sum
 
 ```
