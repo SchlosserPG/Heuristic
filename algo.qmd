@@ -314,9 +314,8 @@ RETURN sum
 ```
 
 
-## Pseudocode for Basic TSP Formation
+## Pseudocode for  TSP Nearest Neighbor Model
 
--   Generic Inputs: The pseudocode is now generic and works for any TSP model where you have a set of cities and their corresponding distances.
 -   Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.
 -   Output: It outputs the route and the total distance traveled.
 

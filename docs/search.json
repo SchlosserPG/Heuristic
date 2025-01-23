@@ -388,5 +388,15 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
     ]
+  },
+  {
+    "objectID": "algo.html#pseudocode-for-tsp-nearest-neighbor-model",
+    "href": "algo.html#pseudocode-for-tsp-nearest-neighbor-model",
+    "title": "Algorithm Design and Pseudocode",
+    "section": "Pseudocode for TSP Nearest Neighbor Model",
+    "text": "Pseudocode for TSP Nearest Neighbor Model\n\nNearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.\nOutput: It outputs the route and the total distance traveled.\n\n#inputs\nSET cities = &lt;list of cities&gt;\nSET distances = &lt;distance matrix or dictionary&gt;\nSET start_city = &lt;initial city&gt;\n\n\n# FUNCTION to find the nearest unvisited city\nFUNCTION find_nearest_neighbor(current_city, unvisited, distances):\n    SET nearest_city = None\n    SET min_distance = infinity\n    \n    FOR each city IN unvisited:\n        IF distances[current_city][city] &lt; min_distance:\n            SET min_distance = distances[current_city][city]\n            SET nearest_city = city\n    \n    RETURN nearest_city, min_distance\n\n# FUNCTION to solve TSP using Nearest Neighbor algorithm\nFUNCTION nearest_neighbor_tsp(start_city, cities, distances):\n# Initialize list of unvisited cities\n    SET unvisited = list of all cities EXCEPT start_city",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
+    ]
   }
 ]
