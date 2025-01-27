@@ -190,8 +190,9 @@ def ackley(s):
 
 ## Random Number Generation
 
--   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). Basic example using np.random.rand() to generate uniform random numbers between 0 and 1.
--   More specifically, the np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive).
+* The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive). 
+* Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). 
+* The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 [0,1). It is saved in a variable rand_nums and the values in the variable are printed.
 
 ```{python}
 rand_nums = np.random.rand(5)
@@ -210,10 +211,11 @@ print("Random Standard Normal Values:", random_values)
 
 ```
 
+
 ## np.random.uniform
 
--   The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
--   In hill climbing, the algorithm often starts with a random solution. This can be simulated with np.random.uniform, which generates random numbers between a specified range.
+*The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
+* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.
 
 ```{python}
 # Generate a random starting point for the hill climbing algorithm
@@ -257,6 +259,12 @@ print(random_integers)
         new_sol[index] = 1 - new_sol[index]  # Flip a random bit
         return new_sol
     ```
+
+* To compare: 
+     + np.random.standard_normal = normal distribution with mean and sd
+     + np.random.rand = uniform distribution between [0,1)
+     + np.random.uniform = uniform over a specified range
+     + np.random.randint = random integers within a specified range
 
 ## Sorting the data: np.argsort
 
