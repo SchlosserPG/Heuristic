@@ -109,6 +109,13 @@ array = np.array([1, 2, 3, 4])
 print("Array:", array)
 ```
 
+* np.arange() is a NumPy function that generates an array with evenly spaced values within a given range.
+
+```{python}
+array = np.arange(1, 5)  # Generates [1, 2, 3, 4]
+print("Array:", array)
+```
+
 ## Element-Wise Operations
 
 -   Element-wise operators are mathematical or logical operations applied independently to corresponding elements in arrays or matrices of the same shape.
@@ -239,6 +246,13 @@ print(f"Random start: {random_start}")
 random_integers = np.random.randint(10, 20, size=5)
 print(random_integers)
 
+```
+
+* We can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array. 
+
+```{python}
+random_2d_array = np.random.randint(10, 20, size=(3, 5)) 
+print(random_2d_array)
 ```
 
 ## np.random.randint from Simulated Annealing

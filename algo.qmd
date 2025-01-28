@@ -8,10 +8,11 @@ runtime: python
 # *Automate This* by Christopher Steiner
 
 -   An algorithm is a set of operations (mathematical, technical) to be conducted in a certain sequence to achieve a certain goal.
+
 -   This book discusses the rise of algorithms and their transformative impact on industries.
 
-     + Algorithms have gone from being a tool used by a few specialists to becoming a driving force in business, finance, healthcare, and more.
-     + Automation through algorithms is reshaping the world, with both positive and negative implications.
+    -   Algorithms have gone from being a tool used by a few specialists to becoming a driving force in business, finance, healthcare, and more.
+    -   Automation through algorithms is reshaping the world, with both positive and negative implications.
 
 ## Algorithms Key Concepts and Examples
 
@@ -89,10 +90,9 @@ runtime: python
         -   What fields for dictionary labels?
         -   How should lists be sorted, if at all?
     -   Loop types
-        -   Should  we use a for or while  loop?
+        -   Should we use a for or while loop?
         -   How to we increase the ease of coding and development?
     -   Should we use functions?
-
 
 # Deciphering Algorithmic Notation
 
@@ -265,7 +265,6 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 
 -   **Explanation**: This is the cost calculation for the nearest neighbor heuristic, where $\text{NN}(i)$ denotes the nearest neighbor of city $i$. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.
 
-
 # Pseudocode Know-how
 
 -   Don’t include code-specific features such as variable declarations, data types, or specific keywords.
@@ -279,7 +278,6 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 -   Bad: int sum = 0; for (i=0; i \< n; i++) sum += arr\[i\];
 
 -   Good: SET sum = 0, FOR each element in the list, sum = sum + number
-
 
 ## Tips for Writing Good Pseudocode
 
@@ -314,8 +312,7 @@ RETURN sum
 
 ```
 
-
-## Pseudocode for  TSP Nearest Neighbor Model
+## Pseudocode for TSP Nearest Neighbor Model
 
 -   Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.
 -   Output: It outputs the route and the total distance traveled.
