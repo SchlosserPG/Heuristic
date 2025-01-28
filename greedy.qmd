@@ -125,13 +125,17 @@ print(f"Minimum number of coins needed: {num_coins}")
 
 ## Traveling Salesman Algorithm
 
-$$\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi(i+1)}\right) \right] + d\left(c_{\pi(n)}, c_{\pi(1)}\right)$$
+Optimal Path: $$\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi(i+1)}\right) \right] + d\left(c_{\pi(n)}, c_{\pi(1)}\right)$$
 
-Where $c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
+Where min_(𝑠∈𝒮_𝜋 )$c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
+
+vs. 
+
+Nearest Neighbor (Greedy): $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 
 ![Greedy Map](Pictures/GreedyMap.png "Greedy Map")
 
-### Greedy TSP Solution
+### Greedy TSP Solution using Nearest Neighbor
 
 -   Start at Richmond. Find the nearest city. From Richmond, the nearest city is Petersburg (25 miles). Move to Petersburg.
 
@@ -163,7 +167,6 @@ my_dict = {
      "key2": "value2",
      "key3": "value3"
 }
-
 ```
 
 -   A dictionary of dictionaries is a nested data structure in Python where the values of a dictionary are themselves dictionaries. It allows for organizing hierarchical or complex data in a structured way. This type of dictionary is especially useful for representing relationships, groupings, or matrices where each primary key maps to another dictionary of key-value pairs.
