@@ -434,7 +434,7 @@
     "href": "greedy.html#definition-3",
     "title": "Introduction to Greedy Algorithms",
     "section": "Definition 3",
-    "text": "Definition 3\n\nIf the optimal solution \\(s*\\) for the problem 𝑃 exists, then the optimal \\(f(s)\\) is defined as \\(min_{s \\in A} f(s)\\), subject to \\(\\forall c_i(s) \\odot b_i\\),\nWhile the maximization problem of maximizing \\(f(s)\\) subject to some constraints can be defined as \\(max_{s \\in A} f(s)\\), subject to \\(\\forall c_i(s) \\odot b_i\\)",
+    "text": "Definition 3\n\nIf the optimal solution \\(s*\\) for the problem 𝑃 exists, then the optimal value \\(f^*\\) is defined as \\(min_{s \\in A} f(s)\\), subject to \\(\\forall c_i(s) \\odot b_i\\),\nWhile the maximization problem of maximizing \\(f(s)\\) subject to some constraints can be defined as \\(max_{s \\in A} f(s)\\), subject to \\(\\forall c_i(s) \\odot b_i\\)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to Greedy Algorithms</span>"
     ]

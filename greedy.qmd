@@ -30,7 +30,7 @@ format: html
 
 ## Definition 3
 
--   If the optimal solution $s*$ for the problem 𝑃 exists, then the optimal $f(s)$ is defined as $min_{s \in A} f(s)$, subject to $\forall c_i(s) \odot b_i$,
+-   If the optimal solution $s*$ for the problem 𝑃 exists, then the optimal value $f^*$ is defined as $min_{s \in A} f(s)$, subject to $\forall c_i(s) \odot b_i$,
 -   While the maximization problem of maximizing $f(s)$ subject to some constraints can be defined as $max_{s \in A} f(s)$, subject to $\forall c_i(s) \odot b_i$
 
 # The Greedy Algorithm
