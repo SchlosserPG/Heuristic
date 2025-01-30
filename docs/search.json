@@ -424,7 +424,7 @@
     "href": "greedy.html#definition-2",
     "title": "Introduction to Greedy Algorithms",
     "section": "Definition 2",
-    "text": "Definition 2\n\nThe optimal solution is a solution, out of all feasible candidate solutions of the optimization problem \\(P\\), that gives the optimal value. \\(f(s^*) = \\operatorname{opt} \\{f(s)\\}, \\, \\forall \\, c_i(s) \\, \\odot \\, b_i, \\, i = 1, 2, \\dots, m.\\)",
+    "text": "Definition 2\n\nThe optimal solution is a solution, out of all feasible candidate solutions of the optimization problem \\(P\\), that gives the optimal value. \\(f(s^*) = \\operatorname{opt} \\{f(s)\\}, \\, \\forall \\, c_i(s) \\, \\odot \\, b_i, \\, i = 1, 2, \\dots, m.\\)\n\nTo compare \\(f(s)\\) with \\(f(s^*)\\), \\(f(s)\\) represents the objective function evaluated at a solution \\(s\\). \\(f(s^*)\\) refers to the optimal solution, where \\(s^*\\) is the best candidate that optimizes \\(f(s)\\) (either maximizing or minimizing it).",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to Greedy Algorithms</span>"
     ]

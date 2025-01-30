@@ -24,9 +24,13 @@ format: html
     -   $f(s): A->B$ is the objective function
     -   $\odot$ is $>, <, =, <=, >=$
 
+
+
 ## Definition 2
 
 -   The optimal solution is a solution, out of all feasible candidate solutions of the optimization problem $P$, that gives the optimal value. $f(s^*) = \operatorname{opt} \{f(s)\}, \, \forall \, c_i(s) \, \odot \, b_i, \, i = 1, 2, \dots, m.$
+
+To compare $f(s)$ with $f(s^*)$, $f(s)$ represents the objective function evaluated at a solution $s$. $f(s^*)$ refers to the optimal solution, where $s^*$ is the best candidate that optimizes $f(s)$ (either maximizing or minimizing it).
 
 ## Definition 3
 
