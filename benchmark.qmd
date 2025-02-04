@@ -7,7 +7,8 @@ runtime: python
 
 # Benchmark Problems: Overview
 
--   OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
+-   OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. 
+* Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
 -   Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms' ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.
 -   Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
 -   These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.
@@ -18,11 +19,12 @@ runtime: python
 
 -   In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.
 
--   Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them?
+-   Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them? If 0 meant that you were unable to satisfy that goal, and 1 meant that you were able to satisfy that goal, wouldn’t you want all 1s. 
+
 
 ### One Max Formula
 
--   Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. It can be any positive integer.
+-   Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. 
 -   Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.
 -   Example Run: If the generated binary string is \[1, 0, 1, 1, 0, 1, 0, 1, 1, 0\], the fitness would be 6, since there are six 1s in the string.
 -   The objective is to maximize the number of 1s in a binary string.
@@ -66,32 +68,32 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def one_max(binary_string):
-    return sum(binary_string)
+    return np.sum(binary_string)  
 
 # Example usage: # Length of the binary string
 n = 10
 
-# Generate a random binary string of length n
-binary_string = np.random.randint(0, 2, size=n).tolist()
+# Generate a random binary string of length n (keeps it as a NumPy array)
+binary_string = np.random.randint(0, 2, size=n)
 
-# Calculate the fitness
+# Calculate the fitness using np.sum
 fitness = one_max(binary_string)
 
 print(f"Binary string: {binary_string}")
 print(f"Fitness (number of 1s): {fitness}")
 
-
+#### Example of a fitness plot with new summed fitness score
 iterations = 20
-fitness_over_time = [np.random.randint(0, n + 1) for _ in range(iterations)]  # Random example of fitness change
+fitness_over_time = np.random.randint(0, n + 1, size=iterations)
 
 # Line plot of fitness over iterations
-plt.figure(figsize=(10, 4))
+plt.figure(figsize=(8, 4))
 plt.plot(range(iterations), fitness_over_time, marker='o', color='green', linestyle='-', linewidth=2)
 plt.fill_between(range(iterations), fitness_over_time, color='lightgreen', alpha=0.4)
 plt.title(f"Fitness Evolution Over Time")
 plt.xlabel("Iteration")
 plt.ylabel("Fitness (number of 1s)")
-plt.xticks(np.arange(0, iterations, step=1))  # Show whole numbers on the x-axis
+plt.xticks(np.arange(0, iterations, step=1))  # The step shows whole numbers on the x-axis
 
 plt.grid(True)
 plt.show()
@@ -169,14 +171,13 @@ plt.show()
 
 ### Example Fractional Knapsack Problem
 
--   Knapsack Capacity: 15 kg
-
-    -   Items Available:
+* Items Available:
         -   Item 1: Value = 10, Weight = 5 kg
         -   Item 2: Value = 40, Weight = 10 kg
         -   Item 3: Value = 30, Weight = 15 kg
 
--   Objective: Maximize the total value without exceeding 15 kg.
+-   Objective: Maximize the total value without exceeding Knapsack Capacity of 15 kg. 
+
 
 -   The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.
 
@@ -362,15 +363,15 @@ plt.show()
 
 ```
 
--   Example results: Vector s: \[12.8 3.16\]; Ackley function result: 17.9
+-   Example results: Vector s: \[12.8 3.16\]; Ackley function result: 17.9. These results are random, so it may vary from what you see in the plot. 
 -   Distance from the Origin: The Ackley function reaches its global minimum of 0 at the origin (i.e., when both $x_1$ and $x_2$ are close to 0). Our vector values are quite far from the origin, which is why the function result is positive and relatively large at 17.9"
 -   The Ackley landscape has an exponentially increasing structure as you move away from the global minimum. It has many local minima, which makes optimization algorithms prone to getting stuck in suboptimal solutions. A result like 17.9 is far from zero, and indicates that the vector is located in such a suboptimal region of the function space.
 -   Thus, the Ackley result of 17.9 suggests that the point \[12.8 3.16\]; is not close to the global minimum (which is zero at the origin) and is located in a region of higher function values.
 
 #### Differential Evolution with the Ackley Function
 
--   To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution (DE), which is effective for non-convex functions with many local minima.
--   Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.
+-   To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution, which is effective for non-convex functions with many local minima.
+-   Differential Evolution is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.
 -   The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.
 
 ```{python}
@@ -432,6 +433,8 @@ plt.show()
 ## Multi-objective Optimization Problem (MOP)
 
 -   Given a set of functions and a set of constraints, the MOP is to find the optimal value or a set of optimal values (also called Pareto front), subject to the constraints, out of all possible solutions of these functions.
+* The Pareto front consists of solutions where no objective can be improved without worsening at least one other objective. For example, In product design, you might want to minimize cost while maximizing performance. These two objectives are often in conflict, meaning improving one leads to trade-offs in the other.
+
 
 $$\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
 \quad \mathbf{s} \in \mathbb{R}^n, 
@@ -453,8 +456,6 @@ $$\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
 #### Characteristics and Visualization
 
 -   Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.
--   Uniqueness: The problem has a unique global Pareto-optimal front.
--   Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.
 -   Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where $f_1(x)$ is plotted against $f_2(x)$ and the curve represents the set of optimal trade-offs between the two objectives.
 
 ```{python}
@@ -626,6 +627,7 @@ plt.grid(True)
 plt.show()
 ```
 
+#### Looking at the results
 -   The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.
 -   Optimal value of $s$ we found is nearly exactly $1$, the known optimal solution for the Schaffer function.
     -   Objective function values: $f_1(s) = s^2 = 1.000000027$
@@ -633,26 +635,20 @@ plt.show()
     -   These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
 -   Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
 
+
+
 # Using AI
-* Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
-** evaluating optimization algorithms? Provide examples of their use in different domains.
-* Benchmark Problems Overview: What are benchmark problems, and why are they essential in evaluating optimization algorithms? Provide examples of their use in different domains.
-* Comparing Problems: Compare the OneMax problem, the Knapsack problem, and the Ackley function. Discuss the type of optimization each addresses and the challenges it presents.
-* Fitness Function: Write a Python function to evaluate the fitness of a binary string in the OneMax problem. Explain how this function helps in evolutionary algorithms.
-* Greedy vs Dynamic Programming: Solve the Fractional Knapsack problem using a greedy algorithm. Then, solve the 0/1 Knapsack problem using dynamic programming. Compare the results and explain the differences in their complexity and solutions.
-* Applications: Discuss real-world applications of the Knapsack problem. How do its constraints reflect practical optimization challenges?
-* Function Analysis: Explain why the Ackley function is challenging for optimization algorithms. What characteristics make it a good benchmark for multi-modal optimization?
-* Python Implementation: Use the provided Ackley function implementation to evaluate random points in the search space. Visualize the function in 3D and identify the global minimum.
-* Optimization Challenges: Discuss the concept of deception in B2D problems. Why is it critical for testing an algorithm's ability to escape local optima?
-* Schaffer Min-Min Problem: Solve the Schaffer Min-Min problem using a weighted sum approach. Experiment with different weight combinations and discuss how they affect the solution.
 
-
-
+-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered. \*\* evaluating optimization algorithms? Provide examples of their use in different domains.
+-   Benchmark Problems Overview: What are benchmark problems, and why are they essential in evaluating optimization algorithms? Provide examples of their use in different domains.
+-   Comparing Problems: Compare the OneMax problem, the Knapsack problem, and the Ackley function. Discuss the type of optimization each addresses and the challenges it presents.
+-   Fitness Function: Write a Python function to evaluate the fitness of a binary string in the OneMax problem. Explain how this function helps in evolutionary algorithms.
+-   Applications: Discuss real-world applications of the Knapsack problem. How do its constraints reflect practical optimization challenges?
+-   Function Analysis: Explain why the Ackley function is challenging for optimization algorithms. What characteristics make it a good benchmark for multi-modal optimization?
+-   Python Implementation: Use the provided Ackley function implementation to evaluate random points in the search space. Visualize the function in 3D and identify the global minimum.
+-   Schaffer Min-Min Problem: Solve the Schaffer Min-Min problem using a weighted sum approach. Experiment with different weight combinations and discuss how they affect the solution.
 
 # Conclusions
 
 -   We introduced a set of popular optimization benchmark problems, widely used to evaluate the performance of various algorithms across different types of optimization challenges. These benchmarks include the OneMax Problem, which is commonly used in evolutionary algorithm research to assess an algorithm’s capacity to evolve a binary string towards an optimal solution, specifically a string composed entirely of 1s. This problem is straightforward and serves as a foundation for evaluating basic evolutionary or heuristic methods. The Knapsack Problem is a classic combinatorial, NP-complete problem that tests algorithms’ abilities to maximize the total value of selected items without exceeding a weight limit. This problem is pivotal in assessing algorithms designed for discrete optimization tasks, where finding an optimal solution is computationally intensive.
-
--   The Binary-to-Decimal (B2D) Problem introduces a deceptive landscape that misleads optimization algorithms toward suboptimal solutions. It is particularly useful for testing whether an algorithm can avoid getting trapped in local optima and demonstrates the importance of incorporating diversity strategies like mutation in evolutionary algorithms.
-
 -   The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives. Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios.

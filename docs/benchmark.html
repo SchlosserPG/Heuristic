@@ -324,7 +324,8 @@ window.Quarto = {
 <section id="benchmark-problems-overview" class="level1">
 <h1>Benchmark Problems: Overview</h1>
 <ul>
-<li>OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.</li>
+<li>OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods.</li>
+<li>Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.</li>
 <li>Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms’ ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.</li>
 <li>Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.</li>
 <li>These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.</li>
@@ -336,12 +337,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="onemax-problem">OneMax Problem</h2>
 <ul>
 <li><p>In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.</p></li>
-<li><p>Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them?</p></li>
+<li><p>Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them? If 0 meant that you were unable to satisfy that goal, and 1 meant that you were able to satisfy that goal, wouldn’t you want all 1s.</p></li>
 </ul>
 <section id="one-max-formula" class="level3">
 <h3 class="anchored" data-anchor-id="one-max-formula">One Max Formula</h3>
 <ul>
-<li>Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. It can be any positive integer.</li>
+<li>Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s.</li>
 <li>Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.</li>
 <li>Example Run: If the generated binary string is [1, 0, 1, 1, 0, 1, 0, 1, 1, 0], the fitness would be 6, since there are six 1s in the string.</li>
 <li>The objective is to maximize the number of 1s in a binary string.</li>
@@ -379,49 +380,49 @@ PRINT "Fitness (number of 1s):", fitness
 </section>
 <section id="onemax-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="onemax-python-implementation">OneMax Python Implementation</h3>
-<div id="1c9d3b9b" class="cell" data-execution_count="1">
+<div id="6a637c60" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_max(binary_string):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(binary_string)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(binary_string)  </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage: # Length of the binary string</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random binary string of length n</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>binary_string <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>n).tolist()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a random binary string of length n (keeps it as a NumPy array)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>binary_string <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>n)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the fitness</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the fitness using np.sum</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fitness <span class="op">=</span> one_max(binary_string)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Binary string: </span><span class="sc">{</span>binary_string<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fitness (number of 1s): </span><span class="sc">{</span>fitness<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#### Example of a fitness plot with new summed fitness score</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>iterations <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>fitness_over_time <span class="op">=</span> [np.random.randint(<span class="dv">0</span>, n <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterations)]  <span class="co"># Random example of fitness change</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>fitness_over_time <span class="op">=</span> np.random.randint(<span class="dv">0</span>, n <span class="op">+</span> <span class="dv">1</span>, size<span class="op">=</span>iterations)</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Line plot of fitness over iterations</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterations), fitness_over_time, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.fill_between(<span class="bu">range</span>(iterations), fitness_over_time, color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fitness Evolution Over Time"</span>)</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteration"</span>)</span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Fitness (number of 1s)"</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, iterations, step<span class="op">=</span><span class="dv">1</span>))  <span class="co"># Show whole numbers on the x-axis</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(<span class="dv">0</span>, iterations, step<span class="op">=</span><span class="dv">1</span>))  <span class="co"># The step shows whole numbers on the x-axis</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Binary string: [1, 1, 0, 0, 1, 1, 0, 1, 0, 1]
-Fitness (number of 1s): 6</code></pre>
+<pre><code>Binary string: [0 1 0 1 0 1 0 0 0 1]
+Fitness (number of 1s): 4</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="benchmark_files/figure-html/cell-2-output-2.png" width="808" height="376" class="figure-img"></p>
+<p><img src="benchmark_files/figure-html/cell-2-output-2.png" width="659" height="376" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -437,7 +438,7 @@ Fitness (number of 1s): 6</code></pre>
 <li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
 <li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
 </ul>
-<div id="7539f58a" class="cell" data-execution_count="2">
+<div id="fd084176" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -493,16 +494,8 @@ Fitness (number of 1s): 6</code></pre>
 <section id="example-fractional-knapsack-problem" class="level3">
 <h3 class="anchored" data-anchor-id="example-fractional-knapsack-problem">Example Fractional Knapsack Problem</h3>
 <ul>
-<li><p>Knapsack Capacity: 15 kg</p>
-<ul>
-<li>Items Available:
-<ul>
-<li>Item 1: Value = 10, Weight = 5 kg</li>
-<li>Item 2: Value = 40, Weight = 10 kg</li>
-<li>Item 3: Value = 30, Weight = 15 kg</li>
-</ul></li>
-</ul></li>
-<li><p>Objective: Maximize the total value without exceeding 15 kg.</p></li>
+<li><p>Items Available: - Item 1: Value = 10, Weight = 5 kg - Item 2: Value = 40, Weight = 10 kg - Item 3: Value = 30, Weight = 15 kg</p></li>
+<li><p>Objective: Maximize the total value without exceeding Knapsack Capacity of 15 kg.</p></li>
 <li><p>The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.</p></li>
 <li><p>0/1 Knapsack Problem requires more complex algorithms like dynamic programming to find the optimal solution over the Fractional Knapsack Problem</p></li>
 </ul>
@@ -675,7 +668,7 @@ PRINT Ackley function result for vector s
 </section>
 <section id="ackley-function-python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="ackley-function-python-implementation">Ackley Function Python Implementation</h4>
-<div id="c5c036e7" class="cell" data-execution_count="3">
+<div id="4654274d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -736,7 +729,7 @@ Ackley function result: 17.91745666838746</code></pre>
 </div>
 </div>
 <ul>
-<li>Example results: Vector s: [12.8 3.16]; Ackley function result: 17.9</li>
+<li>Example results: Vector s: [12.8 3.16]; Ackley function result: 17.9. These results are random, so it may vary from what you see in the plot.</li>
 <li>Distance from the Origin: The Ackley function reaches its global minimum of 0 at the origin (i.e., when both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are close to 0). Our vector values are quite far from the origin, which is why the function result is positive and relatively large at 17.9”</li>
 <li>The Ackley landscape has an exponentially increasing structure as you move away from the global minimum. It has many local minima, which makes optimization algorithms prone to getting stuck in suboptimal solutions. A result like 17.9 is far from zero, and indicates that the vector is located in such a suboptimal region of the function space.</li>
 <li>Thus, the Ackley result of 17.9 suggests that the point [12.8 3.16]; is not close to the global minimum (which is zero at the origin) and is located in a region of higher function values.</li>
@@ -745,11 +738,11 @@ Ackley function result: 17.91745666838746</code></pre>
 <section id="differential-evolution-with-the-ackley-function" class="level4">
 <h4 class="anchored" data-anchor-id="differential-evolution-with-the-ackley-function">Differential Evolution with the Ackley Function</h4>
 <ul>
-<li>To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution (DE), which is effective for non-convex functions with many local minima.</li>
-<li>Differential Evolution (DE) is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
+<li>To demonstrate how an algorithm does well on the Ackley function, we can use a global optimization algorithm such as Differential Evolution, which is effective for non-convex functions with many local minima.</li>
+<li>Differential Evolution is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
 <li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
 </ul>
-<div id="a62cd645" class="cell" data-execution_count="4">
+<div id="9c64de30" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -822,6 +815,7 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <h2 class="anchored" data-anchor-id="multi-objective-optimization-problem-mop">Multi-objective Optimization Problem (MOP)</h2>
 <ul>
 <li>Given a set of functions and a set of constraints, the MOP is to find the optimal value or a set of optimal values (also called Pareto front), subject to the constraints, out of all possible solutions of these functions.</li>
+<li>The Pareto front consists of solutions where no objective can be improved without worsening at least one other objective. For example, In product design, you might want to minimize cost while maximizing performance. These two objectives are often in conflict, meaning improving one leads to trade-offs in the other.</li>
 </ul>
 <p><span class="math display">\[\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
 \quad \mathbf{s} \in \mathbb{R}^n,
@@ -847,11 +841,9 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <h4 class="anchored" data-anchor-id="characteristics-and-visualization">Characteristics and Visualization</h4>
 <ul>
 <li>Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.</li>
-<li>Uniqueness: The problem has a unique global Pareto-optimal front.</li>
-<li>Complexity: Despite its simplicity, the problem is useful for benchmarking optimization algorithms, especially in multi-objective optimization.</li>
 <li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
 </ul>
-<div id="76fdf1d8" class="cell" data-execution_count="5">
+<div id="b8f22bf7" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -932,7 +924,7 @@ PRINT "Combined objective:", combined_objective(result.x)
 <li>Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.</li>
 <li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
 </ul>
-<div id="9055ae15" class="cell" data-execution_count="6">
+<div id="d2babafb" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1005,6 +997,9 @@ Combined objective: 1.0000000000000002</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="looking-at-the-results" class="level4">
+<h4 class="anchored" data-anchor-id="looking-at-the-results">Looking at the results</h4>
 <ul>
 <li>The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.</li>
 <li>Optimal value of <span class="math inline">\(s\)</span> we found is nearly exactly <span class="math inline">\(1\)</span>, the known optimal solution for the Schaffer function.
@@ -1026,20 +1021,17 @@ Combined objective: 1.0000000000000002</code></pre>
 <li>Benchmark Problems Overview: What are benchmark problems, and why are they essential in evaluating optimization algorithms? Provide examples of their use in different domains.</li>
 <li>Comparing Problems: Compare the OneMax problem, the Knapsack problem, and the Ackley function. Discuss the type of optimization each addresses and the challenges it presents.</li>
 <li>Fitness Function: Write a Python function to evaluate the fitness of a binary string in the OneMax problem. Explain how this function helps in evolutionary algorithms.</li>
-<li>Greedy vs Dynamic Programming: Solve the Fractional Knapsack problem using a greedy algorithm. Then, solve the 0/1 Knapsack problem using dynamic programming. Compare the results and explain the differences in their complexity and solutions.</li>
 <li>Applications: Discuss real-world applications of the Knapsack problem. How do its constraints reflect practical optimization challenges?</li>
 <li>Function Analysis: Explain why the Ackley function is challenging for optimization algorithms. What characteristics make it a good benchmark for multi-modal optimization?</li>
 <li>Python Implementation: Use the provided Ackley function implementation to evaluate random points in the search space. Visualize the function in 3D and identify the global minimum.</li>
-<li>Optimization Challenges: Discuss the concept of deception in B2D problems. Why is it critical for testing an algorithm’s ability to escape local optima?</li>
 <li>Schaffer Min-Min Problem: Solve the Schaffer Min-Min problem using a weighted sum approach. Experiment with different weight combinations and discuss how they affect the solution.</li>
 </ul>
 </section>
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
 <ul>
-<li><p>We introduced a set of popular optimization benchmark problems, widely used to evaluate the performance of various algorithms across different types of optimization challenges. These benchmarks include the OneMax Problem, which is commonly used in evolutionary algorithm research to assess an algorithm’s capacity to evolve a binary string towards an optimal solution, specifically a string composed entirely of 1s. This problem is straightforward and serves as a foundation for evaluating basic evolutionary or heuristic methods. The Knapsack Problem is a classic combinatorial, NP-complete problem that tests algorithms’ abilities to maximize the total value of selected items without exceeding a weight limit. This problem is pivotal in assessing algorithms designed for discrete optimization tasks, where finding an optimal solution is computationally intensive.</p></li>
-<li><p>The Binary-to-Decimal (B2D) Problem introduces a deceptive landscape that misleads optimization algorithms toward suboptimal solutions. It is particularly useful for testing whether an algorithm can avoid getting trapped in local optima and demonstrates the importance of incorporating diversity strategies like mutation in evolutionary algorithms.</p></li>
-<li><p>The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives. Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios.</p></li>
+<li>We introduced a set of popular optimization benchmark problems, widely used to evaluate the performance of various algorithms across different types of optimization challenges. These benchmarks include the OneMax Problem, which is commonly used in evolutionary algorithm research to assess an algorithm’s capacity to evolve a binary string towards an optimal solution, specifically a string composed entirely of 1s. This problem is straightforward and serves as a foundation for evaluating basic evolutionary or heuristic methods. The Knapsack Problem is a classic combinatorial, NP-complete problem that tests algorithms’ abilities to maximize the total value of selected items without exceeding a weight limit. This problem is pivotal in assessing algorithms designed for discrete optimization tasks, where finding an optimal solution is computationally intensive.</li>
+<li>The Ackley Function represents a single continuous optimization benchmark with a highly multi-modal landscape. It is challenging due to its numerous local minima, making it ideal for testing an algorithm’s ability to balance exploration and exploitation in continuous search spaces. In multi-objective optimization, the Schaffer Min-Min Problem serves as a benchmark, presenting a simple yet effective test for algorithms to identify Pareto-optimal solutions, as it requires the simultaneous minimization of two objectives. Collectively, these benchmark problems allow researchers and practitioners to compare the strengths and limitations of optimization algorithms across both discrete and continuous scenarios.</li>
 </ul>
 
 
