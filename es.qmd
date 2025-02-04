@@ -32,10 +32,13 @@ runtime: python
 
 ## Exhaustive Search in Continuous vs. Discrete Domains
 
--   Continuous Domains: Require discretization (using a step size) to make exhaustive search feasible.
-    -   Example: Ackley function.
+
 -   Discrete Domains: Solutions can be explicitly enumerated without discretization.
     -   Example: Knapsack problem.
+
+-   Continuous Domains: Require discretization (using a step size) to make exhaustive search feasible.
+    -   Example: Ackley function.
+
 -   Challenges in Continuous Domains:
     -   Infinite solution space makes direct enumeration impossible.
     -   Step size is critical for balancing resolution and computational cost.
