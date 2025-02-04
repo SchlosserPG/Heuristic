@@ -380,7 +380,7 @@ PRINT "Fitness (number of 1s):", fitness
 </section>
 <section id="onemax-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="onemax-python-implementation">OneMax Python Implementation</h3>
-<div id="6a637c60" class="cell" data-execution_count="1">
+<div id="c44b2919" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -438,7 +438,7 @@ Fitness (number of 1s): 4</code></pre>
 <li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
 <li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
 </ul>
-<div id="fd084176" class="cell" data-execution_count="2">
+<div id="bae214d7" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -668,7 +668,7 @@ PRINT Ackley function result for vector s
 </section>
 <section id="ackley-function-python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="ackley-function-python-implementation">Ackley Function Python Implementation</h4>
-<div id="4654274d" class="cell" data-execution_count="3">
+<div id="1aa5b08c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -742,7 +742,7 @@ Ackley function result: 17.91745666838746</code></pre>
 <li>Differential Evolution is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
 <li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
 </ul>
-<div id="9c64de30" class="cell" data-execution_count="4">
+<div id="7c4329cf" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -843,7 +843,7 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <li>Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.</li>
 <li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
 </ul>
-<div id="b8f22bf7" class="cell" data-execution_count="5">
+<div id="04dda918" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -923,8 +923,11 @@ PRINT "Combined objective:", combined_objective(result.x)
 <li>Population Initialization: A population of random solutions is initialized within the bounds [−1000,1000]. Objective Function Evaluation: For each solution, both objective functions are evaluated.</li>
 <li>Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.</li>
 <li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
+<li>The plot uses the weighted sum minimization, w1 * f1(s) + w2 * f2(s) instead of plotting the Pareto front. I will plot the pareto front below.<br>
+</li>
+<li>The script prints: The optimal <span class="math inline">\(s\)</span> value. The corresponding function values <span class="math inline">\(f1(s)\)</span> and <span class="math inline">\(f2(s)\)</span> at that point. The minimum combined objective function value.</li>
 </ul>
-<div id="d2babafb" class="cell" data-execution_count="6">
+<div id="8f266c27" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1001,15 +1004,64 @@ Combined objective: 1.0000000000000002</code></pre>
 <section id="looking-at-the-results" class="level4">
 <h4 class="anchored" data-anchor-id="looking-at-the-results">Looking at the results</h4>
 <ul>
-<li>The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.</li>
-<li>Optimal value of <span class="math inline">\(s\)</span> we found is nearly exactly <span class="math inline">\(1\)</span>, the known optimal solution for the Schaffer function.
+<li><p>The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.</p></li>
+<li><p>Optimal value of <span class="math inline">\(s\)</span> we found is nearly exactly <span class="math inline">\(1\)</span>, the known optimal solution for the Schaffer function.</p>
 <ul>
 <li>Objective function values: <span class="math inline">\(f_1(s) = s^2 = 1.000000027\)</span></li>
 <li>: <span class="math inline">\(f_2(s) = (s-2)^2 = 0.999999973\)</span></li>
 <li>These values are very close to 1 for both <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span>, indicating that the function values at this <span class="math inline">\(s\)</span> are near-optimal.</li>
 </ul></li>
-<li>Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.</li>
+<li><p>Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.</p></li>
+<li><p>Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see <span class="math inline">\(f_1\)</span> and $<span class="math inline">\(f_2\)</span> on the x and y axis.</p></li>
+<li><p>There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.</p></li>
 </ul>
+<div id="75c8b203" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate s values</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>s_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">400</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifying the non-dominated solutions (Pareto front)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>pareto_f1 <span class="op">=</span> []</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>pareto_f2 <span class="op">=</span> []</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> s_values:</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    f1_val <span class="op">=</span> f1(s)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    f2_val <span class="op">=</span> f2(s)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A point (f1, f2) is Pareto-optimal if no other point dominates it</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">any</span>(other_f1 <span class="op">&lt;=</span> f1_val <span class="kw">and</span> other_f2 <span class="op">&lt;=</span> f2_val <span class="cf">for</span> other_f1, other_f2 <span class="kw">in</span> <span class="bu">zip</span>(pareto_f1, pareto_f2)):</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        pareto_f1.append(f1_val)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        pareto_f2.append(f2_val)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting to ensure a smooth Pareto front curve</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>pareto_f1, pareto_f2 <span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span><span class="bu">sorted</span>(<span class="bu">zip</span>(pareto_f1, pareto_f2)))</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the Pareto front with a more visible optimal point</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>plt.plot(pareto_f1, pareto_f2, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">"Pareto Front"</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the optimal solution (1,1) with a larger marker and annotation</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">1</span>, <span class="dv">1</span>, color<span class="op">=</span><span class="st">'black'</span>, marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">"Optimal (1,1)"</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">"Optimal (1,1)"</span>, xy<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), xytext<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>             textcoords<span class="op">=</span><span class="st">"offset points"</span>, fontsize<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>             arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>))</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Pareto Front of the Schaffer Min-Min Problem"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"f1(s) = s^2"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"f2(s) = (s - 2)^2"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="benchmark_files/figure-html/cell-8-output-1.png" width="670" height="528" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

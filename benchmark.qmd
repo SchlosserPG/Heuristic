@@ -565,6 +565,10 @@ PRINT "Combined objective:", combined_objective(result.x)
 -   Population Initialization: A population of random solutions is initialized within the bounds \[−1000,1000\]. Objective Function Evaluation: For each solution, both objective functions are evaluated.
 -   Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.
 -   Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).
+* The plot uses the weighted sum minimization, w1 * f1(s) + w2 * f2(s) instead of plotting the Pareto front. I will plot the pareto front below.  
+* The script prints:
+The optimal $s$ value.
+The corresponding function values  $f1(s)$ and $f2(s)$ at that point. The minimum combined objective function value.
 
 ```{python}
 import numpy as np
@@ -635,6 +639,51 @@ plt.show()
     -   These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
 -   Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
 
+* Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see $f_1$ and $$f_2$ on the x and y axis. 
+* There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.  
+```{python}
+
+# Generate s values
+s_values = np.linspace(-10, 10, 400)
+
+# Identifying the non-dominated solutions (Pareto front)
+pareto_f1 = []
+pareto_f2 = []
+
+for s in s_values:
+    f1_val = f1(s)
+    f2_val = f2(s)
+
+    # A point (f1, f2) is Pareto-optimal if no other point dominates it
+    if not any(other_f1 <= f1_val and other_f2 <= f2_val for other_f1, other_f2 in zip(pareto_f1, pareto_f2)):
+        pareto_f1.append(f1_val)
+        pareto_f2.append(f2_val)
+
+# Sorting to ensure a smooth Pareto front curve
+pareto_f1, pareto_f2 = zip(*sorted(zip(pareto_f1, pareto_f2)))
+
+# Plotting the Pareto front with a more visible optimal point
+plt.figure(figsize=(8, 6))
+plt.plot(pareto_f1, pareto_f2, marker='o', linestyle='-', color='red', label="Pareto Front")
+
+# Mark the optimal solution (1,1) with a larger marker and annotation
+plt.scatter(1, 1, color='black', marker='o', s=100, label="Optimal (1,1)")
+plt.annotate("Optimal (1,1)", xy=(1, 1), xytext=(10, 20),
+             textcoords="offset points", fontsize=12, color='black',
+             arrowprops=dict(facecolor='black', shrink=0.05))
+
+# Customize the plot
+plt.title("Pareto Front of the Schaffer Min-Min Problem", fontsize=14)
+plt.xlabel("f1(s) = s^2", fontsize=12)
+plt.ylabel("f2(s) = (s - 2)^2", fontsize=12)
+plt.legend(fontsize=12)
+plt.grid(True)
+
+# Show the plot
+plt.show()
+
+
+```
 
 
 # Using AI
