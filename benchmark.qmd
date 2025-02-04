@@ -636,7 +636,7 @@ plt.show()
     -   These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
 -   Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
 
-* Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see $f_1$ and $$f_2$ on the x and y axis. 
+* Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see $f_1$ and $f_2$ on the x and y axis. 
 * There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.  
 ```{python}
 
