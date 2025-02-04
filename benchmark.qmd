@@ -10,7 +10,7 @@ runtime: python
 -   OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. 
 * Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
 -   Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms' ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.
--   Schaffer Min-Min Problem: he Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
+-   Schaffer Min-Min Problem: The Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
 -   These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.
 
 # Discrete Optimization Problems
