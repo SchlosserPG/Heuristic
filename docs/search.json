@@ -624,7 +624,7 @@
     "href": "es.html#main-loop",
     "title": "Exhaustive Search",
     "section": "Main Loop",
-    "text": "Main Loop\n\nA while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.\n\nfitness is the “fitness” score of the current solution, calculated using evaluate(s) (which counts the number of 1’s in the binary representation of s).\nThe loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.\n\nAppends the fitness value to fitness_over_time.\n\ndetermine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.\n\nIf the current solution has a better fitness than the best found so far, it updates the best fitness and solution.\n\nFor each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).\n\nReturn Values: Returns fitness_over_time and best_solution after completing the exhaustive search.\n\n\n# Run function for exhaustive search\ndef run_exhaustive_search(num_bits=10):\n    # Initialize using init_es\n    s, f_s, max_sol = init_es(num_bits)\n    \n    #Set v = s\n    best_solution = s\n    best_fitness = f_s\n    \n    fitness_over_time = []\n    \n    # While the termination criterion is not met\n    while s &lt; max_sol:\n        # Generate the next solution v = GenNext(v)\n        v = s\n        \n        # Evaluate the new solution\n        f_v = evaluate(v)\n        \n        # Track fitness over time for plotting\n        fitness_over_time.append(f_v)\n        \n        # Print current solution and its fitness: Print command commented out for simplicity because it prints all the comparisons. \n        #print(f\"{f_v} # {v:0{num_bits}b}\")\n        \n        #If f_v is better than f_s, update s = v, f_s = f_v\n        if f_v &gt; f_s:\n            best_solution = v\n            best_fitness = f_v\n        \n        #continued: Move to the next solution\n        s += 1  # Increment solution\n    \n    #Returned for Output the best solution\n    return fitness_over_time, best_solution",
+    "text": "Main Loop\n\nA while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.\n\nFor each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).\nThe loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.\n\nfitness is the “fitness” score of the current solution, calculated using evaluate(s) (which counts the number of 1’s in the binary representation of s).\nAppends the fitness value to fitness_over_time.\ndetermine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.\nIf the current solution has a better fitness than the best found so far, it updates the best fitness and solution.\nReturn Values: Returns fitness_over_time and best_solution after completing the exhaustive search.\n\n\n# Run function for exhaustive search\ndef run_exhaustive_search(num_bits=10):\n    # Initialize using init_es\n    s, f_s, max_sol = init_es(num_bits)\n    \n    #Set v = s\n    best_solution = s\n    best_fitness = f_s\n    \n    fitness_over_time = []\n    \n    # While the termination criterion is not met\n    while s &lt; max_sol:\n        # Generate the next solution v = GenNext(v)\n        v = s\n        \n        # Evaluate the new solution\n        f_v = evaluate(v)\n        \n        # Track fitness over time for plotting\n        fitness_over_time.append(f_v)\n        \n        # Print current solution and its fitness: Print command commented out for simplicity because it prints all the comparisons. \n        #print(f\"{f_v} # {v:0{num_bits}b}\")\n        \n        #If f_v is better than f_s, update s = v, f_s = f_v\n        best_fitness, best_solution = determine(f_v, v, best_fitness, best_solution)\n\n        #continued: Move to the next solution\n        s += 1  # Increment solution\n    \n    #Returned for Output the best solution\n    return fitness_over_time, best_solution",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
     ]
@@ -647,6 +647,226 @@
     "text": "Output\n\n# Run the exhaustive search and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_exhaustive_search(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n# Output (O)\nprint(f\"Exhaustive Search One-Max Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\nprint(f\"# name of the search algorithm: Exhaustive Search\")\nprint(f\"# number of bits: {num_bits}\")\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Exhaustive Search: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\nExhaustive Search One-Max Time elapsed: 0.000000 seconds\n# name of the search algorithm: Exhaustive Search\n# number of bits: 10",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html",
+    "href": "hc.html",
+    "title": "Hill Climbing",
+    "section": "",
+    "text": "Hill Climbing (HC)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#search-strategy-of-hc",
+    "href": "hc.html#search-strategy-of-hc",
+    "title": "Hill Climbing",
+    "section": "Search Strategy of HC >",
+    "text": "Search Strategy of HC &gt;\n\nThe search strategy of HC that accepts only a better solution as the next solution.\nSuppose HC has a 50/50 chance to move either left or right in solving the one-max problem; then, in addition to the global optimum (1111), HC may end up in one of the seven or three local optima. \\(f(v)&gt;f(s)\\).\n\n\n\n\nhc search",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#search-strategy-of-hc-1",
+    "href": "hc.html#search-strategy-of-hc-1",
+    "title": "Hill Climbing",
+    "section": "Search Strategy of HC >=",
+    "text": "Search Strategy of HC &gt;=\n\nThe search strategy of HC accepts both better solutions and solutions that are equally good as the next solution.\nThe possible result if HC accepts not only a better solution but also a solution that is equally good (i.e., \\(f(v)&gt;=f(s)\\) as the next solution; then only the solutions \\(x_4\\) \\((0011)\\), \\(x_8\\) \\((0111)\\), and \\(x_12\\) \\((1011)\\) will remain as the local optima, while \\(x_16\\) \\((1111)\\) is the global optimum.\n\n\n\n\nhc search",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#hill-climbing-algorithm",
+    "href": "hc.html#hill-climbing-algorithm",
+    "title": "Hill Climbing",
+    "section": "Hill Climbing Algorithm",
+    "text": "Hill Climbing Algorithm\n\nStart: Initialize with a random solution or a predefined starting point.\nEvaluate: Assess the quality of the current solution using a heuristic function.\nGenerate Neighbors: Produce a set of neighboring solutions by making small changes.\nSelect Best Neighbor: Choose the neighbor that has the highest heuristic value.\nMove: Replace the current solution with the selected neighbor.\nRepeat: Continue the process until no better neighbors are found or a stopping criterion is met.\n\n\n\n\nhc algo",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#challenges-of-hc",
+    "href": "hc.html#challenges-of-hc",
+    "title": "Hill Climbing",
+    "section": "Challenges of HC",
+    "text": "Challenges of HC\n\nLocal Maximum: Hill climbing may get stuck at a local maximum, where no neighboring solution improves, but better solutions exist further away.\nPlateaus: It can struggle on flat regions where no clear direction of improvement is evident.\nRidges: Difficulties in navigating narrow ridges that require moving sideways to find a better peak.\nVariations to Overcome Limitations\n\nStochastic Hill Climbing: Introduces randomness to avoid local maxima.\nSimulated Annealing: Uses probabilistic decisions to escape local maxima and explore a larger solution space.\nSteepest-Ascent Hill Climbing: Considers all neighbors and selects the one with the steepest ascent.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#set-up-run-function",
+    "href": "hc.html#set-up-run-function",
+    "title": "Hill Climbing",
+    "section": "Set up Run Function",
+    "text": "Set up Run Function\n\nEvaluate the initial solution by counting the number of 1s, which serves as the “fitness” value.\nSearch for Neighbors: Generate neighboring solutions by flipping one bit at a time in the current solution. For each neighbor, calculate its fitness (number of 1s in its binary representation).\nSelect Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor’s fitness is better than the current solution’s fitness, update the current solution to this neighbor.\nRepeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.\nReturn Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.\n\n\n# Run function for hill climbing\ndef run_hc(num_bits=10, max_evals=2 ** num_bits):\n    sol = init_hc(num_bits)  # Initialize random solution\n    fitness = evaluate(sol)  # Evaluate the initial solution\n    fitness_over_time = []\n    \n    eval_count = 0\n\n    # Main loop of evaluations\n    while eval_count &lt; max_evals:\n        tmp_sol = transit(sol)  # Make a random change (flip a bit)\n        tmp_fitness = evaluate(tmp_sol)  # Evaluate the new solution\n        sol, fitness = determine(tmp_sol, tmp_fitness, sol, fitness)  # Determine if we accept the new solution\n        \n        fitness_over_time.append(fitness)  # Track the fitness over time\n        eval_count += 1\n        \n    return fitness_over_time, sol",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#helper-functions",
+    "href": "hc.html#helper-functions",
+    "title": "Hill Climbing",
+    "section": "Helper Functions:",
+    "text": "Helper Functions:\n\nInitiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).\n\n\n# Function for initialization (I)\ndef init_hc(num_bits):\n    return np.random.randint(2, size=num_bits, dtype=int)\n\n\nTransit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.\n\n\n# Function for transit: (T) \n# Flipping a random bit in the solution\ndef transit(sol):\n    new_sol = sol.copy()\n    flip_index = np.random.randint(len(sol))\n    new_sol[flip_index] = 1 - new_sol[flip_index]  # Flip the bit (0 to 1, or 1 to 0)\n    return new_sol\n\n\nEvaluate: Count the number of 1s in the binary representation of a solution (fitness value).\n\n\n# Function for evaluation: (E) \n# Sum the number of 1s (OneMax problem)\ndef evaluate(sol):\n    return np.sum(sol)\n\n\nDetermine: Track and update the current best solution and its fitness as the search progresses.\n\n\n# Function for determine: (D) \n# Decide whether to accept the new solution\ndef determine(tmp_sol, tmp_fitness, sol, fitness):\n    if tmp_fitness &gt; fitness:\n        return tmp_sol, tmp_fitness  # Accept the new solution\n    return sol, fitness  # Keep the current solution\n\n\nThe main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.\n\n\n# Main Execution\n# Run hill climbing and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_hc(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n\nThe output section displays key details about the hill climbing algorithm, including its name, the number of bits used, and the time taken for execution. It then visualizes the fitness evolution across evaluations, providing a clear plot that shows how fitness values change over time as the algorithm progresses toward the best solution.\n\n\n# Output and visualize\nprint(f\"# Name of the search algorithm: Hill Climbing\")\nprint(f\"# number of bits: {num_bits}\")\nprint(f\"Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Hill Climbing: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\n# Name of the search algorithm: Hill Climbing\n# number of bits: 10\nTime elapsed: 0.003999 seconds\n\n\n\n\n\n\n\n\n\n\nIn the chart above, the fitness score, which measures the number of 1s in a 10-bit solution, is shown over a series of evaluations. Initially, the fitness rapidly increases, suggesting that the hill climbing algorithm quickly finds improvements in the solution. Once it reaches the maximum fitness of 10, it stabilizes and remains flat, indicating that the algorithm has found an optimal solution and no further improvements are being made.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#comparison-of-es-and-hc-for-the-one-max-problem-of-size-n10",
+    "href": "hc.html#comparison-of-es-and-hc-for-the-one-max-problem-of-size-n10",
+    "title": "Hill Climbing",
+    "section": "Comparison of ES and HC for the one-max Problem of size \\(n=10\\)",
+    "text": "Comparison of ES and HC for the one-max Problem of size \\(n=10\\)\n\nHC-LR and HC-Rand to denote a similar thing. HC-Rand and HC-LR differ primarily in how they choose the next solution and handle exploration, impacting their likelihood of getting stuck in local optima.\nHC-LR (Hill Climbing with Limited Range): HC-LR’s transition operator restricts it to move only to adjacent solutions, which makes it less flexible. The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., \\(v=s−1\\) or \\(v=s+1\\)). As described in the example, if HC-LR starts with the solution “1000,” it can only move to “0111” or “1001.” If neither of these options provides an improvement, HC-LR is likely to get stuck there, leading to a local optimum. Because HC-LR only accepts moves that improve the solution, it has a high risk of getting trapped in suboptimal points without exploring further.\nHC-Rand (Hill Climbing with Randomization): HC-Rand randomly selects a part of the current solution to invert, allowing it to explore a broader range of possible next solutions. This random approach reduces the chance of getting stuck in a local optimum since the algorithm has the flexibility to try different options, even if they are not immediately better. HC-Rand’s randomness increases the probability of escaping local optima, thus improving the chances of finding a global optimum.\n\nThe solution v of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). The transition operator in the HC-Rand (Hill Climbing with Randomization) algorithm randomly selects a part (subsolution) of the current solution and inverts the chosen bit(s). For a “one-max problem” of a specific size (where the goal is to maximize the number of 1s in the solution), inverting different bits can produce several possible next solutions.\nIn the example given, there are four possible new solutions because there are four different bits that could be inverted from the current solution. If inverting one bit doesn’t improve the objective value (e.g., the number of 1s), HC-Rand will consider other options, allowing it to avoid getting stuck in local optima. This random inversion helps HC-Rand explore other solutions, increasing the chances of finding the global maximum (an optimal solution with the highest number of 1s).\n\nIn both cases, only a better solution will be accepted as the next solution \\(v\\).\n\n\n\n\nhc search",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#deciphering-probability-of-switching",
+    "href": "hc.html#deciphering-probability-of-switching",
+    "title": "Hill Climbing",
+    "section": "Deciphering Probability of Switching",
+    "text": "Deciphering Probability of Switching\n\nThe landscape of the “solution space” or “search space” of an optimization problem seen by a search can be different when:\n\ndifferent ways are used to represent the solutions or\ndifferent ways are used to generate new candidate solutions from current solutions.\n\nThe solution space that a search algorithm sees can also be called the “search space.”\nHC-Rand-M: If we use “&gt;=” instead of “&gt;” in the comparison of the current solution and the possible next solution for solving the BSD-2 problem of sizes n=4 and n=10.\nThe results of HC-Rand-M show that with this modification, HC-Rand will be able to find the optimal solution in most cases.\n\n\n\n\nhc search",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#load-imports",
+    "href": "hc.html#load-imports",
+    "title": "Hill Climbing",
+    "section": "Load Imports",
+    "text": "Load Imports\n\nimport numpy as np\nimport time\nimport random\nimport matplotlib.pyplot as plt\n\nnp.random.seed(5042) ##for consistency",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#define-the-ackley-function-1d",
+    "href": "hc.html#define-the-ackley-function-1d",
+    "title": "Hill Climbing",
+    "section": "Define the Ackley Function (1D)",
+    "text": "Define the Ackley Function (1D)\n\nFunction f(x): This is the function we want to optimize.\nIn this case, Ackley function with provided formula.\n\n\n# Ackley function in 1D\ndef ackley(x):\n    a = 20\n    b = 0.2\n    c = 2 * np.pi\n    term1 = -a * np.exp(-b * np.sqrt(np.mean(np.square(x))))\n    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n    return term1 + term2 + a + np.exp(1)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#main-loop",
+    "href": "hc.html#main-loop",
+    "title": "Hill Climbing",
+    "section": "Main Loop",
+    "text": "Main Loop\n\nThis is where the hill climbing algorithm repeatedly evaluates candidate solutions, compares them with the current solution, and decides whether to update the current solution. This loop is crucial because it drives the optimization process by iterating over a fixed number of steps or until a stopping criterion is met.\nThe current solution is set to start_x, which was initialized earlier. The Ackley value for this starting solution is calculated and stored in current_value.x_history and value_history keep track of all the solutions and function values (fitness) encountered during the optimization process.\nThe hill climbing loop runs for a fixed number of iterations (max_iters), which controls how many optimization steps are performed. Each iteration represents one optimization step, where two new candidate solutions are generated and evaluated.\nThe transit function generates two neighboring solutions, left_x and right_x, by subtracting and adding the step_size (0.1 by default) to the current solution (current_x). These represent potential moves to the left and right in the search space.\nBoth neighboring solutions are evaluated using the Ackley function, resulting in their corresponding values (left_value and right_value). These values represent how “good” the new solutions are (lower is better in this minimization problem). Then we compare all three solutions (current, left, and right).\n\nThe np.argmin(values) function finds the index of the minimum value (best solution) from the three candidates.\nThe determine function then decides whether to update the current solution (current_x) to the new best solution.\n\nThe current solution and its corresponding function value are appended to the history lists (x_history and value_history). These lists will be used later to plot the progress of the algorithm.\nFinally, we return the results.\n\n\n# Main hill climbing loop for Ackley function in 1D\ndef hill_climbing_ackley(start_x, max_iters=100, step_size=0.1):\n    current_x = start_x\n    current_value = evaluate(current_x)\n    x_history = [current_x]\n    value_history = [current_value]\n\n    for _ in range(max_iters):\n        left_x, right_x = transit(current_x, step_size)\n        left_value = evaluate(left_x)\n        right_value = evaluate(right_x)\n\n        values = [current_value, left_value, right_value]\n        x_candidates = [current_x, left_x, right_x]\n\n        best_index = np.argmin(values)\n        current_x, current_value = determine(values[best_index], current_value, x_candidates[best_index], current_x)\n\n        x_history.append(current_x)\n        value_history.append(current_value)\n\n    return current_x, current_value, x_history, value_history",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#helper-functions-1",
+    "href": "hc.html#helper-functions-1",
+    "title": "Hill Climbing",
+    "section": "Helper Functions",
+    "text": "Helper Functions\n\nInitialize: This function initializes the hill climbing process by selecting a random starting point (start_x) within the given range [-10, 10]. This represents the initial solution that hill climbing will start with.\n\n\n# Initialization function (I) to set the starting point\ndef init_hc(range_min=-10, range_max=10):\n    return random.uniform(range_min, range_max)\n\n\nTransition: This function generates two new candidate solutions by taking small steps (of size 0.1) to the left and right of the current solution (current_x). These represent possible transitions to neighboring points in the search space.\n\n\n# Transition function (T)\ndef transit(current_x, step_size=0.1):\n    return current_x - step_size, current_x + step_size\n\n\nEvaluation: This function evaluates the fitness of a solution (sol) using the Ackley function. The goal of the hill climbing algorithm is to minimize this value. The Ackley function is typically used for testing optimization algorithms due to its complex landscape with many local minima.\n\n\n# Evaluation function (E) to evaluate fitness (Ackley value in this case)\ndef evaluate(sol):\n    return ackley([sol])\n\n\nDetermination: This function compares the current solution’s value (current_value) with the value of a new candidate solution (new_value). If the new solution is better (i.e., has a lower Ackley value), it becomes the new current solution. Otherwise, the current solution is retained.\n\n\n# Determination (D)\n# Function to decide whether to accept the new solution\ndef determine(new_value, current_value, new_x, current_x):\n    return (new_x, new_value) if new_value &lt; current_value else (current_x, current_value)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#main-execution",
+    "href": "hc.html#main-execution",
+    "title": "Hill Climbing",
+    "section": "Main Execution",
+    "text": "Main Execution\n\nThe process starts by initializing start_x using the Initialization function (init_hc). The main function (hill_climbing_ackley) then runs for a fixed number of iterations (100 by default) using Transition to generate candidate solutions, Evaluation to evaluate them, and Determination to decide whetherr to accept a new solution.\n\n\n# Main execution\nstart_x = init_hc()\nstart_time = time.time()\noptimal_x, optimal_value, x_history, value_history = hill_climbing_ackley(start_x)\nend_time = time.time()\nexecution_time = end_time - start_time",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#output",
+    "href": "hc.html#output",
+    "title": "Hill Climbing",
+    "section": "Output",
+    "text": "Output\n\nThe first part prints the optimal solution found (optimal_x), the corresponding function value (optimal_value), and the total time taken for the execution.\nThe second part plots the Ackley function over the range [-10, 10] and overlays the hill climbing progress. The points in red represent the steps taken by the hill climbing algorithm as it navigates through the search space.\n\n\n# Output (O)\nprint(f\"Optimal x: {optimal_x}\")\nprint(f\"Optimal value: {optimal_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n\n# Plot the Ackley function and hill climbing progress\nx_range = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_range]\n\nplt.plot(x_range, y_values, label=\"Ackley Function\")\nplt.plot(x_history, value_history, 'ro--', label=\"Hill Climbing Progress\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"Hill Climbing on Ackley Function in 1D\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal x: 2.967380778692627\nOptimal value: 9.008226661042103\nExecution time: 0.003000 seconds\n\n\n\n\n\n\n\n\n\n\nAn example run of this put the points Optimal x: 5.03 and Optimal Value: 12.75, are suboptimal for the Ackley function.\nFor the Ackley function in 1D, the global minimum occurs at \\(x=0\\), and the function value at this point is exactly \\(f(0)=0\\).\nOur results are not close to the global minimum of \\(x=0\\). Any value greater than zero indicates that the algorithm has not found the true global minimum.\nThe blue line represents the Ackley function over a range of \\(x\\) values from -10 to 10.The red dots connected by dashed lines represent the progress of the hill climbing algorithm as it iterates through neighboring solutions.\nThe Ackley function is known for its many local minima, and hill climbing is a greedy optimization method that tends to get stuck in local minima because it only moves to the immediate best neighboring solution. Once it finds a local minimum, it stops, even if it hasn’t found the global minimum.\nIn this case, the result you obtained is a local minimum but not the global minimum. Since \\(f(0)=0\\) is the global minimum, and your result is \\(f(5.03)= 12.75\\), the algorithm likely got stuck in a local minimum during its search.\nSimulated Annealing is a more advanced version of hill climbing that sometimes accepts worse solutions to escape local optima. Will discuss later.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#imports",
+    "href": "hc.html#imports",
+    "title": "Hill Climbing",
+    "section": "Imports",
+    "text": "Imports\n\n## Hill Climbing Finance example\nimport yfinance as yf\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport time\n\nnp.random.seed(5042)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#fetching-data",
+    "href": "hc.html#fetching-data",
+    "title": "Hill Climbing",
+    "section": "Fetching Data",
+    "text": "Fetching Data\n\nstocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] \nstart_date = '2023-10-01'\nend_date = '2024-10-1'\n\n# Fetch historical stock data\ndef fetch_data(stocks, start_date, end_date):\n    data = yf.download(stocks, start=start_date, end=end_date)['Adj Close']\n    return data",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#calculating-performance-via-sharpe-ratio",
+    "href": "hc.html#calculating-performance-via-sharpe-ratio",
+    "title": "Hill Climbing",
+    "section": "Calculating performance via Sharpe Ratio",
+    "text": "Calculating performance via Sharpe Ratio\n\n# Calculate portfolio performance (returns, risk, and Sharpe ratio)\ndef portfolio_performance(weights, mean_returns, cov_matrix):\n    returns = np.sum(mean_returns * weights) * 252  # Annualized returns\n    risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk\n    sharpe_ratio = returns / risk  # Sharpe ratio\n    return returns, risk, sharpe_ratio",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#main-loop-1",
+    "href": "hc.html#main-loop-1",
+    "title": "Hill Climbing",
+    "section": "Main Loop",
+    "text": "Main Loop\n\n# Hill Climbing algorithm for portfolio optimization\ndef hill_climbing(mean_returns, cov_matrix, max_iterations=1000):\n    num_assets = len(mean_returns)\n    # Initial random portfolio\n    current_weights = np.random.random(num_assets)\n    current_weights /= np.sum(current_weights)  # Normalize to sum to 1\n    current_returns, current_risk, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)\n    \n    # Track progress for visualization\n    score_history = [current_sharpe]\n    iteration = 0\n\n    # While loop for hill climbing\n    while iteration &lt; max_iterations:\n        # Generate neighbor: Slight random change in weights\n        neighbor_weights = current_weights + np.random.normal(0, 0.01, num_assets)\n        neighbor_weights = np.clip(neighbor_weights, 0, 1)  # Ensure weights are between 0 and 1\n        neighbor_weights /= np.sum(neighbor_weights)  # Normalize weights to sum to 1\n        \n        neighbor_returns, neighbor_risk, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)\n        \n        # If the neighbor is better, move to the neighbor solution\n        if neighbor_sharpe &gt; current_sharpe:\n            current_weights, current_returns, current_risk, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe\n            score_history.append(current_sharpe)\n        \n        iteration += 1  # Increment the iteration counter\n    \n    return current_weights, current_sharpe, score_history\nstock_data = fetch_data(stocks, start_date, end_date)\nreturns = stock_data.pct_change().dropna()\nmean_returns = returns.mean()\ncov_matrix = returns.cov()\n\n[                       0%                       ][                       0%                       ][**************        30%                       ]  3 of 10 completed[**************        30%                       ]  3 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#main-execution-1",
+    "href": "hc.html#main-execution-1",
+    "title": "Hill Climbing",
+    "section": "Main Execution",
+    "text": "Main Execution\n\nstart_time = time.time()\n\n# Run hill climbing\nbest_weights, best_sharpe, score_history = hill_climbing(mean_returns, cov_matrix)\n\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#output-1",
+    "href": "hc.html#output-1",
+    "title": "Hill Climbing",
+    "section": "Output",
+    "text": "Output\n\n# Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)\nplt.figure(figsize=(10, 6))\nplt.plot(score_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')\nplt.title(\"Hill Climbing Progress for Portfolio Optimization (Sharpe Ratio)\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Sharpe Ratio\")\nplt.grid(True)\nplt.legend()\nplt.show()\n\n# Output the best results\nreturns, risk, sharpe_ratio = portfolio_performance(best_weights, mean_returns, cov_matrix)\nprint(f\"Best portfolio weights: {best_weights}\")\nprint(f\"Best Sharpe ratio: {sharpe_ratio}\")\nprint(f\"Best portfolio returns: {returns}, Best risk: {risk}\")\nprint(f\"Hill Climbing Finance Example Execution time: {execution_time:.6f} seconds\")\n\n\n\n\n\n\n\n\nBest portfolio weights: [0.20944997 0.         0.         0.11527445 0.         0.21091741\n 0.         0.30274302 0.16161515 0.        ]\nBest Sharpe ratio: 2.799430383445825\nBest portfolio returns: 0.6292559494805312, Best risk: 0.22477999567396947\nHill Climbing Finance Example Execution time: 0.077021 seconds\n\n\n\nThe plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.\nThe weights are heavily concentrated in a few stocks, particularly:\n\nstocks = [‘AAPL’, ‘GOOGL’, ‘MSFT’, ‘AMZN’, ‘TSLA’, ‘NFLX’, ‘NVDA’, ‘META’, ‘DIS’, ‘BA’]\n19.560444 % in stock 1: AAPL: Apple\n13.030724 % in stock 4: AMZN: Amazon\n19.665558 % in stock 6: NFLX: Netflix\n30.926036 % in stock 8: META: Facebook\n16.817237 % in stock 9: DIS: Walt Disney Co\n\nA Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.\nOur portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.\n\nPros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.\nCons: Concentrating in a few assets can increase the overall risk due to lack of diversification.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
+    "objectID": "hc.html#items-to-consider",
+    "href": "hc.html#items-to-consider",
+    "title": "Hill Climbing",
+    "section": "Items To Consider",
+    "text": "Items To Consider\n\nA Sharpe ratio of 2.800 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.\nWhether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.\nGiven the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.\nThings to Try Next:\n\nBacktesting: Test this portfolio over a different time period or a longer time horizon to see if it maintains its high Sharpe ratio.\nRebalancing: Consider rebalancing the portfolio periodically (monthly or quarterly) to see if the high Sharpe ratio persists.\nDiversification: If you are concerned about high concentration risk, you might want to introduce constraints to the hill climbing algorithm to enforce a minimum weight for diversification or limit the maximum weight of any asset.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
   }
 ]

@@ -31,32 +31,30 @@ runtime: python
 ![es algorithm](Pictures/es.png "Exhaustive Search Algorithm")
 
 ## Exhaustive Search in Continuous vs. Discrete Domains
-* Continuous Domains: Require discretization (using a step size) to make exhaustive search feasible. 
-     + Example: Ackley function.
-* Discrete Domains: Solutions can be explicitly enumerated without discretization. 
-     + Example: Knapsack problem.
 
-* Challenges in Continuous Domains:
-     + Infinite solution space makes direct enumeration impossible.
-     + Step size is critical for balancing resolution and computational cost.
+-   Continuous Domains: Require discretization (using a step size) to make exhaustive search feasible.
+    -   Example: Ackley function.
+-   Discrete Domains: Solutions can be explicitly enumerated without discretization.
+    -   Example: Knapsack problem.
+-   Challenges in Continuous Domains:
+    -   Infinite solution space makes direct enumeration impossible.
+    -   Step size is critical for balancing resolution and computational cost.
 
 ### Role of Step Size in Continuous Optimization
-* Why Step Size Matters: Controls the granularity of the search. 
-     + Smaller steps increase resolution but significantly raise computation time. 
-     + Larger steps reduce computational cost but risk missing the optimal solution.
 
-* Practical Considerations:
-     + Optimal step size depends on the problem's scale and the required precision.
-     + Trade-off between efficiency and accuracy.
-
-* When is Exhaustive Search Practical?
-     + Discrete Domains:
-          + Feasible if the solution space is small (manageable number of combinations).
-          + Guarantees finding the exact optimal solution.
-     + Continuous Domains:
-          + Only practical when the domain is small and can be discretized effectively.
-     + Higher dimensions increase complexity exponentially (curse of dimensionality).
-
+-   Why Step Size Matters: Controls the granularity of the search.
+    -   Smaller steps increase resolution but significantly raise computation time.
+    -   Larger steps reduce computational cost but risk missing the optimal solution.
+-   Practical Considerations:
+    -   Optimal step size depends on the problem's scale and the required precision.
+    -   Trade-off between efficiency and accuracy.
+-   When is Exhaustive Search Practical?
+    -   Discrete Domains:
+        -   Feasible if the solution space is small (manageable number of combinations).
+        -   Guarantees finding the exact optimal solution.
+    -   Continuous Domains:
+        -   Only practical when the domain is small and can be discretized effectively.
+    -   Higher dimensions increase complexity exponentially (curse of dimensionality).
 
 ## The Search Strategy of ES
 
@@ -276,13 +274,14 @@ def determine(fv, v, fs, s):
 ## Main Loop
 
 -   A while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.
-    -   fitness is the "fitness" score of the current solution, calculated using evaluate(s) (which counts the number of 1's in the binary representation of s).
-    -   The loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.
--   Appends the fitness value to fitness_over_time.
-    -   determine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.
--   If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.
-    -   For each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).
--   Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.
+     + For each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).
+     + The loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.
+* fitness is the "fitness" score of the current solution, calculated using evaluate(s) (which counts the number of 1's in the binary representation of s).
+* Appends the fitness value to fitness_over_time.
+* determine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.
+* If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.
+
+* Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.
 
 ```{python}
 # Run function for exhaustive search
@@ -311,10 +310,8 @@ def run_exhaustive_search(num_bits=10):
         #print(f"{f_v} # {v:0{num_bits}b}")
         
         #If f_v is better than f_s, update s = v, f_s = f_v
-        if f_v > f_s:
-            best_solution = v
-            best_fitness = f_v
-        
+        best_fitness, best_solution = determine(f_v, v, best_fitness, best_solution)
+
         #continued: Move to the next solution
         s += 1  # Increment solution
     
@@ -481,7 +478,6 @@ plt.show()
 -   Trade-Offs in Optimization: Reflect on a scenario where exhaustive search would be impractical. How would you modify the problem or approach to make it solvable within reasonable time and resources?
 -   Visualization Insights: How does visualizing the search process (e.g., fitness evolution over time) help in understanding and debugging optimization algorithms?
 
-
 # Conclusions
-* Choose exhaustive search for small-scale problems where optimality is critical.
-Use heuristics for large, complex, or high-dimensional spaces.
+
+-   Choose exhaustive search for small-scale problems where optimality is critical. Use heuristics for large, complex, or high-dimensional spaces.

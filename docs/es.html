@@ -390,7 +390,7 @@ window.Quarto = {
 </section>
 <section id="the-search-strategy-of-es" class="level2">
 <h2 class="anchored" data-anchor-id="the-search-strategy-of-es">The Search Strategy of ES</h2>
-<div id="d7ef4d5e" class="cell" data-execution_count="1">
+<div id="0fa4fdf6" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -405,7 +405,7 @@ window.Quarto = {
 <ul>
 <li>Finding Optimal Subset of Items to Max Value in Knapsack Problem using Exhaustive Search</li>
 </ul>
-<div id="70be0d18" class="cell" data-execution_count="2">
+<div id="9aabcd9b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the items and maximum weight</span></span>
@@ -502,7 +502,7 @@ Total Value: 14</code></pre>
 </section>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="2e02ae3e" class="cell" data-execution_count="3">
+<div id="6514f1ee" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -516,7 +516,7 @@ Total Value: 14</code></pre>
 <li>Initializes <span class="math inline">\(best_fitness\)</span> and <span class="math inline">\(best_solution\)</span> to track the best results.</li>
 <li>Initializes an empty list <span class="math inline">\(fitness_over_time\)</span> to track the fitness at each step.</li>
 </ul>
-<div id="5c5e7bf7" class="cell" data-execution_count="4">
+<div id="d5b35f2f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for initialization (I)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_es(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    max_sol <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> num_bits  <span class="co"># Total number of solutions</span></span>
@@ -530,7 +530,7 @@ Total Value: 14</code></pre>
 <ul>
 <li>transit(s): Simply increments the current solution by 1.</li>
 </ul>
-<div id="58e41c01" class="cell" data-execution_count="5">
+<div id="bf41745c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for transit (T)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(s):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> <span class="dv">1</span></span>
@@ -539,7 +539,7 @@ Total Value: 14</code></pre>
 <ul>
 <li>evaluate(s): Evaluates the “fitness” of the solution by counting how many 1’s are present in its binary representation. The more 1’s, the better the solution.</li>
 </ul>
-<div id="9a22a1e3" class="cell" data-execution_count="6">
+<div id="6b4819df" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for evaluation (E)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(s):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bin</span>(s).count(<span class="st">"1"</span>)  <span class="co"># Counts the number of 1s in the binary representation of s</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -547,7 +547,7 @@ Total Value: 14</code></pre>
 <ul>
 <li>determine(fv, v, fs, s): This method checks whether the fitness of the new solution (fv) is greater than the current best fitness (fs). If so, it updates the current best solution and fitness.</li>
 </ul>
-<div id="b2c480d9" class="cell" data-execution_count="7">
+<div id="4710b7c4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for determine (D)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(fv, v, fs, s):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> fv <span class="op">&gt;</span> fs:</span>
@@ -558,22 +558,18 @@ Total Value: 14</code></pre>
 <section id="main-loop" class="level2">
 <h2 class="anchored" data-anchor-id="main-loop">Main Loop</h2>
 <ul>
-<li>A while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.
-<ul>
-<li>fitness is the “fitness” score of the current solution, calculated using evaluate(s) (which counts the number of 1’s in the binary representation of s).</li>
-<li>The loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.</li>
-</ul></li>
-<li>Appends the fitness value to fitness_over_time.
-<ul>
-<li>determine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.</li>
-</ul></li>
-<li>If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.
+<li><p>A while loop iterates through all possible solutions (represented by s). For each solution s, it calculates the fitness using the evaluate() function.</p>
 <ul>
 <li>For each iteration, the solution is updated (transit method), evaluated (evaluate method), and the best solution is determined (determine method).</li>
+<li>The loop continues until all possible solutions (v from 0 to max_sol) have been evaluated.</li>
 </ul></li>
-<li>Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.</li>
+<li><p>fitness is the “fitness” score of the current solution, calculated using evaluate(s) (which counts the number of 1’s in the binary representation of s).</p></li>
+<li><p>Appends the fitness value to fitness_over_time.</p></li>
+<li><p>determine() updates fs (fitness) and s (solution) if the new solution (v) has a higher fitness.</p></li>
+<li><p>If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.</p></li>
+<li><p>Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.</p></li>
 </ul>
-<div id="d890df41" class="cell" data-execution_count="8">
+<div id="d9453ce7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run function for exhaustive search</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_exhaustive_search(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize using init_es</span></span>
@@ -600,15 +596,13 @@ Total Value: 14</code></pre>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"{f_v} # {v:0{num_bits}b}")</span></span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">#If f_v is better than f_s, update s = v, f_s = f_v</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f_v <span class="op">&gt;</span> f_s:</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            best_solution <span class="op">=</span> v</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            best_fitness <span class="op">=</span> f_v</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">#continued: Move to the next solution</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        s <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment solution</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Returned for Output the best solution</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fitness_over_time, best_solution</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        best_fitness, best_solution <span class="op">=</span> determine(f_v, v, best_fitness, best_solution)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">#continued: Move to the next solution</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        s <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment solution</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Returned for Output the best solution</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fitness_over_time, best_solution</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="main-execution" class="level2">
@@ -623,14 +617,14 @@ Total Value: 14</code></pre>
 </ul></li>
 </ul>
 <p>Simplicity: Since exhaustive search doesn’t involve complex heuristics or probabilistic methods, setting the number of bits becomes the main task. The rest of the algorithm is straightforward: generate each binary string, evaluate its objective value, and keep track of the best solution.</p>
-<div id="eaa88672" class="cell" data-execution_count="9">
+<div id="84ae3947" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span>  <span class="co"># You can adjust the number of bits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="output" class="level2">
 <h2 class="anchored" data-anchor-id="output">Output</h2>
-<div id="3a41dbd2" class="cell" data-execution_count="10">
+<div id="2ed9a101" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the exhaustive search and get fitness values</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fitness_over_time, best_solution <span class="op">=</span> run_exhaustive_search(num_bits)</span>
@@ -675,7 +669,7 @@ Total Value: 14</code></pre>
 <li>When moving to 3D, however, the search space expands cubically. This additional dimension leads to a significant increase in the number of possible solution points, escalating the computational cost and making exhaustive search much less practical. In optimization, this curse of dimensionality complicates modeling since the function’s landscape becomes more intricate with each added dimension, and finding the global minimum among many potential local minima becomes increasingly challenging. Consequently, optimization techniques that are efficient in 2D may become impractically slow or require adaptation in 3D and beyond.</li>
 <li>The example below simplifies the Ackley function into 1D.</li>
 </ul>
-<div id="ac2e73ea" class="cell" data-execution_count="11">
+<div id="438e532e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Ackley Function with Exhaustive Search</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -763,7 +757,7 @@ Total Value: 14</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal x: 0
 Optimal value: 4.440892098500626e-16
-Exhaustive Search Ackley Function Execution time: 0.001000 seconds</code></pre>
+Exhaustive Search Ackley Function Execution time: 0.001998 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>

@@ -6,14 +6,17 @@ runtime: python
 ---
 
 # Hill Climbing (HC)
-* If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?
 
+-   If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?
 
 -   Hill Climbing is an optimization algorithm that starts with an arbitrary solution to a problem and iteratively makes small changes to the solution, choosing the change that improves the solution the most.
+
 -   Characteristics
+
     -   Greedy Approach: It selects the most promising neighboring solution based on the heuristic, or it uses a search strategy that is to accept only a better solution as the next solution.
     -   Local Search: Only considers the local neighborhood of the current solution. This implies that if there are local optima located between the initial solution and the optimal solution, HC may get stuck at a local optimum.
     -   Termination: Ends when no further improvements can be made.
+
 -   Applications: Used in various fields like AI for game playing, pathfinding, and scheduling problems.
 
 ## Search Strategy of HC \>
