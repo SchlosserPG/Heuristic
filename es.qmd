@@ -43,7 +43,11 @@ runtime: python
     -   Infinite solution space makes direct enumeration impossible.
     -   Step size is critical for balancing resolution and computational cost.
 
+* Note that Discretization is the process of converting continuous data or variables into discrete categories or bins.
+
 ### Role of Step Size in Continuous Optimization
+
+* Step size in exhaustive search is the distance between consecutive sample points in the search space. A small step size results in a finer grid with higher precision but increases computation time, while a larger step size reduces computation time but may miss optimal solutions.
 
 -   Why Step Size Matters: Controls the granularity of the search.
     -   Smaller steps increase resolution but significantly raise computation time.
@@ -140,30 +144,32 @@ plt.show()
 from itertools import combinations
 
 # Define the items and maximum weight
-items = [
-    {"weight": 3, "value": 4},  # Item 1
-    {"weight": 4, "value": 5},  # Item 2
-    {"weight": 7, "value": 10}  # Item 3
-]
+items = {
+    "Item 1": {"weight": 3, "value": 4},
+    "Item 2": {"weight": 4, "value": 5},
+    "Item 3": {"weight": 7, "value": 10}
+}
 max_weight = 10
 
-# Exhaustive search function with while loop to solve the knapsack problem
+# Exhaustive search function 
 def knapsack_exhaustive_while(items, max_weight):
     best_value = 0
     best_combination = []
 
+    item_names = list(items.keys())  # Extract item names for combinations
+
     r = 1
     while r <= len(items):  # Iterating over different combination sizes
-        combos = list(combinations(items, r))
+        combos = list(combinations(item_names, r))  # Generate combinations using keys
         i = 0
         while i < len(combos):  # Iterating over each combination
             combo = combos[i]
-            weight = sum(item['weight'] for item in combo)
-            value = sum(item['value'] for item in combo)
+            weight = sum(items[item]['weight'] for item in combo)
+            value = sum(items[item]['value'] for item in combo)
 
             if weight <= max_weight and value > best_value:
                 best_value = value
-                best_combination = combo
+                best_combination = combo 
 
             i += 1  # Moving to the next combination
         r += 1  # Increasing the size of combinations to check
@@ -173,14 +179,11 @@ def knapsack_exhaustive_while(items, max_weight):
 # Run the exhaustive search knapsack algorithm
 best_value, best_combination = knapsack_exhaustive_while(items, max_weight)
 
-def print_results(best_value, best_combination):
-    print("Optimal items selected:")
-    for item in best_combination:
-        print(f"Item with weight: {item['weight']} and value: {item['value']}")
-    print(f"Total Value: {best_value}")
-    
-# Print the results
-print_results(best_value, best_combination)
+# Print results (O)
+print(f"Optimal items selected: {', '.join(best_combination)} | "
+      f"Total Weight: {sum(items[item]['weight'] for item in best_combination)} | "
+      f"Total Value: {best_value}")
+
 
 ```
 
