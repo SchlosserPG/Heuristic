@@ -19,6 +19,18 @@ runtime: python
 
 -   Applications: Used in various fields like AI for game playing, pathfinding, and scheduling problems.
 
+
+## Hill Climbing Algorithm
+
+-   Start: Initialize with a random solution or a predefined starting point.
+-   Evaluate: Assess the quality of the current solution using a heuristic function.
+-   Generate Neighbors: Produce a set of neighboring solutions by making small changes.
+-   Select Best Neighbor: Choose the neighbor that has the highest heuristic value.
+-   Move: Replace the current solution with the selected neighbor.
+-   Repeat: Continue the process until no better neighbors are found or a stopping criterion is met.
+
+![hc algo](Pictures/hc3.png "Hill Climbing Algorithm")
+
 ## Search Strategy of HC \>
 
 -   The search strategy of HC that accepts only a better solution as the next solution.
@@ -33,16 +45,6 @@ runtime: python
 
 ![hc search](Pictures/hc2.png "Hill Climbing Search Strategy")
 
-## Hill Climbing Algorithm
-
--   Start: Initialize with a random solution or a predefined starting point.
--   Evaluate: Assess the quality of the current solution using a heuristic function.
--   Generate Neighbors: Produce a set of neighboring solutions by making small changes.
--   Select Best Neighbor: Choose the neighbor that has the highest heuristic value.
--   Move: Replace the current solution with the selected neighbor.
--   Repeat: Continue the process until no better neighbors are found or a stopping criterion is met.
-
-![hc algo](Pictures/hc3.png "Hill Climbing Algorithm")
 
 ## Challenges of HC
 
@@ -76,6 +78,57 @@ num_bits = 10  # You can adjust the number of bits
 
 ```
 
+
+## Helper Functions:
+
+-   Initiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).
+
+```{python}
+# Function for initialization (I)
+def init_hc(num_bits):
+    return np.random.randint(2, size=num_bits)
+
+```
+
+-   Transit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.
+* A random bit in the current solution is flipped, representing a small change or "move.“
+
+```{python}
+# Function for transit: (T) 
+# Flipping a random bit in the solution
+
+def transit(sol):
+     new_sol = sol.copy() # A copy of the current solution (sol) is created
+     flip_index = np.random.randint(len(sol)) # A random index in the solution is chosen. 
+     new_sol[flip_index] = 1 - new_sol[flip_index]# Flip the bit at the index (0 to 1, or 1 to 0)
+     return new_sol
+
+```
+
+-   Evaluate: Count the number of 1s in the binary representation of a solution (fitness value for One Max).
+* A higher number of 1s means a better solution. 
+
+
+```{python}
+# Function for evaluation: (E) 
+# Sum the number of 1s (OneMax problem)
+def evaluate(sol):
+    return np.sum(sol)
+```
+
+-   Determine: Track and update the current best solution and its fitness as the search progresses.
+* If the new solution (tmp_fitness) is better (i.e., has a higher fitness than the current solution, (fitness)), we accept it. Otherwise, we keep the current solution.
+* If the new solution (tmp_fitness) is worse or equal to the current fitness, we keep the current one.
+
+```{python}
+# Function for determine: (D) 
+# Decide whether to accept the new solution
+def determine(tmp_sol, tmp_fitness, sol, fitness):
+    if tmp_fitness > fitness:
+        return tmp_sol, tmp_fitness  # Accept the new solution
+    return sol, fitness  # Keep the current solution
+```
+
 ## Set up Run Function
 
 -   Evaluate the initial solution by counting the number of 1s, which serves as the "fitness" value.
@@ -105,48 +158,6 @@ def run_hc(num_bits=10, max_evals=2 ** num_bits):
     return fitness_over_time, sol
 ```
 
-## Helper Functions:
-
--   Initiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).
-
-```{python}
-# Function for initialization (I)
-def init_hc(num_bits):
-    return np.random.randint(2, size=num_bits, dtype=int)
-
-```
-
--   Transit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.
-
-```{python}
-# Function for transit: (T) 
-# Flipping a random bit in the solution
-def transit(sol):
-    new_sol = sol.copy()
-    flip_index = np.random.randint(len(sol))
-    new_sol[flip_index] = 1 - new_sol[flip_index]  # Flip the bit (0 to 1, or 1 to 0)
-    return new_sol
-```
-
--   Evaluate: Count the number of 1s in the binary representation of a solution (fitness value).
-
-```{python}
-# Function for evaluation: (E) 
-# Sum the number of 1s (OneMax problem)
-def evaluate(sol):
-    return np.sum(sol)
-```
-
--   Determine: Track and update the current best solution and its fitness as the search progresses.
-
-```{python}
-# Function for determine: (D) 
-# Decide whether to accept the new solution
-def determine(tmp_sol, tmp_fitness, sol, fitness):
-    if tmp_fitness > fitness:
-        return tmp_sol, tmp_fitness  # Accept the new solution
-    return sol, fitness  # Keep the current solution
-```
 
 -   The main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.
 
@@ -181,18 +192,32 @@ plt.show()
 
 -   In the chart above, the fitness score, which measures the number of 1s in a 10-bit solution, is shown over a series of evaluations. Initially, the fitness rapidly increases, suggesting that the hill climbing algorithm quickly finds improvements in the solution. Once it reaches the maximum fitness of 10, it stabilizes and remains flat, indicating that the algorithm has found an optimal solution and no further improvements are being made.
 
+## Deciphering Probability of Switching
+
+-   The landscape of the “solution space” or “search space” of an optimization problem seen by a search can be different when:
+
+    -   different ways are used to represent the solutions or
+    -   different ways are used to generate new candidate solutions from current solutions.
+
+-   The solution space that a search algorithm sees can also be called the “search space.”
+
+-   HC-Rand-M: If we use “\>=” instead of “\>” in the comparison of the current solution and the possible next solution for solving the BSD-2 problem of sizes n=4 and n=10.
+
+-   The results of HC-Rand-M show that with this modification, HC-Rand will be able to find the optimal solution in most cases.
+
+![hc search](Pictures/hc10.png "Simulation Results")
 ## Comparison of ES and HC for the one-max Problem of size $n=10$
 
 -   HC-LR and HC-Rand to denote a similar thing. HC-Rand and HC-LR differ primarily in how they choose the next solution and handle exploration, impacting their likelihood of getting stuck in local optima.
 -   HC-LR (Hill Climbing with Limited Range): HC-LR’s transition operator restricts it to move only to adjacent solutions, which makes it less flexible. The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., $v=s−1$ or $v=s+1$). As described in the example, if HC-LR starts with the solution "1000," it can only move to "0111" or "1001." If neither of these options provides an improvement, HC-LR is likely to get stuck there, leading to a local optimum. Because HC-LR only accepts moves that improve the solution, it has a high risk of getting trapped in suboptimal points without exploring further.
 -   HC-Rand (Hill Climbing with Randomization): HC-Rand randomly selects a part of the current solution to invert, allowing it to explore a broader range of possible next solutions. This random approach reduces the chance of getting stuck in a local optimum since the algorithm has the flexibility to try different options, even if they are not immediately better. HC-Rand’s randomness increases the probability of escaping local optima, thus improving the chances of finding a global optimum.
-    -   The solution v of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). The transition operator in the HC-Rand (Hill Climbing with Randomization) algorithm randomly selects a part (subsolution) of the current solution and inverts the chosen bit(s). For a "one-max problem" of a specific size (where the goal is to maximize the number of 1s in the solution), inverting different bits can produce several possible next solutions.
+    -   The solution $v$ of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). The transition operator in the HC-Rand (Hill Climbing with Randomization) algorithm randomly selects a part (subsolution) of the current solution and inverts the chosen bit(s). For a "one-max problem" of a specific size (where the goal is to maximize the number of 1s in the solution), inverting different bits can produce several possible next solutions.
     -   In the example given, there are four possible new solutions because there are four different bits that could be inverted from the current solution. If inverting one bit doesn’t improve the objective value (e.g., the number of 1s), HC-Rand will consider other options, allowing it to avoid getting stuck in local optima. This random inversion helps HC-Rand explore other solutions, increasing the chances of finding the global maximum (an optimal solution with the highest number of 1s).
 -   In both cases, only a better solution will be accepted as the next solution $v$.
 
 ![hc search](Pictures/hcRand.png "Comparing Simulation Results")
 
-# Search strategy
+# Search Strategy
 
 -   The Search Strategy of HC-Rand when Starting from the Candidate Solution $x_9$
 -   HC-LR will then move to either $x_8$ $(0111)$ or $x_9$ $(1001)$ in this case and eventually get stuck there.
@@ -239,20 +264,7 @@ plt.show()
 
 ![hc search](Pictures/hc9.png "Simulation Results")
 
-## Deciphering Probability of Switching
 
--   The landscape of the “solution space” or “search space” of an optimization problem seen by a search can be different when:
-
-    -   different ways are used to represent the solutions or
-    -   different ways are used to generate new candidate solutions from current solutions.
-
--   The solution space that a search algorithm sees can also be called the “search space.”
-
--   HC-Rand-M: If we use “\>=” instead of “\>” in the comparison of the current solution and the possible next solution for solving the BSD-2 problem of sizes n=4 and n=10.
-
--   The results of HC-Rand-M show that with this modification, HC-Rand will be able to find the optimal solution in most cases.
-
-![hc search](Pictures/hc10.png "Simulation Results")
 
 # Hill Climbing using Ackley Function
 
