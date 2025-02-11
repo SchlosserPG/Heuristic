@@ -86,7 +86,7 @@ num_bits = 10  # You can adjust the number of bits
 ```{python}
 # Function for initialization (I)
 def init_hc(num_bits):
-    return np.random.randint(2, size=num_bits)
+    return np.random.randint(0, 2, size=num_bits)
 
 ```
 
@@ -270,7 +270,7 @@ plt.show()
 
 -   A Hill Climbing algorithm designed to optimize the given func (in this case the Ackley function).
 -   Ackley(x): This is the function we want to optimize.
--   hill_climbing(): This function performs the optimization.
+-   hc(): This function performs the optimization.
     -   start: The initial point or guess where the algorithm begins.
     -   step_size: The distance to move left or right from the current position to generate new candidate solutions. Commonly used step_size values depend on the specific problem scale and the shape of the Ackley function.
     -   max_iterations: The maximum number of iterations to perform, ensuring the algorithm eventually stops if no local maximum is found before this limit.
@@ -319,7 +319,7 @@ def ackley(x):
 
 ```{python}
 # Main hill climbing loop for Ackley function in 1D
-def hill_climbing_ackley(start_x, max_iters=100, step_size=0.1):
+def hc_ackley(start_x, max_iters=100, step_size=0.1):
     current_x = start_x
     current_value = evaluate(current_x)
     x_history = [current_x]
@@ -384,13 +384,13 @@ def determine(new_value, current_value, new_x, current_x):
 
 ## Main Execution
 
--   The process starts by initializing start_x using the Initialization function (init_hc). The main function (hill_climbing_ackley) then runs for a fixed number of iterations (100 by default) using Transition to generate candidate solutions, Evaluation to evaluate them, and Determination to decide whetherr to accept a new solution.
+-   The process starts by initializing start_x using the Initialization function (init_hc). The main function (hc_ackley) then runs for a fixed number of iterations (100 by default) using Transition to generate candidate solutions, Evaluation to evaluate them, and Determination to decide whetherr to accept a new solution.
 
 ```{python}
 # Main execution
 start_x = init_hc()
 start_time = time.time()
-optimal_x, optimal_value, x_history, value_history = hill_climbing_ackley(start_x)
+optimal_x, optimal_value, x_history, value_history = hc_ackley(start_x)
 end_time = time.time()
 execution_time = end_time - start_time
 ```
@@ -448,19 +448,19 @@ plt.show()
 ## Imports
 
 ```{python}
-## Hill Climbing Finance example
+## Hill Climbing Finance Example Using yfinance
 import yfinance as yf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
 
-np.random.seed(5042)
 ```
 
 ## Fetching Data
 
 ```{python}
+# Selecting a few popular stocks with start date and end date
 stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] 
 start_date = '2023-10-01'
 end_date = '2024-10-1'
@@ -487,18 +487,18 @@ def portfolio_performance(weights, mean_returns, cov_matrix):
 
 ```{python}
 # Hill Climbing algorithm for portfolio optimization
-def hill_climbing(mean_returns, cov_matrix, max_iterations=1000):
+def hc(mean_returns, cov_matrix, max_iterations=1000):
     num_assets = len(mean_returns)
     # Initial random portfolio
     current_weights = np.random.random(num_assets)
-    current_weights /= np.sum(current_weights)  # Normalize to sum to 1
+    current_weights /= np.sum(current_weights)  
     current_returns, current_risk, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
     
     # Track progress for visualization
     score_history = [current_sharpe]
     iteration = 0
 
-    # While loop for hill climbing
+    # Hill Climbing Loop
     while iteration < max_iterations:
         # Generate neighbor: Slight random change in weights
         neighbor_weights = current_weights + np.random.normal(0, 0.01, num_assets)
@@ -512,9 +512,11 @@ def hill_climbing(mean_returns, cov_matrix, max_iterations=1000):
             current_weights, current_returns, current_risk, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe
             score_history.append(current_sharpe)
         
-        iteration += 1  # Increment the iteration counter
+        iteration += 1  
     
     return current_weights, current_sharpe, score_history
+
+
 stock_data = fetch_data(stocks, start_date, end_date)
 returns = stock_data.pct_change().dropna()
 mean_returns = returns.mean()
@@ -528,7 +530,7 @@ cov_matrix = returns.cov()
 start_time = time.time()
 
 # Run hill climbing
-best_weights, best_sharpe, score_history = hill_climbing(mean_returns, cov_matrix)
+best_weights, best_sharpe, score_history = hc(mean_returns, cov_matrix)
 
 end_time = time.time()
 execution_time = end_time - start_time  # Calculate elapsed time
