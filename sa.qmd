@@ -107,13 +107,14 @@ runtime: python
 -   The search strategy of SA is to start with a random possible solution in the solution space and then use a criteria (like the metropolis acceptance criterion) to determine whether a worse solution is to be accepted or not.
 -   In this example, $t^{\Delta} \quad$ and $\quad t^{\nabla}$ indicate that the solution at the $t+1^{\text{th}}$ iteration is either better or not better than the solution at the $t^{\text{th}}$ iteration, respectively.
 -   This example shows that if the starting point is 𝑥_9 and SA accepts only a new candidate solution that is better than the current solution, i.e., it has no escape mechanism, the search will get stuck at one of the two local optima ($x_8$ and $x_10$) denoted $L_1$ and $L_2$.
+* The temperature parameter in SA allows escape from local optima. If the search starts at $x_9$, SA can potentially move to worse solutions with a certain probability based on temperature and a random probability check. At higher temperatures, SA has a higher chance of escaping local optima ($L_1$) ($x_8$) and ($L_2$) ($x_{10}$), but as the temperature decreases, it becomes less likely to accept worse moves, leading to convergence.
 
 ![Search Strategy of SA](Pictures/sa.png "Search Strategy of SA")
 
 ## SA Algorithm
 
 -   Initialization:
-    -   Choose an initial solution $x_0$ and an initial temperature $T_0$.
+    -   Choose an initial solution $s$ and an initial temperature $T_0$.
 -   Iteration:
     -   For each step, generate a neighboring solution $v$ of the current solution $s$.
     -   Compute the change in the objective function.
