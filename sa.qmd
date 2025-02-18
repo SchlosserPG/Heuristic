@@ -58,8 +58,7 @@ runtime: python
 
 -   A probabilistic optimization algorithm inspired by the annealing process in metallurgy, where materials are heated and then slowly cooled to reduce defects, thereby optimizing their structural properties.
 
--   In optimization, SA is used to find a good approximation to the global minimum of a function in a large search space, particularly when the search space is discrete or contains multiple local minima.
-
+-   In optimization, SA is used to find a good approximation to the global minimum or maximum of a function in a large search space, particularly when the search space is discrete or contains multiple local minima. 
 -   The search strategy of SA is to start with a random possible solution in the solution space and then use the Metropolis acceptance criterion to determine whether a worse solution is to be accepted or not.
 
 -   To emulate the annealing process for a minimization optimization problem, SA will first calculate the difference between the objective values of the new candidate solution $\nu$ and the current solution $s$ to see whether it will accept the new candidate solution or not, as follows: $\Delta_f^{\text{min}} = f(\nu) - f(s)$
@@ -69,8 +68,7 @@ runtime: python
 -   Solution Space:
     -   This is the space of all possible solutions to the problem.
 -   Objective Function:
-    -   Defines the quality of a solution (usually the cost or energy to minimize).
-    -   For instance, in the Travelling Salesman Problem (TSP), the objective function would be the total distance of the tour.
+    -   Defines the quality and overall goal of a solution.
 -   Temperature:
     -   This controls the probability of accepting worse solutions.
     -   Initially, the temperature is high, allowing the algorithm to explore the solution space more freely.
@@ -101,12 +99,12 @@ runtime: python
 ## Tuning Parameters
 
 -   The success of SA heavily depends on the tuning of parameters like the cooling schedule, the initial temperature, and the size of the neighborhood.
-    -   hyperparameter tuning and experimentation.
--   Comparison to Other Algorithms: To compare SA to algorithms like Genetic Algorithms (GA) or Greedy Heuristics, SA is more appropriate due to its exploration-exploitation trade-off. Where **exploration** (searching the solution space broadly) and **exploitation** (focusing on refining the best solutions found so far).
+*  In the context of tuning parameters for Simulated Annealing (SA), the exploration-exploitation trade-off means adjusting the algorithm's behavior to balance between searching broadly (exploration) and refining promising solutions (exploitation).
+
 
 ## The Search Strategy of SA
 
--   Start with a random possible solution in the solution space and then use the Metropolis acceptance criterion to determine whether a worse solution is to be accepted or not.
+-   The search strategy of SA is to start with a random possible solution in the solution space and then use a criteria (like the metropolis acceptance criterion) to determine whether a worse solution is to be accepted or not.
 -   In this example, $t^{\Delta} \quad$ and $\quad t^{\nabla}$ indicate that the solution at the $t+1^{\text{th}}$ iteration is either better or not better than the solution at the $t^{\text{th}}$ iteration, respectively.
 -   This example shows that if the starting point is 𝑥_9 and SA accepts only a new candidate solution that is better than the current solution, i.e., it has no escape mechanism, the search will get stuck at one of the two local optima ($x_8$ and $x_10$) denoted $L_1$ and $L_2$.
 
@@ -117,9 +115,9 @@ runtime: python
 -   Initialization:
     -   Choose an initial solution $x_0$ and an initial temperature $T_0$.
 -   Iteration:
-    -   For each step, generate a neighboring solution $x^′$ of the current solution $x$.
+    -   For each step, generate a neighboring solution $v$ of the current solution $s$.
     -   Compute the change in the objective function.
-    -   Decide whether to move to the new solution $x^′$ based on the acceptance probability.
+    -   Decide whether to move to the new solution $v$ based on the acceptance probability.
     -   Gradually reduce the temperature $T$ according to the cooling schedule
 -   Termination:
     -   The algorithm stops when the temperature $T$ is sufficiently low or after a predefined number of iterations.
