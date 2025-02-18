@@ -636,7 +636,7 @@ window.Quarto = {
 <h1>Making a Model: One Max with SA</h1>
 <section id="imports-global-variables" class="level2">
 <h2 class="anchored" data-anchor-id="imports-global-variables">Imports, Global Variables</h2>
-<div id="c765d7d8" class="cell" data-execution_count="1">
+<div id="305c6d90" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">##Simulated Annealing One-Max Example</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -645,7 +645,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>max_iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>max_evals <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>initial_temp <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cooling_rate <span class="op">=</span> <span class="fl">0.99</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>min_temp <span class="op">=</span> <span class="fl">0.0001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -654,9 +654,11 @@ window.Quarto = {
 <section id="initialize" class="level2">
 <h2 class="anchored" data-anchor-id="initialize">Initialize</h2>
 <ul>
-<li>The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits (default 10), where each element is randomly set to 0 or 1.The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1’s in the array).The function returns the initial solution and its evaluated fitness.</li>
+<li>The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits, where each element is randomly set to 0 or 1.</li>
+<li>The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1’s in the array).</li>
+<li>The function returns the initial solution and its evaluated fitness.</li>
 </ul>
-<div id="4e5530d9" class="cell" data-execution_count="2">
+<div id="471284f9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_sa(num_bits):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, num_bits)</span>
@@ -669,7 +671,7 @@ window.Quarto = {
 <li>This is done by randomly selecting an index in the binary array and toggling the bit (changing 1 to 0 or 0 to 1).</li>
 <li>This new solution represents the neighboring candidate that will be evaluated next, which is a small random change to the current solution.</li>
 </ul>
-<div id="ebf8ae85" class="cell" data-execution_count="3">
+<div id="aa450547" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(sol):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    new_sol <span class="op">=</span> sol.copy()</span>
@@ -677,13 +679,23 @@ window.Quarto = {
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    new_sol[index] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> new_sol[index]  <span class="co"># Flip a random bit</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>Example: 1011011001…1100100110 (100 bits total)</li>
+<li>Randomly Selected Bit to Flip: Assume random index was 25.
+<ul>
+<li>New Solution After Flip: If the bit at index = 25 was 1, it flips to 0, and vice versa.</li>
+<li>Before: 1011011001…110<strong>0</strong>100110 (Bit at index 25 is <code>0</code>)</li>
+<li>After: 1011011001…110<strong>1</strong>100110 (Bit at index 25 is flipped to <code>1</code>)</li>
+</ul></li>
+<li>Since np.random.randint(len(sol)) randomly selects a bit, every execution results in different positions being flipped.</li>
+</ul>
 </section>
 <section id="evaluate-e" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-e">Evaluate (E)</h3>
 <ul>
 <li>The evaluate function calculates the fitness of the current solution by summing up the number of 1’s in the binary array (sol).The One-Max problem aims to maximize this value, with the goal being to find the solution with all bits set to 1.</li>
 </ul>
-<div id="e7289171" class="cell" data-execution_count="4">
+<div id="6c7608da" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E): One-max function</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(sol):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(sol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -701,7 +713,7 @@ window.Quarto = {
 </ul></li>
 <li>The function returns True if the new solution is accepted, otherwise False.</li>
 </ul>
-<div id="00e7324b" class="cell" data-execution_count="5">
+<div id="d6ec4f91" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination function for SA (D)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(neighbor_value, current_value, temperature):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> neighbor_value <span class="op">&gt;</span> current_value:</span>
@@ -710,6 +722,12 @@ window.Quarto = {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        acceptance_probability <span class="op">=</span> np.exp((neighbor_value <span class="op">-</span> current_value) <span class="op">/</span> temperature)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.random() <span class="op">&lt;</span> acceptance_probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/SAp_acceptance.png" title="Example of Acceptance Calculations" class="img-fluid figure-img"></p>
+<figcaption>Example of Acceptance Calculations</figcaption>
+</figure>
+</div>
 </section>
 <section id="run-function" class="level3">
 <h3 class="anchored" data-anchor-id="run-function">Run Function</h3>
@@ -717,18 +735,18 @@ window.Quarto = {
 <li>The init_sa function generates a random initial solution (current_sol) with a binary array of length num_bits.</li>
 <li>This solution is evaluated using the evaluate function, which counts the number of 1’s in the array.</li>
 <li>The current solution is also set as the best solution initially, since no other solutions have been explored yet.</li>
-<li>The temperature is set to initial_temp (default 10), which controls the probability of accepting worse solutions in the early stages of the algorithm.</li>
+<li>The temperature is set to initial_temp, which controls the probability of accepting worse solutions in the early stages of the algorithm.</li>
 <li>The list value_history is initialized to store the value (fitness) of the current solution over time.</li>
-<li>This main loop runs until the temperature drops below min_temp (0.0001) or the maximum number of iterations (max_iterations, default 1000) is reached. Each iteration represents one step in the simulated annealing process.</li>
+<li>This main loop runs until the temperature drops below min_temp (0.0001) or the maximum number of evals (max_evals, default 1000) is reached. Each evaluation represents one step in the simulated annealing process.</li>
 <li>A neighboring solution (neighbor_sol) is generated by the transit function, which randomly flips one bit in the current solution. * This represents exploring a new area of the search space close to the current solution.</li>
 <li>The neighboring solution is evaluated using the evaluate function, which calculates its fitness (i.e., the number of 1’s in the binary array). This value is compared to the current solution’s fitness.</li>
 <li>The determine function decides whether to accept the neighboring solution</li>
-<li>The current solution’s fitness is appended to value_history to keep a record of the solution’s fitness across iterations. This will later be used to plot the progress of the algorithm.</li>
-<li>After each iteration, the temperature is reduced by multiplying it by the cooling_rate (default 0.99). This cooling process gradually reduces the probability of accepting worse solutions, making the algorithm behave more like greedy hill climbing toward the end.</li>
-<li>The number of iterations is incremented.</li>
-<li>After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of iterations has been reached), the function returns:best_sol: The best solution found during the process.best_value: The fitness value of the best solution.value_history: A list of the fitness values over time, useful for visualizing the algorithm’s progress.</li>
+<li>The current solution’s fitness is appended to value_history to keep a record of the solution’s fitness across evaluations. This will later be used to plot the progress of the algorithm.</li>
+<li>After each evaluation, the temperature is reduced by multiplying it by the cooling_rate (default 0.99). This cooling process gradually reduces the probability of accepting worse solutions, making the algorithm behave more like greedy hill climbing toward the end.</li>
+<li>The number of evals is incremented.</li>
+<li>After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of evaluations has been reached), the function returns:best_sol: The best solution found during the process.best_value: The fitness value of the best solution.value_history: A list of the fitness values over time, useful for visualizing the algorithm’s progress.</li>
 </ul>
-<div id="62370f01" class="cell" data-execution_count="6">
+<div id="82230db3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(num_bits):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    current_sol, current_value <span class="op">=</span> init_sa(num_bits)</span>
@@ -736,8 +754,8 @@ window.Quarto = {
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> initial_temp</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    value_history <span class="op">=</span> [current_value]</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    iterations <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> max_iterations:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    evals <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> evals <span class="op">&lt;</span> max_evals:</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        neighbor_sol <span class="op">=</span> transit(current_sol)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        neighbor_value <span class="op">=</span> evaluate(neighbor_sol)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -751,9 +769,15 @@ window.Quarto = {
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cool down the temperature</span></span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        temperature <span class="op">*=</span> cooling_rate</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        iterations <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        evals <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_value, value_history</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/Temp.png" title="Cooling Schedule Calculations" class="img-fluid figure-img"></p>
+<figcaption>Example Cooling Schedule Calculations</figcaption>
+</figure>
 </div>
 </section>
 <section id="main-execution" class="level3">
@@ -764,7 +788,7 @@ window.Quarto = {
 <li>The temperature gradually cools down, reducing the chance of accepting worse solutions as the algorithm progresses.</li>
 <li>Finally, the results are printed and plotted for visual analysis.</li>
 </ul>
-<div id="34e94c99" class="cell" data-execution_count="7">
+<div id="dc42681d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>best_sol, best_value, value_history <span class="op">=</span> simulated_annealing(num_bits)</span>
@@ -775,7 +799,7 @@ window.Quarto = {
 </section>
 <section id="output" class="level2">
 <h2 class="anchored" data-anchor-id="output">Output</h2>
-<div id="2f59b41e" class="cell" data-execution_count="8">
+<div id="de744698" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results (O)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best solution: </span><span class="sc">{</span>best_sol<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best value (number of 1s): </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -793,7 +817,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1]
 Best value (number of 1s): 10
-Execution time: 0.009061 seconds</code></pre>
+Execution time: 0.007513 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -815,7 +839,7 @@ Execution time: 0.009061 seconds</code></pre>
 </ul>
 <section id="example-results" class="level2">
 <h2 class="anchored" data-anchor-id="example-results">Example Results</h2>
-<div id="740722a0" class="cell" data-execution_count="9">
+<div id="fdde1537" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -910,9 +934,9 @@ Execution time: 0.009061 seconds</code></pre>
 <span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal x: 0.0005295094464530248
-Optimal value: 0.0021329698704701805
-Execution time: 0.013528 seconds</code></pre>
+<pre><code>Optimal x: 0.0012025215176116877
+Optimal value: 0.004887096964573789
+Execution time: 0.012532 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -964,7 +988,7 @@ Execution time: 0.013528 seconds</code></pre>
 </section>
 <section id="portfolio-diversification-with-sa" class="level1">
 <h1>Portfolio Diversification With SA</h1>
-<div id="762efe5d" class="cell" data-execution_count="10">
+<div id="67cf1270" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simulated Annealing Finance Example</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -973,7 +997,7 @@ Execution time: 0.013528 seconds</code></pre>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>max_iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>max_evals <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>initial_temp <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>cooling_rate <span class="op">=</span> <span class="fl">0.995</span></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>min_temp <span class="op">=</span> <span class="fl">1e-6</span></span>
@@ -1012,7 +1036,7 @@ Execution time: 0.013528 seconds</code></pre>
 <span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.random.rand() <span class="op">&lt;</span> acceptance_probability</span>
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulated Annealing (SA) function</span></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_iterations, initial_temp, cooling_rate):</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_temp, cooling_rate):</span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    current_weights <span class="op">=</span> initialize_portfolio(stocks)</span>
 <span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    current_returns, current_risk, current_sharpe <span class="op">=</span> evaluate_portfolio(current_weights, mean_returns, cov_matrix)</span>
 <span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>    best_weights, best_sharpe <span class="op">=</span> current_weights, current_sharpe</span>
@@ -1020,7 +1044,7 @@ Execution time: 0.013528 seconds</code></pre>
 <span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    sharpe_history <span class="op">=</span> [current_sharpe]</span>
 <span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    iterations <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> max_iterations:</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> temperature <span class="op">&gt;</span> min_temp <span class="kw">and</span> iterations <span class="op">&lt;</span> max_evals:</span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>        neighbor_weights <span class="op">=</span> transition_portfolio(current_weights)</span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>        neighbor_returns, neighbor_risk, neighbor_sharpe <span class="op">=</span> evaluate_portfolio(neighbor_weights, mean_returns, cov_matrix)</span>
 <span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
@@ -1048,7 +1072,7 @@ Execution time: 0.013528 seconds</code></pre>
 <span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Run simulated annealing for portfolio optimization</span></span>
 <span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>best_weights, best_sharpe, sharpe_history <span class="op">=</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_iterations, initial_temp, cooling_rate)</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>best_weights, best_sharpe, sharpe_history <span class="op">=</span> simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_temp, cooling_rate)</span>
 <span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
 <span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
 <span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
@@ -1069,7 +1093,7 @@ Execution time: 0.013528 seconds</code></pre>
 <span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best Sharpe Ratio: </span><span class="sc">{</span>best_sharpe<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>[                       0%                       ][                       0%                       ][**************        30%                       ]  3 of 10 completed[**************        30%                       ]  3 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed</code></pre>
+<pre><code>[                       0%                       ][**********            20%                       ]  2 of 10 completed[**************        30%                       ]  3 of 10 completed[*******************   40%                       ]  4 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1080,18 +1104,18 @@ Execution time: 0.013528 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimized Portfolio:
-AAPL: 0.1242
-GOOGL: 0.0027
-MSFT: 0.0003
-AMZN: 0.0000
-TSLA: 0.0001
-NFLX: 0.2537
-NVDA: 0.0570
-META: 0.4127
-DIS: 0.1484
-BA: 0.0008
-Best Sharpe Ratio: 2.7361
-Execution time: 0.108426 seconds</code></pre>
+AAPL: 0.0763
+GOOGL: 0.0000
+MSFT: 0.0025
+AMZN: 0.2219
+TSLA: 0.0010
+NFLX: 0.1822
+NVDA: 0.0289
+META: 0.2962
+DIS: 0.1910
+BA: 0.0000
+Best Sharpe Ratio: 2.7566
+Execution time: 0.085160 seconds</code></pre>
 </div>
 </div>
 <section id="our-hill-climbing-finance-model-was-better.-why" class="level2">
