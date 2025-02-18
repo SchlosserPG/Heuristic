@@ -163,7 +163,18 @@ runtime: python
 ![SA Changing Values](Pictures/sa3.png "SA Changing Values")
 
 -   In this case, $p_a^{\text{max}}$=.329 and 0.007 for ${\Psi_t}$ = .9 and 0.2, respectively. This indicates that a lower temperature Image implies a smaller probability Image to accept a non-improving candidate solution as the current solution.
--   The value of $f_s$ goes from 2.0 to 1.1, the value of $p_a^{\text{max}}$ goes from 0.329 up to 0.895. This means that in case $f(\nu$\$ is worse than $f(s)$, a smaller $\Delta_f^{\text{max}}$ implies a higher probability $p_a^{\text{max}}$ to accept a non-improving candidate solution as the current solution.
+-   The value of $f_s$ goes from 2.0 to 1.1, the value of $p_a^{\text{max}}$ goes from 0.329 up to 0.895. This means that in case $f(\nu)$ is worse than $f(s)$, a smaller $\Delta_f^{\text{max}}$ implies a higher probability $p_a^{\text{max}}$ to accept a non-improving candidate solution as the current solution.
+* Higher temperatures} ($\Psi_t = 0.9$) allow higher acceptance of worse solutions.
+     + Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.9$, $p_a^{\min} = 3.038$(high).
+* Lower temperatures $\Psi_t = 0.2$ reject worse solutions more aggressively.
+     + Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.2$, $p_a^{\min} = 148.413$, which results in almost no acceptance.
+
+    
+*  Acceptance of better solutions} $p_a^{\max}$ is much higher in general but varies based on temperature.
+     + For $\Psi_t = 0.9$, $p_a^{\max} = 0.329$ (highlighted in yellow).
+     + For $\Psi_t = 0.2$, $p_a^{\max} = 0.007$, meaning lower temperatures almost never accept bad moves.
+        
+
 
 ### Summary of Cases
 
