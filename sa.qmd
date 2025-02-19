@@ -546,7 +546,7 @@ min_temp = .0001
 # List of stocks and historical data
 stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA']
 start_date = '2023-10-01'
-end_date = '2025-1-01'
+end_date = '2024-10-01'
 
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
@@ -586,7 +586,7 @@ def determine_portfolio(neighbor_sharpe, current_sharpe, temperature):
 # Simulated Annealing (SA) function
 def simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_temp, cooling_rate):
     current_weights = initialize_portfolio(stocks)
-    current_returns, current_risk, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
+    _, _, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
     best_weights, best_sharpe = current_weights, current_sharpe
     temperature = initial_temp
     sharpe_history = [current_sharpe]
@@ -594,7 +594,7 @@ def simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_tem
     evals = 0
     while temperature > min_temp and evals < max_evals:
         neighbor_weights = transition_portfolio(current_weights)
-        neighbor_returns, neighbor_risk, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)
+        _, _, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)
 
         if determine_portfolio(neighbor_sharpe, current_sharpe, temperature):
             current_weights, current_sharpe = neighbor_weights, neighbor_sharpe

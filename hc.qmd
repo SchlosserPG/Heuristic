@@ -467,14 +467,14 @@ end_date = '2024-10-1'
 
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
-    data = yf.download(stocks, start=start_date, end=end_date)['Adj Close']
-    return data
+    return yf.download(stocks, start=start_date, end=end_date, auto_adjust=True)
+stock_data = fetch_data(stocks, start_date, end_date)
+
 ```
 
 ## Calculating performance via Sharpe Ratio
 
 ```{python}
-# Calculate portfolio performance (returns, risk, and Sharpe ratio)
 def portfolio_performance(weights, mean_returns, cov_matrix):
     returns = np.sum(mean_returns * weights) * 252  # Annualized returns
     risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk
@@ -486,13 +486,12 @@ def portfolio_performance(weights, mean_returns, cov_matrix):
 ## Main Loop
 
 ```{python}
-# Hill Climbing algorithm for portfolio optimization
 def hc(mean_returns, cov_matrix, max_iterations=1000):
     num_assets = len(mean_returns)
     # Initial random portfolio
     current_weights = np.random.random(num_assets)
     current_weights /= np.sum(current_weights)  
-    current_returns, current_risk, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
+    _, _, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)
     
     # Track progress for visualization
     score_history = [current_sharpe]
@@ -509,16 +508,15 @@ def hc(mean_returns, cov_matrix, max_iterations=1000):
         
         # If the neighbor is better, move to the neighbor solution
         if neighbor_sharpe > current_sharpe:
-            current_weights, current_returns, current_risk, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe
+            current_weights, _, _, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe
             score_history.append(current_sharpe)
         
         iteration += 1  
     
     return current_weights, current_sharpe, score_history
 
-
 stock_data = fetch_data(stocks, start_date, end_date)
-returns = stock_data.pct_change().dropna()
+returns = stock_data['Close'].pct_change().dropna()
 mean_returns = returns.mean()
 cov_matrix = returns.cov()
 
@@ -528,10 +526,8 @@ cov_matrix = returns.cov()
 
 ```{python}
 start_time = time.time()
-
 # Run hill climbing
 best_weights, best_sharpe, score_history = hc(mean_returns, cov_matrix)
-
 end_time = time.time()
 execution_time = end_time - start_time  # Calculate elapsed time
 
@@ -540,6 +536,14 @@ execution_time = end_time - start_time  # Calculate elapsed time
 ## Output
 
 ```{python}
+
+# Output the best results
+print("Optimized Portfolio using Hill Climbing:")
+for i, stock in enumerate(stocks):
+    print(f"{stock}: {best_weights[i]:.4f}")
+print(f"Best Sharpe Ratio: {best_sharpe:.4f}")
+print(f"Execution time: {execution_time:.6f} seconds")
+
 # Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)
 plt.figure(figsize=(10, 6))
 plt.plot(score_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')
@@ -549,23 +553,10 @@ plt.ylabel("Sharpe Ratio")
 plt.grid(True)
 plt.legend()
 plt.show()
-
-# Output the best results
-returns, risk, sharpe_ratio = portfolio_performance(best_weights, mean_returns, cov_matrix)
-print(f"Best portfolio weights: {best_weights}")
-print(f"Best Sharpe ratio: {sharpe_ratio}")
-print(f"Best portfolio returns: {returns}, Best risk: {risk}")
-print(f"Hill Climbing Finance Example Execution time: {execution_time:.6f} seconds")
 ```
 
 -   The plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.
--   The weights are heavily concentrated in a few stocks, particularly:
-    -   stocks = \['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'\]
-    -   19.560444 % in stock 1: AAPL: Apple
-    -   13.030724 % in stock 4: AMZN: Amazon
-    -   19.665558 % in stock 6: NFLX: Netflix
-    -   30.926036 % in stock 8: META: Facebook
-    -   16.817237 % in stock 9: DIS: Walt Disney Co
+-   The weights are heavily concentrated in a few stocks, particularly: AAPL (Apple), AMZN (Amazon), NFLX (Netflix), META (Facebook), and DIS (Walt Disney Co). 
 -   A Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
 -   Our portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
     -   Pros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.
