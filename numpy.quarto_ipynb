@@ -1,0 +1,840 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Python for Heuristics & NumPy\"\n",
+        "author: \"Pamela Schlosser\"\n",
+        "format: html\n",
+        "runtime: python\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Coding Know-How\n",
+        "\n",
+        "-   In the field of heuristic modeling, coding know-how is not just a tool—it’s an essential skill that enables you to experiment, adapt, and optimize solutions for complex, real-world problems. As we explore heuristic methods in this MSBA course, having a strong foundation in coding, especially in Python, will allow you to implement and test algorithms efficiently.\n",
+        "-   Good coding practices, such as writing clear, modular code and incorporating meaningful comments, are critical for both readability and collaboration. By starting with simple Python examples that highlight these principles, we’ll build the groundwork for more sophisticated modeling tasks, from randomization techniques to optimization algorithms, equipping you with both technical skills and best practices for professional code development.\n",
+        "\n",
+        "What problems does this code have? ![program.py](Pictures/programPY.png \"program.py\")\n",
+        "\n",
+        "-   Multiple instantiations of the same code within a program cause problems + More opportunities for errors\n",
+        "    -   More maintenance\n",
+        "-   Blocks of reusable code solve this problem\n",
+        "    -   These are called functions\n",
+        "-   To avoid resetting the value of result and preserve the sum of both lists, you can accumulate the sums in a single loop or retain the value of result between the loops.\n",
+        "-   Alternatively, you can use Python's built-in sum() function to simplify the code like below.\n"
+      ],
+      "id": "31b02ad0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x1 = [0, 1, 2, 3, 4, 5]\n",
+        "x2 = [6, 7, 8, 9, 10]\n",
+        "\n",
+        "print(sum(x1))\n",
+        "print(sum(x2))"
+      ],
+      "id": "94fa0436",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Writing Programs with Internal Functions\n",
+        "\n",
+        "-   Indentation: Function statements must be indented.\n",
+        "-   Arguments: Variables passed from calling program to the function\n",
+        "    -   a_list is an argument required by my_sum\\\n",
+        "    -   a_list assumes value of x passed from main\n",
+        "-   Return: a return statement sends variables back to main program\\\n",
+        "-   Variable scope: where execution begins\n",
+        "    -   The first un-indented line that is not a function definition or a global variable\n",
+        "    -   a_list is defined only in the function when it runs\n",
+        "-   Place all functions above the “main” program\n",
+        "    -   Must be defined before they are used\n"
+      ],
+      "id": "d88afe4d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def my_sum(a_list):\n",
+        "    result = 0\n",
+        "    for y in a_list:\n",
+        "        result += y\n",
+        "    return result\n",
+        "    \n",
+        "x = [0,1,2,3,4,5]\n",
+        "print(my_sum(x))"
+      ],
+      "id": "fed7d7ef",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Understanding The Loop\n",
+        "\n",
+        "\n",
+        "```{asis}\n",
+        "for y in a_list:\n",
+        "   result += y\n",
+        "return result\n",
+        "```\n",
+        "\n",
+        "\n",
+        "-   A loop is a way to repeat the same action for every item in a collection (like a list).\n",
+        "-   For y in a_list means, take each item in a_list one at a time, and call it y.\n",
+        "    -   For example, if a_list is \\[0, 1, 2, 3, 4, 5\\], the loop will do the following:\n",
+        "    -   First loop: set y = 0, result = 0 + 0 (result is now 0).\n",
+        "    -   Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).\n",
+        "    -   Third loop: then y = 2, result = 1 + 2 (result is now 3). and so on, until all the numbers in the list have been used.\n",
+        "\n",
+        "![program.py](Pictures/programs.png \"program.py\")\n",
+        "\n",
+        "# Procedural Programming vs Object Oriented Programming (OOP)\n",
+        "\n",
+        "-   Procedural Programming:\n",
+        "    -   In Python, you can program .py files where the code is organized into functions, with data often being passed around between them.\n",
+        "    -   Functions perform specific tasks but do not group behavior and state (data) together.\n",
+        "    -   All the code tends to be written in one or a few large files, without much encapsulation or separation of concerns.\n",
+        "    -   The textbook uses OOP, I will supplement with procedural models.\n",
+        "-   OOP:\n",
+        "    -   In Python, you can use OOP to separate different parts of your code, such as algorithms, test cases, and libraries, by encapsulating them in different classes or modules. This leads to a more organized and maintainable codebase.\n",
+        "    -   What can you separate:\n",
+        "        -   Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.\n",
+        "        -   Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.\n",
+        "        -   Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.\n",
+        "\n",
+        "* Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability. \n",
+        "* While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem's complexity and design requirements.\n",
+        "\n",
+        "# Libraries to Note\n",
+        "\n",
+        "![libraries.py](Pictures/library.png \"libraries\")\n",
+        "\n",
+        "# Numpy Basics\n",
+        "\n",
+        "-   NumPy stands for numerical Python, suggesting that it targets scenarios that are numerically demanding. The base Python interpreter tries to be as general as possible in many areas, which often leads to quite a bit of overhead at run-time.\n",
+        "-   NumPy uses specialization for numerical components as its major approach to avoid overhead and to be as good and as fast as possible in certain application scenarios.\n",
+        "-   Vectorization is a powerful concept for writing concise, easy-to-read, and easy-to-maintain code in fields such as finance and algorithmic trading. With NumPy, vectorized code does not only make code more concise, but it also can speed up code execution considerably (by a factor of about eight in the Monte Carlo simulation, for example).\n"
+      ],
+      "id": "0fa6156d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np"
+      ],
+      "id": "4cb4bcbb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Basic Array Creation\n",
+        "\n",
+        "-   The np.array function in NumPy is used to create an array (a grid of values) from data provided as lists, tuples, or other array-like structures. The resulting NumPy array is a powerful and flexible structure for mathematical operations, as it supports multiple dimensions, broadcasting, and various data types.\n"
+      ],
+      "id": "1489059a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a simple numpy array from a Python list\n",
+        "array = np.array([1, 2, 3, 4])\n",
+        "print(\"Array:\", array)"
+      ],
+      "id": "55287dc7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* np.arange() is a NumPy function that generates an array with evenly spaced values within a given range.\n"
+      ],
+      "id": "6d1d62a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "array = np.arange(1, 5)  # Generates [1, 2, 3, 4]\n",
+        "print(\"Array:\", array)"
+      ],
+      "id": "d1f1e0a7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Element-Wise Operations\n",
+        "\n",
+        "-   Element-wise operators are mathematical or logical operations applied independently to corresponding elements in arrays or matrices of the same shape.\n",
+        "-   Each element in one array is combined with the corresponding element in the other array using the operator.\n",
+        "-   In the context of arrays (such as in NumPy), common element-wise operators include basic arithmetic operators:\n",
+        "    -   Element-wise addition +\n",
+        "    -   Element-wise subtraction -\n",
+        "    -   Element-wise multiplication \\*\n",
+        "    -   Element-wise division /\n",
+        "    -   Element-wise exponentiation \\*\\*\n"
+      ],
+      "id": "e65b2dd2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Performing element-wise addition\n",
+        "array = np.array([1, 2, 3, 4])\n",
+        "added_array = array + 5\n",
+        "print(\"Added Array:\", added_array)"
+      ],
+      "id": "2745cdd2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a = np.array([1, 2, 3])\n",
+        "b = np.array([4, 5, 6])\n",
+        "c = a + b\n",
+        "print(c)"
+      ],
+      "id": "843f5873",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Taking an Exponent: np.exp\n",
+        "\n",
+        "-   np.exp is a function in the NumPy library that calculates the exponential of all elements in an input array. Specifically, it computes the base-e exponential function, which is 𝑒\\^𝑥, where 𝑒 is Euler's number (approximately 2.71828), and 𝑥 is the input array or scalar.\n"
+      ],
+      "id": "b229e1a3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Applying np.exp to the array\n",
+        "array = np.array([1, 2, 3, 4])\n",
+        "exp_array = np.exp(array)\n",
+        "print(\"Exponential Array:\", exp_array)"
+      ],
+      "id": "e032ed38",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   np.exp from Simulated Annealing example\n",
+        "-   This function is part of a Simulated Annealing algorithm, specifically handling the temperature decay mechanism to decide whether to accept a new solution, even if it's worse than the current one. Here's a breakdown of the function based on the np.exp command and the logic:\n",
+        "    -   tmp_obj_val: The objective value of a new (temporary) solution.\n",
+        "    -   obj_val: The objective value of the current solution. temperature: The current temperature in the simulated annealing process, which controls how likely the algorithm is to accept worse solutions.\n",
+        "    -   A random number r between 0 and 1 is generated. This represents a threshold for whether the new solution will be accepted using random.rand()\n",
+        "    -   The probability p of accepting the new solution is computed using the exponential function.\n",
+        "    -   If the random value r is less than the calculated probability p, the function returns True, meaning the new solution is accepted (even if it’s worse). If r is greater than p, the new solution is rejected, and the current solution is maintained.\n",
+        "-   The function decides whether to accept a new solution in simulated annealing, balancing exploration and exploitation based on the temperature and objective values of the solutions. The np.exp() function ensures that worse solutions have a chance to be accepted, particularly early in the process, fostering a broader search space.\n"
+      ],
+      "id": "6ca451de"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Simulated annealing temperature decay\n",
+        "def determine(self, tmp_obj_val, obj_val, temperature):\n",
+        "     r = np.random.rand()\n",
+        "     p = np.exp((tmp_obj_val - obj_val) / temperature)\n",
+        "     return r < p"
+      ],
+      "id": "b059f592",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Taking a square root: np.sqrt()\n",
+        "\n",
+        "-   np.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.\n"
+      ],
+      "id": "0c606d51"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Applying np.sqrt to the array\n",
+        "sqrt_array = np.sqrt(array)\n",
+        "print(\"Square Root Array:\", sqrt_array)"
+      ],
+      "id": "81aa6b01",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   The Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.\n"
+      ],
+      "id": "c26d5f6c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def ackley(s):\n",
+        "     a, b, c = 20, 0.2, 2 * np.pi\n",
+        "     n = len(s)\n",
+        "     sum_sq_term = np.sum(s**2)\n",
+        "     cos_term = np.sum(np.cos(c * s))\n",
+        "     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))\n",
+        "     term2 = -np.exp(cos_term / n)\n",
+        "     return term1 + term2 + a + np.e"
+      ],
+      "id": "dc0170f2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Random Number Generation\n",
+        "\n",
+        "* The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive). \n",
+        "* Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). \n",
+        "* The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 [0,1). It is saved in a variable rand_nums and the values in the variable are printed.\n"
+      ],
+      "id": "0d519514"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "rand_nums = np.random.rand(5)\n",
+        "print(rand_nums)"
+      ],
+      "id": "e7d042d8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Standard Normal Distribution\n",
+        "\n",
+        "-   The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.\n",
+        "-   Generating 5 random numbers from a standard normal distribution (mean=0, std=1).\n"
+      ],
+      "id": "5d51e56d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generating random values from the standard normal distribution\n",
+        "random_values = np.random.standard_normal(5)\n",
+        "print(\"Random Standard Normal Values:\", random_values)"
+      ],
+      "id": "6a5063ae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## np.random.uniform\n",
+        "\n",
+        "*The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.\n",
+        "* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.\n"
+      ],
+      "id": "fb4a33b4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate a random starting point for the hill climbing algorithm\n",
+        "random_start = np.random.uniform(low=-10, high=10, size=5)\n",
+        "print(f\"Random start: {random_start}\")"
+      ],
+      "id": "8f2e0184",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## np.random.randint\n",
+        "\n",
+        "-   The np.random.randint function in NumPy is used to generate random integers within a specified range.\n",
+        "\n",
+        "-   np.random.randint(low, high=None, size=None, dtype=int)\n",
+        "\n",
+        "    -   low: The lower boundary of the random integers (inclusive).\n",
+        "    -   high: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\n",
+        "    -   size: The shape of the output array (optional). If not provided, a single integer is returned.\n",
+        "    -   dtype: The desired data type of the output array, by default int.\n"
+      ],
+      "id": "fec6ffa2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate 5 random integers between 10 and 20\n",
+        "random_integers = np.random.randint(10, 20, size=5)\n",
+        "print(random_integers)"
+      ],
+      "id": "970369cb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* We can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array. \n"
+      ],
+      "id": "d2811835"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "random_2d_array = np.random.randint(10, 20, size=(3, 5)) \n",
+        "print(random_2d_array)"
+      ],
+      "id": "6853aae2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## np.random.randint from Simulated Annealing\n",
+        "\n",
+        "-   This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or \"transition\") to the current solution.\n",
+        "\n",
+        "    -   The function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).\n",
+        "    -   t = sol.copy(): A copy of the solution sol is made, named t. This is important because we don't want to modify the original solution directly; instead, we work on the copy t.\n",
+        "    -   i = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.\n",
+        "    -   t\\[i\\] \\^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t\\[i\\] is 0, it becomes 1.If t\\[i\\] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.\n",
+        "    -   return t: After flipping one bit, the modified solution t is returned.\n"
+      ],
+      "id": "d9ee727b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "md-indent": "    "
+      },
+      "source": [
+        "# Transition function (T)\n",
+        "def transit(sol):\n",
+        "    new_sol = sol.copy()\n",
+        "    index = np.random.randint(len(sol))\n",
+        "    new_sol[index] = 1 - new_sol[index]  # Flip a random bit\n",
+        "    return new_sol"
+      ],
+      "id": "41d4b1fc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* To compare: \n",
+        "     + np.random.standard_normal = normal distribution with mean and sd\n",
+        "     + np.random.rand = uniform distribution between [0,1)\n",
+        "     + np.random.uniform = uniform over a specified range\n",
+        "     + np.random.randint = random integers within a specified range\n",
+        "\n",
+        "## Sorting the data: np.argsort\n",
+        "\n",
+        "-   The np.argsort function in NumPy returns the indices that would sort an array along a specified axis. This allows you to reorder elements based on their sorted order without actually changing the original array.\n",
+        "\n",
+        "-   In various evolutionary algorithms (such as genetic algorithms or simulated annealing), selecting the most \"fit\" or optimal solutions from a population is crucial for convergence toward the global optimum.\n",
+        "\n",
+        "-   By sorting individuals based on fitness, the algorithm can efficiently identify the most promising candidates for further exploration (e.g., crossover, mutation) or intensify the search around high-quality solutions.\n",
+        "\n",
+        "-   The use of np.argsort allows for a fast, reliable way to rank individuals, ensuring that the evolutionary process focuses on refining the best candidates and discarding those with lower potential.\n"
+      ],
+      "id": "b7a242e0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Dummy population and fitness values\n",
+        "population = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])\n",
+        "\n",
+        "# Assign dummy fitness values\n",
+        "fitness = np.array([10, 30, 20, 40, 50]) \n",
+        "\n",
+        "# Sort population based on fitness\n",
+        "indices = np.argsort(fitness)\n",
+        "print(indices) \n",
+        "sorted_population = population[indices]\n",
+        "\n",
+        "# Select top 3 individuals\n",
+        "top_individuals = sorted_population[:3] \n",
+        "print(top_individuals)"
+      ],
+      "id": "0ae56906",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Selecting the Max: np.argmax\n",
+        "\n",
+        "-   The np.argmax function in NumPy returns the index of the maximum value in an array along a specified axis.\n",
+        "-   Finding the Index of the Maximum Element in a 1D Array: The np.argmax function returns the index of the first occurrence of the maximum value in the array. In this case, the maximum value is 7, and it occurs at index 2.\n"
+      ],
+      "id": "656c07e1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr = np.array([1, 3, 7, 2, 5])\n",
+        "index = np.argmax(arr)\n",
+        "print(\"Array:\", arr)\n",
+        "print(\"Index of max element:\", index)\n",
+        "print(\"Max element:\", arr[index])"
+      ],
+      "id": "83c1cb17",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Array: \\[1 3 <mark>7</mark> 2 5\\]\n",
+        "\n",
+        "-   Using np.argmax with a 2D Array (Row-wise & Column-wise): np.argmax can work on multi-dimensional arrays. By specifying axis=0 or axis=1, you can find the maximum values column-wise or row-wise, respectively. For axis=0, you get the indices of the maximum elements for each column, and for axis=1, you get them for each row.\n"
+      ],
+      "id": "31d5c58f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr_2d = np.array([[1, 2, 3], [4, 5, 1], [0, 6, 2]])\n",
+        "\n",
+        "# Find the index of the max element in the flattened array\n",
+        "max_index_flat = np.argmax(arr_2d)\n",
+        "print(\"Flattened array index:\", max_index_flat)"
+      ],
+      "id": "d13f81d4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   Number 6 is in index 7, starting at index 0 and counting up across each row.\\\n",
+        "    \\[\\[1 2 3\\]\\\n",
+        "    \\[4 5 1\\]\\\n",
+        "    \\[0 <mark>6</mark> 2\\]\\]\n"
+      ],
+      "id": "f4e0fdcb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Find the index of the max element along each column (axis=0)\n",
+        "max_index_col = np.argmax(arr_2d, axis=0)\n",
+        "print(\"Max element index for each column:\", max_index_col)"
+      ],
+      "id": "f44b9e96",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   4 is in index 1, 6 is in index 2, and 3 is in index 0, counting across each column starting at index 0. \\[\\[1 2 <mark>3</mark>\\]\\\n",
+        "    \\[<mark>4</mark> 5 1\\]\\\n",
+        "    \\[0 <mark>6</mark> 2\\]\\]\n"
+      ],
+      "id": "1e796069"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Find the index of the max element along each row (axis=1)\n",
+        "max_index_row = np.argmax(arr_2d, axis=1)\n",
+        "print(\"Max element index for each row:\", max_index_row)"
+      ],
+      "id": "61c25347",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   3 is in index 2 in the row, 5 is in index 1, and 6 is in index 1, counting across each row starting at index 0. \\[\\[1 2 <mark>3</mark>\\]\\\n",
+        "    \\[4 <mark>5</mark> 1\\]\\\n",
+        "    \\[0 <mark>6</mark> 2\\]\\]\n",
+        "\n",
+        "# Formula vs LaTex vs Python\n",
+        "\n",
+        "-   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.\n",
+        "-   The formula is central in financial mathematics, particularly in the modeling of asset prices. This model is widely used to describe the evolution of stock prices and other financial assets over time in a stochastic (random) way. Here's a breakdown of the components and how they fit into finance:\n",
+        "    -   Formula: $S_T = S_0 \\exp((r - 0.5 \\sigma^2) T + \\sigma z \\sqrt{T})$\n",
+        "    -   In LaTex: S_T = S_0 \\exp((r - 0.5 \\sigma\\^2) T + \\sigma z \\sqrt{T})\n",
+        "    -   In Python this translates to the following: S_T = S_0 \\* exp((r - 0.5 \\* sigma \\*\\* 2) \\* T + sigma \\* z \\* sqrt(T))\n",
+        "\n",
+        "# Calculating Wall Time\n",
+        "\n",
+        "-   Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.\n",
+        "-   time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable.\n"
+      ],
+      "id": "f657561b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import time\n",
+        "start_time = time.time()"
+      ],
+      "id": "1b76f3ea",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   Execute the block of code you want to measure and end the time.\n"
+      ],
+      "id": "2cfdcdac"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "end_time = time.time()"
+      ],
+      "id": "3674e4c6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time.\n"
+      ],
+      "id": "f89b70c1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "elapsed_time = end_time - start_time\n",
+        "print(f\"Wall time: {elapsed_time:.2f} seconds\")"
+      ],
+      "id": "6e096687",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## An Example Modelling Stock Prices\n",
+        "\n",
+        "-   The model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).\n",
+        "-   The model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.\n",
+        "\n",
+        "$S_T = S_0 \\exp\\left( (r - 0.5 \\sigma^2) T + \\sigma Z \\sqrt{T} \\right)$\n",
+        "\n",
+        "-   The terminal stock price $S_T$ is modeled using the Geometric Brownian Motion (GBM), a common approach to model stock prices.\n",
+        "    -   $S_0$: The initial stock price.\n",
+        "    -   $r$: The risk-free interest rate.\n",
+        "    -   $T$: Time to maturity (in years).\n",
+        "    -   $\\sigma$: The volatility of the stock.\n",
+        "    -   $S_T$: The terminal stock price at time $T$.\n",
+        "    -   $Z$: A random variable drawn from a standard normal distribution.\n",
+        "\n",
+        "## Comparing Model Clock Time With/Without NumPy\n",
+        "\n",
+        "-   The primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python's built-in modules and loops.\n",
+        "\n",
+        "### Without Numpy\n",
+        "\n",
+        "-   a Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python's interpreted loop and the sequential calls to these functions.\n"
+      ],
+      "id": "06963f3e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import random\n",
+        "from math import exp, sqrt\n",
+        "import time \n",
+        "\n",
+        "# Initial stock price\n",
+        "S0 = 100 \n",
+        "\n",
+        "# Risk-free rate\n",
+        "r = 0.05 \n",
+        "\n",
+        "# Time horizon (1 year)\n",
+        "T = 1.0 \n",
+        "\n",
+        "# Volatility\n",
+        "sigma = 0.2 \n",
+        "\n",
+        "values = []  \n",
+        "\n",
+        "# Start tracking wall time\n",
+        "start_time = time.time()\n",
+        "\n",
+        "for _ in range(1000000):  \n",
+        "     ST = S0 * exp((r - 0.5 * sigma ** 2) * T +\n",
+        "        sigma * random.gauss(0, 1) * sqrt(T))  \n",
+        "     values.append(ST)  \n",
+        "\n",
+        "# End tracking wall time\n",
+        "end_time = time.time()\n",
+        "\n",
+        "\n",
+        "# Calculate time difference\n",
+        "wall_time = end_time - start_time\n",
+        "\n",
+        "# Print timing information\n",
+        "print(f\"Wall time: {wall_time:.2f} s\")"
+      ],
+      "id": "e25e0197",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### With Numpy\n",
+        "\n",
+        "-   In contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:\n",
+        "    -   The entire random sample generation is done in one call (np.random.standard_normal(1000000)).\n"
+      ],
+      "id": "74f2689c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import time \n",
+        "\n",
+        "# Initial stock price\n",
+        "S0 = 100 \n",
+        "\n",
+        "# Risk-free rate\n",
+        "r = 0.05 \n",
+        "\n",
+        "# Time horizon (1 year)\n",
+        "T = 1.0 \n",
+        "\n",
+        "# Volatility\n",
+        "sigma = 0.2 \n",
+        "\n",
+        "# Start tracking wall time\n",
+        "start_time = time.time()\n",
+        "\n",
+        "ST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +\n",
+        "    sigma * np.random.standard_normal(1000000) * np.sqrt(T))\n",
+        "\n",
+        "# End tracking wall time\n",
+        "end_time = time.time()\n",
+        "\n",
+        "# Calculate time difference\n",
+        "wall_time = end_time - start_time\n",
+        "\n",
+        "# Print timing information\n",
+        "print(f\"Wall time: {wall_time:.2f} s\")"
+      ],
+      "id": "172dcf5e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-   Mathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.\n",
+        "\n",
+        "# Using AI\n",
+        "\n",
+        "-   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.\n",
+        "-   Reusable Code: Why is using functions in Python important? Write a function to calculate the sum of a list and explain how it makes the code more maintainable.\n",
+        "-   Internal vs External Functions: Compare internal and external function definitions in Python. Create a simple example using an external Python file for function imports.\n",
+        "-   OOP vs Procedural Programming: Explain the differences between Object-Oriented Programming and Procedural Programming. Which approach would you choose for building a reusable library, and why?\n",
+        "-   Array Operations: Create a NumPy array from a Python list and perform element-wise addition, subtraction, multiplication, and division. Discuss the advantages of using NumPy arrays over Python lists for such operations.\n",
+        "-   Vectorization: Explain the concept of vectorization in NumPy. Write vectorized code to add two arrays and compare its performance to a loop-based implementation.\n",
+        "-   Exponential Function: Using np.exp, implement a function that computes the probability of accepting a new solution in a simulated annealing algorithm. Explain how the exponential function impacts the search process.\n",
+        "-   Square Root: Write a Python script to compute the square root of all elements in a NumPy array using np.sqrt. Discuss a practical application of this operation.\n",
+        "-   Sorting with np.argsort: Create a NumPy array of random fitness scores. Use np.argsort to rank individuals and extract the top three scores.\n",
+        "-   Uniform Distribution: Generate an array of random numbers between -10 and 10 using np.random.uniform. How might this be useful in optimization algorithms like hill climbing?\n",
+        "-   Normal Distribution: Use np.random.standard_normal to generate random numbers from a normal distribution. Visualize the distribution using a histogram."
+      ],
+      "id": "0d208c1b"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
