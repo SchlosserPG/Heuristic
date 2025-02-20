@@ -69,8 +69,7 @@ runtime: python
 -   $s$ represents the population (a set of solutions),
 -   $s_i$ represents a chromosome (a solution),
 -   $s_{ij}$ represents a gene (a subsolution),
--   $m$ represents the number of chromosomes in the population (also called population size, and
--   $n$ represents the number of subsolutions in a chromosome.
+-   The number of chromosomes in the population (also called population size), and the number of subsolutions in a chromosome are also considered. 
 -   The objective value of each chromosome will also be transformed to a value called the *fitnes value* calculated by a fitness function.
 
 ![Genetic Algorithm](Pictures/ga1.png "Genetic Algorithm")
@@ -88,11 +87,11 @@ runtime: python
 
 -   GA will first randomly select some of the chromosomes based on the fitness value of each chromosome.
 
--   Shows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.
+-   a) shows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.
 
 -   This means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.
 
--   Shows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.
+-   b) shows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.
 
 ![Genetic Algorithm](Pictures/ga3.png "Genetic Algorithm")
 
@@ -106,7 +105,7 @@ runtime: python
      + elitism 
 
 
-## Fitness-Proportionate Selection  
+## Fitness-Proportional Selection  
 * The “Roulette Wheel” Strategy to Selection
 * Imagine a roulette wheel where each individual occupies a section proportional to its fitness. A random value (between 0 and 1) is generated, and the wheel is spun. The individual whose section the random value falls into is selected.
 
@@ -123,7 +122,7 @@ runtime: python
      + p3=  30/((10+20+30)) = .5$
 
 * Thus, individual 3 has the highest chance of being retained, but it’s still possible for less-fit individuals to survive.
-* We then generate a random number r in the range [0,1] and find the first individual whose cumulative probability exceeds r. For example, if we generate r=.4, we select F2, if we generate .7, we would select .5 
+* We then generate a random number r in the range [0,1] and find the first individual whose cumulative probability exceeds r. For example, if we generate r=.4, we select F2 because .166 + .333 is around .5 and that is the first cumulative probability above .4. If we generate .7, we would select F3 because 1 is the nearest cumulative probability that exceeds it.  
 
 
 ## Tournament Selection
