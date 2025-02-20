@@ -216,21 +216,6 @@ runtime: python
 
 
 
-# Advantages and Disadvantages of GA
-## Advantages
-
--   Global Search: Capable of exploring large solution spaces and avoiding local optima.
--   Flexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.
--   Heuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.
-
-## Disadvantages
-* Computationally Expensive – GAs often require many function evaluations, making them slow for complex problems.
-* No Guarantee of Optimality – They may converge to suboptimal solutions or get stuck in local optima.
-* Parameter Sensitivity – Performance depends on careful tuning of mutation rate, crossover rate, and population size.
-* Lack of Interpretability – The evolutionary process doesn’t always provide clear insights into why a solution was chosen.
-* Premature Convergence – The algorithm may lose diversity and settle on a poor solution early.
-* Infeasibility for Some Problems – Constraints can be difficult to handle, leading to invalid solutions.
-
 
 # Refining Genetic Algorithms
 
@@ -271,6 +256,24 @@ runtime: python
 -   Dynamic Mutation Rate: Adjust the mutation rate dynamically during the evolution process. For example, you can start with a high mutation rate to encourage exploration and gradually reduce it as the algorithm converges.
 -   Self-Adaptive Mutation Rate: Introduce a mechanism in the GA where each individual in the population has its own mutation rate, which evolves over time. The mutation rate itself becomes part of the genetic material.
 -   Cross-Validation: Use techniques like k-fold cross-validation to evaluate the impact of different mutation rates and find the one that generalizes the best.
+
+
+
+# Advantages and Disadvantages of GA
+## Advantages
+
+-   Global Search: Capable of exploring large solution spaces and avoiding local optima.
+-   Flexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.
+-   Heuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.
+
+## Disadvantages
+* Computationally Expensive – GAs often require many function evaluations, making them slow for complex problems.
+* No Guarantee of Optimality – They may converge to suboptimal solutions or get stuck in local optima.
+* Parameter Sensitivity – Performance depends on careful tuning of mutation rate, crossover rate, and population size.
+* Lack of Interpretability – The evolutionary process doesn’t always provide clear insights into why a solution was chosen.
+* Premature Convergence – The algorithm may lose diversity and settle on a poor solution early.
+* Infeasibility for Some Problems – Constraints can be difficult to handle, leading to invalid solutions.
+
 
 
 # GA Example One Max
