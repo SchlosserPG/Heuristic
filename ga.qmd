@@ -159,8 +159,12 @@ runtime: python
      + F1 is added again.
 
 ### Controlling Selection Pressure
+* Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. 
 * Larger tournaments (e.g., num_players = 3) favor stronger individuals.
-* Smaller tournaments (num_players = 2) introduce more randomness.
+     + Increases selection pressure because there's a higher chance that fitter individuals will be included and selected.      + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions.
+* Smaller tournaments (e.g., num_players = 2) introduce more randomness.
+     + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.
+
 
 
 ![GA Selection Example](Pictures/gaselection.png "Genetic Algorithm Selection Example")
