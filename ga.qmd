@@ -257,36 +257,8 @@ runtime: python
 -   Self-Adaptive Mutation Rate: Introduce a mechanism in the GA where each individual in the population has its own mutation rate, which evolves over time. The mutation rate itself becomes part of the genetic material.
 -   Cross-Validation: Use techniques like k-fold cross-validation to evaluate the impact of different mutation rates and find the one that generalizes the best.
 
-# Comparing GA to SA
 
--   Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.
--   Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.
--   Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.
-
-# Genetic Algorithms
-
--   To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
-    -   Performance: Compare the final optimized values.
-    -   Convergence Speed: How fast each algorithm converges to a solution.
-    -   Exploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).
-
-
-
-### Comparison with Simulated Annealing (SA)
-
--   Population-based vs. Single Solution:
-    -   GA maintains and evolves a population of solutions.
-    -   SA operates on a single solution and modifies it over time.
--   Exploration Strategy:
-    -   GA uses crossover and mutation to explore the solution space, encouraging diversity.
-    -   SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).
--   Deterministic vs. Probabilistic:
-    -   GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.
-    -   SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.
--   Convergence:
-    -   GA uses generations and selection pressure to converge on the best solution over time.
-    -   SA cools down gradually, converging based on the temperature schedule.
-# GA example One Max
+# GA Example One Max
 
 ```{python}
 
@@ -580,6 +552,31 @@ plt.grid(True)
 plt.show()
 ```
 
+
+# Comparing GA to SA
+
+-   Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.
+-   Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.
+-   Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.
+
+### Comparison GA/SA with Ackley FUnction
+
+-   To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
+    -   Performance: Compare the final optimized values.
+    -   Convergence Speed: How fast each algorithm converges to a solution.
+    -   Exploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).
+-   Population-based vs. Single Solution:
+    -   GA maintains and evolves a population of solutions.
+    -   SA operates on a single solution and modifies it over time.
+-   Exploration Strategy:
+    -   GA uses crossover and mutation to explore the solution space, encouraging diversity.
+    -   SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).
+-   Deterministic vs. Probabilistic:
+    -   GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.
+    -   SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.
+-   Convergence:
+    -   GA uses generations and selection pressure to converge on the best solution over time.
+    -   SA cools down gradually, converging based on the temperature schedule.
 
 # Using AI
 

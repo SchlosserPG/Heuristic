@@ -292,11 +292,7 @@ window.Quarto = {
   <li><a href="#fitness-function-alternatives-in-heuristic-models" id="toc-fitness-function-alternatives-in-heuristic-models" class="nav-link" data-scroll-target="#fitness-function-alternatives-in-heuristic-models">Fitness Function Alternatives in Heuristic Models</a></li>
   <li><a href="#approaches-to-optimize-the-mutation-rate" id="toc-approaches-to-optimize-the-mutation-rate" class="nav-link" data-scroll-target="#approaches-to-optimize-the-mutation-rate">Approaches to Optimize the Mutation Rate</a></li>
   </ul></li>
-  <li><a href="#comparing-ga-to-sa" id="toc-comparing-ga-to-sa" class="nav-link" data-scroll-target="#comparing-ga-to-sa">Comparing GA to SA</a></li>
-  <li><a href="#genetic-algorithms-1" id="toc-genetic-algorithms-1" class="nav-link" data-scroll-target="#genetic-algorithms-1">Genetic Algorithms</a>
-  <ul class="collapse">
-  <li><a href="#comparison-with-simulated-annealing-sa" id="toc-comparison-with-simulated-annealing-sa" class="nav-link" data-scroll-target="#comparison-with-simulated-annealing-sa">Comparison with Simulated Annealing (SA)</a></li>
-  </ul></li>
+  <li><a href="#ga-example-one-max" id="toc-ga-example-one-max" class="nav-link" data-scroll-target="#ga-example-one-max">GA Example One Max</a></li>
   <li><a href="#ga-example-ackley" id="toc-ga-example-ackley" class="nav-link" data-scroll-target="#ga-example-ackley">GA Example Ackley</a>
   <ul class="collapse">
   <li><a href="#startup-commands" id="toc-startup-commands" class="nav-link" data-scroll-target="#startup-commands">Startup Commands</a></li>
@@ -309,6 +305,10 @@ window.Quarto = {
   <li><a href="#main-loop" id="toc-main-loop" class="nav-link" data-scroll-target="#main-loop">Main Loop</a></li>
   <li><a href="#main-execution" id="toc-main-execution" class="nav-link" data-scroll-target="#main-execution">Main Execution</a></li>
   <li><a href="#output-o" id="toc-output-o" class="nav-link" data-scroll-target="#output-o">Output (O)</a></li>
+  </ul></li>
+  <li><a href="#comparing-ga-to-sa" id="toc-comparing-ga-to-sa" class="nav-link" data-scroll-target="#comparing-ga-to-sa">Comparing GA to SA</a>
+  <ul class="collapse">
+  <li><a href="#comparison-gasa-with-ackley-function" id="toc-comparison-gasa-with-ackley-function" class="nav-link" data-scroll-target="#comparison-gasa-with-ackley-function">Comparison GA/SA with Ackley FUnction</a></li>
   </ul></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
@@ -669,49 +669,9 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="comparing-ga-to-sa" class="level1">
-<h1>Comparing GA to SA</h1>
-<ul>
-<li>Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.</li>
-<li>Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.</li>
-<li>Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.</li>
-</ul>
-</section>
-<section id="genetic-algorithms-1" class="level1">
-<h1>Genetic Algorithms</h1>
-<ul>
-<li>To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
-<ul>
-<li>Performance: Compare the final optimized values.</li>
-<li>Convergence Speed: How fast each algorithm converges to a solution.</li>
-<li>Exploration vs.&nbsp;Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).</li>
-</ul></li>
-</ul>
-<section id="comparison-with-simulated-annealing-sa" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-with-simulated-annealing-sa">Comparison with Simulated Annealing (SA)</h3>
-<ul>
-<li>Population-based vs.&nbsp;Single Solution:
-<ul>
-<li>GA maintains and evolves a population of solutions.</li>
-<li>SA operates on a single solution and modifies it over time.</li>
-</ul></li>
-<li>Exploration Strategy:
-<ul>
-<li>GA uses crossover and mutation to explore the solution space, encouraging diversity.</li>
-<li>SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).</li>
-</ul></li>
-<li>Deterministic vs.&nbsp;Probabilistic:
-<ul>
-<li>GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.</li>
-<li>SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.</li>
-</ul></li>
-<li>Convergence:
-<ul>
-<li>GA uses generations and selection pressure to converge on the best solution over time.</li>
-<li>SA cools down gradually, converging based on the temperature schedule. # GA example One Max</li>
-</ul></li>
-</ul>
-<div id="ead18bc9" class="cell" data-execution_count="1">
+<section id="ga-example-one-max" class="level1">
+<h1>GA Example One Max</h1>
+<div id="07b5520b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -807,17 +767,16 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1]
 Best fitness (one-max value): 10
-Execution time: 0.073588 seconds</code></pre>
+Execution time: 0.066705 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ga_files/figure-html/cell-2-output-2.png" width="829" height="523" class="figure-img"></p>
+<p><img src="ga_files/figure-html/cell-2-output-2.png" width="821" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="ga-example-ackley" class="level1">
 <h1>GA Example Ackley</h1>
@@ -833,7 +792,7 @@ Execution time: 0.073588 seconds</code></pre>
 </ul>
 <section id="startup-commands" class="level2">
 <h2 class="anchored" data-anchor-id="startup-commands">Startup Commands</h2>
-<div id="182fc9f6" class="cell" data-execution_count="2">
+<div id="137ee347" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm Ackley Example (1D)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -866,7 +825,7 @@ Execution time: 0.073588 seconds</code></pre>
 <ul>
 <li>A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.</li>
 </ul>
-<div id="c8eb5b00" class="cell" data-execution_count="3">
+<div id="195c9e2c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_ga(pop_size):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, (pop_size, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -877,7 +836,7 @@ Execution time: 0.073588 seconds</code></pre>
 <ul>
 <li>The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population’s fitness values.</li>
 </ul>
-<div id="50138c89" class="cell" data-execution_count="4">
+<div id="b169ef29" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(pop):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([ackley(ind) <span class="cf">for</span> ind <span class="kw">in</span> pop])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -893,7 +852,7 @@ Execution time: 0.073588 seconds</code></pre>
 </ul></li>
 <li>This ensures that best_sol and best_obj_val always store the best solution and its fitness value found across all generations during the algorithm’s execution. The use of global allows the function to modify these variables outside its local scope.</li>
 </ul>
-<div id="59d66ac3" class="cell" data-execution_count="5">
+<div id="21fd17b9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update best solution function</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_best_sol(curr_pop, curr_obj_vals):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
@@ -914,7 +873,7 @@ Execution time: 0.073588 seconds</code></pre>
 <li>The function returns the newly selected population as a NumPy array.</li>
 </ul></li>
 </ul>
-<div id="f07de99e" class="cell" data-execution_count="6">
+<div id="2c54dafc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination (D)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(curr_pop, curr_obj_vals, num_players):</span>
@@ -936,7 +895,7 @@ Execution time: 0.073588 seconds</code></pre>
 <li>A crossover point is chosen randomly (here, using np.random.randint(1)), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions.</li>
 <li>If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.</li>
 </ul>
-<div id="916ba73b" class="cell" data-execution_count="7">
+<div id="854e95fb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T): Crossover and Mutation</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(pop, crossover_rate):</span>
@@ -958,7 +917,7 @@ Execution time: 0.073588 seconds</code></pre>
 <li>Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.</li>
 <li>It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function.</li>
 </ul>
-<div id="a1ed74c8" class="cell" data-execution_count="8">
+<div id="57a9458f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (M)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutation(pop, mutation_rate):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pop)):</span>
@@ -973,7 +932,7 @@ Execution time: 0.073588 seconds</code></pre>
 <li>The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.</li>
 <li>The new population (after crossover and mutation) replaces the old one for the next generation.</li>
 </ul>
-<div id="09746347" class="cell" data-execution_count="9">
+<div id="574373b5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function (D)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm():</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
@@ -993,7 +952,7 @@ Execution time: 0.073588 seconds</code></pre>
 </section>
 <section id="main-execution" class="level2">
 <h2 class="anchored" data-anchor-id="main-execution">Main Execution</h2>
-<div id="bc80bacf" class="cell" data-execution_count="10">
+<div id="e21853a9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>best_solution, best_value <span class="op">=</span> genetic_algorithm()</span>
@@ -1003,7 +962,7 @@ Execution time: 0.073588 seconds</code></pre>
 </section>
 <section id="output-o" class="level2">
 <h2 class="anchored" data-anchor-id="output-o">Output (O)</h2>
-<div id="7ca5467a" class="cell" data-execution_count="11">
+<div id="56dac46b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal solution: </span><span class="sc">{</span>best_solution<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -1023,9 +982,9 @@ Execution time: 0.073588 seconds</code></pre>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal solution: [-0.16435561]
-Optimal value: 1.695519868325246
-Execution time for Genetic Algorithm: 0.103253 seconds</code></pre>
+<pre><code>Optimal solution: [0.00493395]
+Optimal value: 0.021031863831375563
+Execution time for Genetic Algorithm: 0.108576 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1035,6 +994,45 @@ Execution time for Genetic Algorithm: 0.103253 seconds</code></pre>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="comparing-ga-to-sa" class="level1">
+<h1>Comparing GA to SA</h1>
+<ul>
+<li>Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.</li>
+<li>Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.</li>
+<li>Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.</li>
+</ul>
+<section id="comparison-gasa-with-ackley-function" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-gasa-with-ackley-function">Comparison GA/SA with Ackley FUnction</h3>
+<ul>
+<li>To compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:
+<ul>
+<li>Performance: Compare the final optimized values.</li>
+<li>Convergence Speed: How fast each algorithm converges to a solution.</li>
+<li>Exploration vs.&nbsp;Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).</li>
+</ul></li>
+<li>Population-based vs.&nbsp;Single Solution:
+<ul>
+<li>GA maintains and evolves a population of solutions.</li>
+<li>SA operates on a single solution and modifies it over time.</li>
+</ul></li>
+<li>Exploration Strategy:
+<ul>
+<li>GA uses crossover and mutation to explore the solution space, encouraging diversity.</li>
+<li>SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).</li>
+</ul></li>
+<li>Deterministic vs.&nbsp;Probabilistic:
+<ul>
+<li>GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.</li>
+<li>SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.</li>
+</ul></li>
+<li>Convergence:
+<ul>
+<li>GA uses generations and selection pressure to converge on the best solution over time.</li>
+<li>SA cools down gradually, converging based on the temperature schedule.</li>
+</ul></li>
+</ul>
 </section>
 </section>
 <section id="using-ai" class="level1">
