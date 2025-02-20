@@ -158,17 +158,18 @@ runtime: python
      + F1 (6) vs. F3 (5) → F1 wins.
      + F1 is added again.
 
-### Controlling Selection Pressure
-* Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. 
-* Larger tournaments (e.g., num_players = 3) favor stronger individuals.
-     + Increases selection pressure because there's a higher chance that fitter individuals will be included and selected.      + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions.
-* Smaller tournaments (e.g., num_players = 2) introduce more randomness.
-     + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.
+
 
 
 
 ![GA Selection Example](Pictures/gaselection.png "Genetic Algorithm Selection Example")
-
+### Controlling Selection Pressure
+* Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. 
+* Larger tournaments (e.g., num_players >= 3) favor stronger individuals.
+     + Increases selection pressure because there's a higher chance that fitter individuals will be included and selected.      + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions.
+* Smaller tournaments (e.g., num_players = 2) introduce more randomness.
+     + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.
+     
 # Transition Operator
 
 ## Crossover
@@ -186,6 +187,17 @@ runtime: python
 
 
 ![Genetic Algorithm](Pictures/ga4.png "Genetic Algorithm")
+
+## Example of Crossover
+
+* F1 (Parent 1) = 10101 | 01010 
+* F3 (Parent 2) = 11001 | 10011
+
+* Let's choose crossover point or index = 5 , which means after the fifth bit
+     + Child 1 = 10101 | 10011 → "1010110011" 
+     + Child 2 = 11001 | 01010 → "1100101010“
+* Now, these offspring can replace some individuals in the population or undergo mutation before the next iteration.
+
 
 ## Mutation
 * The mutate function introduces random changes (mutations) in the genetic algorithm to maintain diversity in the population. This prevents premature convergence to local optima.
