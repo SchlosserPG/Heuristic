@@ -268,7 +268,7 @@ import matplotlib.pyplot as plt
 import time
 
 # Define the necessary global variables
-num_bits = 10
+num_bits = 100
 pop_size = 50
 num_generations = 100
 crossover_rate = 0.7
@@ -463,7 +463,8 @@ def select(curr_pop, curr_obj_vals, num_players):
 
 -   A new population (new_pop) is initialized as a copy of the current population (pop). The loop iterates over the population in pairs. For each pair, a random number is generated using np.random.rand(). If this number is less than the crossover_rate, crossover occurs:
 
-    -   A crossover point is chosen randomly (here, using np.random.randint(1)), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions.
+     + A crossover point is chosen randomly (here, using np.random.randint(0, pop.shape[1]), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions. 
+
     -   If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.
 
     ```{python}
@@ -473,7 +474,7 @@ def select(curr_pop, curr_obj_vals, num_players):
         new_pop = pop.copy()
         for i in range(0, len(pop) - 1, 2):
             if np.random.rand() < crossover_rate:
-                crossover_point = np.random.randint(1)
+                crossover_point = np.random.randint(0, pop.shape[1])
                 new_pop[i, crossover_point:], new_pop[i + 1, crossover_point:] = (
                     pop[i + 1, crossover_point:], 
                     pop[i, crossover_point:]
@@ -484,7 +485,8 @@ def select(curr_pop, curr_obj_vals, num_players):
 ## Transition (T): Mutation Function
 
 -   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
--   It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function.
+-   It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function. This introduces large jumps (not a small step size) since any value can be replaced.
+
 
 ```{python}
 # Mutation function (M)
