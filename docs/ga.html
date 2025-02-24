@@ -292,6 +292,18 @@ window.Quarto = {
   <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
   <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
   </ul></li>
+  <li><a href="#comparing-ga-to-sa" id="toc-comparing-ga-to-sa" class="nav-link" data-scroll-target="#comparing-ga-to-sa">Comparing GA to SA</a>
+  <ul class="collapse">
+  <li><a href="#population-based-ga-vs.-single-solution-sa" id="toc-population-based-ga-vs.-single-solution-sa" class="nav-link" data-scroll-target="#population-based-ga-vs.-single-solution-sa">Population-based (GA) vs.&nbsp;Single Solution (SA)</a>
+  <ul class="collapse">
+  <li><a href="#population-based" id="toc-population-based" class="nav-link" data-scroll-target="#population-based">Population-based</a></li>
+  <li><a href="#single-solution" id="toc-single-solution" class="nav-link" data-scroll-target="#single-solution">Single Solution</a></li>
+  </ul></li>
+  <li><a href="#exploration-strategy" id="toc-exploration-strategy" class="nav-link" data-scroll-target="#exploration-strategy">Exploration Strategy</a></li>
+  <li><a href="#deterministic-vs.-probabilistic" id="toc-deterministic-vs.-probabilistic" class="nav-link" data-scroll-target="#deterministic-vs.-probabilistic">Deterministic vs.&nbsp;Probabilistic:</a></li>
+  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence">Convergence:</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
   <li><a href="#ga-example-one-max" id="toc-ga-example-one-max" class="nav-link" data-scroll-target="#ga-example-one-max">GA Example One Max</a></li>
   <li><a href="#ga-example-ackley" id="toc-ga-example-ackley" class="nav-link" data-scroll-target="#ga-example-ackley">GA Example Ackley</a>
   <ul class="collapse">
@@ -304,11 +316,10 @@ window.Quarto = {
   <li><a href="#transition-t-mutation-function" id="toc-transition-t-mutation-function" class="nav-link" data-scroll-target="#transition-t-mutation-function">Transition (T): Mutation Function</a></li>
   <li><a href="#main-loop" id="toc-main-loop" class="nav-link" data-scroll-target="#main-loop">Main Loop</a></li>
   <li><a href="#main-execution" id="toc-main-execution" class="nav-link" data-scroll-target="#main-execution">Main Execution</a></li>
-  <li><a href="#output-o" id="toc-output-o" class="nav-link" data-scroll-target="#output-o">Output (O)</a></li>
-  </ul></li>
-  <li><a href="#comparing-ga-to-sa" id="toc-comparing-ga-to-sa" class="nav-link" data-scroll-target="#comparing-ga-to-sa">Comparing GA to SA</a>
+  <li><a href="#output-o" id="toc-output-o" class="nav-link" data-scroll-target="#output-o">Output (O)</a>
   <ul class="collapse">
   <li><a href="#comparison-gasa-with-ackley-function" id="toc-comparison-gasa-with-ackley-function" class="nav-link" data-scroll-target="#comparison-gasa-with-ackley-function">Comparison GA/SA with Ackley FUnction</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
@@ -610,14 +621,12 @@ window.Quarto = {
 <section id="refining-genetic-algorithms" class="level1">
 <h1>Refining Genetic Algorithms</h1>
 <ul>
-<li>There’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.</li>
-<li>GA Parameters Are Crucial: The effectiveness of GA depends heavily on carefully tuning parameters like population size, mutation rate, and the number of generations.</li>
-<li>Population Size: For more complex problems, use larger populations (e.g., 1000–2000 individuals)</li>
-<li>Mutation Rate: A low probability, typically 0.001 to 0.002 per gene.</li>
-<li>Number of Generations: For more generations (e.g., 1000–2000 generations).</li>
-<li>Fitness Function: Carefully tailored to the specific problem being solved, as it guides the selection process.</li>
-<li>Selection Method: rank-based linear selection or proportional selection can be used.</li>
-<li>Crossover Mechanism: Single-point crossover chosen at a random location</li>
+<li>GA Parameters Are Crucial: There’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.</li>
+<li>Population Size: For simple problems, 50 individuals may be enough, but for NP-hard problems with high dimensional search space, we need larger populations (e.g., 1000–2000 individuals)</li>
+<li>Mutation Rate: A low probability, typically 0.01 to 0.02 per gene.</li>
+<li>Number of Generations: For simple optimization problems, 50 is enough. However, for NP-hard problems with high dimensional search space, more generations (e.g., 1000–2000 generations).</li>
+<li>Selection Method: Can use tournament selection, fitness-proportional selection, rank-based selection, or elitism.</li>
+<li>Crossover rate: Can set the probability that selected parent solutions will undergo crossover to produce offspring, determining the proportion of the population that experiences genetic recombination in each generation. Most GA studies suggest crossover rates between 0.6 and 0.9 as effective</li>
 </ul>
 <section id="fitness-function-alternatives-in-heuristic-models" class="level2">
 <h2 class="anchored" data-anchor-id="fitness-function-alternatives-in-heuristic-models">Fitness Function Alternatives in Heuristic Models</h2>
@@ -627,12 +636,11 @@ window.Quarto = {
 <li>While fitness measures are problem-specific, several reasonable alternatives often exist.</li>
 <li>It’s essential to tailor the fitness function to the specific goals of the problem (e.g., precision, speed, or robustness).</li>
 </ul></li>
-<li><p>Selection strategies (e.g., roulette wheel, tournament selection) could also have significant impacts on solution quality, and finding the right balance often requires experimentation.</p></li>
 <li><p>Selecting the Right Fitness Function: Some fitness measures work significantly better than others depending on the problem.</p></li>
 <li><p>Leverage prior knowledge or insights from similar problems to guide fitness function selection.</p></li>
 <li><p>Trial and Error: Expect to experiment with different fitness measures to find the one that best suits your specific problem.</p></li>
 <li><p>Instead of a OneMax that counts the number of 1s, if our problem involved finding the closest match to a target solution (e.g., an image, a numeric function, or a specific binary pattern), you would need to replace or modify this fitness function using distance-based measures.</p></li>
-<li><p>Common Distance Measures for Comparing Solutions to a Target:</p>
+<li><p>Common Distance Measures for Comparing Solutions to a Target Using an Image as an Example:</p>
 <ul>
 <li>Sum of Squared Differences: A measure of the total squared deviation of each pixel from the target, commonly used when larger errors should be penalized more.</li>
 <li>Euclidean Distance: The square root of the sum of squared differences, providing a more intuitive “distance” measure in the image space.</li>
@@ -673,112 +681,282 @@ window.Quarto = {
 </ul>
 </section>
 </section>
+<section id="comparing-ga-to-sa" class="level1">
+<h1>Comparing GA to SA</h1>
+<section id="population-based-ga-vs.-single-solution-sa" class="level2">
+<h2 class="anchored" data-anchor-id="population-based-ga-vs.-single-solution-sa">Population-based (GA) vs.&nbsp;Single Solution (SA)</h2>
+<ul>
+<li>Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process.</li>
+<li>Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process.</li>
+<li>These two approaches are a fundamental distinction in how the search space is explored.</li>
+</ul>
+<section id="population-based" class="level3">
+<h3 class="anchored" data-anchor-id="population-based">Population-based</h3>
+<ul>
+<li>GA maintains and evolves a population of solutions. Works with a group of candidate solutions (a population) at each step.
+<ul>
+<li>Evolutionary operations such as selection, crossover (recombination), and mutation are applied to create new generations of solutions.</li>
+<li>The search process involves diversity maintenance because multiple solutions evolve simultaneously.</li>
+</ul></li>
+</ul>
+</section>
+<section id="single-solution" class="level3">
+<h3 class="anchored" data-anchor-id="single-solution">Single Solution</h3>
+<ul>
+<li>SA operates on a single solution and modifies it over time.
+<ul>
+<li>Works with one candidate solution at a time.</li>
+<li>Starts with a single initial solution and iteratively moves to a new solution by applying small changes (perturbations).</li>
+<li>Accepts new solutions based on a probability function that depends on a temperature parameter (allowing uphill moves early in the process).</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="exploration-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="exploration-strategy">Exploration Strategy</h2>
+<ul>
+<li>GA uses crossover and mutation to explore the solution space, encouraging diversity.
+<ul>
+<li>Exploration and exploitation happen naturally through genetic operators—mutation introduces diversity (exploration), and selection rewards better candidates (exploitation).</li>
+</ul></li>
+<li>SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).
+<ul>
+<li>Exploration and exploitation happen through a balance of random jumps (exploration) and greedy selection (exploitation).</li>
+</ul></li>
+</ul>
+</section>
+<section id="deterministic-vs.-probabilistic" class="level2">
+<h2 class="anchored" data-anchor-id="deterministic-vs.-probabilistic">Deterministic vs.&nbsp;Probabilistic:</h2>
+<ul>
+<li>GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.
+<ul>
+<li>Unlike purely stochastic methods (e.g., roulette wheel selection), tournament selection always picks the best candidate from the subset, making it more deterministic.</li>
+<li>The mutation rate is predefined and remains constant throughout the GA process (e.g., 1% or 2% of genes randomly mutate). This ensures steady convergence toward better solutions while maintaining some diversity.</li>
+</ul></li>
+<li>SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.</li>
+</ul>
+</section>
+<section id="convergence" class="level2">
+<h2 class="anchored" data-anchor-id="convergence">Convergence:</h2>
+<ul>
+<li>GA uses generations and selection pressure to converge on the best solution over time.
+<ul>
+<li>GAs evolve solutions through multiple generations, where each generation consists of a population of candidate solutions.</li>
+<li>Selection pressure refers to how strongly better solutions are favored during reproduction.
+<ul>
+<li>Higher selection pressure (e.g., elitism, tournament selection with large num_players) quickly promotes fitter solutions but risks premature convergence.
+<ul>
+<li>Lower selection pressure (e.g., roulette wheel selection, or tournament with lower num_players) maintains more diversity but may slow down convergence.</li>
+</ul></li>
+</ul></li>
+<li>Over successive generations, poor solutions are eliminated, and better solutions dominate the population.</li>
+</ul></li>
+<li>SA cools down gradually, converging based on the temperature schedule.</li>
+</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>The design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.
+<ul>
+<li><em>When this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone’s categories</em></li>
+</ul></li>
+</ul>
+</section>
+</section>
 <section id="ga-example-one-max" class="level1">
 <h1>GA Example One Max</h1>
-<div id="02f56d5d" class="cell" data-execution_count="1">
+<ul>
+<li>Imports (same as SA model)</li>
+</ul>
+<div id="6550c674" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pop_size <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>num_generations <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>crossover_rate <span class="op">=</span> <span class="fl">0.7</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>mutation_rate <span class="op">=</span> <span class="fl">0.01</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>num_players <span class="op">=</span> <span class="dv">3</span>  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E)</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_max(sol):</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(sol)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_population(pop_size, num_bits):</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, (pop_size, num_bits))</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection (D)</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(population, fitness_vals, num_players):</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    selected_pop <span class="op">=</span> []</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(population)):</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        tournament <span class="op">=</span> np.random.choice(<span class="bu">len</span>(population), num_players, replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> tournament[np.argmax(fitness_vals[tournament])]</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        selected_pop.append(population[best_idx])</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(selected_pop)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(population, crossover_rate):</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    new_population <span class="op">=</span> population.copy()</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(population) <span class="op">-</span> <span class="dv">1</span>, <span class="dv">2</span>):</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.random() <span class="op">&lt;</span> crossover_rate:</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            crossover_point <span class="op">=</span> np.random.randint(<span class="dv">1</span>, num_bits)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            new_population[i, crossover_point:], new_population[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:] <span class="op">=</span> (</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                population[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:], </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                population[i, crossover_point:]</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_population</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (T)</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutate(population, mutation_rate):</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(population)):</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(num_bits):</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> random.random() <span class="op">&lt;</span> mutation_rate:</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                population[i, j] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> population[i, j]  <span class="co"># Flip the bit</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> population</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate):</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    population <span class="op">=</span> initialize_population(pop_size, num_bits)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    best_sol, best_value <span class="op">=</span> <span class="va">None</span>, <span class="dv">0</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    value_history <span class="op">=</span> []</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> generation <span class="kw">in</span> <span class="bu">range</span>(num_generations):</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        fitness_vals <span class="op">=</span> np.array([one_max(ind) <span class="cf">for</span> ind <span class="kw">in</span> population])</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> np.argmax(fitness_vals)</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="co">#Update solution (D)</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> fitness_vals[best_idx] <span class="op">&gt;</span> best_value:</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>            best_sol, best_value <span class="op">=</span> population[best_idx], fitness_vals[best_idx]</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        value_history.append(best_value)</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        selected_pop <span class="op">=</span> select(population, fitness_vals, num_players)</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        offspring_pop <span class="op">=</span> crossover(selected_pop, crossover_rate)</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        population <span class="op">=</span> mutate(offspring_pop, mutation_rate)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_value, value_history</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>best_sol, best_value, value_history <span class="op">=</span> genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate)</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results (O)</span></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best solution: </span><span class="sc">{</span>best_sol<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best fitness (one-max value): </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the progress of the genetic algorithm</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>plt.plot(value_history, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Best One-Max Value'</span>)</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Genetic Algorithm Progress for One-Max Problem"</span>)</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Generation"</span>)</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Best Fitness"</span>)</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Define Variables (notice the difference)</li>
+<li>num_bits — defined for One Max Problem</li>
+<li>pop_size — [Range: 10 - 500]
+<ul>
+<li>A small population (e.g., 10-30) leads to faster but less diverse evolution.</li>
+<li>A large population (e.g., 100-500) ensures diversity but requires more computation.</li>
+</ul></li>
+<li>num_generations – [Range: 10 - 10,000]
+<ul>
+<li>Fewer generations (e.g., 10-50) may lead to premature convergence.</li>
+<li>More generations (e.g., 1000+) allow fine-tuning but increase runtime.</li>
+</ul></li>
+<li>crossover_rate – [Range: 0.6 - .9]
+<ul>
+<li>Probability of two parents performing crossover.</li>
+<li>A low rate (&lt;0.5) may slow down convergence.</li>
+<li>A high rate (≥0.9) introduces excessive recombination, reducing solution stability.</li>
+</ul></li>
+<li>mutation_rate - [Range: 0.001 - 0.1]
+<ul>
+<li>Very low values (&lt;0.001) may cause stagnation.</li>
+<li>High values (&gt;0.05) may introduce too much randomness, disrupting convergence.</li>
+</ul></li>
+<li>num_players – [Range: 2 - 10]
+<ul>
+<li>A small value (2-3) maintains diversity.</li>
+<li>A high value (6-10) increases selection pressure, favoring stronger solutions but risking premature convergence.</li>
+</ul></li>
+</ul>
+<div id="611abd50" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pop_size <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>num_generations <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>crossover_rate <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mutation_rate <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_players <span class="op">=</span> <span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Evaluate (same as SA model)</li>
+</ul>
+<div id="3e7bbdcb" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation Function (E)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_max(sol):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(sol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Initialization function (I)</li>
+<li>Same idea as before. Select a random starting point except now considering pop_size meaning if we have a pop size of 50, we want 50 starting points of size 100 containing either 0s or 1s.</li>
+</ul>
+<div id="48c47af1" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_population(pop_size, num_bits):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, (pop_size, num_bits))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The loop runs len(population) times, ensuring that the new population has the same size as the original.
+<ul>
+<li>The underscore (_) is used as a loop variable because we don’t need its value—it’s just for iteration.</li>
+</ul></li>
+<li>Randomly selects num_players individuals from the population (without replacement).</li>
+<li>Determines the best individual (highest fitness value) among them.</li>
+<li>Adds the best individual to the new selected population.</li>
+<li>Repeats the process until a new population of the same size is formed and then it is returned.</li>
+</ul>
+<div id="79791882" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection (D)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(population, fitness_vals, num_players):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    selected_pop <span class="op">=</span> []</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(population)):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        tournament <span class="op">=</span> np.random.choice(<span class="bu">len</span>(population), num_players, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> tournament[np.argmax(fitness_vals[tournament])]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        selected_pop.append(population[best_idx])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(selected_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Crossover</p></li>
+<li><p>Implements single-point crossover in a Genetic Algorithm (GA), which combines genetic material from two parents to create new offspring.</p></li>
+<li><p>Loops through the population in pairs and ensures crossover occurs between adjacent individuals.</p></li>
+<li><p>Applies crossover with a probability crossover_rate (e.g., 0.7 means 70% chance). If the condition fails, the pair remains unchanged.</p></li>
+<li><p>Picks a random crossover point (ensures at least one gene swaps).</p></li>
+<li><p>The right side of the chromosome (after crossover_point) is swapped between the two individuals.</p></li>
+<li><p>Return outputs the modified population after crossover.</p></li>
+</ul>
+<div id="17579704" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(population, crossover_rate):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    new_population <span class="op">=</span> population.copy()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(population) <span class="op">-</span> <span class="dv">1</span>, <span class="dv">2</span>):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.random() <span class="op">&lt;</span> crossover_rate:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            crossover_point <span class="op">=</span> np.random.randint(<span class="dv">1</span>, num_bits)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            new_population[i, crossover_point:], new_population[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:] <span class="op">=</span> (</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                population[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:], </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                population[i, crossover_point:]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Implements bit-flip mutation in a Genetic Algorithm (GA), introducing small random changes to maintain genetic diversity.</li>
+<li>Loops through each individual (chromosome) in the population.</li>
+<li>Loops through each bit (gene) in the chromosome.</li>
+<li>Each bit is mutated with probability mutation_rate (e.g., 0.01 means a 1% chance per bit). Small rate ensures that not all individuals mutate—only a small percentage of bits change.</li>
+<li>Flips the Bit (0 → 1 or 1 → 0)</li>
+<li>Return outputs the modified population after applying mutation.</li>
+</ul>
+<div id="62e439c5" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (T)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutate(population, mutation_rate):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(population)):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(num_bits):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> random.random() <span class="op">&lt;</span> mutation_rate:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                population[i, j] <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> population[i, j]  <span class="co"># Flip the bit</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Main Loop</li>
+<li>This function implements a full Genetic Algorithm (GA).</li>
+<li>It evolves a population using selection, crossover, and mutation.</li>
+<li>It tracks the best solution and records fitness improvements over generations</li>
+</ul>
+<div id="9105404a" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    population <span class="op">=</span> initialize_population(pop_size, num_bits)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    best_sol, best_value <span class="op">=</span> <span class="va">None</span>, <span class="dv">0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    value_history <span class="op">=</span> []</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> generation <span class="kw">in</span> <span class="bu">range</span>(num_generations):</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        fitness_vals <span class="op">=</span> np.array([one_max(ind) <span class="cf">for</span> ind <span class="kw">in</span> population])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> np.argmax(fitness_vals)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">#Update solution (D)</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> fitness_vals[best_idx] <span class="op">&gt;</span> best_value:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>            best_sol, best_value <span class="op">=</span> population[best_idx], fitness_vals[best_idx]</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        value_history.append(best_value)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        selected_pop <span class="op">=</span> select(population, fitness_vals, num_players)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        offspring_pop <span class="op">=</span> crossover(selected_pop, crossover_rate)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        population <span class="op">=</span> mutate(offspring_pop, mutation_rate)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_value, value_history</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Main execution</li>
+</ul>
+<div id="eed7fbf1" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>best_sol, best_value, value_history <span class="op">=</span> genetic_algorithm(num_bits, pop_size, num_generations, crossover_rate, mutation_rate)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Output</li>
+</ul>
+<div id="ec16a36d" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results (O)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best solution: </span><span class="sc">{</span>best_sol<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best fitness (one-max value): </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the progress of the genetic algorithm</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.plot(value_history, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Best One-Max Value'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Genetic Algorithm Progress for One-Max Problem"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Generation"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Best Fitness"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best solution: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 Best fitness (one-max value): 100
-Execution time: 0.103184 seconds</code></pre>
+Execution time: 0.098030 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ga_files/figure-html/cell-2-output-2.png" width="816" height="523" class="figure-img"></p>
+<p><img src="ga_files/figure-html/cell-11-output-2.png" width="816" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -798,54 +976,57 @@ Execution time: 0.103184 seconds</code></pre>
 </ul>
 <section id="startup-commands" class="level2">
 <h2 class="anchored" data-anchor-id="startup-commands">Startup Commands</h2>
-<div id="f5a6f792" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm Ackley Example (1D)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>pop_size <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>num_generations <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>crossover_rate <span class="op">=</span> <span class="fl">0.7</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>mutation_rate <span class="op">=</span> <span class="fl">0.02</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>num_parents_mating <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>num_players <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>best_obj_val <span class="op">=</span> <span class="bu">float</span>(<span class="st">'inf'</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>best_sol <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function (1D)</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(x):</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(np.mean(np.square(x))))</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(np.mean(np.cos(c <span class="op">*</span> np.array(x))))</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.exp(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="72155159" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm Ackley Example (1D)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the necessary global variables</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>pop_size <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>num_generations <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>crossover_rate <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>mutation_rate <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>num_players <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>best_obj_val <span class="op">=</span> <span class="bu">float</span>(<span class="st">'inf'</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>best_sol <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Ackley function (1D)</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ackley(x):</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    term1 <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> np.exp(<span class="op">-</span>b <span class="op">*</span> np.sqrt(np.mean(np.square(x))))</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    term2 <span class="op">=</span> <span class="op">-</span>np.exp(np.mean(np.cos(c <span class="op">*</span> np.array(x))))</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> term1 <span class="op">+</span> term2 <span class="op">+</span> a <span class="op">+</span> np.exp(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="initiation-function-i" class="level2">
 <h2 class="anchored" data-anchor-id="initiation-function-i">Initiation Function (I)</h2>
 <ul>
 <li>A population of solutions is initialized using the init_ga function, where each solution is a random number between -10 and 10, as per the problem domain.</li>
+<li>The inclusion of the pop_size argument means that the function generates 50 rows, each containing one randomly chosen value between -10 and 10.</li>
 </ul>
-<div id="7a7aafa5" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_ga(pop_size):</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, (pop_size, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2ebb38c7" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialization function (I) to set the starting point</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_ga(pop_size):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, (pop_size, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="evaluation-function-e" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation-function-e">Evaluation Function (E)</h2>
 <ul>
-<li>The fitness of each solution in the population is evaluated using the Ackley function.The best solution found so far is updated by comparing the current population’s fitness values.</li>
+<li>The evaluate function is used to compute fitness of each individual in every generation.</li>
+<li>This function Iterates over each individual (ind) in the population. It then computes the Ackley function value for that individual and produces a list of fitness values. The np.array() ensures that the output is a NumPy array for efficient computations.</li>
 </ul>
-<div id="eb4eb0ff" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(pop):</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([ackley(ind) <span class="cf">for</span> ind <span class="kw">in</span> pop])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="60a2f728" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation function (E)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(pop):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([ackley(ind) <span class="cf">for</span> ind <span class="kw">in</span> pop])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="determination-d-update-function" class="level2">
@@ -858,20 +1039,20 @@ Execution time: 0.103184 seconds</code></pre>
 </ul></li>
 <li>This ensures that best_sol and best_obj_val always store the best solution and its fitness value found across all generations during the algorithm’s execution. The use of global allows the function to modify these variables outside its local scope.</li>
 </ul>
-<div id="bf14b1b6" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update best solution function</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_best_sol(curr_pop, curr_obj_vals):</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    best_idx <span class="op">=</span> np.argmin(curr_obj_vals)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> curr_obj_vals[best_idx] <span class="op">&lt;</span> best_obj_val:</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        best_obj_val <span class="op">=</span> curr_obj_vals[best_idx]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        best_sol <span class="op">=</span> curr_pop[best_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4870810c" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update best solution function</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_best_sol(curr_pop, curr_obj_vals):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    best_idx <span class="op">=</span> np.argmin(curr_obj_vals)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> curr_obj_vals[best_idx] <span class="op">&lt;</span> best_obj_val:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        best_obj_val <span class="op">=</span> curr_obj_vals[best_idx]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        best_sol <span class="op">=</span> curr_pop[best_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="determination-d-selection-function" class="level2">
 <h2 class="anchored" data-anchor-id="determination-d-selection-function">Determination (D): Selection Function</h2>
 <ul>
-<li>Selection: A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.
+<li>A subset of the population is selected for reproduction using a tournament selection process. This selection favors individuals with better fitness, helping to propagate good solutions.
 <ul>
 <li>This code implements a tournament selection mechanism in a genetic algorithm to select individuals for reproduction based on their fitness values.</li>
 <li>For each individual in the current population (curr_pop), a tournament is conducted by randomly selecting a subset of individuals (of size num_players) without replacement.</li>
@@ -879,16 +1060,16 @@ Execution time: 0.103184 seconds</code></pre>
 <li>The function returns the newly selected population as a NumPy array.</li>
 </ul></li>
 </ul>
-<div id="09c08eb5" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination (D)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(curr_pop, curr_obj_vals, num_players):</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    selected_pop <span class="op">=</span> []</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(curr_pop)):</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        tournament <span class="op">=</span> np.random.choice(<span class="bu">len</span>(curr_pop), num_players, replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> tournament[np.argmin(curr_obj_vals[tournament])]</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        selected_pop.append(curr_pop[best_idx])</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(selected_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="961b5f76" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determination (D)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection function using tournament selection</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(curr_pop, curr_obj_vals, num_players):</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    selected_pop <span class="op">=</span> []</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(curr_pop)):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        tournament <span class="op">=</span> np.random.choice(<span class="bu">len</span>(curr_pop), num_players, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        best_idx <span class="op">=</span> tournament[np.argmin(curr_obj_vals[tournament])]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        selected_pop.append(curr_pop[best_idx])</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(selected_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transition-t-crossover-function" class="level2">
@@ -901,19 +1082,19 @@ Execution time: 0.103184 seconds</code></pre>
 <li><p>A crossover point is chosen randomly (here, using np.random.randint(0, pop.shape[1]), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions.</p></li>
 <li><p>If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.</p></li>
 </ul>
-<div id="bfa3fc7b" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T): Crossover and Mutation</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(pop, crossover_rate):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    new_pop <span class="op">=</span> pop.copy()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(pop) <span class="op">-</span> <span class="dv">1</span>, <span class="dv">2</span>):</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> crossover_rate:</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            crossover_point <span class="op">=</span> np.random.randint(<span class="dv">0</span>, pop.shape[<span class="dv">1</span>])</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            new_pop[i, crossover_point:], new_pop[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:] <span class="op">=</span> (</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                pop[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:], </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                pop[i, crossover_point:]</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3a184b3b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition function (T): Crossover and Mutation</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crossover function (T)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crossover(pop, crossover_rate):</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    new_pop <span class="op">=</span> pop.copy()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(pop) <span class="op">-</span> <span class="dv">1</span>, <span class="dv">2</span>):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> crossover_rate:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>            crossover_point <span class="op">=</span> np.random.randint(<span class="dv">0</span>, pop.shape[<span class="dv">1</span>])</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>            new_pop[i, crossover_point:], new_pop[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:] <span class="op">=</span> (</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                pop[i <span class="op">+</span> <span class="dv">1</span>, crossover_point:], </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                pop[i, crossover_point:]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 </section>
@@ -923,13 +1104,13 @@ Execution time: 0.103184 seconds</code></pre>
 <li>Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.</li>
 <li>It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function. This introduces large jumps (not a small step size) since any value can be replaced.</li>
 </ul>
-<div id="a788b21e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (M)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutation(pop, mutation_rate):</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pop)):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> mutation_rate:</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            pop[i] <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cca2e03c" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutation function (M)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mutation(pop, mutation_rate):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pop)):</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> mutation_rate:</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>            pop[i] <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="main-loop" class="level2">
@@ -938,77 +1119,68 @@ Execution time: 0.103184 seconds</code></pre>
 <li>The algorithm iterates through a fixed number of generations (iterations). Each generation represents an iteration of evolving the population to improve the solutions.</li>
 <li>The new population (after crossover and mutation) replaces the old one for the next generation.</li>
 </ul>
-<div id="bf0574d3" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function (D)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm():</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    pop <span class="op">=</span> init_ga(pop_size)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> generation <span class="kw">in</span> <span class="bu">range</span>(num_generations):</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        obj_vals <span class="op">=</span> evaluate(pop)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        update_best_sol(pop, obj_vals)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        selected_pop <span class="op">=</span> select(pop, obj_vals, num_players)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        offspring_pop <span class="op">=</span> crossover(selected_pop, crossover_rate)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        mutated_pop <span class="op">=</span> mutation(offspring_pop, mutation_rate)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        pop <span class="op">=</span> mutated_pop  </span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_obj_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="be99c96d" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genetic Algorithm function (D)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> genetic_algorithm():</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> best_sol, best_obj_val</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    pop <span class="op">=</span> init_ga(pop_size)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> generation <span class="kw">in</span> <span class="bu">range</span>(num_generations):</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        obj_vals <span class="op">=</span> evaluate(pop)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        update_best_sol(pop, obj_vals)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        selected_pop <span class="op">=</span> select(pop, obj_vals, num_players)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        offspring_pop <span class="op">=</span> crossover(selected_pop, crossover_rate)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        mutated_pop <span class="op">=</span> mutation(offspring_pop, mutation_rate)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        pop <span class="op">=</span> mutated_pop  </span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_sol, best_obj_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="main-execution" class="level2">
 <h2 class="anchored" data-anchor-id="main-execution">Main Execution</h2>
-<div id="75c5e719" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>best_solution, best_value <span class="op">=</span> genetic_algorithm()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="79518fd9" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>best_solution, best_value <span class="op">=</span> genetic_algorithm()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>execution_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="output-o" class="level2">
 <h2 class="anchored" data-anchor-id="output-o">Output (O)</h2>
-<div id="cf1e11c0" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal solution: </span><span class="sc">{</span>best_solution<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time for Genetic Algorithm: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and genetic algorithm progress</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> [ackley([x]) <span class="cf">for</span> x <span class="kw">in</span> x_values]</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values, label<span class="op">=</span><span class="st">"Ackley Function"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(best_solution[<span class="dv">0</span>], best_value, color<span class="op">=</span><span class="st">'green'</span>, label<span class="op">=</span><span class="st">'GA Best Solution'</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Ackley Function in 1D with Genetic Algorithm Best Solution"</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"f(x)"</span>)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="90ba5b43" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal solution: </span><span class="sc">{</span>best_solution<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time for Genetic Algorithm: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and genetic algorithm progress</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> [ackley([x]) <span class="cf">for</span> x <span class="kw">in</span> x_values]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values, label<span class="op">=</span><span class="st">"Ackley Function"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(best_solution[<span class="dv">0</span>], best_value, color<span class="op">=</span><span class="st">'green'</span>, label<span class="op">=</span><span class="st">'GA Best Solution'</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Ackley Function in 1D with Genetic Algorithm Best Solution"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"f(x)"</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal solution: [-0.02286152]
-Optimal value: 0.11908915406940368
-Execution time for Genetic Algorithm: 0.110669 seconds</code></pre>
+<pre><code>Optimal solution: [0.0492074]
+Optimal value: 0.32174722109168785
+Execution time for Genetic Algorithm: 0.105517 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ga_files/figure-html/cell-12-output-2.png" width="821" height="523" class="figure-img"></p>
+<p><img src="ga_files/figure-html/cell-21-output-2.png" width="821" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="comparing-ga-to-sa" class="level1">
-<h1>Comparing GA to SA</h1>
-<ul>
-<li>Multiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.</li>
-<li>Crossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.</li>
-<li>Mutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.</li>
-</ul>
 <section id="comparison-gasa-with-ackley-function" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-gasa-with-ackley-function">Comparison GA/SA with Ackley FUnction</h3>
 <ul>
@@ -1023,22 +1195,20 @@ Execution time for Genetic Algorithm: 0.110669 seconds</code></pre>
 <li>GA maintains and evolves a population of solutions.</li>
 <li>SA operates on a single solution and modifies it over time.</li>
 </ul></li>
-<li>Exploration Strategy:
+<li>SA Model:
 <ul>
-<li>GA uses crossover and mutation to explore the solution space, encouraging diversity.</li>
-<li>SA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).</li>
+<li>Optimal x: 0.0021715903903449796</li>
+<li>Optimal value: 0.00893749448894754</li>
+<li>Execution time: 0.014006 seconds</li>
 </ul></li>
-<li>Deterministic vs.&nbsp;Probabilistic:
+<li>GA Model:
 <ul>
-<li>GA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.</li>
-<li>SA uses a temperature mechanism to probabilistically accept worse solutions early in the search.</li>
-</ul></li>
-<li>Convergence:
-<ul>
-<li>GA uses generations and selection pressure to converge on the best solution over time.</li>
-<li>SA cools down gradually, converging based on the temperature schedule.</li>
+<li>Optimal solution: [-0.06420558]</li>
+<li>Optimal value: 0.4648604493269599</li>
+<li>Execution time for Genetic Algorithm: 0.099029 seconds</li>
 </ul></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="using-ai" class="level1">
