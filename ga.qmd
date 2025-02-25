@@ -326,6 +326,7 @@ This ensures steady convergence toward better solutions while maintaining some d
 * The design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.
      + _When this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone's categories_
 
+* Where John H. Holland (1929–2015) was a pioneering figure in the field of genetic algorithms (GAs). He is widely credited with formalizing and popularizing GAs as a computational approach for solving optimization and search problems.
 
  
 
@@ -342,20 +343,20 @@ import time
 
 * Define Variables (notice the difference)
 * num_bits --- defined for One Max Problem
-* pop_size --- [Range: 10 - 500]
+* pop_size $\approx$ [Range: 10 - 500]
      + A small population (e.g., 10-30) leads to faster but less diverse evolution.
      + A large population (e.g., 100-500) ensures diversity but requires more computation.
-* num_generations -- [Range: 10 - 10,000]
+* num_generations $\approx$ [Range: 10 - 10,000]
      + Fewer generations (e.g., 10-50) may lead to premature convergence.
      + More generations (e.g., 1000+) allow fine-tuning but increase runtime.
-* crossover_rate – [Range: 0.6 - .9]
+* crossover_rate $\approx$ [Range: 0.6 - .9]
      + Probability of two parents performing crossover.
      + A low rate (<0.5) may slow down convergence.
      + A high rate (≥0.9) introduces excessive recombination, reducing solution stability.
-* mutation_rate -  [Range: 0.001 - 0.1]
+* mutation_rate $\approx$  [Range: 0.001 - 0.1]
      + Very low values (<0.001) may cause stagnation.
      + High values (>0.05) may introduce too much randomness, disrupting convergence.
-* num_players -- [Range: 2 - 10]
+* num_players $\approx$ [Range: 2 - 10]
      + A small value (2-3) maintains diversity.
      + A high value (6-10) increases selection pressure, favoring stronger solutions but risking premature convergence.
 
