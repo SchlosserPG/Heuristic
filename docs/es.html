@@ -308,8 +308,8 @@ window.Quarto = {
 </header>
 
 
+<p><strong>If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?</strong></p>
 <ul>
-<li><p>If you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?</p></li>
 <li><p>Exhaustive Search (also known as brute-force search) is a problem-solving technique that systematically enumerates all possible solutions to find the best one.</p></li>
 <li><p>It evaluates every potential solution against the objective function and selects the optimal one.</p></li>
 <li><p>When to use: When the problem size is small and when optimality is critical and computation time is feasible.</p></li>
@@ -392,7 +392,7 @@ window.Quarto = {
 </section>
 <section id="the-search-strategy-of-es" class="level2">
 <h2 class="anchored" data-anchor-id="the-search-strategy-of-es">The Search Strategy of ES</h2>
-<div id="2969089e" class="cell" data-execution_count="1">
+<div id="d5dd257b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -407,7 +407,7 @@ window.Quarto = {
 <ul>
 <li>Finding Optimal Subset of Items to Max Value in Knapsack Problem using Exhaustive Search</li>
 </ul>
-<div id="ac5aac47" class="cell" data-execution_count="2">
+<div id="521c5d5b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the items and maximum weight</span></span>
@@ -499,7 +499,7 @@ window.Quarto = {
 </section>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="2e7be1f7" class="cell" data-execution_count="3">
+<div id="4a4dca50" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -513,7 +513,7 @@ window.Quarto = {
 <li>Initializes <span class="math inline">\(best_fitness\)</span> and <span class="math inline">\(best_solution\)</span> to track the best results.</li>
 <li>Initializes an empty list <span class="math inline">\(fitness_over_time\)</span> to track the fitness at each step.</li>
 </ul>
-<div id="f2837b07" class="cell" data-execution_count="4">
+<div id="c8c6538b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for initialization (I)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init_es(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    max_sol <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> num_bits  <span class="co"># Total number of solutions</span></span>
@@ -527,7 +527,7 @@ window.Quarto = {
 <ul>
 <li>transit(s): Simply increments the current solution by 1.</li>
 </ul>
-<div id="db4240bc" class="cell" data-execution_count="5">
+<div id="3517d352" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for transit (T)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit(s):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> <span class="dv">1</span></span>
@@ -536,7 +536,7 @@ window.Quarto = {
 <ul>
 <li>evaluate(s): Evaluates the “fitness” of the solution by counting how many 1’s are present in its binary representation. The more 1’s, the better the solution.</li>
 </ul>
-<div id="4ff7b94b" class="cell" data-execution_count="6">
+<div id="954d3e16" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for evaluation (E)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(s):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bin</span>(s).count(<span class="st">"1"</span>)  <span class="co"># Counts the number of 1s in the binary representation of s</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -544,7 +544,7 @@ window.Quarto = {
 <ul>
 <li>determine(fv, v, fs, s): This method checks whether the fitness of the new solution (fv) is greater than the current best fitness (fs). If so, it updates the current best solution and fitness.</li>
 </ul>
-<div id="5f21c729" class="cell" data-execution_count="7">
+<div id="8ee35daa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for determine (D)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> determine(fv, v, fs, s):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> fv <span class="op">&gt;</span> fs:</span>
@@ -566,7 +566,7 @@ window.Quarto = {
 <li><p>If the current solution has a better fitness than the best found so far, it updates the best fitness and solution.</p></li>
 <li><p>Return Values: Returns fitness_over_time and best_solution after completing the exhaustive search.</p></li>
 </ul>
-<div id="8f650207" class="cell" data-execution_count="8">
+<div id="bc10c779" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run function for exhaustive search</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_exhaustive_search(num_bits<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize using init_es</span></span>
@@ -614,14 +614,14 @@ window.Quarto = {
 </ul></li>
 </ul>
 <p>Simplicity: Since exhaustive search doesn’t involve complex heuristics or probabilistic methods, setting the number of bits becomes the main task. The rest of the algorithm is straightforward: generate each binary string, evaluate its objective value, and keep track of the best solution.</p>
-<div id="0adacac2" class="cell" data-execution_count="9">
+<div id="c9940b0d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main execution</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>num_bits <span class="op">=</span> <span class="dv">10</span>  <span class="co"># You can adjust the number of bits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="output" class="level2">
 <h2 class="anchored" data-anchor-id="output">Output</h2>
-<div id="6787e3c0" class="cell" data-execution_count="10">
+<div id="2a2a55b0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the exhaustive search and get fitness values</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fitness_over_time, best_solution <span class="op">=</span> run_exhaustive_search(num_bits)</span>
@@ -643,7 +643,7 @@ window.Quarto = {
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Exhaustive Search One-Max Time elapsed: 0.000000 seconds
+<pre><code>Exhaustive Search One-Max Time elapsed: 0.001505 seconds
 # name of the search algorithm: Exhaustive Search
 # number of bits: 10</code></pre>
 </div>
@@ -666,7 +666,7 @@ window.Quarto = {
 <li>When moving to 3D, however, the search space expands cubically. This additional dimension leads to a significant increase in the number of possible solution points, escalating the computational cost and making exhaustive search much less practical. In optimization, this curse of dimensionality complicates modeling since the function’s landscape becomes more intricate with each added dimension, and finding the global minimum among many potential local minima becomes increasingly challenging. Consequently, optimization techniques that are efficient in 2D may become impractically slow or require adaptation in 3D and beyond.</li>
 <li>The example below simplifies the Ackley function into 1D.</li>
 </ul>
-<div id="a0c9f8ab" class="cell" data-execution_count="11">
+<div id="27f0caa8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Ackley Function with Exhaustive Search</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -754,7 +754,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal x: 0
 Optimal value: 4.440892098500626e-16
-Exhaustive Search Ackley Function Execution time: 0.010141 seconds</code></pre>
+Exhaustive Search Ackley Function Execution time: 0.002004 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>

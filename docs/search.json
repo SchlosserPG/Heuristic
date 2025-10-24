@@ -544,7 +544,7 @@
     "href": "es.html",
     "title": "Exhaustive Search",
     "section": "",
-    "text": "Advantages and Disadvantages of ES",
+    "text": "Advantages and Disadvantages of ES\nIf you had unlimited time to search through every possible hobby in the world, which one do you think you’d end up pursuing?",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
     ]
@@ -644,7 +644,7 @@
     "href": "es.html#output",
     "title": "Exhaustive Search",
     "section": "Output",
-    "text": "Output\n\n# Run the exhaustive search and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_exhaustive_search(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n# Output (O)\nprint(f\"Exhaustive Search One-Max Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\nprint(f\"# name of the search algorithm: Exhaustive Search\")\nprint(f\"# number of bits: {num_bits}\")\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Exhaustive Search: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\nExhaustive Search One-Max Time elapsed: 0.000000 seconds\n# name of the search algorithm: Exhaustive Search\n# number of bits: 10",
+    "text": "Output\n\n# Run the exhaustive search and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_exhaustive_search(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n# Output (O)\nprint(f\"Exhaustive Search One-Max Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\nprint(f\"# name of the search algorithm: Exhaustive Search\")\nprint(f\"# number of bits: {num_bits}\")\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Exhaustive Search: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\nExhaustive Search One-Max Time elapsed: 0.001505 seconds\n# name of the search algorithm: Exhaustive Search\n# number of bits: 10",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exhaustive Search</span>"
     ]
