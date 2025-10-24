@@ -5,10 +5,13 @@ format: html
 runtime: python
 ---
 
-# Benchmark Problems: Overview
+**In optimization research, benchmark problems serve as standardized test beds that allow algorithm designers to compare performance, uncover strengths and weaknesses, and drive methodological innovation.**
 
--   OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods. 
-* Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
+
+# Overview of Problems
+
+-   OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods.
+-   Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.
 -   Ackley Function: The Ackley function is a well-known continuous optimization benchmark problem. It is often used to test optimization algorithms' ability to handle multi-modal functions with many local minima. Algorithms like simulated annealing and genetic algorithms are frequently evaluated using this function.
 -   Schaffer Min-Min Problem: The Schaffer Min-Min is a well-known benchmark in multi-objective optimization. It provides a simple yet effective test case for algorithms that need to identify Pareto-optimal solutions in multi-objective spaces.
 -   These benchmark problems are critical for testing and comparing the performance of optimization algorithms, especially in research and development of new heuristic methods.
@@ -19,12 +22,11 @@ runtime: python
 
 -   In evolutionary algorithms, the OneMax problem serves as a simple test problem where the goal is to evolve a population of binary strings towards the optimal solution (a string of all 1s). The fitness function is used to evaluate the quality of each candidate solution in the population.
 
--   Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them? If 0 meant that you were unable to satisfy that goal, and 1 meant that you were able to satisfy that goal, wouldn’t you want all 1s. 
-
+-   Fitness Function: Imagine life had a personal ‘fitness function’ just for you. What variables would you include in it, and how would you weigh them? If 0 meant that you were unable to satisfy that goal, and 1 meant that you were able to satisfy that goal, wouldn’t you want all 1s.
 
 ### One Max Formula
 
--   Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s. 
+-   Binary String: A binary string is generated using NumPy’s randint function, which creates a list of 0s and 1s.
 -   Fitness Function: The one_max function calculates the “fitness” of the binary string, which is simply the sum of all 1s in the string. This is the value that needs to be maximized.
 -   Example Run: If the generated binary string is \[1, 0, 1, 1, 0, 1, 0, 1, 1, 0\], the fitness would be 6, since there are six 1s in the string.
 -   The objective is to maximize the number of 1s in a binary string.
@@ -114,9 +116,7 @@ import numpy as np
 
 # Defining binary solutions and their corresponding objective values
 solutions = [
-    "(0000)", "(0001)", "(0010)", "(0011)", "(0100)", "(0101)", "(0110)", 
-    "(0111)", "(1000)", "(1001)", "(1010)", "(1011)", "(1100)", "(1101)", 
-    "(1110)", "(1111)"
+    "(0000)", "(0001)", "(0010)", "(0011)", "(0100)", "(0101)", "(0110)", "(0111)", "(1000)", "(1001)", "(1010)", "(1011)", "(1100)", "(1101)", "(1110)", "(1111)"
 ]
 objective_values = [0, 1, 1, 2, 1, 2, 3, 2, 3, 3, 2, 4, 3, 3, 4, 5]
 
@@ -171,13 +171,9 @@ plt.show()
 
 ### Example Fractional Knapsack Problem
 
-* Items Available:
-        -   Item 1: Value = 10, Weight = 5 kg
-        -   Item 2: Value = 40, Weight = 10 kg
-        -   Item 3: Value = 30, Weight = 15 kg
+-   Items Available: - Item 1: Value = 10, Weight = 5 kg - Item 2: Value = 40, Weight = 10 kg - Item 3: Value = 30, Weight = 15 kg
 
--   Objective: Maximize the total value without exceeding Knapsack Capacity of 15 kg. 
-
+-   Objective: Maximize the total value without exceeding Knapsack Capacity of 15 kg.
 
 -   The greedy algorithm works well by prioritizing items with the highest value-to-weight ratio.
 
@@ -363,7 +359,7 @@ plt.show()
 
 ```
 
--   Example results: Vector s: \[12.8 3.16\]; Ackley function result: 17.9. These results are random, so it may vary from what you see in the plot. 
+-   Example results: Vector s: \[12.8 3.16\]; Ackley function result: 17.9. These results are random, so it may vary from what you see in the plot.
 -   Distance from the Origin: The Ackley function reaches its global minimum of 0 at the origin (i.e., when both $x_1$ and $x_2$ are close to 0). Our vector values are quite far from the origin, which is why the function result is positive and relatively large at 17.9"
 -   The Ackley landscape has an exponentially increasing structure as you move away from the global minimum. It has many local minima, which makes optimization algorithms prone to getting stuck in suboptimal solutions. A result like 17.9 is far from zero, and indicates that the vector is located in such a suboptimal region of the function space.
 -   Thus, the Ackley result of 17.9 suggests that the point \[12.8 3.16\]; is not close to the global minimum (which is zero at the origin) and is located in a region of higher function values.
@@ -433,8 +429,7 @@ plt.show()
 ## Multi-objective Optimization Problem (MOP)
 
 -   Given a set of functions and a set of constraints, the MOP is to find the optimal value or a set of optimal values (also called Pareto front), subject to the constraints, out of all possible solutions of these functions.
-* The Pareto front consists of solutions where no objective can be improved without worsening at least one other objective. For example, In product design, you might want to minimize cost while maximizing performance. These two objectives are often in conflict, meaning improving one leads to trade-offs in the other.
-
+-   The Pareto front consists of solutions where no objective can be improved without worsening at least one other objective. For example, In product design, you might want to minimize cost while maximizing performance. These two objectives are often in conflict, meaning improving one leads to trade-offs in the other.
 
 $$\text{opt}\left( f_1(s), f_2(s), \dots, f_k(s) \right),
 \quad \mathbf{s} \in \mathbb{R}^n, 
@@ -565,7 +560,7 @@ PRINT "Combined objective:", combined_objective(result.x)
 -   Population Initialization: A population of random solutions is initialized within the bounds \[−1000,1000\]. Objective Function Evaluation: For each solution, both objective functions are evaluated.
 -   Score Combination: The results of the two functions are combined into a single score, which can be minimized. In this case, the combination is a simple sum of f1 and f2.
 -   Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).
-* The plot uses the weighted sum minimization, w1 * f1(s) + w2 * f2(s) instead of plotting the Pareto front. The plot prints The optimal $s$ value and the corresponding function values $f1(s)$ and $f2(s)$ at that point. The minimum combined objective function value.
+-   The plot uses the weighted sum minimization, w1 \* f1(s) + w2 \* f2(s) instead of plotting the Pareto front. The plot prints The optimal $s$ value and the corresponding function values $f1(s)$ and $f2(s)$ at that point. The minimum combined objective function value.
 
 ```{python}
 import numpy as np
@@ -629,15 +624,21 @@ plt.show()
 ```
 
 #### Looking at the results
+
 -   The results you achieved for the Schaffer Min-Min problem look excellent, as they closely approximate the optimal solution.
+
 -   Optimal value of $s$ we found is nearly exactly $1$, the known optimal solution for the Schaffer function.
+
     -   Objective function values: $f_1(s) = s^2 = 1.000000027$
     -   : $f_2(s) = (s-2)^2 = 0.999999973$
     -   These values are very close to 1 for both $f_1$ and $f_2$, indicating that the function values at this $s$ are near-optimal.
+
 -   Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of $f_1$ and $f_2$ is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.
 
-* Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see $f_1$ and $f_2$ on the x and y axis. 
-* There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.  
+-   Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see $f_1$ and $f_2$ on the x and y axis.
+
+-   There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.\
+
 ```{python}
 
 # Generate s values
@@ -681,7 +682,6 @@ plt.show()
 
 
 ```
-
 
 # Using AI
 

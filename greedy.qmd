@@ -24,8 +24,6 @@ format: html
     -   $f(s): A->B$ is the objective function
     -   $\odot$ is $>, <, =, <=, >=$
 
-
-
 ## Definition 2
 
 -   The optimal solution is a solution, out of all feasible candidate solutions of the optimization problem $P$, that gives the optimal value. $f(s^*) = \operatorname{opt} \{f(s)\}, \, \forall \, c_i(s) \, \odot \, b_i, \, i = 1, 2, \dots, m.$
@@ -131,9 +129,9 @@ print(f"Minimum number of coins needed: {num_coins}")
 
 Optimal Path: $$\min_{s \in \S_{\pi}} f(s) = \left[ \sum_{i=1}^{n-1} d\left(c_{\pi(i)}, c_{\pi(i+1)}\right) \right] + d\left(c_{\pi(n)}, c_{\pi(1)}\right)$$
 
-Where min_(𝑠∈𝒮_𝜋 )$c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
+Where min\_(𝑠∈𝒮_𝜋 )$c_{\pi} = \{ c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(n)} \}$, that is, all permutations of the $n$ cities.
 
-vs. 
+vs.
 
 Nearest Neighbor (Greedy): $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 

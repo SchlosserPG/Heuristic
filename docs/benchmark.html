@@ -253,7 +253,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#benchmark-problems-overview" id="toc-benchmark-problems-overview" class="nav-link active" data-scroll-target="#benchmark-problems-overview">Benchmark Problems: Overview</a></li>
+  <li><a href="#overview-of-problems" id="toc-overview-of-problems" class="nav-link active" data-scroll-target="#overview-of-problems">Overview of Problems</a></li>
   <li><a href="#discrete-optimization-problems" id="toc-discrete-optimization-problems" class="nav-link" data-scroll-target="#discrete-optimization-problems">Discrete Optimization Problems</a>
   <ul class="collapse">
   <li><a href="#onemax-problem" id="toc-onemax-problem" class="nav-link" data-scroll-target="#onemax-problem">OneMax Problem</a>
@@ -321,8 +321,9 @@ window.Quarto = {
 </header>
 
 
-<section id="benchmark-problems-overview" class="level1">
-<h1>Benchmark Problems: Overview</h1>
+<p><strong>In optimization research, benchmark problems serve as standardized test beds that allow algorithm designers to compare performance, uncover strengths and weaknesses, and drive methodological innovation.</strong></p>
+<section id="overview-of-problems" class="level1">
+<h1>Overview of Problems</h1>
 <ul>
 <li>OneMax Problem: The OneMax problem is widely used as a benchmark in evolutionary algorithms to test how well algorithms can evolve a binary string towards an optimal solution (a string of all 1s). It is simple and useful for evaluating basic evolutionary or heuristic search methods.</li>
 <li>Knapsack Problem: The Knapsack problem is another classic benchmark problem in optimization, particularly for combinatorial algorithms problems (COPs), or an algorithm designed to solve problems involving discrete structures. Variants such as the 0/1 Knapsack and Fractional Knapsack are commonly used to evaluate algorithms like dynamic programming, greedy algorithms, and evolutionary methods.</li>
@@ -380,7 +381,7 @@ PRINT "Fitness (number of 1s):", fitness
 </section>
 <section id="onemax-python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="onemax-python-implementation">OneMax Python Implementation</h3>
-<div id="3f6b43f5" class="cell" data-execution_count="1">
+<div id="af664f66" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -416,13 +417,13 @@ PRINT "Fitness (number of 1s):", fitness
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Binary string: [1 1 0 1 0 1 0 1 0 0]
-Fitness (number of 1s): 5</code></pre>
+<pre><code>Binary string: [0 1 0 1 0 1 0 0 0 1]
+Fitness (number of 1s): 4</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="benchmark_files/figure-html/cell-2-output-2.png" width="651" height="376" class="figure-img"></p>
+<p><img src="benchmark_files/figure-html/cell-2-output-2.png" width="659" height="376" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -438,7 +439,7 @@ Fitness (number of 1s): 5</code></pre>
 <li>Without knowledge of the landscape of the solution space, the search process will easily get stuck in the peaks of this solution space.</li>
 <li>Hence, most researchers prefer using the one-max problem as an example because it is easy to implement and also because it can be used to prove if a new concept for a search algorithm is correct.</li>
 </ul>
-<div id="a5a71f17" class="cell" data-execution_count="2">
+<div id="33cc37fe" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -668,7 +669,7 @@ PRINT Ackley function result for vector s
 </section>
 <section id="ackley-function-python-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="ackley-function-python-implementation">Ackley Function Python Implementation</h4>
-<div id="fbd2a910" class="cell" data-execution_count="3">
+<div id="3780d83c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
@@ -742,7 +743,7 @@ Ackley function result: 17.91745666838746</code></pre>
 <li>Differential Evolution is a population-based optimization algorithm used for solving complex multidimensional problems. It belongs to the family of evolutionary algorithms, where a population of candidate solutions evolves over time to find the global optimum of a function.</li>
 <li>The differential_evolution function from the scipy.optimize module is a powerful optimization tool designed to solve global optimization problems. It is a type of evolutionary algorithm, which is used when the function to optimize is non-linear, has many local minima, or is not differentiable.</li>
 </ul>
-<div id="9d9beef2" class="cell" data-execution_count="4">
+<div id="478df82f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> differential_evolution</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -843,7 +844,7 @@ Function value at minimum: 4.440892098500626e-16</code></pre>
 <li>Convexity: The Pareto front of the Schaffer min-min problem is convex, making it relatively easy to identify the trade-off surface between the two objectives.</li>
 <li>Graphically, the Pareto front of the Schaffer min-min problem can be visualized as a curve in the objective space, where <span class="math inline">\(f_1(x)\)</span> is plotted against <span class="math inline">\(f_2(x)\)</span> and the curve represents the set of optimal trade-offs between the two objectives.</li>
 </ul>
-<div id="090f2bf9" class="cell" data-execution_count="5">
+<div id="ca27e434" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -925,7 +926,7 @@ PRINT "Combined objective:", combined_objective(result.x)
 <li>Optimization Loop: Iteratively updates the solutions to find the minimum combined score using an optimization technique (e.g., gradient descent, genetic algorithm).</li>
 <li>The plot uses the weighted sum minimization, w1 * f1(s) + w2 * f2(s) instead of plotting the Pareto front. The plot prints The optimal <span class="math inline">\(s\)</span> value and the corresponding function values <span class="math inline">\(f1(s)\)</span> and <span class="math inline">\(f2(s)\)</span> at that point. The minimum combined objective function value.</li>
 </ul>
-<div id="edb7c666" class="cell" data-execution_count="6">
+<div id="06646a62" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1011,9 +1012,10 @@ Combined objective: 1.0000000000000002</code></pre>
 </ul></li>
 <li><p>Combined objective: The combined objective (likely calculated as a weighted sum or some other combination of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> is 1.00000, which is extremely close to the expected combined optimal value of 1. This negligible difference suggests that the optimization algorithm has performed very well.</p></li>
 <li><p>Here is the code used to generate the Pareto Front for the Schaffer Min-Min problem, filtering out only the non-dominated solutions and plotting the trade-off curve. This allows us to see <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> on the x and y axis.</p></li>
-<li><p>There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.</p></li>
+<li><p>There are so many ways to graph this, but the multiple dimensions makes it more difficult to see. Explore some options using generative AI.<br>
+</p></li>
 </ul>
-<div id="b1188204" class="cell" data-execution_count="7">
+<div id="f17a1639" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate s values</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>s_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">400</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
