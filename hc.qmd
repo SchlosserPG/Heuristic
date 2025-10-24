@@ -5,9 +5,7 @@ format: html
 runtime: python
 ---
 
-# Hill Climbing (HC)
-
--   If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?
+**If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?**
 
 -   Hill Climbing is an optimization algorithm that starts with an arbitrary solution to a problem and iteratively makes small changes to the solution, choosing the change that improves the solution the most.
 
@@ -18,7 +16,6 @@ runtime: python
     -   Termination: Ends when no further improvements can be made.
 
 -   Applications: Used in various fields like AI for game playing, pathfinding, and scheduling problems.
-
 
 ## Hill Climbing Algorithm
 
@@ -44,7 +41,6 @@ runtime: python
 -   The possible result if HC accepts not only a better solution but also a solution that is equally good (i.e., $f(v)>=f(s)$ as the next solution; then only the solutions $x_4$ $(0011)$, $x_8$ $(0111)$, and $x_12$ $(1011)$ will remain as the local optima, while $x_16$ $(1111)$ is the global optimum.
 
 ![hc search](Pictures/hc2.png "Hill Climbing Search Strategy")
-
 
 ## Challenges of HC
 
@@ -78,7 +74,6 @@ num_bits = 10  # You can adjust the number of bits
 
 ```
 
-
 ## Helper Functions:
 
 -   Initiate: Set Initial Solution: Randomly choose an initial binary solution of the specified bit length (num_bits).
@@ -91,7 +86,7 @@ def init_hc(num_bits):
 ```
 
 -   Transit (Generate Neighbors): Create a function that generates all neighbors of a binary solution by flipping each bit one by one.
-* A random bit in the current solution is flipped, representing a small change or "move.“
+-   A random bit in the current solution is flipped, representing a small change or "move.“
 
 ```{python}
 # Function for transit: (T) 
@@ -106,8 +101,7 @@ def transit(sol):
 ```
 
 -   Evaluate: Count the number of 1s in the binary representation of a solution (fitness value for One Max).
-* A higher number of 1s means a better solution. 
-
+-   A higher number of 1s means a better solution.
 
 ```{python}
 # Function for evaluation: (E) 
@@ -117,8 +111,8 @@ def evaluate(sol):
 ```
 
 -   Determine: Track and update the current best solution and its fitness as the search progresses.
-* If the new solution (tmp_fitness) is better (i.e., has a higher fitness than the current solution, (fitness)), we accept it. Otherwise, we keep the current solution.
-* If the new solution (tmp_fitness) is worse or equal to the current fitness, we keep the current one.
+-   If the new solution (tmp_fitness) is better (i.e., has a higher fitness than the current solution, (fitness)), we accept it. Otherwise, we keep the current solution.
+-   If the new solution (tmp_fitness) is worse or equal to the current fitness, we keep the current one.
 
 ```{python}
 # Function for determine: (D) 
@@ -157,7 +151,6 @@ def run_hc(num_bits=10, max_evals=2 ** num_bits):
         
     return fitness_over_time, sol
 ```
-
 
 -   The main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.
 
@@ -205,8 +198,7 @@ plt.show()
 
 -   The results of HC-Rand-M show that with this modification, HC-Rand will be able to find the optimal solution in most cases.
 
-![hc search](Pictures/hc10.png "Simulation Results")
-## Comparison of ES and HC for the one-max Problem of size $n=10$
+![hc search](Pictures/hc10.png "Simulation Results") \## Comparison of ES and HC for the one-max Problem of size $n=10$
 
 -   HC-LR and HC-Rand to denote a similar thing. HC-Rand and HC-LR differ primarily in how they choose the next solution and handle exploration, impacting their likelihood of getting stuck in local optima.
 -   HC-LR (Hill Climbing with Limited Range): HC-LR’s transition operator restricts it to move only to adjacent solutions, which makes it less flexible. The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., $v=s−1$ or $v=s+1$). As described in the example, if HC-LR starts with the solution "1000," it can only move to "0111" or "1001." If neither of these options provides an improvement, HC-LR is likely to get stuck there, leading to a local optimum. Because HC-LR only accepts moves that improve the solution, it has a high risk of getting trapped in suboptimal points without exploring further.
@@ -263,8 +255,6 @@ plt.show()
 -   This implies that HC-Rand has a good chance to move to a solution in the region $x_6-x_16$. The probability of moving to the left region $x_1-x_4$ or the right region $x_6-x_16$ depends somehow on the location of the current solution. A move to the right region is a guarantee to find the optimal solution, and a move to the left region is destined to a local optimum in this case.
 
 ![hc search](Pictures/hc9.png "Simulation Results")
-
-
 
 # Hill Climbing using Ackley Function
 
@@ -556,7 +546,7 @@ plt.show()
 ```
 
 -   The plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.
--   The weights are heavily concentrated in a few stocks, particularly: AAPL (Apple), AMZN (Amazon), NFLX (Netflix), META (Facebook), and DIS (Walt Disney Co). 
+-   The weights are heavily concentrated in a few stocks, particularly: AAPL (Apple), AMZN (Amazon), NFLX (Netflix), META (Facebook), and DIS (Walt Disney Co).
 -   A Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
 -   Our portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
     -   Pros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.
