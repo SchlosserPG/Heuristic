@@ -58,7 +58,8 @@ runtime: python
 
 -   A probabilistic optimization algorithm inspired by the annealing process in metallurgy, where materials are heated and then slowly cooled to reduce defects, thereby optimizing their structural properties.
 
--   In optimization, SA is used to find a good approximation to the global minimum or maximum of a function in a large search space, particularly when the search space is discrete or contains multiple local minima. 
+-   In optimization, SA is used to find a good approximation to the global minimum or maximum of a function in a large search space, particularly when the search space is discrete or contains multiple local minima.
+
 -   The search strategy of SA is to start with a random possible solution in the solution space and then use the Metropolis acceptance criterion to determine whether a worse solution is to be accepted or not.
 
 -   To emulate the annealing process for a minimization optimization problem, SA will first calculate the difference between the objective values of the new candidate solution $\nu$ and the current solution $s$ to see whether it will accept the new candidate solution or not, as follows: $\Delta_f^{\text{min}} = f(\nu) - f(s)$
@@ -99,15 +100,14 @@ runtime: python
 ## Tuning Parameters
 
 -   The success of SA heavily depends on the tuning of parameters like the cooling schedule, the initial temperature, and the size of the neighborhood.
-*  In the context of tuning parameters for Simulated Annealing (SA), the exploration-exploitation trade-off means adjusting the algorithm's behavior to balance between searching broadly (exploration) and refining promising solutions (exploitation).
-
+-   In the context of tuning parameters for Simulated Annealing (SA), the exploration-exploitation trade-off means adjusting the algorithm's behavior to balance between searching broadly (exploration) and refining promising solutions (exploitation).
 
 ## The Search Strategy of SA
 
 -   The search strategy of SA is to start with a random possible solution in the solution space and then use a criteria (like the metropolis acceptance criterion) to determine whether a worse solution is to be accepted or not.
 -   In this example, $t^{\Delta} \quad$ and $\quad t^{\nabla}$ indicate that the solution at the $t+1^{\text{th}}$ iteration is either better or not better than the solution at the $t^{\text{th}}$ iteration, respectively.
 -   This example shows that if the starting point is 𝑥_9 and SA accepts only a new candidate solution that is better than the current solution, i.e., it has no escape mechanism, the search will get stuck at one of the two local optima ($x_8$ and $x_10$) denoted $L_1$ and $L_2$.
-* The temperature parameter in SA allows escape from local optima. If the search starts at $x_9$, SA can potentially move to worse solutions with a certain probability based on temperature and a random probability check. At higher temperatures, SA has a higher chance of escaping local optima ($L_1$) ($x_8$) and ($L_2$) ($x_{10}$), but as the temperature decreases, it becomes less likely to accept worse moves, leading to convergence.
+-   The temperature parameter in SA allows escape from local optima. If the search starts at $x_9$, SA can potentially move to worse solutions with a certain probability based on temperature and a random probability check. At higher temperatures, SA has a higher chance of escaping local optima ($L_1$) ($x_8$) and ($L_2$) ($x_{10}$), but as the temperature decreases, it becomes less likely to accept worse moves, leading to convergence.
 
 ![Search Strategy of SA](Pictures/sa.png "Search Strategy of SA")
 
@@ -160,28 +160,20 @@ runtime: python
 
 ## Examples of How Value Can Change
 
-![SA Changing Values](Pictures/sa3.png "SA Changing Values")
-* Minimization:
-     + If $\Delta_f^{\text{min}}$ is negative, we always accept (better solution).
-     + If $\Delta_f^{\text{min}}$ is positive, accept with probability $paminp_a^{\text{min}}pamin$.
+![SA Changing Values](Pictures/sa3.png "SA Changing Values") \* Minimization: + If $\Delta_f^{\text{min}}$ is negative, we always accept (better solution). + If $\Delta_f^{\text{min}}$ is positive, accept with probability $paminp_a^{\text{min}}pamin$.
 
-* Maximization:
-     + If $\Delta_f^{\text{max}}$ is positive, we always accept (better solution).
-     + If $\Delta_f^{\text{max}}$ is negative, accept with probability $pamaxp_a^{\text{max}}$. 
-
+-   Maximization:
+    -   If $\Delta_f^{\text{max}}$ is positive, we always accept (better solution).
+    -   If $\Delta_f^{\text{max}}$ is negative, accept with probability $pamaxp_a^{\text{max}}$.
 -   In this case, $p_a^{\text{max}}$=.329 and 0.007 for ${\Psi_t}$ = .9 and 0.2, respectively. This indicates that a lower temperature Image implies a smaller probability Image to accept a non-improving candidate solution as the current solution.
 -   The value of $f_s$ goes from 2.0 to 1.1, the value of $p_a^{\text{max}}$ goes from 0.329 up to 0.895. This means that in case $f(\nu)$ is worse than $f(s)$, a smaller $\Delta_f^{\text{max}}$ implies a higher probability $p_a^{\text{max}}$ to accept a non-improving candidate solution as the current solution.
-* Higher temperatures} ($\Psi_t = 0.9$) allow higher acceptance of worse solutions.
-     + Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.9$, $p_a^{\min} = 3.038$(high).
-* Lower temperatures $\Psi_t = 0.2$ reject worse solutions more aggressively.
-     + Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.2$, $p_a^{\min} = 148.413$, which results in almost no acceptance.
-
-    
-*  Acceptance of better solutions} $p_a^{\max}$ is much higher in general but varies based on temperature.
-     + For $\Psi_t = 0.9$, $p_a^{\max} = 0.329$ (highlighted in yellow).
-     + For $\Psi_t = 0.2$, $p_a^{\max} = 0.007$, meaning lower temperatures almost never accept bad moves.
-        
-
+-   Higher temperatures} ($\Psi_t = 0.9$) allow higher acceptance of worse solutions.
+    -   Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.9$, $p_a^{\min} = 3.038$(high).
+-   Lower temperatures $\Psi_t = 0.2$ reject worse solutions more aggressively.
+    -   Example: For $\Delta_f^{\min} = -1.0$, at $\Psi_t = 0.2$, $p_a^{\min} = 148.413$, which results in almost no acceptance.
+-   Acceptance of better solutions} $p_a^{\max}$ is much higher in general but varies based on temperature.
+    -   For $\Psi_t = 0.9$, $p_a^{\max} = 0.329$ (highlighted in yellow).
+    -   For $\Psi_t = 0.2$, $p_a^{\max} = 0.007$, meaning lower temperatures almost never accept bad moves.
 
 ### Summary of Cases
 
@@ -231,8 +223,8 @@ min_temp = 0.0001
 ## Initialize
 
 -   The init_sa function initializes a random solution (sol) for the One-Max problem by generating a binary array of size num_bits, where each element is randomly set to 0 or 1.
-* The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1's in the array).
-* The function returns the initial solution and its evaluated fitness.
+-   The initial solution is evaluated using the One-Max function (evaluate) to calculate its fitness (i.e., the sum of 1's in the array).
+-   The function returns the initial solution and its evaluated fitness.
 
 ```{python}
 # Initialization function (I)
@@ -256,13 +248,12 @@ def transit(sol):
     return new_sol
 ```
 
-* Example: 1011011001...1100100110 (100 bits total)
-* Randomly Selected Bit to Flip: Assume random index was 25.
-     + New Solution After Flip: If the bit at index = 25 was 1, it flips to 0, and vice versa.
-     + Before: 1011011001...110**0**100110 (Bit at index 25 is `0`) 
-     + After: 1011011001...110**1**100110 (Bit at index 25 is flipped to `1`)
-* Since np.random.randint(len(sol)) randomly selects a bit, every execution results in different positions being flipped. 
-
+-   Example: 1011011001...1100100110 (100 bits total)
+-   Randomly Selected Bit to Flip: Assume random index was 25.
+    -   New Solution After Flip: If the bit at index = 25 was 1, it flips to 0, and vice versa.
+    -   Before: 1011011001...110**0**100110 (Bit at index 25 is `0`)
+    -   After: 1011011001...110**1**100110 (Bit at index 25 is flipped to `1`)
+-   Since np.random.randint(len(sol)) randomly selects a bit, every execution results in different positions being flipped.
 
 ### Evaluate (E)
 
@@ -299,19 +290,31 @@ def determine(neighbor_value, current_value, temperature):
 ### Run Function
 
 -   The init_sa function generates a random initial solution (current_sol) with a binary array of length num_bits.
--   This solution is evaluated using the evaluate function, which counts the number of 1's in the array.
--   The current solution is also set as the best solution initially, since no other solutions have been explored yet.
--   The temperature is set to initial_temp, which controls the probability of accepting worse solutions in the early stages of the algorithm.
--   The list value_history is initialized to store the value (fitness) of the current solution over time.
--   This main loop runs until the temperature drops below min_temp (0.0001) or the maximum number of evals (max_evals, default 1000) is reached. Each evaluation represents one step in the simulated annealing process.
--   A neighboring solution (neighbor_sol) is generated by the transit function, which randomly flips one bit in the current solution. 
 
-* This represents exploring a new area of the search space close to the current solution.
+-   This solution is evaluated using the evaluate function, which counts the number of 1's in the array.
+
+-   The current solution is also set as the best solution initially, since no other solutions have been explored yet.
+
+-   The temperature is set to initial_temp, which controls the probability of accepting worse solutions in the early stages of the algorithm.
+
+-   The list value_history is initialized to store the value (fitness) of the current solution over time.
+
+-   This main loop runs until the temperature drops below min_temp (0.0001) or the maximum number of evals (max_evals, default 1000) is reached. Each evaluation represents one step in the simulated annealing process.
+
+-   A neighboring solution (neighbor_sol) is generated by the transit function, which randomly flips one bit in the current solution.
+
+-   This represents exploring a new area of the search space close to the current solution.
+
 -   The neighboring solution is evaluated using the evaluate function, which calculates its fitness (i.e., the number of 1's in the binary array). This value is compared to the current solution’s fitness.
+
 -   The determine function decides whether to accept the neighboring solution
+
 -   The current solution's fitness is appended to value_history to keep a record of the solution’s fitness across evaluations. This will later be used to plot the progress of the algorithm.
+
 -   After each evaluation, the temperature is reduced by multiplying it by the cooling_rate (default 0.99). This cooling process gradually reduces the probability of accepting worse solutions, making the algorithm behave more like greedy hill climbing toward the end.
+
 -   The number of evals is incremented.
+
 -   After the loop terminates (either because the temperature has cooled sufficiently or the maximum number of evaluations has been reached), the function returns: 1) best_sol: The best solution found during the process. 2) best_value: The fitness value of the best solution. 3) value_history: A list of the fitness values over time, useful for visualizing the algorithm's progress.
 
 ```{python}
@@ -343,9 +346,7 @@ def simulated_annealing(num_bits):
 
 ```
 
-
 ![Example Cooling Schedule Calculations](Pictures/Temp.png "Cooling Schedule Calculations")
-
 
 ### Main Execution
 
@@ -424,9 +425,8 @@ def init_sa():
 
 ```
 
-* Here, the new candidate solution (neighbor_x) is generated by adding a random perturbation from the uniform distribution random.uniform(-1, 1). This means the step size varies randomly between -1 and 1.
-* If you want more control over the step size, you could introduce a parameter, step_size, and modify the function.
-
+-   Here, the new candidate solution (neighbor_x) is generated by adding a random perturbation from the uniform distribution random.uniform(-1, 1). This means the step size varies randomly between -1 and 1.
+-   If you want more control over the step size, you could introduce a parameter, step_size, and modify the function.
 
 ```{python}
 # Transition function (T)
@@ -435,7 +435,7 @@ def transit(current_x):
     return neighbor_x
 ```
 
-* The determine function is the same as the One Max problem except that because the Ackley is a min problem the neighbor_value and current_value switch places. 
+-   The determine function is the same as the One Max problem except that because the Ackley is a min problem the neighbor_value and current_value switch places.
 
 ```{python}
 # Determination function for SA (D)
@@ -446,7 +446,6 @@ def determine(neighbor_value, current_value, temperature):
         acceptance_probability = np.exp((current_value - neighbor_value) / temperature)
         return np.random.rand() < acceptance_probability
 ```
-
 
 ```{python}
 # Simulated Annealing (SA) function

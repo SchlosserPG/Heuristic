@@ -5,9 +5,8 @@ format: html
 runtime: python
 ---
 
-# Genetic Algorithms
 
--   If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?
+**If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?**
 
 -   Genetic Algorithms (GAs) are optimization techniques inspired by the process of natural selection by evolving solutions through selection, crossover, and mutation, just as genes pass traits through generations to optimize survival.
 
