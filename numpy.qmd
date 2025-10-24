@@ -81,9 +81,8 @@ return result
         -   Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.
         -   Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.
         -   Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.
-
-* Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability. 
-* While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem's complexity and design requirements.
+-   Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability.
+-   While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem's complexity and design requirements.
 
 # Libraries to Note
 
@@ -109,7 +108,7 @@ array = np.array([1, 2, 3, 4])
 print("Array:", array)
 ```
 
-* np.arange() is a NumPy function that generates an array with evenly spaced values within a given range.
+-   np.arange() is a NumPy function that generates an array with evenly spaced values within a given range.
 
 ```{python}
 array = np.arange(1, 5)  # Generates [1, 2, 3, 4]
@@ -197,9 +196,9 @@ def ackley(s):
 
 ## Random Number Generation
 
-* The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive). 
-* Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). 
-* The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 [0,1). It is saved in a variable rand_nums and the values in the variable are printed.
+-   The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive).
+-   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations).
+-   The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 \[0,1). It is saved in a variable rand_nums and the values in the variable are printed.
 
 ```{python}
 rand_nums = np.random.rand(5)
@@ -218,11 +217,9 @@ print("Random Standard Normal Values:", random_values)
 
 ```
 
-
 ## np.random.uniform
 
-*The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.
-* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.
+*The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.
 
 ```{python}
 # Generate a random starting point for the hill climbing algorithm
@@ -248,7 +245,7 @@ print(random_integers)
 
 ```
 
-* We can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array. 
+-   We can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array.
 
 ```{python}
 random_2d_array = np.random.randint(10, 20, size=(3, 5)) 
@@ -274,11 +271,12 @@ print(random_2d_array)
         return new_sol
     ```
 
-* To compare: 
-     + np.random.standard_normal = normal distribution with mean and sd
-     + np.random.rand = uniform distribution between [0,1)
-     + np.random.uniform = uniform over a specified range
-     + np.random.randint = random integers within a specified range
+-   To compare:
+
+    -   np.random.standard_normal = normal distribution with mean and sd
+    -   np.random.rand = uniform distribution between \[0,1)
+    -   np.random.uniform = uniform over a specified range
+    -   np.random.randint = random integers within a specified range
 
 ## Sorting the data: np.argsort
 
@@ -453,6 +451,37 @@ wall_time = end_time - start_time
 # Print timing information
 print(f"Wall time: {wall_time:.2f} s")
 ```
+### Why Underscore Conventions Matter
+
+* In the example above, the loop `for _ in range():` uses the underscore as a **throwaway variable**, signaling that the loop variable itself is not needed—only the repetition of the loop matters. This is a common Python convention that improves readability by making intent explicit. Similarly, you will see many programs and function definitions where unused parameters are replaced with an underscore (for example, `def handler(_, value):`), indicating that a particular argument is intentionally ignored. These small stylistic choices communicate purpose and clarity to anyone reading the code.See the table below for some direct uses of the underscore. 
+
+
+```{r, echo=FALSE, warning=FALSE}
+library(knitr)
+
+data <- data.frame(
+  Pattern = c(
+    "Single underscore: “ignore.”",
+    "Single underscore: “internal.”",
+    "Double underscore: “private inside a class.”",
+    "Double before & after: “special built-in behavior.”"
+  ),
+  Example = c(
+    "for _ in range(10):",
+    "_helper_function()",
+    "self.__secret",
+    "if __name__ == '__main__':"
+  ),
+  `Common Use in Python` = c(
+    "Used as a throwaway variable when the value isn’t needed. In the REPL, `_` also stores the last result.",
+    "Marks a variable or function as internal use only within a module or class (not imported with `*`).",
+    "Used for name mangling inside classes to make attributes harder to access from outside.",
+    "Common structure to run code only when the file is executed directly, not when it’s imported as a module."
+  )
+)
+
+kable(data, align = c('l', 'l', 'l'), caption = "Common Uses of the Underscore in Python")
+```
 
 ### With Numpy
 
@@ -492,6 +521,8 @@ print(f"Wall time: {wall_time:.2f} s")
 ```
 
 -   Mathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.
+
+
 
 # Using AI
 

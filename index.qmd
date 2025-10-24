@@ -82,14 +82,20 @@ The goal of optimization is to find the best solution among many possible option
 -   Different paths for a truck driver in the case of four cities.
 
 ```{python}
+from math import factorial
 import numpy as np
-from scipy.special import factorial
 
-# TSP paths calculation
+#Disable scientific notation in NumPy output 
 np.set_printoptions(suppress=True)
-n = np.arange(4, 12)
-result = factorial(n - 1) / 2
-print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
+
+# Create an array from 3 to 10 (since you need (n-1)! for n=4..11)
+n = np.arange(3, 11)
+
+# Use np.vectorize to apply math.factorial elementwise, then divide by 2
+result = np.vectorize(factorial)(n) / 2
+# math.factorial() only works on one number at a time, but NumPy arrays are designed for operations that apply element-by-element automatically — if the function is a NumPy universal function, like np.sqrt, np.exp, np.add, etc. However, math.factorial() is not a NumPy function — it’s a plain Python function that expects a single integer. np.vectorize() acts as a wrapper around any regular Python function, turning it into something that behaves like a universal function. 
+
+print(result)
 
 ```
 
@@ -100,8 +106,8 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 # What are Heuristics?
 
 -   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
-     + Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
-     + Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
+    -   Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
+    -   Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
 -   Speed vs. Accuracy Trade-off
 -   Real-world applications where exact solutions are impractical
 
@@ -111,7 +117,6 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
     -   A sequence of steps providing a solution
 -   Heuristic
     -   Not necessarily optimal, or “approximate”
-
 -   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
 
 # Types of Heuristic Methods
@@ -129,8 +134,8 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 # Why Metaheuristics?
 
 -   Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
-     + For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.
-     + As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.
+    -   For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.
+    -   As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.
 
 # Organization and Structure of the Metaheuristics Book
 
@@ -163,7 +168,7 @@ print(result)  # Expected output: [3, 12, 60, 360, 2520, 20160, 181440, 1814400]
 
 # A family tree of metaheuristic algorithms
 
--   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. Some example of Metaheuristics are below: 
+-   Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. Some example of Metaheuristics are below:
 
 -   Local Search-Based Metaheuristics
 
