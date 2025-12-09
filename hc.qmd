@@ -2,7 +2,9 @@
 title: "Hill Climbing"
 author: "Pamela Schlosser"
 format: html
-runtime: python
+execute:
+  python:
+    executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
 **If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?**
@@ -452,8 +454,8 @@ import time
 ```{python}
 # Selecting a few popular stocks with start date and end date
 stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] 
-start_date = '2023-10-01'
-end_date = '2024-10-1'
+start_date = '2023-12-01'
+end_date = '2025-12-1'
 
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
@@ -546,15 +548,19 @@ plt.show()
 ```
 
 -   The plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.
--   The weights are heavily concentrated in a few stocks, particularly: AAPL (Apple), AMZN (Amazon), NFLX (Netflix), META (Facebook), and DIS (Walt Disney Co).
--   A Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
--   Our portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
+
+-   The weights are heavily concentrated in a few stocks, particularly: TSLA (Tesla), META (Facebook), and DIS (Walt Disney Co).
+
+-   A Sharpe ratio of 2.0667 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
+
+-   Our portfolio is highly concentrated in just 3 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
+
     -   Pros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.
     -   Cons: Concentrating in a few assets can increase the overall risk due to lack of diversification.
 
 ## Items To Consider
 
--   A Sharpe ratio of 2.800 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.
+-   A Sharpe ratio of \> 2 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.
 -   Whether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.
 -   Given the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.
 -   Things to Try Next:

@@ -4,9 +4,9 @@ project:
 include-in-header: custom-head.html
 
 book:
-  title: "Heuristic Modelling"
+  title: "Heuristic Algorithms"
   author: "Pamela Schlosser"
-  date: "9/17/2024"
+  date: "12.1/2025"
   chapters:
     - index.qmd
     - algo.qmd
@@ -26,8 +26,6 @@ format:
     css: styles.css
     number-sections: false 
 
-  pdf:
-    documentclass: scrreprt
 
 editor: visual
 

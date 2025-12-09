@@ -1,255 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Heuristic Modelling",
-    "section": "",
-    "text": "Course Overview",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#course-goals",
-    "href": "index.html#course-goals",
-    "title": "Heuristic Modelling",
-    "section": "Course Goals",
-    "text": "Course Goals\n\nDevelop a solid process for algorithm development.\nEnhance Python programming skills.\nUnderstand the structure of heuristic models, focusing on:\n\nHill climbing\nSimulated annealing\nGenetic algorithms",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#required-book",
-    "href": "index.html#required-book",
-    "title": "Heuristic Modelling",
-    "section": "Required Book",
-    "text": "Required Book\nHandbook of Metaheuristic Algorithms\nAuthors: Chun-Wei Tsai & Ming-Chao Chiang\nPublisher: Academic Press\n\n\nAccess the book free through O’Reilly’s website with school credentials.\nPython code is available on the author’s GitHub.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Heuristic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html",
-    "href": "algo.html",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "",
-    "text": "Automate This by Christopher Steiner",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#algorithms-key-concepts-and-examples",
-    "href": "algo.html#algorithms-key-concepts-and-examples",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Algorithms Key Concepts and Examples",
-    "text": "Algorithms Key Concepts and Examples\n\nAlgorithms in Finance: High-Frequency Trading (HFT) revolutionized Wall Street by executing trades at lightning speeds, leading to both massive profits and new risks.\nAlgorithms in Healthcare: Algorithms that diagnose diseases faster and more accurately than doctors.\nMusic: Algorithms used by platforms like Pandora to predict and recommend songs.\nImpact on Jobs: Automation’s role in replacing jobs traditionally done by humans, particularly in industries like finance, journalism, and even art.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#future-implications-and-ethical-considerations",
-    "href": "algo.html#future-implications-and-ethical-considerations",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Future Implications and Ethical Considerations",
-    "text": "Future Implications and Ethical Considerations\n\nExpansion of Algorithms: The growing reach of algorithms in decision-making processes, from hiring practices to legal judgments.\nEthical Concerns: The potential for bias in algorithms and the importance of transparency in their design. The need for regulation and oversight as algorithms increasingly influence critical aspects of life.\nLooking Ahead: Steiner’s call for society to adapt to the new algorithm-driven world, balancing innovation with ethical responsibility.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#bias-in-algorithms-explored",
-    "href": "algo.html#bias-in-algorithms-explored",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Bias in Algorithms Explored",
-    "text": "Bias in Algorithms Explored\n\nFacial Recognition Technology algorithms have shown significant biases, particularly in accurately identifying people of different races and genders.\n\nStudies have found that some facial recognition systems have higher error rates when identifying individuals with darker skin tones and women. This can lead to discriminatory outcomes, such as misidentifying people of color at higher rates than white individuals.\nImpact: This bias can result in wrongful accusations or the exclusion of certain groups from services that rely on facial recognition technology.\n\nHiring algorithms are used by companies to screen job applicants, but they can unintentionally perpetuate biases present in the training data.\n\nA famous case involved an AI hiring tool developed by Amazon, which was found to be biased against female applicants. The algorithm was trained on resumes submitted over the previous decade, which were predominantly from male applicants, leading the AI to favor male candidates.\nImpact: This bias can reinforce gender inequalities in the workplace by systematically disadvantaging qualified female applicants.\n\nPredictive Policing algorithms analyze historical crime data to predict where future crimes are likely to occur, influencing law enforcement patrols.\n\nThese algorithms often reflect existing biases in policing practices, such as disproportionately targeting minority neighborhoods. Because the training data may contain biased policing patterns, the algorithm can perpetuate over-policing in certain communities.\nImpact: This can lead to a cycle of increased surveillance and criminalization of specific racial or ethnic groups, reinforcing systemic biases in the criminal justice system.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#algorithm-development-process",
-    "href": "algo.html#algorithm-development-process",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Algorithm Development Process:",
-    "text": "Algorithm Development Process:\n\nWhat should you do first?\n0: Think of a conceptual approach\n1: Write step-by-step outline\n\nIn words (maybe pseudo code)\nFocus on sound logic\n\n2: Plan programming implementation\n\nChoose appropriate data structures + Speed, memory, convenience\nConsider functions, which kind of loops\n\n3: Write the program and debug\n\nUse the outline as comment statements\nWrite your algorithms in chunks, write a line, then test it\n\n\n\n\n\nProcess",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#understanding-the-structure-of-algorithms",
-    "href": "algo.html#understanding-the-structure-of-algorithms",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Understanding the Structure of Algorithms",
-    "text": "Understanding the Structure of Algorithms\n\nIdentify the Purpose:\n\nStart by understanding what the algorithm is supposed to achieve.\nLook for a brief description or goal at the beginning.\n\nBreak Down the Steps:\n\nAlgorithms are typically presented as a sequence of steps.\nEach step corresponds to a specific action or decision.\nin words. Focus on sound logic.\n\nRecognize Input and Output:\n\nDetermine what inputs the algorithm requires.\nIdentify the expected output(s) after the algorithm is executed.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#understanding-the-structure-of-algorithms-flow-control",
-    "href": "algo.html#understanding-the-structure-of-algorithms-flow-control",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Understanding the Structure of Algorithms: Flow Control",
-    "text": "Understanding the Structure of Algorithms: Flow Control\n\nDetermine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).\n\nWhich data types should we use?\n\nBegin to consider speed, memory usage, convenience tradeoffs\n\nFiner details of data organization\n\nWhat fields for dictionary labels?\nHow should lists be sorted, if at all?\n\nLoop types\n\nShould we use a for or while loop?\nHow to we increase the ease of coding and development?\n\nShould we use functions?",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
-    "href": "algo.html#deciphering-algorithmic-notation-pseudocode-vs.-code",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Deciphering Algorithmic Notation: Pseudocode vs. Code",
-    "text": "Deciphering Algorithmic Notation: Pseudocode vs. Code\n\nRecognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.\nSome feel that with Python, the pseudo-code step would not be necessary anymore\nTranslate pseudocode into actual code if needed.\n\nProgram in chunks\nTest each chunk before moving on\nUse functions where reasonable\n\nEasier to test\n\n\nCheck code where solutions are known\n\nSmall problems\nObvious solutions\n\nDebug Often\n\nBreakpoints\nCheck variables in console\nVariable explorer\nPrint statements",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
-    "href": "algo.html#deciphering-algorithmic-notation-mathematical-symbols",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Deciphering Algorithmic Notation: Mathematical Symbols",
-    "text": "Deciphering Algorithmic Notation: Mathematical Symbols\n\nMathematical Symbols:\n\nAlgorithms often include mathematical notation, such as sums (\\(\\sum\\)) or products (\\(\\prod\\)).\nUnderstand these as they relate to the algorithm’s operations.\n\nBig-O Notation:\n\nLook for references to Big-O notation, which indicates the algorithm’s efficiency in terms of time or space.\nUnderstand the implications for performance, especially with large inputs.\n\nCommenting\n\nCommenting improves code readability, reuse, and maintainability.\nCan transfer algorithm outline to a program as comments.\nThen, you have comments that provide an outline for coding.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#design-paradigms",
-    "href": "algo.html#design-paradigms",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Design Paradigms",
-    "text": "Design Paradigms\n\nAlgorithms can be based on:\n\nIntuitive ideas\nMath\n\nOptimization\n\nPossibly with calculus analysis (e.g., gradients)\nHeuristic model analysis\nDynamic programming",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#common-symbols-in-algorithms",
-    "href": "algo.html#common-symbols-in-algorithms",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Common Symbols in Algorithms",
-    "text": "Common Symbols in Algorithms\n\nMathematical Symbols:\n\n\\(\\forall\\): “For all”, used in universal quantification.\n\\(\\exists\\): “There exists”, used in existential quantification.\n\\(\\sum_{i=1}^n x_i\\): Summation from \\(i = 1\\) to \\(n\\).\n\\(\\prod_{i=1}^n x_i\\): Product from \\(i = 1\\) to \\(n\\).\n\nLogical Symbols:\n\n\\(\\land\\): Logical AND.\n\\(\\lor\\): Logical OR.\n\\(\\neg\\): Logical NOT.\n\\(\\implies\\): Logical implication.\n\nAlgorithm-Specific Notation:\n\n\\(O(n)\\): Big-O notation, representing algorithm complexity.\n\\(P \\leftarrow Q\\): Assign the value of \\(Q\\) to \\(P\\).\nfor \\(i = 1\\) to \\(n\\): A loop from \\(i = 1\\) to \\(n\\).\nif \\((condition)\\): A conditional statement.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#summation-and-loop-example",
-    "href": "algo.html#summation-and-loop-example",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Summation and Loop Example",
-    "text": "Summation and Loop Example\n\nSummation Formula: \\(S = \\sum_{i=1}^{n} i = 1 + 2 + 3 + \\dots + n\\)\n\nExplanation: This formula calculates the sum of the first \\(n\\) natural numbers. The symbol \\(\\sum\\) represents the summation, and \\(i\\) is the index that runs from 1 to \\(n\\).\n\nNested Loop Calculation: \\(T = \\sum_{i=1}^{n} \\sum_{j=1}^{m} (i \\times j)\\)\n\nExplanation: This formula represents a nested summation where \\(i\\) runs from 1 to \\(n\\) and \\(j\\) runs from 1 to \\(m\\). It calculates the sum of the product of \\(i\\) and \\(j\\) over these ranges.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#conditional-statements-and-recursion",
-    "href": "algo.html#conditional-statements-and-recursion",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Conditional Statements and Recursion",
-    "text": "Conditional Statements and Recursion\n\nConditional Formula: \\[\nf(x) =\n\\begin{cases}\n0 & \\text{if } x &lt; 0 \\\\\n1 & \\text{if } x \\geq 0\n\\end{cases}\n\\]\n\nExplanation: This piecewise function returns 0 if ( x ) is less than 0, and 1 if ( x ) is greater than or equal to 0. It’s an example of a conditional statement in algorithmic form.\n\nRecursive Formula: \\[\nF(n) =\n\\begin{cases}\n1 & \\text{if } n = 1 \\\\\nn \\times F(n-1) & \\text{if } n &gt; 1\n\\end{cases}\n\\]\n\nExplanation: This is a recursive definition of the factorial function. For ( n = 1 ), ( F(n) = 1 ). For ( n &gt; 1 ), ( F(n) ) is defined as ( n ) times the factorial of ( n-1 ).",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#big-o-notation-and-algorithm-complexity",
-    "href": "algo.html#big-o-notation-and-algorithm-complexity",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Big-O Notation and Algorithm Complexity",
-    "text": "Big-O Notation and Algorithm Complexity\n\nBig-O Notation Example: \\(T(n) = O(n^2)\\)\n\nExplanation: This formula describes the time complexity of an algorithm, where\\(T(n)\\) represents the runtime as a function of input size \\(n\\). The notation \\(O(n^2)\\) indicates that the algorithm’s runtime grows quadratically with the size of the input.\n\nLogarithmic Complexity: \\(T(n) = O(\\log n)\\)\n\nExplanation: This formula represents an algorithm with logarithmic time complexity. The runtime increases logarithmically as the input size \\(n\\) increases, which is common in algorithms like binary search.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#basic-tsp-formulation",
-    "href": "algo.html#basic-tsp-formulation",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Basic TSP Formulation",
-    "text": "Basic TSP Formulation\n\nObjective Function: \\[\n\\text{Minimize} \\quad Z = \\sum_{i=1}^{n} \\sum_{j=1, j \\neq i}^{n} c_{ij} x_{ij}\n\\]\n\nExplanation: This formula represents the objective function of the TSP, where \\(c_{ij}\\) is the cost (or distance) of traveling from city \\(i\\) to city \\(j\\), and \\(x_{ij}\\) is a binary variable that equals 1 if the path from \\(i\\) to \\(j\\) is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.\n\nConstraints:\n\\(\\sum_{j=1, j \\neq i}^{n} x_{ij} = 1 \\quad \\forall i\\)\n\\(\\sum_{i=1, i \\neq j}^{n} x_{ij} = 1 \\quad \\forall j\\)\n\\(x_{ij} \\in \\{0, 1\\}\\)\n\nExplanation: The first constraint ensures that each city \\(i\\) is exited exactly once, and the second constraint ensures that each city \\(j\\) is entered exactly once. The binary constraint on \\(x_{ij}\\) ensures that the solution only includes valid paths.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#tsp-approximation-algorithm",
-    "href": "algo.html#tsp-approximation-algorithm",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "TSP Approximation Algorithm",
-    "text": "TSP Approximation Algorithm\n\nApproximation Algorithm Cost: \\(Z \\leq 2 \\times \\text{OPT}\\)\n\nExplanation: This formula represents the performance guarantee of a 2-approximation algorithm for the TSP, where \\(Z\\) is the cost of the approximate solution and \\(\\text{OPT}\\) is the cost of the optimal solution. It guarantees that the approximate solution will be at most twice as costly as the optimal solution.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#heuristic-nearest-neighbor-example",
-    "href": "algo.html#heuristic-nearest-neighbor-example",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Heuristic Nearest Neighbor Example:",
-    "text": "Heuristic Nearest Neighbor Example:\n\\(Z = \\sum_{i=1}^{n-1} c_{i, \\text{NN}(i)} + c_{n, \\text{NN}(1)}\\)\n\nExplanation: This is the cost calculation for the nearest neighbor heuristic, where \\(\\text{NN}(i)\\) denotes the nearest neighbor of city \\(i\\). The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#activity",
-    "href": "algo.html#activity",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Activity:",
-    "text": "Activity:\n\nState what the following algorithms do:\n\n\\[Z = \\sum_{i=1}^n \\left( x_i \\times y_i \\right)\\] \\[ \\bar{X} = \\frac{\\sum_{i=1}^{n} w_i x_i}{\\sum_{i=1}^{n} w_i}\\]",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#tips-for-writing-good-pseudocode",
-    "href": "algo.html#tips-for-writing-good-pseudocode",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Tips for Writing Good Pseudocode",
-    "text": "Tips for Writing Good Pseudocode\n\nMaintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.\nBe clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.\nPseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#examples",
-    "href": "algo.html#examples",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Examples",
-    "text": "Examples\n\nThis pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.\n\n# Pseudocode for finding the minimum number in a list\nSET min_number = Infinity\nFOR each number IN list:\n    IF number &lt; min_number:\n        SET min_number = number\nRETURN min_number\n\n\nThis pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.\nedge cases: an empty list, all even numbers, or no numbers greater than the threshold.\n\n# Pseudocode for summing numbers greater than a given threshold\nSET sum = 0\nFOR each number IN list:\n    IF number &gt; threshold:\n        SET sum = sum + number\nRETURN sum",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#activity-read-this-pseudocode",
-    "href": "algo.html#activity-read-this-pseudocode",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Activity: Read this Pseudocode",
-    "text": "Activity: Read this Pseudocode\nSET min_even = Infinity \nFOR each number IN list: \n    IF number is even AND number &lt; min_even: \n        SET min_even = number \nRETURN min_even",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#pseudocode-for-basic-tsp-formation",
-    "href": "algo.html#pseudocode-for-basic-tsp-formation",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Pseudocode for Basic TSP Formation",
-    "text": "Pseudocode for Basic TSP Formation\n\nGeneric Inputs: The pseudocode is now generic and works for any TSP model where you have a set of cities and their corresponding distances.\nNearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.\nOutput: It outputs the route and the total distance traveled.\n\n#inputs\nSET cities = &lt;list of cities&gt;\nSET distances = &lt;distance matrix or dictionary&gt;\nSET start_city = &lt;initial city&gt;\n\n\n# FUNCTION to find the nearest unvisited city\nFUNCTION find_nearest_neighbor(current_city, unvisited, distances):\n    SET nearest_city = None\n    SET min_distance = infinity\n    \n    FOR each city IN unvisited:\n        IF distances[current_city][city] &lt; min_distance:\n            SET min_distance = distances[current_city][city]\n            SET nearest_city = city\n    \n    RETURN nearest_city, min_distance\n\n# FUNCTION to solve TSP using Nearest Neighbor algorithm\nFUNCTION nearest_neighbor_tsp(start_city, cities, distances):\n# Initialize list of unvisited cities\n    SET unvisited = list of all cities EXCEPT start_city",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
-    ]
-  },
-  {
     "objectID": "numpy.html",
     "href": "numpy.html",
     "title": "Python for Heuristics & NumPy",
@@ -304,7 +54,7 @@
     "href": "numpy.html#random-number-generation",
     "title": "Python for Heuristics & NumPy",
     "section": "Random Number Generation",
-    "text": "Random Number Generation\n\nThe np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive).\nRandom numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations).\nThe example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 [0,1). It is saved in a variable rand_nums and the values in the variable are printed.\n\n\nrand_nums = np.random.rand(5)\nprint(rand_nums)\n\n[0.66404819 0.85245772 0.65991604 0.92063824 0.28530187]",
+    "text": "Random Number Generation\n\nThe np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive).\nRandom numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations).\nThe example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 [0,1). It is saved in a variable rand_nums and the values in the variable are printed.\n\n\nrand_nums = np.random.rand(5)\nprint(rand_nums)\n\n[0.87532064 0.81098257 0.66742427 0.12803225 0.62389186]",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
     ]
@@ -314,7 +64,7 @@
     "href": "numpy.html#standard-normal-distribution",
     "title": "Python for Heuristics & NumPy",
     "section": "Standard Normal Distribution",
-    "text": "Standard Normal Distribution\n\nThe np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.\nGenerating 5 random numbers from a standard normal distribution (mean=0, std=1).\n\n\n# Generating random values from the standard normal distribution\nrandom_values = np.random.standard_normal(5)\nprint(\"Random Standard Normal Values:\", random_values)\n\nRandom Standard Normal Values: [-1.40249368 -1.95529569  0.72202892  0.28189136 -0.90923237]",
+    "text": "Standard Normal Distribution\n\nThe np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.\nGenerating 5 random numbers from a standard normal distribution (mean=0, std=1).\n\n\n# Generating random values from the standard normal distribution\nrandom_values = np.random.standard_normal(5)\nprint(\"Random Standard Normal Values:\", random_values)\n\nRandom Standard Normal Values: [ 0.4070242   0.93115589 -0.43552393  0.05337654  1.29644111]",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
     ]
@@ -324,7 +74,7 @@
     "href": "numpy.html#np.random.uniform",
     "title": "Python for Heuristics & NumPy",
     "section": "np.random.uniform",
-    "text": "np.random.uniform\nThe np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range. For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.\n\n# Generate a random starting point for the hill climbing algorithm\nrandom_start = np.random.uniform(low=-10, high=10, size=5)\nprint(f\"Random start: {random_start}\")\n\nRandom start: [-0.74427727  8.76875529  0.84791715 -4.94620585  1.98499898]",
+    "text": "np.random.uniform\nThe np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range. For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.\n\n# Generate a random starting point for the hill climbing algorithm\nrandom_start = np.random.uniform(low=-10, high=10, size=5)\nprint(f\"Random start: {random_start}\")\n\nRandom start: [ 0.58567145  3.02036428 -0.8137155  -3.94923155  9.06573283]",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
     ]
@@ -334,7 +84,7 @@
     "href": "numpy.html#np.random.randint",
     "title": "Python for Heuristics & NumPy",
     "section": "np.random.randint",
-    "text": "np.random.randint\n\nThe np.random.randint function in NumPy is used to generate random integers within a specified range.\nnp.random.randint(low, high=None, size=None, dtype=int)\n\nlow: The lower boundary of the random integers (inclusive).\nhigh: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\nsize: The shape of the output array (optional). If not provided, a single integer is returned.\ndtype: The desired data type of the output array, by default int.\n\n\n\n# Generate 5 random integers between 10 and 20\nrandom_integers = np.random.randint(10, 20, size=5)\nprint(random_integers)\n\n[14 13 11 17 17]\n\n\n\nWe can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array.\n\n\nrandom_2d_array = np.random.randint(10, 20, size=(3, 5)) \nprint(random_2d_array)\n\n[[17 15 12 19 10]\n [19 19 18 14 13]\n [13 15 13 16 17]]",
+    "text": "np.random.randint\n\nThe np.random.randint function in NumPy is used to generate random integers within a specified range.\nnp.random.randint(low, high=None, size=None, dtype=int)\n\nlow: The lower boundary of the random integers (inclusive).\nhigh: The upper boundary of the random integers (exclusive). If not provided, random integers are generated between 0 and low.\nsize: The shape of the output array (optional). If not provided, a single integer is returned.\ndtype: The desired data type of the output array, by default int.\n\n\n\n# Generate 5 random integers between 10 and 20\nrandom_integers = np.random.randint(10, 20, size=5)\nprint(random_integers)\n\n[10 12 13 15 18]\n\n\n\nWe can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array.\n\n\nrandom_2d_array = np.random.randint(10, 20, size=(3, 5)) \nprint(random_2d_array)\n\n[[18 13 12 18 19]\n [16 17 14 19 13]\n [14 15 19 13 19]]",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
     ]
@@ -384,19 +134,9 @@
     "href": "numpy.html#comparing-model-clock-time-withwithout-numpy",
     "title": "Python for Heuristics & NumPy",
     "section": "Comparing Model Clock Time With/Without NumPy",
-    "text": "Comparing Model Clock Time With/Without NumPy\n\nThe primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python’s built-in modules and loops.\n\n\nWithout Numpy\n\na Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python’s interpreted loop and the sequential calls to these functions.\n\n\nimport random\nfrom math import exp, sqrt\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\nvalues = []  \n\n# Start tracking wall time\nstart_time = time.time()\n\nfor _ in range(1000000):  \n     ST = S0 * exp((r - 0.5 * sigma ** 2) * T +\n        sigma * random.gauss(0, 1) * sqrt(T))  \n     values.append(ST)  \n\n# End tracking wall time\nend_time = time.time()\n\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.69 s\n\n\n\n\nWhy Underscore Conventions Matter\n\nIn the example above, the loop for _ in range(): uses the underscore as a throwaway variable, signaling that the loop variable itself is not needed—only the repetition of the loop matters. This is a common Python convention that improves readability by making intent explicit. Similarly, you will see many programs and function definitions where unused parameters are replaced with an underscore (for example, def handler(_, value):), indicating that a particular argument is intentionally ignored. These small stylistic choices communicate purpose and clarity to anyone reading the code.See the table below for some direct uses of the underscore.\n\n\n\n\nCommon Uses of the Underscore in Python\n\n\n\n\n\n\n\nPattern\nExample\nCommon.Use.in.Python\n\n\n\n\nSingle underscore: “ignore.”\nfor _ in range(10):\nUsed as a throwaway variable when the value isn’t needed. In the REPL, _ also stores the last result.\n\n\nSingle underscore: “internal.”\n_helper_function()\nMarks a variable or function as internal use only within a module or class (not imported with *).\n\n\nDouble underscore: “private inside a class.”\nself.__secret\nUsed for name mangling inside classes to make attributes harder to access from outside.\n\n\nDouble before & after: “special built-in behavior.”\nif name == ‘main’:\nCommon structure to run code only when the file is executed directly, not when it’s imported as a module.\n\n\n\n\n\n\n\nWith Numpy\n\nIn contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:\n\nThe entire random sample generation is done in one call (np.random.standard_normal(1000000)).\n\n\n\nimport numpy as np\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\n# Start tracking wall time\nstart_time = time.time()\n\nST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +\n    sigma * np.random.standard_normal(1000000) * np.sqrt(T))\n\n# End tracking wall time\nend_time = time.time()\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.02 s\n\n\n\nMathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.",
+    "text": "Comparing Model Clock Time With/Without NumPy\n\nThe primary difference in wall time between the two approaches stems from the computational efficiency of NumPy compared to Python’s built-in modules and loops.\n\n\nWithout Numpy\n\na Python loop iterates 1,000,000 times, and the math.exp, random.gauss, and math.sqrt functions are called repeatedly within the loop to calculate values. This results in higher wall time due to the overhead of Python’s interpreted loop and the sequential calls to these functions.\n\n\nimport random\nfrom math import exp, sqrt\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\nvalues = []  \n\n# Start tracking wall time\nstart_time = time.time()\n\nfor _ in range(1000000):  \n     ST = S0 * exp((r - 0.5 * sigma ** 2) * T +\n        sigma * random.gauss(0, 1) * sqrt(T))  \n     values.append(ST)  \n\n# End tracking wall time\nend_time = time.time()\n\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.70 s\n\n\n\n\nWhy Underscore Conventions Matter\n\nIn the example above, the loop for _ in range(): uses the underscore as a throwaway variable, signaling that the loop variable itself is not needed—only the repetition of the loop matters. This is a common Python convention that improves readability by making intent explicit. Similarly, you will see many programs and function definitions where unused parameters are replaced with an underscore (for example, def handler(_, value):), indicating that a particular argument is intentionally ignored. These small stylistic choices communicate purpose and clarity to anyone reading the code.See the table below for some direct uses of the underscore.\n\n\n\n\nCommon Uses of the Underscore in Python\n\n\n\n\n\n\n\nPattern\nExample\nCommon.Use.in.Python\n\n\n\n\nSingle underscore: “ignore.”\nfor _ in range(10):\nUsed as a throwaway variable when the value isn’t needed. In the REPL, _ also stores the last result.\n\n\nSingle underscore: “internal.”\n_helper_function()\nMarks a variable or function as internal use only within a module or class (not imported with *).\n\n\nDouble underscore: “private inside a class.”\nself.__secret\nUsed for name mangling inside classes to make attributes harder to access from outside.\n\n\nDouble before & after: “special built-in behavior.”\nif name == ‘main’:\nCommon structure to run code only when the file is executed directly, not when it’s imported as a module.\n\n\n\n\n\n\n\nWith Numpy\n\nIn contrast, the NumPy-based implementation below leverages vectorized operations. NumPy handles the entire computation in a single step using efficient, low-level C routines optimized for performance. For example:\n\nThe entire random sample generation is done in one call (np.random.standard_normal(1000000)).\n\n\n\nimport numpy as np\nimport time \n\n# Initial stock price\nS0 = 100 \n\n# Risk-free rate\nr = 0.05 \n\n# Time horizon (1 year)\nT = 1.0 \n\n# Volatility\nsigma = 0.2 \n\n# Start tracking wall time\nstart_time = time.time()\n\nST = S0 * np.exp((r - 0.5 * sigma ** 2) * T +\n    sigma * np.random.standard_normal(1000000) * np.sqrt(T))\n\n# End tracking wall time\nend_time = time.time()\n\n# Calculate time difference\nwall_time = end_time - start_time\n\n# Print timing information\nprint(f\"Wall time: {wall_time:.2f} s\")\n\nWall time: 0.03 s\n\n\n\nMathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python for Heuristics & NumPy</span>"
-    ]
-  },
-  {
-    "objectID": "algo.html#pseudocode-for-tsp-nearest-neighbor-model",
-    "href": "algo.html#pseudocode-for-tsp-nearest-neighbor-model",
-    "title": "Algorithm Design and Pseudocode",
-    "section": "Pseudocode for TSP Nearest Neighbor Model",
-    "text": "Pseudocode for TSP Nearest Neighbor Model\n\nNearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.\nOutput: It outputs the route and the total distance traveled.\n\n#inputs\nSET cities = &lt;list of cities&gt;\nSET distances = &lt;distance matrix or dictionary&gt;\nSET start_city = &lt;initial city&gt;\n\n\n# FUNCTION to find the nearest unvisited city\nFUNCTION find_nearest_neighbor(current_city, unvisited, distances):\n    SET nearest_city = None\n    SET min_distance = infinity\n    \n    FOR each city IN unvisited:\n        IF distances[current_city][city] &lt; min_distance:\n            SET min_distance = distances[current_city][city]\n            SET nearest_city = city\n    \n    RETURN nearest_city, min_distance\n\n# FUNCTION to solve TSP using Nearest Neighbor algorithm\nFUNCTION nearest_neighbor_tsp(start_city, cities, distances):\n# Initialize list of unvisited cities\n    SET unvisited = list of all cities EXCEPT start_city",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Algorithm Design and Pseudocode</span>"
     ]
   },
   {
@@ -660,6 +400,16 @@
     ]
   },
   {
+    "objectID": "hc.html#hill-climbing-algorithm",
+    "href": "hc.html#hill-climbing-algorithm",
+    "title": "Hill Climbing",
+    "section": "",
+    "text": "Start: Initialize with a random solution or a predefined starting point.\nEvaluate: Assess the quality of the current solution using a heuristic function.\nGenerate Neighbors: Produce a set of neighboring solutions by making small changes.\nSelect Best Neighbor: Choose the neighbor that has the highest heuristic value.\nMove: Replace the current solution with the selected neighbor.\nRepeat: Continue the process until no better neighbors are found or a stopping criterion is met.\n\n\n\n\nhc algo",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
+    ]
+  },
+  {
     "objectID": "hc.html#search-strategy-of-hc",
     "href": "hc.html#search-strategy-of-hc",
     "title": "Hill Climbing",
@@ -680,31 +430,11 @@
     ]
   },
   {
-    "objectID": "hc.html#hill-climbing-algorithm",
-    "href": "hc.html#hill-climbing-algorithm",
-    "title": "Hill Climbing",
-    "section": "",
-    "text": "Start: Initialize with a random solution or a predefined starting point.\nEvaluate: Assess the quality of the current solution using a heuristic function.\nGenerate Neighbors: Produce a set of neighboring solutions by making small changes.\nSelect Best Neighbor: Choose the neighbor that has the highest heuristic value.\nMove: Replace the current solution with the selected neighbor.\nRepeat: Continue the process until no better neighbors are found or a stopping criterion is met.\n\n\n\n\nhc algo",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
-    ]
-  },
-  {
     "objectID": "hc.html#challenges-of-hc",
     "href": "hc.html#challenges-of-hc",
     "title": "Hill Climbing",
     "section": "Challenges of HC",
     "text": "Challenges of HC\n\nLocal Maximum: Hill climbing may get stuck at a local maximum, where no neighboring solution improves, but better solutions exist further away.\nPlateaus: It can struggle on flat regions where no clear direction of improvement is evident.\nRidges: Difficulties in navigating narrow ridges that require moving sideways to find a better peak.\nVariations to Overcome Limitations\n\nStochastic Hill Climbing: Introduces randomness to avoid local maxima.\nSimulated Annealing: Uses probabilistic decisions to escape local maxima and explore a larger solution space.\nSteepest-Ascent Hill Climbing: Considers all neighbors and selects the one with the steepest ascent.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
-    ]
-  },
-  {
-    "objectID": "hc.html#set-up-run-function",
-    "href": "hc.html#set-up-run-function",
-    "title": "Hill Climbing",
-    "section": "Set up Run Function",
-    "text": "Set up Run Function\n\nEvaluate the initial solution by counting the number of 1s, which serves as the “fitness” value.\nSearch for Neighbors: Generate neighboring solutions by flipping one bit at a time in the current solution. For each neighbor, calculate its fitness (number of 1s in its binary representation).\nSelect Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor’s fitness is better than the current solution’s fitness, update the current solution to this neighbor.\nRepeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.\nReturn Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.\n\n\n# Run function for hill climbing\ndef run_hc(num_bits=10, max_evals=2 ** num_bits):\n    sol = init_hc(num_bits)  # Initialize random solution\n    fitness = evaluate(sol)  # Evaluate the initial solution\n    fitness_over_time = []\n    \n    eval_count = 0\n\n    # Main loop of evaluations\n    while eval_count &lt; max_evals:\n        tmp_sol = transit(sol)  # Make a random change (flip a bit)\n        tmp_fitness = evaluate(tmp_sol)  # Evaluate the new solution\n        sol, fitness = determine(tmp_sol, tmp_fitness, sol, fitness)  # Determine if we accept the new solution\n        \n        fitness_over_time.append(fitness)  # Track the fitness over time\n        eval_count += 1\n        \n    return fitness_over_time, sol\n\n\nThe main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.\n\n\n# Main Execution\n# Run hill climbing and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_hc(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n\nThe output section displays key details about the hill climbing algorithm, including its name, the number of bits used, and the time taken for execution. It then visualizes the fitness evolution across evaluations, providing a clear plot that shows how fitness values change over time as the algorithm progresses toward the best solution.\n\n\n# Output and visualize\nprint(f\"# Name of the search algorithm: Hill Climbing\")\nprint(f\"# number of bits: {num_bits}\")\nprint(f\"Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Hill Climbing: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\n# Name of the search algorithm: Hill Climbing\n# number of bits: 10\nTime elapsed: 0.007042 seconds\n\n\n\n\n\n\n\n\n\n\nIn the chart above, the fitness score, which measures the number of 1s in a 10-bit solution, is shown over a series of evaluations. Initially, the fitness rapidly increases, suggesting that the hill climbing algorithm quickly finds improvements in the solution. Once it reaches the maximum fitness of 10, it stabilizes and remains flat, indicating that the algorithm has found an optimal solution and no further improvements are being made.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -720,11 +450,11 @@
     ]
   },
   {
-    "objectID": "hc.html#comparison-of-es-and-hc-for-the-one-max-problem-of-size-n10",
-    "href": "hc.html#comparison-of-es-and-hc-for-the-one-max-problem-of-size-n10",
+    "objectID": "hc.html#set-up-run-function",
+    "href": "hc.html#set-up-run-function",
     "title": "Hill Climbing",
-    "section": "Comparison of ES and HC for the one-max Problem of size \\(n=10\\)",
-    "text": "Comparison of ES and HC for the one-max Problem of size \\(n=10\\)\n\nHC-LR and HC-Rand to denote a similar thing. HC-Rand and HC-LR differ primarily in how they choose the next solution and handle exploration, impacting their likelihood of getting stuck in local optima.\nHC-LR (Hill Climbing with Limited Range): HC-LR’s transition operator restricts it to move only to adjacent solutions, which makes it less flexible. The solution v of HC-LR will be the one that is one smaller or one larger than the current solution s (i.e., \\(v=s−1\\) or \\(v=s+1\\)). As described in the example, if HC-LR starts with the solution “1000,” it can only move to “0111” or “1001.” If neither of these options provides an improvement, HC-LR is likely to get stuck there, leading to a local optimum. Because HC-LR only accepts moves that improve the solution, it has a high risk of getting trapped in suboptimal points without exploring further.\nHC-Rand (Hill Climbing with Randomization): HC-Rand randomly selects a part of the current solution to invert, allowing it to explore a broader range of possible next solutions. This random approach reduces the chance of getting stuck in a local optimum since the algorithm has the flexibility to try different options, even if they are not immediately better. HC-Rand’s randomness increases the probability of escaping local optima, thus improving the chances of finding a global optimum.\n\nThe solution \\(v\\) of HC-Rand will be created by inverting a randomly chosen subsolution of s (i.e., “1” becomes “0” and “0” becomes “1”). The transition operator in the HC-Rand (Hill Climbing with Randomization) algorithm randomly selects a part (subsolution) of the current solution and inverts the chosen bit(s). For a “one-max problem” of a specific size (where the goal is to maximize the number of 1s in the solution), inverting different bits can produce several possible next solutions.\nIn the example given, there are four possible new solutions because there are four different bits that could be inverted from the current solution. If inverting one bit doesn’t improve the objective value (e.g., the number of 1s), HC-Rand will consider other options, allowing it to avoid getting stuck in local optima. This random inversion helps HC-Rand explore other solutions, increasing the chances of finding the global maximum (an optimal solution with the highest number of 1s).\n\nIn both cases, only a better solution will be accepted as the next solution \\(v\\).\n\n\n\n\nhc search",
+    "section": "Set up Run Function",
+    "text": "Set up Run Function\n\nEvaluate the initial solution by counting the number of 1s, which serves as the “fitness” value.\nSearch for Neighbors: Generate neighboring solutions by flipping one bit at a time in the current solution. For each neighbor, calculate its fitness (number of 1s in its binary representation).\nSelect Best Neighbor: Identify the neighboring solution with the highest fitness.If this neighbor’s fitness is better than the current solution’s fitness, update the current solution to this neighbor.\nRepeat Until Convergence: Continue generating and evaluating neighbors until no neighboring solution improves the current fitness (local maximum reached).Track the fitness of the best solution at each iteration for plotting or analysis.\nReturn Best Solution and Fitness Progress: Output the best solution found along with a list of fitness values over iterations.\n\n\n# Run function for hill climbing\ndef run_hc(num_bits=10, max_evals=2 ** num_bits):\n    sol = init_hc(num_bits)  # Initialize random solution\n    fitness = evaluate(sol)  # Evaluate the initial solution\n    fitness_over_time = []\n    \n    eval_count = 0\n\n    # Main loop of evaluations\n    while eval_count &lt; max_evals:\n        tmp_sol = transit(sol)  # Make a random change (flip a bit)\n        tmp_fitness = evaluate(tmp_sol)  # Evaluate the new solution\n        sol, fitness = determine(tmp_sol, tmp_fitness, sol, fitness)  # Determine if we accept the new solution\n        \n        fitness_over_time.append(fitness)  # Track the fitness over time\n        eval_count += 1\n        \n    return fitness_over_time, sol\n\n\nThe main execution section initiates the hill climbing algorithm, recording the time taken to execute it. It captures the progression of fitness values over each iteration and identifies the best solution found, while calculating the total execution time.\n\n\n# Main Execution\n# Run hill climbing and get fitness values\nstart_time = time.time()\nfitness_over_time, best_solution = run_hc(num_bits)\nend_time = time.time()\nexecution_time = end_time - start_time  # Calculate elapsed time\n\n\nThe output section displays key details about the hill climbing algorithm, including its name, the number of bits used, and the time taken for execution. It then visualizes the fitness evolution across evaluations, providing a clear plot that shows how fitness values change over time as the algorithm progresses toward the best solution.\n\n\n# Output and visualize\nprint(f\"# Name of the search algorithm: Hill Climbing\")\nprint(f\"# number of bits: {num_bits}\")\nprint(f\"Time elapsed: {execution_time:.6f} seconds\")  # Print the elapsed time\n\n# Plot the evolution of fitness over time\nplt.figure(figsize=(10, 6))\nplt.plot(fitness_over_time, label='Fitness over time', color='blue', linewidth=2)\nplt.title(f'Hill Climbing: Fitness Evolution ({num_bits} bits)')\nplt.xlabel('Evaluations')\nplt.ylabel('Fitness (Number of 1s)')\nplt.grid(True)\nplt.legend()\nplt.show()\n\n# Name of the search algorithm: Hill Climbing\n# number of bits: 10\nTime elapsed: 0.005147 seconds\n\n\n\n\n\n\n\n\n\n\nIn the chart above, the fitness score, which measures the number of 1s in a 10-bit solution, is shown over a series of evaluations. Initially, the fitness rapidly increases, suggesting that the hill climbing algorithm quickly finds improvements in the solution. Once it reaches the maximum fitness of 10, it stabilizes and remains flat, indicating that the algorithm has found an optimal solution and no further improvements are being made.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -794,7 +524,7 @@
     "href": "hc.html#output",
     "title": "Hill Climbing",
     "section": "Output",
-    "text": "Output\n\nThe first part prints the optimal solution found (optimal_x), the corresponding function value (optimal_value), and the total time taken for the execution.\nThe second part plots the Ackley function over the range [-10, 10] and overlays the hill climbing progress. The points in red represent the steps taken by the hill climbing algorithm as it navigates through the search space.\n\n\n# Output (O)\nprint(f\"Optimal x: {optimal_x}\")\nprint(f\"Optimal value: {optimal_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n\n# Plot the Ackley function and hill climbing progress\nx_range = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_range]\n\nplt.plot(x_range, y_values, label=\"Ackley Function\")\nplt.plot(x_history, value_history, 'ro--', label=\"Hill Climbing Progress\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"Hill Climbing on Ackley Function in 1D\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal x: 8.981200099425264\nOptimal value: 16.70044477517878\nExecution time: 0.003003 seconds\n\n\n\n\n\n\n\n\n\n\nAn example run of this put the points Optimal x: 5.03 and Optimal Value: 12.75, are suboptimal for the Ackley function.\nFor the Ackley function in 1D, the global minimum occurs at \\(x=0\\), and the function value at this point is exactly \\(f(0)=0\\).\nOur results are not close to the global minimum of \\(x=0\\). Any value greater than zero indicates that the algorithm has not found the true global minimum.\nThe blue line represents the Ackley function over a range of \\(x\\) values from -10 to 10.The red dots connected by dashed lines represent the progress of the hill climbing algorithm as it iterates through neighboring solutions.\nThe Ackley function is known for its many local minima, and hill climbing is a greedy optimization method that tends to get stuck in local minima because it only moves to the immediate best neighboring solution. Once it finds a local minimum, it stops, even if it hasn’t found the global minimum.\nIn this case, the result you obtained is a local minimum but not the global minimum. Since \\(f(0)=0\\) is the global minimum, and your result is \\(f(5.03)= 12.75\\), the algorithm likely got stuck in a local minimum during its search.\nSimulated Annealing is a more advanced version of hill climbing that sometimes accepts worse solutions to escape local optima. Will discuss later.",
+    "text": "Output\n\nThe first part prints the optimal solution found (optimal_x), the corresponding function value (optimal_value), and the total time taken for the execution.\nThe second part plots the Ackley function over the range [-10, 10] and overlays the hill climbing progress. The points in red represent the steps taken by the hill climbing algorithm as it navigates through the search space.\n\n\n# Output (O)\nprint(f\"Optimal x: {optimal_x}\")\nprint(f\"Optimal value: {optimal_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n\n# Plot the Ackley function and hill climbing progress\nx_range = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_range]\n\nplt.plot(x_range, y_values, label=\"Ackley Function\")\nplt.plot(x_history, value_history, 'ro--', label=\"Hill Climbing Progress\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"Hill Climbing on Ackley Function in 1D\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal x: -3.9632443562200357\nOptimal value: 11.018333667912138\nExecution time: 0.003295 seconds\n\n\n\n\n\n\n\n\n\n\nAn example run of this put the points Optimal x: 5.03 and Optimal Value: 12.75, are suboptimal for the Ackley function.\nFor the Ackley function in 1D, the global minimum occurs at \\(x=0\\), and the function value at this point is exactly \\(f(0)=0\\).\nOur results are not close to the global minimum of \\(x=0\\). Any value greater than zero indicates that the algorithm has not found the true global minimum.\nThe blue line represents the Ackley function over a range of \\(x\\) values from -10 to 10.The red dots connected by dashed lines represent the progress of the hill climbing algorithm as it iterates through neighboring solutions.\nThe Ackley function is known for its many local minima, and hill climbing is a greedy optimization method that tends to get stuck in local minima because it only moves to the immediate best neighboring solution. Once it finds a local minimum, it stops, even if it hasn’t found the global minimum.\nIn this case, the result you obtained is a local minimum but not the global minimum. Since \\(f(0)=0\\) is the global minimum, and your result is \\(f(5.03)= 12.75\\), the algorithm likely got stuck in a local minimum during its search.\nSimulated Annealing is a more advanced version of hill climbing that sometimes accepts worse solutions to escape local optima. Will discuss later.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -814,7 +544,7 @@
     "href": "hc.html#fetching-data",
     "title": "Hill Climbing",
     "section": "Fetching Data",
-    "text": "Fetching Data\n\n# Selecting a few popular stocks with start date and end date\nstocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] \nstart_date = '2023-10-01'\nend_date = '2024-10-1'\n\n# Fetch historical stock data\ndef fetch_data(stocks, start_date, end_date):\n    return yf.download(stocks, start=start_date, end=end_date, auto_adjust=True)\nstock_data = fetch_data(stocks, start_date, end_date)\n\n[                       0%                       ][                       0%                       ][                       0%                       ][                       0%                       ][                       0%                       ][**********************60%****                   ]  6 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************70%*********              ]  7 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed\n\n10 Failed downloads:\n['NFLX', 'META', 'GOOGL', 'DIS', 'AMZN', 'AAPL', 'TSLA', 'NVDA', 'MSFT', 'BA']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')",
+    "text": "Fetching Data\n\n# Selecting a few popular stocks with start date and end date\nstocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA'] \nstart_date = '2023-12-01'\nend_date = '2025-12-1'\n\n# Fetch historical stock data\ndef fetch_data(stocks, start_date, end_date):\n    return yf.download(stocks, start=start_date, end=end_date, auto_adjust=True)\nstock_data = fetch_data(stocks, start_date, end_date)\n\n[                       0%                       ][                       0%                       ][**************        30%                       ]  3 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -834,7 +564,7 @@
     "href": "hc.html#main-loop-1",
     "title": "Hill Climbing",
     "section": "Main Loop",
-    "text": "Main Loop\n\ndef hc(mean_returns, cov_matrix, max_iterations=1000):\n    num_assets = len(mean_returns)\n    # Initial random portfolio\n    current_weights = np.random.random(num_assets)\n    current_weights /= np.sum(current_weights)  \n    _, _, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)\n    \n    # Track progress for visualization\n    score_history = [current_sharpe]\n    iteration = 0\n\n    # Hill Climbing Loop\n    while iteration &lt; max_iterations:\n        # Generate neighbor: Slight random change in weights\n        neighbor_weights = current_weights + np.random.normal(0, 0.01, num_assets)\n        neighbor_weights = np.clip(neighbor_weights, 0, 1)  # Ensure weights are between 0 and 1\n        neighbor_weights /= np.sum(neighbor_weights)  # Normalize weights to sum to 1\n        \n        neighbor_returns, neighbor_risk, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)\n        \n        # If the neighbor is better, move to the neighbor solution\n        if neighbor_sharpe &gt; current_sharpe:\n            current_weights, _, _, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe\n            score_history.append(current_sharpe)\n        \n        iteration += 1  \n    \n    return current_weights, current_sharpe, score_history\n\nstock_data = fetch_data(stocks, start_date, end_date)\nreturns = stock_data['Close'].pct_change().dropna()\nmean_returns = returns.mean()\ncov_matrix = returns.cov()\n\n[                       0%                       ][                       0%                       ][                       0%                       ][                       0%                       ][**********************50%                       ]  5 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************50%                       ]  5 of 10 completed[**********************80%*************          ]  8 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed\n\n10 Failed downloads:\n['TSLA', 'GOOGL', 'NVDA', 'AAPL', 'BA', 'AMZN', 'NFLX', 'META', 'DIS', 'MSFT']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')\nc:\\Users\\pamel\\Documents\\BUAD5042-Heuristics\\Project\\.conda\\Lib\\site-packages\\numpy\\lib\\function_base.py:520: RuntimeWarning:\n\nMean of empty slice.\n\nc:\\Users\\pamel\\Documents\\BUAD5042-Heuristics\\Project\\.conda\\Lib\\site-packages\\numpy\\core\\_methods.py:121: RuntimeWarning:\n\ninvalid value encountered in divide\n\nc:\\Users\\pamel\\Documents\\BUAD5042-Heuristics\\Project\\.conda\\Lib\\site-packages\\pandas\\core\\frame.py:11211: RuntimeWarning:\n\nDegrees of freedom &lt;= 0 for slice\n\nc:\\Users\\pamel\\Documents\\BUAD5042-Heuristics\\Project\\.conda\\Lib\\site-packages\\numpy\\lib\\function_base.py:2748: RuntimeWarning:\n\ndivide by zero encountered in divide\n\nc:\\Users\\pamel\\Documents\\BUAD5042-Heuristics\\Project\\.conda\\Lib\\site-packages\\numpy\\lib\\function_base.py:2748: RuntimeWarning:\n\ninvalid value encountered in multiply",
+    "text": "Main Loop\n\ndef hc(mean_returns, cov_matrix, max_iterations=1000):\n    num_assets = len(mean_returns)\n    # Initial random portfolio\n    current_weights = np.random.random(num_assets)\n    current_weights /= np.sum(current_weights)  \n    _, _, current_sharpe = portfolio_performance(current_weights, mean_returns, cov_matrix)\n    \n    # Track progress for visualization\n    score_history = [current_sharpe]\n    iteration = 0\n\n    # Hill Climbing Loop\n    while iteration &lt; max_iterations:\n        # Generate neighbor: Slight random change in weights\n        neighbor_weights = current_weights + np.random.normal(0, 0.01, num_assets)\n        neighbor_weights = np.clip(neighbor_weights, 0, 1)  # Ensure weights are between 0 and 1\n        neighbor_weights /= np.sum(neighbor_weights)  # Normalize weights to sum to 1\n        \n        neighbor_returns, neighbor_risk, neighbor_sharpe = portfolio_performance(neighbor_weights, mean_returns, cov_matrix)\n        \n        # If the neighbor is better, move to the neighbor solution\n        if neighbor_sharpe &gt; current_sharpe:\n            current_weights, _, _, current_sharpe = neighbor_weights, neighbor_returns, neighbor_risk, neighbor_sharpe\n            score_history.append(current_sharpe)\n        \n        iteration += 1  \n    \n    return current_weights, current_sharpe, score_history\n\nstock_data = fetch_data(stocks, start_date, end_date)\nreturns = stock_data['Close'].pct_change().dropna()\nmean_returns = returns.mean()\ncov_matrix = returns.cov()\n\n[                       0%                       ][**********            20%                       ]  2 of 10 completed[**************        30%                       ]  3 of 10 completed[*******************   40%                       ]  4 of 10 completed[*******************   40%                       ]  4 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************60%****                   ]  6 of 10 completed[**********************90%******************     ]  9 of 10 completed[*********************100%***********************]  10 of 10 completed",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -854,7 +584,7 @@
     "href": "hc.html#output-1",
     "title": "Hill Climbing",
     "section": "Output",
-    "text": "Output\n\n# Output the best results\nprint(\"Optimized Portfolio using Hill Climbing:\")\nfor i, stock in enumerate(stocks):\n    print(f\"{stock}: {best_weights[i]:.4f}\")\nprint(f\"Best Sharpe Ratio: {best_sharpe:.4f}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)\nplt.figure(figsize=(10, 6))\nplt.plot(score_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')\nplt.title(\"Hill Climbing Progress for Portfolio Optimization (Sharpe Ratio)\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Sharpe Ratio\")\nplt.grid(True)\nplt.legend()\nplt.show()\n\nOptimized Portfolio using Hill Climbing:\nAAPL: 0.1328\nGOOGL: 0.1028\nMSFT: 0.1192\nAMZN: 0.1132\nTSLA: 0.0975\nNFLX: 0.0664\nNVDA: 0.0533\nMETA: 0.0360\nDIS: 0.1582\nBA: 0.1205\nBest Sharpe Ratio: nan\nExecution time: 0.080156 seconds\n\n\n\n\n\n\n\n\n\n\nThe plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.\nThe weights are heavily concentrated in a few stocks, particularly: AAPL (Apple), AMZN (Amazon), NFLX (Netflix), META (Facebook), and DIS (Walt Disney Co).\nA Sharpe ratio of 2.800 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.\nOur portfolio is highly concentrated in just 5 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.\n\nPros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.\nCons: Concentrating in a few assets can increase the overall risk due to lack of diversification.",
+    "text": "Output\n\n# Output the best results\nprint(\"Optimized Portfolio using Hill Climbing:\")\nfor i, stock in enumerate(stocks):\n    print(f\"{stock}: {best_weights[i]:.4f}\")\nprint(f\"Best Sharpe Ratio: {best_sharpe:.4f}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)\nplt.figure(figsize=(10, 6))\nplt.plot(score_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')\nplt.title(\"Hill Climbing Progress for Portfolio Optimization (Sharpe Ratio)\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Sharpe Ratio\")\nplt.grid(True)\nplt.legend()\nplt.show()\n\nOptimized Portfolio using Hill Climbing:\nAAPL: 0.0000\nGOOGL: 0.0000\nMSFT: 0.0000\nAMZN: 0.0000\nTSLA: 0.4707\nNFLX: 0.0035\nNVDA: 0.0000\nMETA: 0.3280\nDIS: 0.1978\nBA: 0.0000\nBest Sharpe Ratio: 2.0673\nExecution time: 0.077408 seconds\n\n\n\n\n\n\n\n\n\n\nThe plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.\nThe weights are heavily concentrated in a few stocks, particularly: TSLA (Tesla), META (Facebook), and DIS (Walt Disney Co).\nA Sharpe ratio of 2.0667 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.\nOur portfolio is highly concentrated in just 3 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.\n\nPros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.\nCons: Concentrating in a few assets can increase the overall risk due to lack of diversification.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -864,7 +594,7 @@
     "href": "hc.html#items-to-consider",
     "title": "Hill Climbing",
     "section": "Items To Consider",
-    "text": "Items To Consider\n\nA Sharpe ratio of 2.800 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.\nWhether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.\nGiven the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.\nThings to Try Next:\n\nBacktesting: Test this portfolio over a different time period or a longer time horizon to see if it maintains its high Sharpe ratio.\nRebalancing: Consider rebalancing the portfolio periodically (monthly or quarterly) to see if the high Sharpe ratio persists.\nDiversification: If you are concerned about high concentration risk, you might want to introduce constraints to the hill climbing algorithm to enforce a minimum weight for diversification or limit the maximum weight of any asset.",
+    "text": "Items To Consider\n\nA Sharpe ratio of &gt; 2 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.\nWhether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.\nGiven the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.\nThings to Try Next:\n\nBacktesting: Test this portfolio over a different time period or a longer time horizon to see if it maintains its high Sharpe ratio.\nRebalancing: Consider rebalancing the portfolio periodically (monthly or quarterly) to see if the high Sharpe ratio persists.\nDiversification: If you are concerned about high concentration risk, you might want to introduce constraints to the hill climbing algorithm to enforce a minimum weight for diversification or limit the maximum weight of any asset.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Hill Climbing</span>"
     ]
@@ -1054,7 +784,7 @@
     "href": "sa.html#output",
     "title": "Simulated Annealing",
     "section": "Output",
-    "text": "Output\n\n# Output results (O)\nprint(f\"Best solution: {best_sol}\")\nprint(f\"Best value (number of 1s): {best_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the simulated annealing progress\nplt.figure(figsize=(10, 6))\nplt.plot(value_history, marker='o', linestyle='--', color='blue', label='SA Progress')\nplt.title(\"One-Max Problem with Simulated Annealing Progress\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Objective Value (Number of 1s)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nBest solution: [1 1 1 1 1 1 1 1 1 1]\nBest value (number of 1s): 10\nExecution time: 0.008037 seconds",
+    "text": "Output\n\n# Output results (O)\nprint(f\"Best solution: {best_sol}\")\nprint(f\"Best value (number of 1s): {best_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the simulated annealing progress\nplt.figure(figsize=(10, 6))\nplt.plot(value_history, marker='o', linestyle='--', color='blue', label='SA Progress')\nplt.title(\"One-Max Problem with Simulated Annealing Progress\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Objective Value (Number of 1s)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nBest solution: [1 1 1 1 1 1 1 1 1 1]\nBest value (number of 1s): 10\nExecution time: 0.008435 seconds",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Simulated Annealing</span>"
     ]
@@ -1064,17 +794,17 @@
     "href": "sa.html#example-results",
     "title": "Simulated Annealing",
     "section": "Example Results",
-    "text": "Example Results\n\nimport numpy as np\nimport random\nimport math\nimport matplotlib.pyplot as plt\nimport time\n\n# Define the necessary global variables\nnum_evals = 1000\ninitial_temp = 10\ncooling_rate = 0.99\nmin_temp = 0.00001\n\n# Ackley function (1D)\ndef ackley(x):\n    a = 20\n    b = 0.2\n    c = 2 * np.pi\n    term1 = -a * np.exp(-b * np.sqrt(np.mean(np.square(x))))\n    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n    return term1 + term2 + a + np.exp(1)\n\n# Initialization function (I) to set the starting point\ndef init_sa():\n    start_x = random.uniform(-10, 10)\n    return start_x, ackley([start_x])\n\n\nHere, the new candidate solution (neighbor_x) is generated by adding a random perturbation from the uniform distribution random.uniform(-1, 1). This means the step size varies randomly between -1 and 1.\nIf you want more control over the step size, you could introduce a parameter, step_size, and modify the function.\n\n\n# Transition function (T)\ndef transit(current_x):\n    neighbor_x = current_x + random.uniform(-1, 1)\n    return neighbor_x\n\n\nThe determine function is the same as the One Max problem except that because the Ackley is a min problem the neighbor_value and current_value switch places.\n\n\n# Determination function for SA (D)\ndef determine(neighbor_value, current_value, temperature):\n    if neighbor_value &lt; current_value:\n        return True\n    else:\n        acceptance_probability = np.exp((current_value - neighbor_value) / temperature)\n        return np.random.rand() &lt; acceptance_probability\n\n\n# Simulated Annealing (SA) function\ndef simulated_annealing():\n     #Initialize (I)\n    current_x, current_value = init_sa()\n    best_x, best_value = current_x, current_value\n    temperature = initial_temp\n    x_history, value_history = [current_x], [current_value]\n\n    evals = 0\n   #Transit (T) \n    while temperature &gt; min_temp and evals &lt; max_evals:\n        neighbor_x = transit(current_x)\n        # Evaluate (E)\n        neighbor_value = ackley([neighbor_x])\n        \n        # Determine (D)\n        if determine(neighbor_value, current_value, temperature):\n            current_x, current_value = neighbor_x, neighbor_value\n            if current_value &lt; best_value:\n                best_x, best_value = current_x, current_value\n        \n        # Store history of x and values for plotting\n        x_history.append(current_x)\n        value_history.append(current_value)\n\n        # Cool down the temperature\n        temperature *= cooling_rate\n        evals += 1\n\n    return best_x, best_value, x_history, value_history\n\n# Main execution\nstart_time = time.time()\nbest_x, best_value, x_history, value_history = simulated_annealing()\nend_time = time.time()\nexecution_time = end_time - start_time\n\n# Output (O)\nprint(f\"Optimal x: {best_x}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and simulated annealing progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.plot(x_history, value_history, marker='o', linestyle='--', color='red', label='SA Progress')\nplt.scatter(best_x, best_value, color='green', s=100, zorder=5, label='Optimal Value')\nplt.title(\"Ackley Function in 1D with Simulated Annealing Progress\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal x: 0.0015065151496616025\nOptimal value: 0.006146927888476927\nExecution time: 0.014532 seconds\n\n\n\n\n\n\n\n\n\n\nOptimal x: -0.0006396808092359318\n\nThe value -0.00063968 represents a point very close to 0 on the x-axis, where the Ackley function achieves its minimum value in the 1D case.The true global minimum of the Ackley function occurs at x=0, so this value is nearly optimal.\n\nOptimal value: 0.0025805153299995887\n\nThe Ackley function’s global minimum is 0, which occurs exactly at x=0. The value 0.0025805153299995887 is very close to this, showing that the algorithm successfully minimized the function but did not reach the exact minimum. This small difference can be due to the stochastic nature of simulated annealing and the stopping criteria (temperature and iterations).\n\nExecution time: 0.012161 seconds\n\nThis indicates the total time it took for the simulated annealing algorithm to run and find the optimal solution.\nThe process completed in just 0.012 seconds, which is very fast. This fast execution time suggests that the algorithm quickly converged to a near-optimal solution, likely because the problem space (1D) is simple and small, and the Ackley function’s shape guides the algorithm efficiently toward the global minimum.\n\n\n\nComparing SA to HC with Ackley Function\n\nIn an example run, I found the following results depicted in the png image below. The simulated annealing algorithm performed well, finding a solution very close to the global minimum of the Ackley function in a short time.\nThe slight deviation from the exact minimum value (0) is expected due to the stochastic exploration nature of simulated annealing. You can compare these results to the ones above under a different set seed.\n\n\n\n\nComparing HA with Ackley\n\n\n\nOur SA model was much better than our HC model with the Ackley Function. Why?\n\nThe Ackley function is known for its multimodal landscape—it has many local minima and a global minimum at 𝑥=0. The landscape consists of a broad plateau followed by sharp drops toward the global minimum, making it challenging for optimization algorithms to find the true global minimum.\nHill climbing can get stuck in one of the many local minima because it only moves to a better neighboring solution. Once it reaches a local minimum, it can’t escape because no better solution is immediately available in its neighborhood.\nSimulated annealing, by contrast, has the ability to accept worse solutions early in the process, which allows it to escape local minima and continue searching for the global minimum.",
+    "text": "Example Results\n\nimport numpy as np\nimport random\nimport math\nimport matplotlib.pyplot as plt\nimport time\n\n# Define the necessary global variables\nnum_evals = 1000\ninitial_temp = 10\ncooling_rate = 0.99\nmin_temp = 0.00001\n\n# Ackley function (1D)\ndef ackley(x):\n    a = 20\n    b = 0.2\n    c = 2 * np.pi\n    term1 = -a * np.exp(-b * np.sqrt(np.mean(np.square(x))))\n    term2 = -np.exp(np.mean(np.cos(c * np.array(x))))\n    return term1 + term2 + a + np.exp(1)\n\n# Initialization function (I) to set the starting point\ndef init_sa():\n    start_x = random.uniform(-10, 10)\n    return start_x, ackley([start_x])\n\n\nHere, the new candidate solution (neighbor_x) is generated by adding a random perturbation from the uniform distribution random.uniform(-1, 1). This means the step size varies randomly between -1 and 1.\nIf you want more control over the step size, you could introduce a parameter, step_size, and modify the function.\n\n\n# Transition function (T)\ndef transit(current_x):\n    neighbor_x = current_x + random.uniform(-1, 1)\n    return neighbor_x\n\n\nThe determine function is the same as the One Max problem except that because the Ackley is a min problem the neighbor_value and current_value switch places.\n\n\n# Determination function for SA (D)\ndef determine(neighbor_value, current_value, temperature):\n    if neighbor_value &lt; current_value:\n        return True\n    else:\n        acceptance_probability = np.exp((current_value - neighbor_value) / temperature)\n        return np.random.rand() &lt; acceptance_probability\n\n\n# Simulated Annealing (SA) function\ndef simulated_annealing():\n     #Initialize (I)\n    current_x, current_value = init_sa()\n    best_x, best_value = current_x, current_value\n    temperature = initial_temp\n    x_history, value_history = [current_x], [current_value]\n\n    evals = 0\n   #Transit (T) \n    while temperature &gt; min_temp and evals &lt; max_evals:\n        neighbor_x = transit(current_x)\n        # Evaluate (E)\n        neighbor_value = ackley([neighbor_x])\n        \n        # Determine (D)\n        if determine(neighbor_value, current_value, temperature):\n            current_x, current_value = neighbor_x, neighbor_value\n            if current_value &lt; best_value:\n                best_x, best_value = current_x, current_value\n        \n        # Store history of x and values for plotting\n        x_history.append(current_x)\n        value_history.append(current_value)\n\n        # Cool down the temperature\n        temperature *= cooling_rate\n        evals += 1\n\n    return best_x, best_value, x_history, value_history\n\n# Main execution\nstart_time = time.time()\nbest_x, best_value, x_history, value_history = simulated_annealing()\nend_time = time.time()\nexecution_time = end_time - start_time\n\n# Output (O)\nprint(f\"Optimal x: {best_x}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and simulated annealing progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.plot(x_history, value_history, marker='o', linestyle='--', color='red', label='SA Progress')\nplt.scatter(best_x, best_value, color='green', s=100, zorder=5, label='Optimal Value')\nplt.title(\"Ackley Function in 1D with Simulated Annealing Progress\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal x: 0.0021100516227827715\nOptimal value: 0.00867730864647287\nExecution time: 0.011569 seconds\n\n\n\n\n\n\n\n\n\n\nOptimal x: -0.0006396808092359318\n\nThe value -0.00063968 represents a point very close to 0 on the x-axis, where the Ackley function achieves its minimum value in the 1D case.The true global minimum of the Ackley function occurs at x=0, so this value is nearly optimal.\n\nOptimal value: 0.0025805153299995887\n\nThe Ackley function’s global minimum is 0, which occurs exactly at x=0. The value 0.0025805153299995887 is very close to this, showing that the algorithm successfully minimized the function but did not reach the exact minimum. This small difference can be due to the stochastic nature of simulated annealing and the stopping criteria (temperature and iterations).\n\nExecution time: 0.012161 seconds\n\nThis indicates the total time it took for the simulated annealing algorithm to run and find the optimal solution.\nThe process completed in just 0.012 seconds, which is very fast. This fast execution time suggests that the algorithm quickly converged to a near-optimal solution, likely because the problem space (1D) is simple and small, and the Ackley function’s shape guides the algorithm efficiently toward the global minimum.\n\n\n\nComparing SA to HC with Ackley Function\n\nIn an example run, I found the following results depicted in the png image below. The simulated annealing algorithm performed well, finding a solution very close to the global minimum of the Ackley function in a short time.\nThe slight deviation from the exact minimum value (0) is expected due to the stochastic exploration nature of simulated annealing. You can compare these results to the ones above under a different set seed.\n\n\n\n\nComparing HA with Ackley\n\n\n\nOur SA model was much better than our HC model with the Ackley Function. Why?\n\nThe Ackley function is known for its multimodal landscape—it has many local minima and a global minimum at 𝑥=0. The landscape consists of a broad plateau followed by sharp drops toward the global minimum, making it challenging for optimization algorithms to find the true global minimum.\nHill climbing can get stuck in one of the many local minima because it only moves to a better neighboring solution. Once it reaches a local minimum, it can’t escape because no better solution is immediately available in its neighborhood.\nSimulated annealing, by contrast, has the ability to accept worse solutions early in the process, which allows it to escape local minima and continue searching for the global minimum.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Simulated Annealing</span>"
     ]
   },
   {
-    "objectID": "sa.html#our-hill-climbing-finance-model-was-better.-why",
-    "href": "sa.html#our-hill-climbing-finance-model-was-better.-why",
+    "objectID": "sa.html#which-model-is-better",
+    "href": "sa.html#which-model-is-better",
     "title": "Simulated Annealing",
-    "section": "Our Hill Climbing Finance Model was Better. Why?",
-    "text": "Our Hill Climbing Finance Model was Better. Why?\n\nHill Climbing\n\nDeterministic: In each iteration, the algorithm strictly accepts a new portfolio only if it improves the Sharpe ratio (a measure of risk-adjusted returns). There’s no acceptance of worse solutions.\nThis results in a steady and consistent increase in the Sharpe ratio because the model always moves toward better solutions without exploring worse ones.\nSince hill climbing is greedy and deterministic, it focuses on continuously improving the portfolio weights in a direct manner, which can be more efficient for problems where the optimization landscape is relatively smooth or doesn’t have too many local minima.\n\nSimulated Annealing:\n\nStochastic Exploration: Simulated annealing, on the other hand, allows for the acceptance of worse solutions, especially early in the process when the temperature is high. This stochastic exploration helps to avoid getting stuck in local minima, but it can sometimes lead to suboptimal moves that temporarily reduce performance.\nSA slowly improves the Sharpe ratio by lowering the temperature and becoming more selective over time. However, this can result in slower convergence compared to hill climbing, which directly improves the Sharpe ratio with each iteration.\nWhile simulated annealing balances exploration and exploitation, its performance might be slightly worse in this case because it explores a broader range of solutions, some of which may be worse. The stochastic nature may cause delays in reaching the global optimum in cases where the optimization problem is less prone to getting stuck in local minima.",
+    "section": "Which Model is Better",
+    "text": "Which Model is Better\n\nHill Climbing\n\nDeterministic: In each iteration, the algorithm strictly accepts a new portfolio only if it improves the Sharpe ratio (a measure of risk-adjusted returns). There’s no acceptance of worse solutions.\nThis results in a steady and consistent increase in the Sharpe ratio because the model always moves toward better solutions without exploring worse ones.\nSince hill climbing is greedy and deterministic, it focuses on continuously improving the portfolio weights in a direct manner, which can be more efficient for problems where the optimization landscape is relatively smooth or doesn’t have too many local minima.\n\nSimulated Annealing:\n\nStochastic Exploration: Simulated annealing, on the other hand, allows for the acceptance of worse solutions, especially early in the process when the temperature is high. This stochastic exploration helps to avoid getting stuck in local minima, but it can sometimes lead to suboptimal moves that temporarily reduce performance.\nSA slowly improves the Sharpe ratio by lowering the temperature and becoming more selective over time. However, this can result in slower convergence compared to hill climbing, which directly improves the Sharpe ratio with each iteration.\nWhile simulated annealing balances exploration and exploitation, its performance might be slightly worse in this case because it explores a broader range of solutions, some of which may be worse. The stochastic nature may cause delays in reaching the global optimum in cases where the optimization problem is less prone to getting stuck in local minima.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Simulated Annealing</span>"
     ]
@@ -1100,26 +830,6 @@
     ]
   },
   {
-    "objectID": "ga.html#key-steps",
-    "href": "ga.html#key-steps",
-    "title": "Genetic Algorithms",
-    "section": "Key Steps",
-    "text": "Key Steps\n\nInitialization: Randomly generate an initial population of individuals (solutions).\nSelection: Choose the fittest individuals based on a fitness function that measures solution quality.\nCrossover (Recombination): Combine parts of two parent solutions to create offspring (new solutions).\nMutation: Introduce random changes to an individual to maintain diversity and explore new parts of the solution space.\nReplacement: Replace the old population with the new one, ensuring improvement over generations.\nTermination: Continue until a stopping condition (e.g., number of generations or convergence) is met.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#advantages",
-    "href": "ga.html#advantages",
-    "title": "Genetic Algorithms",
-    "section": "Advantages",
-    "text": "Advantages\n\nGlobal Search: Capable of exploring large solution spaces and avoiding local optima.\nFlexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.\nHeuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
     "objectID": "ga.html#genetic-algorithms-defined",
     "href": "ga.html#genetic-algorithms-defined",
     "title": "Genetic Algorithms",
@@ -1130,21 +840,61 @@
     ]
   },
   {
-    "objectID": "ga.html#the-relationship-between-population-s-chromosome-si-and-gene-sij",
-    "href": "ga.html#the-relationship-between-population-s-chromosome-si-and-gene-sij",
+    "objectID": "ga.html#the-relationships-between-populations-chromosomes-and-genes",
+    "href": "ga.html#the-relationships-between-populations-chromosomes-and-genes",
     "title": "Genetic Algorithms",
-    "section": "The relationship between population \\(s\\), chromosome \\(si\\), and gene \\(si,j\\)",
-    "text": "The relationship between population \\(s\\), chromosome \\(si\\), and gene \\(si,j\\)\n\n\\(s\\) represents the population (a set of solutions),\n\\(s_i\\) represents a chromosome (a solution),\n\\(s_{ij}\\) represents a gene (a subsolution),\n\\(m\\) represents the number of chromosomes in the population (also called population size, and\n\\(n\\) represents the number of subsolutions in a chromosome.\nThe objective value of each chromosome will also be transformed to a value called the fitnes value by a so-called fitness function.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe Relationships between Parents and Children\n\nEach current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.\nThe parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.\nOnce the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population \\(v\\), which is called the offspring of the parents \\(s’\\).\nThe offspring at iteration \\(t\\) will become the current population s of iteration \\(t+1\\). This is referred to as the reproduction process.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.\nGA will first randomly select some of the chromosomes based on the fitness value of each chromosome.\nShows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.\nThis means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.\nShows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategy of the transition operator of GA. (a) How the crossover operator works. (b) How the mutation operator works.\nGA will typically apply the crossover and mutation operators to the chromosomes selected by the selection operator.\nTwo-dimensional landscape will be used as compared to one dimensional used in traditional methods, simulated annealing or tabu search.\n\n\n\n\nGenetic Algorithm",
+    "section": "The Relationships between Populations, Chromosomes, and Genes",
+    "text": "The Relationships between Populations, Chromosomes, and Genes\n\n\\(s\\) represents the population (a set of solutions),\n\\(s_i\\) represents a chromosome (a solution),\n\\(s_{ij}\\) represents a gene (a subsolution),\nThe number of chromosomes in the population (also called population size), and the number of subsolutions in a chromosome are also considered.\nThe objective value of each chromosome will also be transformed to a value called the fitnes value calculated by a fitness function.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe Relationships between Parents and Children\n\nEach current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.\nThe parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.\nOnce the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population \\(v\\), which is called the offspring of the parents \\(s’\\).\nThe offspring at iteration \\(t\\) will become the current population s of iteration \\(t+1\\). This is referred to as the reproduction process.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.\nGA will first randomly select some of the chromosomes based on the fitness value of each chromosome.\n\nshows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.\n\nThis means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.\n\nshows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.\n\n\n\n\n\nGenetic Algorithm",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
   },
   {
-    "objectID": "ga.html#refining-genetic-algorithms",
-    "href": "ga.html#refining-genetic-algorithms",
+    "objectID": "ga.html#fitness-proportional-selection",
+    "href": "ga.html#fitness-proportional-selection",
     "title": "Genetic Algorithms",
-    "section": "Refining Genetic Algorithms",
-    "text": "Refining Genetic Algorithms\n\nThere’s no perfect setup for GA parameters. Experiment with combinations and monitor performance to find the best results for your specific problem.\nGA Parameters Are Crucial: The effectiveness of GA depends heavily on carefully tuning parameters like population size, mutation rate, and the number of generations.\nPopulation Size: For more complex problems, use larger populations (e.g., 1000–2000 individuals)\nMutation Rate: A low probability, typically 0.001 to 0.002 per gene.\nNumber of Generations: For more generations (e.g., 1000–2000 generations).\nFitness Function: Carefully tailored to the specific problem being solved, as it guides the selection process.\nSelection Method: rank-based linear selection or proportional selection can be used.\nCrossover Mechanism: Single-point crossover chosen at a random location",
+    "section": "Fitness-Proportional Selection",
+    "text": "Fitness-Proportional Selection\n\nThe “Roulette Wheel” Strategy to Selection\nImagine a roulette wheel where each individual occupies a section proportional to its fitness. A random value (between 0 and 1) is generated, and the wheel is spun. The individual whose section the random value falls into is selected.\nThe probability of each chromosome being elected as a parent can be computed as follows: \\[p_i = \\frac{f_i}{\\sum_{j=1}^{m} f_j}\\]\nFitness \\(f_i\\) of member i as a proportion of sum of fitness of all population members, suggesting that \\(p_i = \\frac{\\text{fit}}{\\sum \\text{fit}}\\)\nAssume three individuals with fitness values:\n\n\\(F1 = 10\\)\n\\(F2 = 20\\)\n\\(F3 = 30\\)\n\nTheir survival probabilities are as follows:\n\np1= 10/((10+20+30))= .166$\np2= 20/((10+20+30)) = .333$\np3= 30/((10+20+30)) = .5$\n\nThus, individual 3 has the highest chance of being retained, but it’s still possible for less-fit individuals to survive.\nWe then generate a random number r in the range [0,1] and find the first individual whose cumulative probability exceeds r. For example, if we generate r=.4, we select F2 because .166 + .333 is around .5 and that is the first cumulative probability above .4. If we generate .7, we would select F3 because 1 is the nearest cumulative probability that exceeds it.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#tournament-selection",
+    "href": "ga.html#tournament-selection",
+    "title": "Genetic Algorithms",
+    "section": "Tournament Selection",
+    "text": "Tournament Selection\n\nRandom Selection of Competitors\n\nFor each individual to be selected, a random subset of num_players individuals is chosen from the population.\nA random choice function selects a number of players without replacement from the population.\n\nChoosing the Best Individual\n\nThe fitness values of the selected individuals are compared.\nThe individual with the highest fitness is chosen as the winner.\nThis is done using np.argmax(fitness_vals[tournament]), which finds the index of the best individual in the subset.\n\nBuilding the New Population\n\nThis process is repeated until a new population of the same size is formed.\nThe best individuals from each tournament are added to selected_pop.\n\nReturning the Selected Population\n\nThe function returns a new population consisting of individuals selected through tournament selection.\n\n\n\nTournament Selection Example\n\n1st Selection Round\n\nRandomly select two individuals for the tournament: Suppose the tournament picks F1 and F2.\nCompare their fitness values:F1 (6) vs. F2 (4) → F1 wins.\nF1 is added to the new population.\n\n2nd Selection Round\n\nAnother tournament is held, randomly selecting F2 and F3.\nCompare their fitness values:\nF2 (4) vs. F3 (5) → F3 wins.\nF3 is added to the new population.\n\n3rd Selection Round\n\nAnother tournament is held, randomly selecting F1 and F3.\nCompare their fitness values:\nF1 (6) vs. F3 (5) → F1 wins.\nF1 is added again.\n\n\n ### Controlling Selection Pressure * Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. * Larger tournaments (e.g., num_players &gt;= 3) favor stronger individuals. + Increases selection pressure because there’s a higher chance that fitter individuals will be included and selected. + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions. * Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#crossover",
+    "href": "ga.html#crossover",
+    "title": "Genetic Algorithms",
+    "section": "Crossover",
+    "text": "Crossover\n\nThe chart is structured as a grid, where each point represents a potential solution encoded in binary form.\n\nThe labels Bit 1, Bit 2, Bit 3, and Bit 4 represent binary values in a 4-bit chromosome.\nThe fitness function values, denoted as f(X), are assigned to each solution.\nEach solution (chromosome) is represented as a 4-bit string (e.g., 0000, 1100, etc.).\nThe fitness function f(X) is computed for each chromosome and shown in the grid.\n\nEvolution Path Without Crossover & Mutation: The arrows represent the movement of solutions through selection. Selection: The GA picks better solutions based on fitness. The search path (arrows) shows the improvement in fitness as the GA selects better candidates. In this case, movement is limited, leading to potential stagnation in local optima.\n\nEvolution Path With Crossover & Mutation: This plot includes crossover and mutation, introducing more diversity. Some arrows jump to different areas of the grid, indicating a recombination of genetic material. Crossover: Two parent solutions combine to produce offspring with mixed genes. Mutation: A small random change is applied to a gene, allowing exploration of new regions. This helps escape local optima and find better solutions.\n\nWithout crossover and mutation (a), the algorithm might get stuck in a local optimum.(b) With crossover and mutation, the search space is explored more effectively, leading to better solutions\n\n\n\n\nGenetic Algorithm",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#example-of-crossover",
+    "href": "ga.html#example-of-crossover",
+    "title": "Genetic Algorithms",
+    "section": "Example of Crossover",
+    "text": "Example of Crossover\n\nF1 (Parent 1) = 10101 | 01010\nF3 (Parent 2) = 11001 | 10011\nLet’s choose crossover point or index = 5 , which means after the fifth bit\n\nChild 1 = 10101 | 10011 → “1010110011”\nChild 2 = 11001 | 01010 → “1100101010“\n\nNow, these offspring can replace some individuals in the population or undergo mutation before the next iteration.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#mutation",
+    "href": "ga.html#mutation",
+    "title": "Genetic Algorithms",
+    "section": "Mutation",
+    "text": "Mutation\n\nThe mutate function introduces random changes (mutations) in the genetic algorithm to maintain diversity in the population. This prevents premature convergence to local optima.\nWe generate a random number between [0,1] and compare it to the mutation_rate. If this random number is less than the mutation_rate, mutation occurs (bit flips).\n\n\n\n\nGA Mutation Example\n\n\n\nHow Often Mutation Occurs\n\nCrossover is the primary driver of improvement in Genetic Algorithms, as it combines successful traits from parents.\nMutation acts as a secondary mechanism that introduces small random changes to explore new regions of the search space.\nIf mutation happens too frequently, the algorithm behaves more like a random search rather than an evolutionary process.\nSetting a small mutation rate (~0.01 or lower) ensures that improvements from selection and crossover are not lost due to excessive randomness.\nNote that in the example, I used .1, but we typically set a lower threshold than that.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
@@ -1170,11 +920,71 @@
     ]
   },
   {
-    "objectID": "ga.html#comparing-ga-to-sa",
-    "href": "ga.html#comparing-ga-to-sa",
+    "objectID": "ga.html#advantages",
+    "href": "ga.html#advantages",
     "title": "Genetic Algorithms",
-    "section": "Comparing GA to SA",
-    "text": "Comparing GA to SA\n\nMultiple search directions: Compared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process. Since GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process. Selection operator: Another characteristic of GA is that it uses the selection and fitness function operators to determine solutions to be searched, not just based on the objective value of each solution. This kind of mechanism keeps the search process of GA from looking for the best solution in the population all the time so that it will not always choose the solution with the best objective or fitness value to search its neighbors again and again. Consequently, GA will not easily get stuck in local optima at early iterations.\nCrossover operator: This operator is one of the transition operators of GA, which plays the role of exchanging information between parent chromosomes, such as moving portions of the genes of a chromosome to another. This kind of mechanism allows GA to restructure its solutions to form new solutions in such a way that the structure of the new solutions is not confined to the structure of the initial solutions and may even inherit partial structures from their parents; as a consequence, the search process of GA will quickly jump from one region to another in the solution space during the convergence process.\nMutation operator: This operator is another transition operator of GA, which ensures that the search process of GA is capable of escaping from a local optimum by changing the value of some genes randomly. Of course, this kind of mechanism will also play the role of fine-tuning the chromosomes of GA because only a few genes will be changed at a time.",
+    "section": "Advantages",
+    "text": "Advantages\n\nGlobal Search: Capable of exploring large solution spaces and avoiding local optima.\nFlexibility: Can be applied to many types of optimization problems, including those with non-linear or non-differentiable objectives.\nHeuristic Nature: Useful when problem-solving methods like calculus-based optimization are not feasible.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#disadvantages",
+    "href": "ga.html#disadvantages",
+    "title": "Genetic Algorithms",
+    "section": "Disadvantages",
+    "text": "Disadvantages\n\nComputationally Expensive – GAs often require many function evaluations, making them slow for complex problems.\nNo Guarantee of Optimality – They may converge to suboptimal solutions or get stuck in local optima.\nParameter Sensitivity – Performance depends on careful tuning of mutation rate, crossover rate, and population size.\nLack of Interpretability – The evolutionary process doesn’t always provide clear insights into why a solution was chosen.\nPremature Convergence – The algorithm may lose diversity and settle on a poor solution early.\nInfeasibility for Some Problems – Constraints can be difficult to handle, leading to invalid solutions.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#population-based-ga-vs.-single-solution-sa",
+    "href": "ga.html#population-based-ga-vs.-single-solution-sa",
+    "title": "Genetic Algorithms",
+    "section": "Population-based (GA) vs. Single Solution (SA)",
+    "text": "Population-based (GA) vs. Single Solution (SA)\n\nCompared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process.\nSince GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process.\nThese two approaches are a fundamental distinction in how the search space is explored.\n\n\nPopulation-based\n\nGA maintains and evolves a population of solutions. Works with a group of candidate solutions (a population) at each step.\n\nEvolutionary operations such as selection, crossover (recombination), and mutation are applied to create new generations of solutions.\nThe search process involves diversity maintenance because multiple solutions evolve simultaneously.\n\n\n\n\nSingle Solution\n\nSA operates on a single solution and modifies it over time.\n\nWorks with one candidate solution at a time.\nStarts with a single initial solution and iteratively moves to a new solution by applying small changes (perturbations).\nAccepts new solutions based on a probability function that depends on a temperature parameter (allowing uphill moves early in the process).",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#exploration-strategy",
+    "href": "ga.html#exploration-strategy",
+    "title": "Genetic Algorithms",
+    "section": "Exploration Strategy",
+    "text": "Exploration Strategy\n\nGA uses crossover and mutation to explore the solution space, encouraging diversity.\n\nExploration and exploitation happen naturally through genetic operators—mutation introduces diversity (exploration), and selection rewards better candidates (exploitation).\n\nSA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).\n\nExploration and exploitation happen through a balance of random jumps (exploration) and greedy selection (exploitation).",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#deterministic-vs.-probabilistic",
+    "href": "ga.html#deterministic-vs.-probabilistic",
+    "title": "Genetic Algorithms",
+    "section": "Deterministic vs. Probabilistic:",
+    "text": "Deterministic vs. Probabilistic:\n\nGA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.\n\nUnlike purely stochastic methods (e.g., roulette wheel selection), tournament selection always picks the best candidate from the subset, making it more deterministic.\nThe mutation rate is predefined and remains constant throughout the GA process (e.g., 1% or 2% of genes randomly mutate). This ensures steady convergence toward better solutions while maintaining some diversity.\n\nSA uses a temperature mechanism to probabilistically accept worse solutions early in the search.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#convergence",
+    "href": "ga.html#convergence",
+    "title": "Genetic Algorithms",
+    "section": "Convergence:",
+    "text": "Convergence:\n\nGA uses generations and selection pressure to converge on the best solution over time.\n\nGAs evolve solutions through multiple generations, where each generation consists of a population of candidate solutions.\nSelection pressure refers to how strongly better solutions are favored during reproduction.\n\nHigher selection pressure (e.g., elitism, tournament selection with large num_players) quickly promotes fitter solutions but risks premature convergence.\n\nLower selection pressure (e.g., roulette wheel selection, or tournament with lower num_players) maintains more diversity but may slow down convergence.\n\n\nOver successive generations, poor solutions are eliminated, and better solutions dominate the population.\n\nSA cools down gradually, converging based on the temperature schedule.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+    ]
+  },
+  {
+    "objectID": "ga.html#summary",
+    "href": "ga.html#summary",
+    "title": "Genetic Algorithms",
+    "section": "Summary",
+    "text": "Summary\n\nThe design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.\n\nWhen this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone’s categories\n\nWhere John H. Holland (1929–2015) was a pioneering figure in the field of genetic algorithms (GAs). He is widely credited with formalizing and popularizing GAs as a computational approach for solving optimization and search problems.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
@@ -1274,97 +1084,7 @@
     "href": "ga.html#output-o",
     "title": "Genetic Algorithms",
     "section": "Output (O)",
-    "text": "Output (O)\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [0.07283306]\nOptimal value: 0.5550096936246942\nExecution time for Genetic Algorithm: 0.116501 seconds\n\n\n\n\n\n\n\n\n\n\nComparison GA/SA with Ackley FUnction\n\nTo compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:\n\nPerformance: Compare the final optimized values.\nConvergence Speed: How fast each algorithm converges to a solution.\nExploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).\n\nPopulation-based vs. Single Solution:\n\nGA maintains and evolves a population of solutions.\nSA operates on a single solution and modifies it over time.\n\nSA Model:\n\nOptimal x: 0.0021715903903449796\nOptimal value: 0.00893749448894754\nExecution time: 0.014006 seconds\n\nGA Model:\n\nOptimal solution: [-0.06420558]\nOptimal value: 0.4648604493269599\nExecution time for Genetic Algorithm: 0.099029 seconds",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#the-relationships-between-populations-chromosomes-and-genes",
-    "href": "ga.html#the-relationships-between-populations-chromosomes-and-genes",
-    "title": "Genetic Algorithms",
-    "section": "The Relationships between Populations, Chromosomes, and Genes",
-    "text": "The Relationships between Populations, Chromosomes, and Genes\n\n\\(s\\) represents the population (a set of solutions),\n\\(s_i\\) represents a chromosome (a solution),\n\\(s_{ij}\\) represents a gene (a subsolution),\nThe number of chromosomes in the population (also called population size), and the number of subsolutions in a chromosome are also considered.\nThe objective value of each chromosome will also be transformed to a value called the fitnes value calculated by a fitness function.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe Relationships between Parents and Children\n\nEach current solution selected by the selection operator is called a parent, while each new candidate solution is called an offspring during the convergence process.\nThe parents s’ will be selected by the selection operator from the current population s at iteration t. The fitness values of all the chromosomes will also be calculated by the selection operator.\nOnce the parents are selected by the selection operator, the crossover and mutation operators are used to generate a new population \\(v\\), which is called the offspring of the parents \\(s’\\).\nThe offspring at iteration \\(t\\) will become the current population s of iteration \\(t+1\\). This is referred to as the reproduction process.\n\n\n\n\nGenetic Algorithm\n\n\n\nThe strategies of the selection, crossover, and mutation operators of GA: (a) using only the selection operator and (b) using all the three operators.\nGA will first randomly select some of the chromosomes based on the fitness value of each chromosome.\n\nshows the situation in which only the selection operator is used, i.e., no other transition operators are used. In this case, the distribution of all the chromosomes will be shifted and changed from left to right on the x-axis from generation t=1 to generation t=3.\n\nThis means that the average objective value of the population will be increased while the variance is decreased. If GA uses only the selection operator but none of the transition operators (e.g., crossover or mutation), it will not generate any new candidate solutions even though the average objective value of all the chromosomes is raised from 1.5 to 2.5.\n\nshows that if GA uses not only the selection operator to select better chromosomes for the next generation but also the crossover and mutation operators as the transition operators to generate new chromosomes for the population, this makes it possible for GA to find better candidate solutions. In this example, the average objective value of all the chromosomes will be increased from 1.5 to 3, while the best objective value will exceed 3.\n\n\n\n\n\nGenetic Algorithm",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#tournament-selection",
-    "href": "ga.html#tournament-selection",
-    "title": "Genetic Algorithms",
-    "section": "Tournament Selection",
-    "text": "Tournament Selection\n\nRandom Selection of Competitors\n\nFor each individual to be selected, a random subset of num_players individuals is chosen from the population.\nA random choice function selects a number of players without replacement from the population.\n\nChoosing the Best Individual\n\nThe fitness values of the selected individuals are compared.\nThe individual with the highest fitness is chosen as the winner.\nThis is done using np.argmax(fitness_vals[tournament]), which finds the index of the best individual in the subset.\n\nBuilding the New Population\n\nThis process is repeated until a new population of the same size is formed.\nThe best individuals from each tournament are added to selected_pop.\n\nReturning the Selected Population\n\nThe function returns a new population consisting of individuals selected through tournament selection.\n\n\n\nTournament Selection Example\n\n1st Selection Round\n\nRandomly select two individuals for the tournament: Suppose the tournament picks F1 and F2.\nCompare their fitness values:F1 (6) vs. F2 (4) → F1 wins.\nF1 is added to the new population.\n\n2nd Selection Round\n\nAnother tournament is held, randomly selecting F2 and F3.\nCompare their fitness values:\nF2 (4) vs. F3 (5) → F3 wins.\nF3 is added to the new population.\n\n3rd Selection Round\n\nAnother tournament is held, randomly selecting F1 and F3.\nCompare their fitness values:\nF1 (6) vs. F3 (5) → F1 wins.\nF1 is added again.\n\n\n ### Controlling Selection Pressure * Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. * Larger tournaments (e.g., num_players &gt;= 3) favor stronger individuals. + Increases selection pressure because there’s a higher chance that fitter individuals will be included and selected. + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions. * Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#tournament-selection-example",
-    "href": "ga.html#tournament-selection-example",
-    "title": "Genetic Algorithms",
-    "section": "Tournament Selection Example",
-    "text": "Tournament Selection Example\n\n1st Selection Round\n\nRandomly select two individuals for the tournament: Suppose the tournament picks F1 and F2.\nCompare their fitness values:F1 (6) vs. F2 (4) → F1 wins.\nF1 is added to the new population.\n\n2nd Selection Round\n\nAnother tournament is held, randomly selecting F2 and F3.\nCompare their fitness values:\nF2 (4) vs. F3 (5) → F3 wins.\nF3 is added to the new population.\n\n3rd Selection Round\n\nAnother tournament is held, randomly selecting F1 and F3.\nCompare their fitness values:\nF1 (6) vs. F3 (5) → F1 wins.\nF1 is added again.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#disadvantages",
-    "href": "ga.html#disadvantages",
-    "title": "Genetic Algorithms",
-    "section": "Disadvantages",
-    "text": "Disadvantages\n\nComputationally Expensive – GAs often require many function evaluations, making them slow for complex problems.\nNo Guarantee of Optimality – They may converge to suboptimal solutions or get stuck in local optima.\nParameter Sensitivity – Performance depends on careful tuning of mutation rate, crossover rate, and population size.\nLack of Interpretability – The evolutionary process doesn’t always provide clear insights into why a solution was chosen.\nPremature Convergence – The algorithm may lose diversity and settle on a poor solution early.\nInfeasibility for Some Problems – Constraints can be difficult to handle, leading to invalid solutions.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#controlling-selection-pressure",
-    "href": "ga.html#controlling-selection-pressure",
-    "title": "Genetic Algorithms",
-    "section": "Controlling Selection Pressure",
-    "text": "Controlling Selection Pressure\n\nLarger tournaments (e.g., num_players = 3) favor stronger individuals.\nSmaller tournaments (num_players = 2) introduce more randomness.\n\n\n\n\nGA Selection Example",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#fitness-proportionate-selection",
-    "href": "ga.html#fitness-proportionate-selection",
-    "title": "Genetic Algorithms",
-    "section": "Fitness-Proportionate Selection",
-    "text": "Fitness-Proportionate Selection\n\nThe “Roulette Wheel” Strategy to Selection\nImagine a roulette wheel where each individual occupies a section proportional to its fitness. A random value (between 0 and 1) is generated, and the wheel is spun. The individual whose section the random value falls into is selected.\nThe probability of each chromosome being elected as a parent can be computed as follows: \\[p_i = \\frac{f_i}{\\sum_{j=1}^{m} f_j}\\]\nFitness \\(f_i\\) of member i as a proportion of sum of fitness of all population members, suggesting that \\(p_i = \\frac{\\text{fit}}{\\sum \\text{fit}}\\)\nAssume three individuals with fitness values:\n\n\\(F1 = 10\\)\n\\(F2 = 20\\)\n\\(F3 = 30\\)\n\nTheir survival probabilities are as follows:\n\np1= 10/((10+20+30))= .166$\np2= 20/((10+20+30)) = .333$\np3= 30/((10+20+30)) = .5$\n\nThus, individual 3 has the highest chance of being retained, but it’s still possible for less-fit individuals to survive.\nWe then generate a random number r in the range [0,1] and find the first individual whose cumulative probability exceeds r. For example, if we generate r=.4, we select F2, if we generate .7, we would select .5",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#crossover",
-    "href": "ga.html#crossover",
-    "title": "Genetic Algorithms",
-    "section": "Crossover",
-    "text": "Crossover\n\nThe chart is structured as a grid, where each point represents a potential solution encoded in binary form.\n\nThe labels Bit 1, Bit 2, Bit 3, and Bit 4 represent binary values in a 4-bit chromosome.\nThe fitness function values, denoted as f(X), are assigned to each solution.\nEach solution (chromosome) is represented as a 4-bit string (e.g., 0000, 1100, etc.).\nThe fitness function f(X) is computed for each chromosome and shown in the grid.\n\nEvolution Path Without Crossover & Mutation: The arrows represent the movement of solutions through selection. Selection: The GA picks better solutions based on fitness. The search path (arrows) shows the improvement in fitness as the GA selects better candidates. In this case, movement is limited, leading to potential stagnation in local optima.\n\nEvolution Path With Crossover & Mutation: This plot includes crossover and mutation, introducing more diversity. Some arrows jump to different areas of the grid, indicating a recombination of genetic material. Crossover: Two parent solutions combine to produce offspring with mixed genes. Mutation: A small random change is applied to a gene, allowing exploration of new regions. This helps escape local optima and find better solutions.\n\nWithout crossover and mutation (a), the algorithm might get stuck in a local optimum.(b) With crossover and mutation, the search space is explored more effectively, leading to better solutions\n\n\n\n\nGenetic Algorithm",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#mutation",
-    "href": "ga.html#mutation",
-    "title": "Genetic Algorithms",
-    "section": "Mutation",
-    "text": "Mutation\n\nThe mutate function introduces random changes (mutations) in the genetic algorithm to maintain diversity in the population. This prevents premature convergence to local optima.\nWe generate a random number between [0,1] and compare it to the mutation_rate. If this random number is less than the mutation_rate, mutation occurs (bit flips).\n\n\n\n\nGA Mutation Example\n\n\n\nHow Often Mutation Occurs\n\nCrossover is the primary driver of improvement in Genetic Algorithms, as it combines successful traits from parents.\nMutation acts as a secondary mechanism that introduces small random changes to explore new regions of the search space.\nIf mutation happens too frequently, the algorithm behaves more like a random search rather than an evolutionary process.\nSetting a small mutation rate (~0.01 or lower) ensures that improvements from selection and crossover are not lost due to excessive randomness.\nNote that in the example, I used .1, but we typically set a lower threshold than that.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#how-often-mutation-occurs",
-    "href": "ga.html#how-often-mutation-occurs",
-    "title": "Genetic Algorithms",
-    "section": "How Often Mutation Occurs",
-    "text": "How Often Mutation Occurs\n\nCrossover is the primary driver of improvement in Genetic Algorithms, as it combines successful traits from parents.\nMutation acts as a secondary mechanism that introduces small random changes to explore new regions of the search space.\nIf mutation happens too frequently, the algorithm behaves more like a random search rather than an evolutionary process.\nSetting a small mutation rate (~0.01 or lower) ensures that improvements from selection and crossover are not lost due to excessive randomness.\nNote that in the example, I used .1, but we typically set a lower threshold than that.",
+    "text": "Output (O)\n\n# Output (O)\nprint(f\"Optimal solution: {best_solution}\")\nprint(f\"Optimal value: {best_value}\")\nprint(f\"Execution time for Genetic Algorithm: {execution_time:.6f} seconds\")\n\n# Plot the Ackley function and genetic algorithm progress\nx_values = np.linspace(-10, 10, 1000)\ny_values = [ackley([x]) for x in x_values]\n\nplt.figure(figsize=(10, 6))\nplt.plot(x_values, y_values, label=\"Ackley Function\", color='b')\nplt.scatter(best_solution[0], best_value, color='green', label='GA Best Solution', s=100)\nplt.title(\"Ackley Function in 1D with Genetic Algorithm Best Solution\")\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nOptimal solution: [-0.26180174]\nOptimal value: 2.809951892444485\nExecution time for Genetic Algorithm: 0.102575 seconds\n\n\n\n\n\n\n\n\n\n\nComparison GA/SA with Ackley FUnction\n\nTo compare Simulated Annealing (SA) with Genetic Algorithms (GA), we can implement a Genetic Algorithm for the same optimization problem (Ackley function) and then compare the two approaches based on:\n\nPerformance: Compare the final optimized values.\nConvergence Speed: How fast each algorithm converges to a solution.\nExploration vs. Exploitation: How each method balances searching new areas (exploration) versus refining the current solution (exploitation).\n\nPopulation-based vs. Single Solution:\n\nGA maintains and evolves a population of solutions.\nSA operates on a single solution and modifies it over time.\n\nSA Model:\n\nOptimal x: 0.0021715903903449796\nOptimal value: 0.00893749448894754\nExecution time: 0.014006 seconds\n\nGA Model:\n\nOptimal solution: [-0.06420558]\nOptimal value: 0.4648604493269599\nExecution time for Genetic Algorithm: 0.099029 seconds",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
     ]
@@ -1380,73 +1100,23 @@
     ]
   },
   {
-    "objectID": "ga.html#fitness-proportional-selection",
-    "href": "ga.html#fitness-proportional-selection",
-    "title": "Genetic Algorithms",
-    "section": "Fitness-Proportional Selection",
-    "text": "Fitness-Proportional Selection\n\nThe “Roulette Wheel” Strategy to Selection\nImagine a roulette wheel where each individual occupies a section proportional to its fitness. A random value (between 0 and 1) is generated, and the wheel is spun. The individual whose section the random value falls into is selected.\nThe probability of each chromosome being elected as a parent can be computed as follows: \\[p_i = \\frac{f_i}{\\sum_{j=1}^{m} f_j}\\]\nFitness \\(f_i\\) of member i as a proportion of sum of fitness of all population members, suggesting that \\(p_i = \\frac{\\text{fit}}{\\sum \\text{fit}}\\)\nAssume three individuals with fitness values:\n\n\\(F1 = 10\\)\n\\(F2 = 20\\)\n\\(F3 = 30\\)\n\nTheir survival probabilities are as follows:\n\np1= 10/((10+20+30))= .166$\np2= 20/((10+20+30)) = .333$\np3= 30/((10+20+30)) = .5$\n\nThus, individual 3 has the highest chance of being retained, but it’s still possible for less-fit individuals to survive.\nWe then generate a random number r in the range [0,1] and find the first individual whose cumulative probability exceeds r. For example, if we generate r=.4, we select F2 because .166 + .333 is around .5 and that is the first cumulative probability above .4. If we generate .7, we would select F3 because 1 is the nearest cumulative probability that exceeds it.",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Required Reading Materials",
+    "section": "",
+    "text": "Tsai, C.-W., & Chiang, M.-C. (2023). Handbook of metaheuristic algorithms. Academic Press. Retrieved from https://learning.oreilly.com/library/view/handbook-of-metaheuristic/9780443191091/\n\n\nRecommended Further Reading Materials\n\nErwig, M. (2017). Once upon an algorithm: How stories explain computing. The MIT Press.\nHolland, 1992 J.H. Holland, Adaptation in Natural and Artificial Systems. Cambridge, MA: MIT Press; 1992.\nHolland, 1962 J.H. Holland, Outline for a logical theory of adaptive systems, Journal of the ACM 1962;9:297–314.\nHolland, 1975 J.H. Holland, Adaptation in Natural and Artificial Systems. Ann Arbor, MI: University of Michigan Press; 1975.\nSteiner, C. (2012). Automate this: How algorithms came to rule our world. Portfolio/Penguin.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Required Reading Materials</span>"
     ]
   },
   {
-    "objectID": "ga.html#example-of-crossover",
-    "href": "ga.html#example-of-crossover",
-    "title": "Genetic Algorithms",
-    "section": "Example of Crossover",
-    "text": "Example of Crossover\n\nF1 (Parent 1) = 10101 | 01010\nF3 (Parent 2) = 11001 | 10011\nLet’s choose crossover point or index = 5 , which means after the fifth bit\n\nChild 1 = 10101 | 10011 → “1010110011”\nChild 2 = 11001 | 01010 → “1100101010“\n\nNow, these offspring can replace some individuals in the population or undergo mutation before the next iteration.",
+    "objectID": "greedy.html#adding-constraints",
+    "href": "greedy.html#adding-constraints",
+    "title": "Introduction to Greedy Algorithms",
+    "section": "Adding Constraints",
+    "text": "Adding Constraints\n\nA constraint is a rule that limits which edges or routes you are allowed to take.\nIn our algorithm, we can use a restricted edge is an edge we prefer not to use. In this case, we only use restricted edges when no unrestricted options remain.\nConstraints change the behavior of the heuristic\nThe algorithm must prioritize legal/unrestricted moves\nRestricted moves are only used when no legal options remain\nA tuple represents one specific directed edge (“S”, “C”) and in this case a restricted edge. A tuple is perfect for this because it stores exactly two items in a fixed order: the starting node and the ending node.\nWhen we add a candidate move, we store it as a tuple: (distance, is_restricted, neighbor). Each part has a specific meaning:\n\ndistance (d): how far the move is\nis_restricted (True/False): whether we should avoid this edge\nneighbor (name): where we would go next\n\nmin() normally compares entire values. But our values are tuples, not just numbers. So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() to only look at the first item in each tuple (the distance) when deciding which is smallest.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#population-based-ga-vs.-single-solution-sa",
-    "href": "ga.html#population-based-ga-vs.-single-solution-sa",
-    "title": "Genetic Algorithms",
-    "section": "Population-based (GA) vs. Single Solution (SA)",
-    "text": "Population-based (GA) vs. Single Solution (SA)\n\nCompared to the single-solution-based metaheuristic algorithms (e.g., SA) that search only one solution at a time, GA searches for more than one solution at a time during the convergence process.\nSince GA will search for multiple directions or regions at a time, its search diversity will normally be much higher than single-solution-based metaheuristics that search for only one direction or region at a time during the convergence process.\nThese two approaches are a fundamental distinction in how the search space is explored.\n\n\nPopulation-based\n\nGA maintains and evolves a population of solutions. Works with a group of candidate solutions (a population) at each step.\n\nEvolutionary operations such as selection, crossover (recombination), and mutation are applied to create new generations of solutions.\nThe search process involves diversity maintenance because multiple solutions evolve simultaneously.\n\n\n\n\nSingle Solution\n\nSA operates on a single solution and modifies it over time.\n\nWorks with one candidate solution at a time.\nStarts with a single initial solution and iteratively moves to a new solution by applying small changes (perturbations).\nAccepts new solutions based on a probability function that depends on a temperature parameter (allowing uphill moves early in the process).",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#exploration-strategy",
-    "href": "ga.html#exploration-strategy",
-    "title": "Genetic Algorithms",
-    "section": "Exploration Strategy",
-    "text": "Exploration Strategy\n\nGA uses crossover and mutation to explore the solution space, encouraging diversity.\n\nExploration and exploitation happen naturally through genetic operators—mutation introduces diversity (exploration), and selection rewards better candidates (exploitation).\n\nSA explores the space by making probabilistic changes to a single solution, allowing uphill moves early on (controlled by the temperature).\n\nExploration and exploitation happen through a balance of random jumps (exploration) and greedy selection (exploitation).",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#deterministic-vs.-probabilistic",
-    "href": "ga.html#deterministic-vs.-probabilistic",
-    "title": "Genetic Algorithms",
-    "section": "Deterministic vs. Probabilistic:",
-    "text": "Deterministic vs. Probabilistic:\n\nGA uses deterministic selection mechanisms, such as tournament selection, and a fixed mutation rate.\n\nUnlike purely stochastic methods (e.g., roulette wheel selection), tournament selection always picks the best candidate from the subset, making it more deterministic.\nThe mutation rate is predefined and remains constant throughout the GA process (e.g., 1% or 2% of genes randomly mutate). This ensures steady convergence toward better solutions while maintaining some diversity.\n\nSA uses a temperature mechanism to probabilistically accept worse solutions early in the search.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#convergence",
-    "href": "ga.html#convergence",
-    "title": "Genetic Algorithms",
-    "section": "Convergence:",
-    "text": "Convergence:\n\nGA uses generations and selection pressure to converge on the best solution over time.\n\nGAs evolve solutions through multiple generations, where each generation consists of a population of candidate solutions.\nSelection pressure refers to how strongly better solutions are favored during reproduction.\n\nHigher selection pressure (e.g., elitism, tournament selection with large num_players) quickly promotes fitter solutions but risks premature convergence.\n\nLower selection pressure (e.g., roulette wheel selection, or tournament with lower num_players) maintains more diversity but may slow down convergence.\n\n\nOver successive generations, poor solutions are eliminated, and better solutions dominate the population.\n\nSA cools down gradually, converging based on the temperature schedule.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
-    ]
-  },
-  {
-    "objectID": "ga.html#summary",
-    "href": "ga.html#summary",
-    "title": "Genetic Algorithms",
-    "section": "Summary",
-    "text": "Summary\n\nThe design of GA is much more complex than that of SA; as a consequence, it is not only more difficult to implement than SA, it also takes much more memory space. Even Holland himself was surprised that the GA field was quiet for decades, as described in the preface of the 1992 edition of his book.\n\nWhen this book was originally published I was very optimistic, envisioning extensive reviews and a kind of “best seller” in the realm of monographs. Alas! That did not happen. After five years I did regain some optimism because the book did not “die,” as is usual with monographs, but kept on selling at 100–200 copies a year. Still, research in the area was confined almost entirely to my students and their colleagues, and it did not fit into anyone’s categories\n\nWhere John H. Holland (1929–2015) was a pioneering figure in the field of genetic algorithms (GAs). He is widely credited with formalizing and popularizing GAs as a computational approach for solving optimization and search problems.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Genetic Algorithms</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to Greedy Algorithms</span>"
     ]
   }
 ]

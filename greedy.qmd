@@ -2,6 +2,9 @@
 title: "Introduction to Greedy Algorithms"
 author: "Pamela Schlosser"
 format: html
+execute:
+  python:
+    executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
 # Optimization Problem
@@ -189,51 +192,52 @@ distances = {
 -   Each key (e.g., 'City1') represents a location. Each inner dictionary provides distances to the other cities.
 
 ```{python}
+
 # Define the cities and distances between them
 cities = ['Richmond', 'Petersburg', 'Chesapeake', 'Norfolk', 'Newport News', 'Virginia Beach']
 
 # Distances matrix (symmetric)
 distances = {
-    'Richmond': {'Petersburg': 25, 'Chesapeake': 95, 'Norfolk': 92, 'Newport News': 70, 'Virginia Beach': 100},
-    'Petersburg': {'Richmond': 25, 'Chesapeake': 85, 'Norfolk': 87, 'Newport News': 65, 'Virginia Beach': 90},
-    'Chesapeake': {'Richmond': 95, 'Petersburg': 85, 'Norfolk': 10, 'Newport News': 40, 'Virginia Beach': 15},
-    'Norfolk': {'Richmond': 92, 'Petersburg': 87, 'Chesapeake': 10, 'Newport News': 30, 'Virginia Beach': 18},
-    'Newport News': {'Richmond': 70, 'Petersburg': 65, 'Chesapeake': 40, 'Norfolk': 30, 'Virginia Beach': 45},
-    'Virginia Beach': {'Richmond': 100, 'Petersburg': 90, 'Chesapeake': 15, 'Norfolk': 18, 'Newport News': 45}
+     'Richmond': {'Petersburg': 25, 'Chesapeake': 95, 'Norfolk': 92, 'Newport News': 70, 'Virginia Beach': 100},
+     'Petersburg': {'Richmond': 25, 'Chesapeake': 85, 'Norfolk': 87, 'Newport News': 65, 'Virginia Beach': 90},
+     'Chesapeake': {'Richmond': 95, 'Petersburg': 85, 'Norfolk': 10, 'Newport News': 40, 'Virginia Beach': 15},
+     'Norfolk': {'Richmond': 92, 'Petersburg': 87, 'Chesapeake': 10, 'Newport News': 30, 'Virginia Beach': 18},
+     'Newport News': {'Richmond': 70, 'Petersburg': 65, 'Chesapeake': 40, 'Norfolk': 30, 'Virginia Beach': 45},
+     'Virginia Beach': {'Richmond': 100, 'Petersburg': 90, 'Chesapeake': 15, 'Norfolk': 18, 'Newport News': 45}
 }
 
 start_city = 'Richmond'
 
 # Function to find the nearest neighbor
 def find_nearest_neighbor(current_city, unvisited):
-    nearest_city = None
-    min_distance = float('inf')
-    for city in unvisited:
-        if distances[current_city][city] < min_distance:
-            min_distance = distances[current_city][city]
-            nearest_city = city
-    return nearest_city, min_distance
+     nearest_city = None
+     min_distance = float('inf')
+     for city in unvisited:
+          if distances[current_city][city] < min_distance:
+               min_distance = distances[current_city][city]
+          nearest_city = city
+     return nearest_city, min_distance
 
 # Nearest Neighbor algorithm implementation
 def nearest_neighbor_tsp(start_city):
-    unvisited = cities.copy()
-    unvisited.remove(start_city)
-    current_city = start_city
-    route = [start_city]
-    total_distance = 0
+     unvisited = cities.copy()
+     unvisited.remove(start_city)
+     current_city = start_city
+     route = [start_city]
+     total_distance = 0
     
-    while unvisited:
-        next_city, distance = find_nearest_neighbor(current_city, unvisited)
-        route.append(next_city)
-        total_distance += distance
-        current_city = next_city
-        unvisited.remove(current_city)
+     while unvisited:
+          next_city, distance = find_nearest_neighbor(current_city, unvisited)
+          route.append(next_city)
+          total_distance += distance
+          current_city = next_city
+          unvisited.remove(current_city)
     
-    # Return to the starting city
-    total_distance += distances[current_city][start_city]
-    route.append(start_city)
+     # Return to the starting city
+     total_distance += distances[current_city][start_city]
+     route.append(start_city)
     
-    return route, total_distance
+     return route, total_distance
 
 # Running the algorithm starting from Richmond
 route, total_distance = nearest_neighbor_tsp(start_city)
@@ -242,6 +246,93 @@ route, total_distance = nearest_neighbor_tsp(start_city)
 print("Optimal route using Nearest Neighbor:", " -> ".join(route))
 print("Total distance traveled:", total_distance, "miles")
 
+
+```
+
+# Adding Constraints
+
+-   A constraint is a rule that limits which edges or routes you are allowed to take.
+-   In our algorithm, we can use a restricted edge is an edge we prefer not to use. In this case, we only use restricted edges when no unrestricted options remain.
+-   Constraints change the behavior of the heuristic
+-   The algorithm must prioritize legal/unrestricted moves
+-   Restricted moves are only used when no legal options remain
+-   A tuple represents one specific directed edge (“S", “C") and in this case a restricted edge. A tuple is perfect for this because it stores exactly two items in a fixed order: the starting node and the ending node.
+
+* When we add a candidate move, we store it as a tuple: (distance, is_restricted, neighbor). Each part has a specific meaning:
+     -   distance (d): how far the move is
+     -   is_restricted (True/False): whether we should avoid this edge
+     -   neighbor (name): where we would go next
+
+* min() normally compares entire values. But our values are tuples, not just numbers. So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() to only look at the first item in each tuple (the distance) when deciding which is smallest.
+
+```{python}
+# Nearest Neighbor with one restricted edge:
+# Avoid S -> C unless all other options are visited.
+
+dist = {
+    "S": {"S": 0, "A": 4, "B": 6, "C": 2},
+    "A": {"S": 4, "A": 0, "B": 3, "C": 5},
+    "B": {"S": 6, "A": 3, "B": 0, "C": 4},
+    "C": {"S": 2, "A": 5, "B": 4, "C": 0},
+}
+
+# Define the restricted edge written as a set of tuple pair. 
+restricted_edges = {("S", "C")}
+
+def nearest_neighbor_with_constraint(start):
+    current = start
+    visited = {start}
+    route = [start]
+    total_distance = 0
+
+    while len(visited) < len(dist):
+        candidates = [] 
+
+        # Look at all neighbors we haven’t visited yet and skip places we have visited
+        for neighbor, d in dist[current].items(): 
+            if neighbor in visited or neighbor == current:
+                continue
+            # Check if the edge (or road) is restricted
+            is_restricted = (current, neighbor) in restricted_edges
+            # Adding this neighbor as a possible next step --- making a tuple with (distance, is_restricted, neighbor_name)
+            candidates.append((d, is_restricted, neighbor)) 
+        # separate restricted from unrestricted, preferring moves that are not restricted
+        unrestricted = [c for c in candidates if not c[1]] 
+
+        if unrestricted:
+            # choose nearest unrestricted
+            # Remember that a lambda is just a tiny, one-line function you write inside another command.
+            # In this case give n a candidate x, return its distance value x[0]
+            d, _, nxt = min(unrestricted, key=lambda x: x[0])
+            #Because every candidate is stored like this:(distance, is_restricted, 
+            # neighbor_name); x[0] = the distance; x[1] =whether restricted, and 
+            # x[2] = the neighbor name
+        else:
+            # must choose restricted (last resort)
+            d, _, nxt = min(candidates, key=lambda x: x[0])
+        
+        #Move there and update the route
+        route.append(nxt)
+        visited.add(nxt)
+        total_distance += d
+        current = nxt
+
+    # After all stops, return to the start
+    route.append(start)
+    total_distance += dist[current][start]
+
+    return route, total_distance
+
+
+# Run the algorithm
+route, total = nearest_neighbor_with_constraint("S")
+
+print("Route:", " -> ".join(route))
+print("Total distance:", total)
+
+#### Note min() normally compares entire values. But our values are tuples, not just numbers. 
+# So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() 
+# to only look at the first item in each tuple (the distance) when deciding which is smallest.
 
 ```
 

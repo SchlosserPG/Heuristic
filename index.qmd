@@ -53,6 +53,25 @@ Publisher: Academic Press\
 -   We will also review Optimization, which is a lead into Heuristic Modelling.
 
 ------------------------------------------------------------------------
+# Procedural Programming vs Object Oriented Programming (OOP)
+
+-   Procedural Programming:
+    -   In Python, you can program .py files where the code is organized into functions, with data often being passed around between them.
+    -   Functions perform specific tasks but do not group behavior and state (data) together.
+    -   All the code tends to be written in one or a few large files, without much encapsulation or separation of concerns.
+    -   The textbook uses OOP, I will supplement with procedural models.
+-   OOP:
+    -   In Python, you can use OOP to separate different parts of your code, such as algorithms, test cases, and libraries, by encapsulating them in different classes or modules. This leads to a more organized and maintainable codebase.
+    -   What can you separate:
+        -   Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.
+        -   Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.
+        -   Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.
+-   Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability.
+-   While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem's complexity and design requirements.
+
+# Libraries to Note
+
+![libraries.py](Pictures/library.png "libraries")
 
 # Optimization Problems
 
@@ -69,6 +88,35 @@ The goal of optimization is to find the best solution among many possible option
 
 -   Thinking Through Optimization: What’s one part of your daily routine that you’d love to optimize? If you could use a heuristic to make it easier or faster, how would it work?
 
+# What are Heuristic Algorithms?
+
+-   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
+     + Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
+* Algorithms are a sequence of steps providing a solution
+* Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
+     + When exact optimization takes too long, heuristics provide good solutions fast enough for decision-making.
+     + Balance between speed and accuracy: Sacrifice a small amount of precision to gain major time savings.
+
+
+# Heuristic Algorithms
+
+-   Algorithms
+    -   A sequence of steps providing a solution
+-   Heuristic
+    -   Not necessarily optimal, or “approximate”
+-   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
+
+# Types of Heuristic Methods
+
+-   Constructive Heuristics
+    -   Builds a solution step-by-step.
+    -   Example: Greedy Algorithms – making the best choice at each step.
+-   Improvement Heuristics
+    -   Starts with an initial solution and makes iterative improvements.
+    -   Example: Local Search – tweaking solutions to find better ones.
+-   Metaheuristics
+    -   Higher-level procedures guiding other heuristics.
+    -   Example: Genetic Algorithms, Simulated Annealing.
 # Example: Traveling salesman problem (TSP)
 
 -   Given a set of cities and the distance between each pair of cities, find the shortest path to visit each city and then return to the city of departure.
@@ -103,33 +151,7 @@ print(result)
 
 ![tsp routes](Pictures/tsp.png "tsp routes")
 
-# What are Heuristics?
 
--   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
-    -   Characteristics: Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
-    -   Application: Useful for making quick decisions when data is incomplete or when computational resources are limited.
--   Speed vs. Accuracy Trade-off
--   Real-world applications where exact solutions are impractical
-
-# Heuristic Algorithms
-
--   Algorithms
-    -   A sequence of steps providing a solution
--   Heuristic
-    -   Not necessarily optimal, or “approximate”
--   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
-
-# Types of Heuristic Methods
-
--   Constructive Heuristics
-    -   Builds a solution step-by-step.
-    -   Example: Greedy Algorithms – making the best choice at each step.
--   Improvement Heuristics
-    -   Starts with an initial solution and makes iterative improvements.
-    -   Example: Local Search – tweaking solutions to find better ones.
--   Metaheuristics
-    -   Higher-level procedures guiding other heuristics.
-    -   Example: Genetic Algorithms, Simulated Annealing.
 
 # Why Metaheuristics?
 

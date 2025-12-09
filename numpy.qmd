@@ -2,7 +2,9 @@
 title: "Python for Heuristics & NumPy"
 author: "Pamela Schlosser"
 format: html
-runtime: python
+execute:
+  python:
+    executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
 # Coding Know-How
@@ -68,25 +70,6 @@ return result
 
 ![program.py](Pictures/programs.png "program.py")
 
-# Procedural Programming vs Object Oriented Programming (OOP)
-
--   Procedural Programming:
-    -   In Python, you can program .py files where the code is organized into functions, with data often being passed around between them.
-    -   Functions perform specific tasks but do not group behavior and state (data) together.
-    -   All the code tends to be written in one or a few large files, without much encapsulation or separation of concerns.
-    -   The textbook uses OOP, I will supplement with procedural models.
--   OOP:
-    -   In Python, you can use OOP to separate different parts of your code, such as algorithms, test cases, and libraries, by encapsulating them in different classes or modules. This leads to a more organized and maintainable codebase.
-    -   What can you separate:
-        -   Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.
-        -   Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.
-        -   Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.
--   Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability.
--   While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem's complexity and design requirements.
-
-# Libraries to Note
-
-![libraries.py](Pictures/library.png "libraries")
 
 # Numpy Basics
 

@@ -2,7 +2,9 @@
 title: "Simulated Annealing"
 author: "Pamela Schlosser"
 format: html
-runtime: python
+execute:
+  python:
+    executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
 # What is a Metaheuristic Algorithm?
@@ -52,7 +54,7 @@ runtime: python
 
 # Simulated Annealing (SA)
 
--   If life is like simulated annealing, what’s the most memorable ‘temperature drop’ moment where you had to settle down and stick to one choice?
+**If life is like simulated annealing, what’s the most memorable ‘temperature drop’ moment where you had to settle down and stick to one choice?**
 
 -   A single-solution-based algorithm
 
@@ -544,8 +546,8 @@ min_temp = .0001
 
 # List of stocks and historical data
 stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA']
-start_date = '2023-10-01'
-end_date = '2024-10-01'
+start_date = '2023-12-01'
+end_date = '2025-12-01'
 
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
@@ -636,7 +638,7 @@ print(f"Best Sharpe Ratio: {best_sharpe:.4f}")
 print(f"Execution time: {execution_time:.6f} seconds")
 ```
 
-## Our Hill Climbing Finance Model was Better. Why?
+## Which Model is Better
 
 -   Hill Climbing
     -   Deterministic: In each iteration, the algorithm strictly accepts a new portfolio only if it improves the Sharpe ratio (a measure of risk-adjusted returns). There’s no acceptance of worse solutions.

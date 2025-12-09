@@ -8,7 +8,7 @@
 
 <meta name="author" content="Pamela Schlosser">
 
-<title>Python for Heuristics &amp; NumPy – Heuristic Modelling</title>
+<title>Python for Heuristics &amp; NumPy – Heuristic Algorithms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -178,7 +178,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Heuristic Modelling</a> 
+      <a href="./">Heuristic Algorithms</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -256,8 +256,6 @@ window.Quarto = {
   <li><a href="#coding-know-how" id="toc-coding-know-how" class="nav-link active" data-scroll-target="#coding-know-how">Coding Know-How</a></li>
   <li><a href="#writing-programs-with-internal-functions" id="toc-writing-programs-with-internal-functions" class="nav-link" data-scroll-target="#writing-programs-with-internal-functions">Writing Programs with Internal Functions</a></li>
   <li><a href="#understanding-the-loop" id="toc-understanding-the-loop" class="nav-link" data-scroll-target="#understanding-the-loop">Understanding The Loop</a></li>
-  <li><a href="#procedural-programming-vs-object-oriented-programming-oop" id="toc-procedural-programming-vs-object-oriented-programming-oop" class="nav-link" data-scroll-target="#procedural-programming-vs-object-oriented-programming-oop">Procedural Programming vs Object Oriented Programming (OOP)</a></li>
-  <li><a href="#libraries-to-note" id="toc-libraries-to-note" class="nav-link" data-scroll-target="#libraries-to-note">Libraries to Note</a></li>
   <li><a href="#numpy-basics" id="toc-numpy-basics" class="nav-link" data-scroll-target="#numpy-basics">Numpy Basics</a>
   <ul class="collapse">
   <li><a href="#basic-array-creation" id="toc-basic-array-creation" class="nav-link" data-scroll-target="#basic-array-creation">Basic Array Creation</a></li>
@@ -406,39 +404,6 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="procedural-programming-vs-object-oriented-programming-oop" class="level1">
-<h1>Procedural Programming vs Object Oriented Programming (OOP)</h1>
-<ul>
-<li>Procedural Programming:
-<ul>
-<li>In Python, you can program .py files where the code is organized into functions, with data often being passed around between them.</li>
-<li>Functions perform specific tasks but do not group behavior and state (data) together.</li>
-<li>All the code tends to be written in one or a few large files, without much encapsulation or separation of concerns.</li>
-<li>The textbook uses OOP, I will supplement with procedural models.</li>
-</ul></li>
-<li>OOP:
-<ul>
-<li>In Python, you can use OOP to separate different parts of your code, such as algorithms, test cases, and libraries, by encapsulating them in different classes or modules. This leads to a more organized and maintainable codebase.</li>
-<li>What can you separate:
-<ul>
-<li>Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.</li>
-<li>Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.</li>
-<li>Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.</li>
-</ul></li>
-</ul></li>
-<li>Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability.</li>
-<li>While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem’s complexity and design requirements.</li>
-</ul>
-</section>
-<section id="libraries-to-note" class="level1">
-<h1>Libraries to Note</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Pictures/library.png" title="libraries" class="img-fluid figure-img"></p>
-<figcaption>libraries.py</figcaption>
-</figure>
-</div>
-</section>
 <section id="numpy-basics" class="level1">
 <h1>Numpy Basics</h1>
 <ul>
@@ -578,7 +543,7 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>rand_nums <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rand_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0.66404819 0.85245772 0.65991604 0.92063824 0.28530187]</code></pre>
+<pre><code>[0.87532064 0.81098257 0.66742427 0.12803225 0.62389186]</code></pre>
 </div>
 </div>
 </section>
@@ -593,7 +558,7 @@ window.Quarto = {
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>random_values <span class="op">=</span> np.random.standard_normal(<span class="dv">5</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Standard Normal Values:"</span>, random_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random Standard Normal Values: [-1.40249368 -1.95529569  0.72202892  0.28189136 -0.90923237]</code></pre>
+<pre><code>Random Standard Normal Values: [ 0.4070242   0.93115589 -0.43552393  0.05337654  1.29644111]</code></pre>
 </div>
 </div>
 </section>
@@ -605,7 +570,7 @@ window.Quarto = {
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>random_start <span class="op">=</span> np.random.uniform(low<span class="op">=-</span><span class="dv">10</span>, high<span class="op">=</span><span class="dv">10</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Random start: </span><span class="sc">{</span>random_start<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Random start: [-0.74427727  8.76875529  0.84791715 -4.94620585  1.98499898]</code></pre>
+<pre><code>Random start: [ 0.58567145  3.02036428 -0.8137155  -3.94923155  9.06573283]</code></pre>
 </div>
 </div>
 </section>
@@ -626,7 +591,7 @@ window.Quarto = {
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>random_integers <span class="op">=</span> np.random.randint(<span class="dv">10</span>, <span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random_integers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[14 13 11 17 17]</code></pre>
+<pre><code>[10 12 13 15 18]</code></pre>
 </div>
 </div>
 <ul>
@@ -636,9 +601,9 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>random_2d_array <span class="op">=</span> np.random.randint(<span class="dv">10</span>, <span class="dv">20</span>, size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">5</span>)) </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random_2d_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[17 15 12 19 10]
- [19 19 18 14 13]
- [13 15 13 16 17]]</code></pre>
+<pre><code>[[18 13 12 18 19]
+ [16 17 14 19 13]
+ [14 15 19 13 19]]</code></pre>
 </div>
 </div>
 </section>
@@ -877,7 +842,7 @@ window.Quarto = {
 <span id="cb53-34"><a href="#cb53-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Print timing information</span></span>
 <span id="cb53-35"><a href="#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Wall time: 0.69 s</code></pre>
+<pre><code>Wall time: 0.70 s</code></pre>
 </div>
 </div>
 </section>
@@ -967,7 +932,7 @@ window.Quarto = {
 <span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Print timing information</span></span>
 <span id="cb55-29"><a href="#cb55-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>wall_time<span class="sc">:.2f}</span><span class="ss"> s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Wall time: 0.02 s</code></pre>
+<pre><code>Wall time: 0.03 s</code></pre>
 </div>
 </div>
 <ul>
