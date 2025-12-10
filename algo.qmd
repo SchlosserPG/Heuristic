@@ -5,10 +5,11 @@ format: html
 runtime: python
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 library(reticulate)
 use_condaenv("CTBA", required = TRUE)
 ```
+
 
 # *Automate This* by Christopher Steiner
 

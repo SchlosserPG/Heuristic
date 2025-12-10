@@ -6,7 +6,7 @@ execute:
   python:
     executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 library(reticulate)
 use_condaenv("CTBA", required = TRUE)
 ```
