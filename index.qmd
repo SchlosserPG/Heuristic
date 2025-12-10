@@ -53,6 +53,7 @@ Publisher: Academic Press\
 -   We will also review Optimization, which is a lead into Heuristic Modelling.
 
 ------------------------------------------------------------------------
+
 # Procedural Programming vs Object Oriented Programming (OOP)
 
 -   Procedural Programming:
@@ -73,6 +74,25 @@ Publisher: Academic Press\
 
 ![libraries.py](Pictures/library.png "libraries")
 
+Looking at import statement alternatives: 
+1. Import the entire package
+```{python}
+import numpy 
+```
+
+2. Import with an alias
+```{python}
+import numpy as np
+```
+3. Import only a specific function or class
+```{python}
+from numpy import mean
+```
+4. Import multiple specific functions
+```{python}
+from numpy import array, mean, std
+```
+
 # Optimization Problems
 
 The goal of optimization is to find the best solution among many possible options within a solution space. The process generally involves:
@@ -91,12 +111,11 @@ The goal of optimization is to find the best solution among many possible option
 # What are Heuristic Algorithms?
 
 -   Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
-     + Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
-* Algorithms are a sequence of steps providing a solution
-* Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
-     + When exact optimization takes too long, heuristics provide good solutions fast enough for decision-making.
-     + Balance between speed and accuracy: Sacrifice a small amount of precision to gain major time savings.
-
+    -   Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.
+-   Algorithms are a sequence of steps providing a solution
+-   Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
+    -   When exact optimization takes too long, heuristics provide good solutions fast enough for decision-making.
+    -   Balance between speed and accuracy: Sacrifice a small amount of precision to gain major time savings.
 
 # Heuristic Algorithms
 
@@ -109,15 +128,19 @@ The goal of optimization is to find the best solution among many possible option
 # Types of Heuristic Methods
 
 -   Constructive Heuristics
+
     -   Builds a solution step-by-step.
     -   Example: Greedy Algorithms – making the best choice at each step.
+
 -   Improvement Heuristics
+
     -   Starts with an initial solution and makes iterative improvements.
     -   Example: Local Search – tweaking solutions to find better ones.
+
 -   Metaheuristics
+
     -   Higher-level procedures guiding other heuristics.
-    -   Example: Genetic Algorithms, Simulated Annealing.
-# Example: Traveling salesman problem (TSP)
+    -   Example: Genetic Algorithms, Simulated Annealing. \# Example: Traveling salesman problem (TSP)
 
 -   Given a set of cities and the distance between each pair of cities, find the shortest path to visit each city and then return to the city of departure.
 
@@ -150,8 +173,6 @@ print(result)
 -   The number of routes are listed below in table form.
 
 ![tsp routes](Pictures/tsp.png "tsp routes")
-
-
 
 # Why Metaheuristics?
 
