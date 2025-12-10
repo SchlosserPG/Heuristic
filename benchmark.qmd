@@ -5,8 +5,12 @@ format: html
 runtime: python
 ---
 
-**In optimization research, benchmark problems serve as standardized test beds that allow algorithm designers to compare performance, uncover strengths and weaknesses, and drive methodological innovation.**
+```{r, echo=FALSE}
+library(reticulate)
+use_condaenv("CTBA", required = TRUE)
+```
 
+**In optimization research, benchmark problems serve as standardized test beds that allow algorithm designers to compare performance, uncover strengths and weaknesses, and drive methodological innovation.**
 
 # Overview of Problems
 

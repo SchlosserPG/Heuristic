@@ -251,8 +251,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#tips-for-writing-good-pseudocode" id="toc-tips-for-writing-good-pseudocode" class="nav-link" data-scroll-target="#tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#pseudocode-for-tsp-nearest-neighbor-model" id="toc-pseudocode-for-tsp-nearest-neighbor-model" class="nav-link" data-scroll-target="#pseudocode-for-tsp-nearest-neighbor-model">Pseudocode for TSP Nearest Neighbor Model</a></li>
   </ul></li>
+  <li><a href="#pseudocode-for-finding-the-minimum-number-in-a-list" id="toc-pseudocode-for-finding-the-minimum-number-in-a-list" class="nav-link" data-scroll-target="#pseudocode-for-finding-the-minimum-number-in-a-list">Pseudocode for finding the minimum number in a list</a></li>
+  <li><a href="#pseudocode-for-summing-numbers-greater-than-a-given-threshold" id="toc-pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="nav-link" data-scroll-target="#pseudocode-for-summing-numbers-greater-than-a-given-threshold">Pseudocode for summing numbers greater than a given threshold</a></li>
+  <li><a href="#pseudocode-for-tsp-nearest-neighbor-model" id="toc-pseudocode-for-tsp-nearest-neighbor-model" class="nav-link" data-scroll-target="#pseudocode-for-tsp-nearest-neighbor-model">Pseudocode for TSP Nearest Neighbor Model</a></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
@@ -286,6 +288,11 @@ window.Quarto = {
 </header>
 
 
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'reticulate' was built under R version 4.5.1</code></pre>
+</div>
+</div>
 <section id="automate-this-by-christopher-steiner" class="level1">
 <h1><em>Automate This</em> by Christopher Steiner</h1>
 <ul>
@@ -671,24 +678,19 @@ n \times F(n-1) &amp; \text{if } n &gt; 1
 <ul>
 <li>This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.</li>
 </ul>
-<pre class="{asis}"><code># Pseudocode for finding the minimum number in a list
-SET min_number = Infinity
-FOR each number IN list:
-    IF number &lt; min_number:
-        SET min_number = number
-RETURN min_number
-</code></pre>
+</section>
+</section>
+<section id="pseudocode-for-finding-the-minimum-number-in-a-list" class="level1 cell">
+<h1>Pseudocode for finding the minimum number in a list</h1>
+<p>SET min_number = Infinity FOR each number IN list: IF number &lt; min_number: SET min_number = number RETURN min_number</p>
+</section>
 <ul>
 <li>This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.</li>
 <li>edge cases: an empty list, all even numbers, or no numbers greater than the threshold.</li>
 </ul>
-<pre class="{asis}"><code># Pseudocode for summing numbers greater than a given threshold
-SET sum = 0
-FOR each number IN list:
-    IF number &gt; threshold:
-        SET sum = sum + number
-RETURN sum
-</code></pre>
+<section id="pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="level1 cell">
+<h1>Pseudocode for summing numbers greater than a given threshold</h1>
+<p>SET sum = 0 FOR each number IN list: IF number &gt; threshold: SET sum = sum + number RETURN sum</p>
 </section>
 <section id="pseudocode-for-tsp-nearest-neighbor-model" class="level2">
 <h2 class="anchored" data-anchor-id="pseudocode-for-tsp-nearest-neighbor-model">Pseudocode for TSP Nearest Neighbor Model</h2>
@@ -696,29 +698,23 @@ RETURN sum
 <li>Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.</li>
 <li>Output: It outputs the route and the total distance traveled.</li>
 </ul>
-<pre class="{asis}"><code>#inputs
-SET cities = &lt;list of cities&gt;
-SET distances = &lt;distance matrix or dictionary&gt;
-SET start_city = &lt;initial city&gt;
+<div class="cell">
+<p>#inputs SET cities = <list of="" cities=""> SET distances = <distance matrix="" or="" dictionary=""> SET start_city = <initial city=""></initial></distance></list></p>
+<section id="function-to-find-the-nearest-unvisited-city" class="level1">
+<h1>FUNCTION to find the nearest unvisited city</h1>
+<p>FUNCTION find_nearest_neighbor(current_city, unvisited, distances): SET nearest_city = None SET min_distance = infinity</p>
+<pre><code>FOR each city IN unvisited:
+    IF distances[current_city][city] &lt; min_distance:
+        SET min_distance = distances[current_city][city]
+        SET nearest_city = city
 
-
-# FUNCTION to find the nearest unvisited city
-FUNCTION find_nearest_neighbor(current_city, unvisited, distances):
-    SET nearest_city = None
-    SET min_distance = infinity
-    
-    FOR each city IN unvisited:
-        IF distances[current_city][city] &lt; min_distance:
-            SET min_distance = distances[current_city][city]
-            SET nearest_city = city
-    
-    RETURN nearest_city, min_distance
-
-# FUNCTION to solve TSP using Nearest Neighbor algorithm
-FUNCTION nearest_neighbor_tsp(start_city, cities, distances):
-# Initialize list of unvisited cities
-    SET unvisited = list of all cities EXCEPT start_city</code></pre>
+RETURN nearest_city, min_distance</code></pre>
 </section>
+<section id="function-to-solve-tsp-using-nearest-neighbor-algorithm" class="level1">
+<h1>FUNCTION to solve TSP using Nearest Neighbor algorithm</h1>
+<p>FUNCTION nearest_neighbor_tsp(start_city, cities, distances): # Initialize list of unvisited cities SET unvisited = list of all cities EXCEPT start_city</p>
+</section>
+</div>
 </section>
 <section id="using-ai" class="level1">
 <h1>Using AI</h1>

@@ -7,6 +7,12 @@ execute:
     executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
+```{r, echo=FALSE}
+library(reticulate)
+use_condaenv("CTBA", required = TRUE)
+```
+
+
 **If life is like hill climbing, what’s the moment where you took a single small step that ended up leading you to your biggest peak?**
 
 -   Hill Climbing is an optimization algorithm that starts with an arbitrary solution to a problem and iteratively makes small changes to the solution, choosing the change that improves the solution the most.
@@ -423,21 +429,18 @@ plt.show()
 
 # Hill Climbing with Finance
 
--   Diversifying your stock portfolio?
+* The code prints the best portfolio weights and the best Sharpe ratio found after the hill climbing process. The plot will show the improvement in the Sharpe ratio during the iterations.
+* In this project, ARIMA (AutoRegressive Integrated Moving Average) is used to generate forward-looking estimates of each stock’s daily return before running the hill climbing optimization. Instead of relying solely on historical averages, ARIMA fits a statistical time-series model to each stock’s past returns and forecasts the next expected return using its autoregressive (AR), differencing (I), and moving-average (MA) components.      
+* The model learns patterns such as short-term momentum, mean reversion, and noise structure in the return series and produces a predicted next-day value. These ARIMA-based forecasts are then collected into the mean_returns vector and passed into the Sharpe-ratio evaluation function, allowing the hill climbing algorithm to search for an optimal portfolio using predicted returns rather than purely historical ones. This makes the example more realistic by combining a forecasting model with a heuristic search method for portfolio construction. 
 
--   The Sharpe Ratio is formula measures the performance of an investment compared to a risk-free asset, after adjusting for risk.
-
--   The higher the Sharpe ratio, the better the risk-adjusted performance. $S$ is the Sharpe Ratio $R_p$ is the expected return of the portfolio, $R_f$ is the risk-free rate of return, $\sigma_p$ is the standard deviation (volatility) of the portfolio’s excess return. $S = \frac{R_p - R_f}{\sigma_p}$
-
--   We store the Sharpe ratio at each successful iteration in score_history, which allows us to plot the progress of the Sharpe ratio over time.
-
--   This performance function calculates the Sharpe ratio based on the portfolio weights, daily returns, and the covariance matrix of the assets.
-
--   The weights are normalized (sum to 1) both when generating the initial random portfolio and for the neighboring portfolio in each iteration.
-
--   The code prints the best portfolio weights and the best Sharpe ratio found after the hill climbing process. The plot will show the improvement in the Sharpe ratio during the iterations.
 
 ## Imports
+* Imports & Setup
+     + Uses yfinance to retrieve historical stock data.
+     + Loads core data science libraries (numpy, pandas, matplotlib).
+     + Imports ARIMA from statsmodels for time-series forecasting.
+     + Suppresses ARIMA warnings for cleaner output.
+
 
 ```{python}
 ## Hill Climbing Finance Example Using yfinance
@@ -446,10 +449,24 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
+##using ARIMA to predict forward
+from statsmodels.tsa.arima.model import ARIMA
+# to ignore ARIMA warnings for cleaner output
+import warnings
+warnings.filterwarnings("ignore")  
 
 ```
 
-## Fetching Data
+## Stock Selection and Fetch
+* Stock Selection & Date Range
+     + Predefines a list of popular tech and market-moving stocks.
+     + Uses a 2-year historical window (Dec 2023 to Dec 2025).
+     + Dates can be adjusted depending on analysis needs.
+* Data Retrieval
+     + Defines a helper function fetch_data() to download adjusted price data.
+     + Uses yf.download() with auto-adjusted prices for accuracy.
+     + Returns a full historical dataset for all selected tickers
+
 
 ```{python}
 # Selecting a few popular stocks with start date and end date
@@ -460,22 +477,108 @@ end_date = '2025-12-1'
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
     return yf.download(stocks, start=start_date, end=end_date, auto_adjust=True)
-stock_data = fetch_data(stocks, start_date, end_date)
 
 ```
 
-## Calculating performance via Sharpe Ratio
+## Defining Sharpe Ratio, Risk, and Returns
+
+-   The Sharpe Ratio is formula measures the performance of an investment compared to a risk-free asset, after adjusting for risk.
+
+-   The higher the Sharpe ratio, the better the risk-adjusted performance. $S$ is the Sharpe Ratio $R_p$ is the expected return of the portfolio, $R_f$ is the risk-free rate of return, $\sigma_p$ is the standard deviation (volatility) of the portfolio’s excess return. $S = \frac{R_p - R_f}{\sigma_p}$
+
+-   We store the Sharpe ratio at each successful iteration in score_history, which allows us to plot the progress of the Sharpe ratio over time.
+
 
 ```{python}
+
+# Calculate portfolio performance (returns, risk, and Sharpe ratio)
 def portfolio_performance(weights, mean_returns, cov_matrix):
     returns = np.sum(mean_returns * weights) * 252  # Annualized returns
     risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk
-    sharpe_ratio = returns / risk  # Sharpe ratio
+    ##taking care of division by zero
+    if risk == 0:
+        sharpe_ratio = -np.inf
+    else:
+        sharpe_ratio = returns / risk
     return returns, risk, sharpe_ratio
+
 
 ```
 
+## Using Arima
+
+
+
+* ARIMA components (p=1, d=1, q=1)
+     + If all ARIMA parameters are 1:
+     + The series is differenced once to remove trend
+     + The model captures momentum with AR(1)
+     + The model captures noise with MA(1)
+     + Forecasts behave like a smoothed random walk
+     + Parameter estimation is relatively simple
+     + It’s often a strong baseline for financial forecasting
+* We selected 6 months, but can select other time horizons. 
+* Can select other component numbers for different effects
+
+
+```{python}
+# --- ARIMA helper: forecast average daily return over next ~6 months (≈126 trading days) ---
+def arima_next_6m(series, order=(1, 1, 1), horizon=126):
+    series = np.asarray(series)
+    model = ARIMA(series, order=order)
+    model_fit = model.fit()
+    # array of predicted daily returns
+    fc = model_fit.forecast(steps=horizon)  
+    return float(np.mean(fc)) # average predicted daily return
+
+
+```
+
+* A moving average (MA) is defined as a smoothing technique where you take the average of the last k number of data points and slide that window forward through time. In contrast, using ARIMA, the moving-average term (MA) does not average recent values. Instead, it models how past forecast errors influence the current value. 
+* For the 1st forecast, ARIMA uses:
+     + The AR term (yesterday’s differenced return)
+     + The MA term (yesterday’s forecast error)
+     + The noise estimate σ
+* When forecasting into the future past forecast 1, we do not know future errors, because future observations do not exist.
+     + For forecasts beyond one step, errors are unknown and assumed 0. The ARIMA model replaces unknown future errors with their expected value = 0.
+     + MA(1) uses yesterday’s model error to improve the first forecast. The MA influence fades out after 1 step.
+     + Thus, the MA effect vanishes quickly, typically after the first day.
+
+* Over a 126-day horizon, your forecast sequence is dominated by:
+     + The AR term
+     + The integrated (d=1) structure
+     + The model’s drift
+     + The variance of historical returns
+* The model becomes smoother over long horizons
+     + Forecasts converge toward a drift or mean
+     + Uncertainty (confidence interval width) grows with each step
+     + ARIMA long-term forecasts tend to look like a slowly drifting line, not a reactive curve.
+
+
+* Is this behavior appropriate for financial returns? Yes, and in fact it's consistent with common financial assumptions:
+     + Returns follow a noisy process
+     + ARIMA(1,1,1) captures short-term noise but smooths long-term projections.
+     + Market returns have low predictability beyond days/weeks
+     + Because long-term return forecasts are inherently uncertain, a smoothing ARIMA forecast is often reasonable.
+     + You are averaging 126 forecasts
+     + So, you're not relying on a precise day-by-day prediction.
+     + Instead, you're estimating a long-term expected average daily return, which is a more stable quantity.
+     + This is actually a better-behaved target for ARIMA.
+
+
 ## Main Loop
+
+* The algorithm records the Sharpe ratio at every successful improvement and stores it in score_history. This allows us to visualize how the portfolio’s performance evolves across iterations.
+* The performance function evaluates each portfolio configuration by calculating its Sharpe ratio using:
+     + The current portfolio weights
+     + The vector of daily mean returns
+     + The covariance matrix of asset returns
+* This provides a single quantitative score for comparing solutions.
+Portfolio weights are always normalized so they sum to 1, ensuring the portfolio remains fully invested.
+* Normalization occurs both when:
+     + generating the initial random portfolio, and
+     + creating each perturbed “neighbor” portfolio during the hill climbing iterations.
+
 
 ```{python}
 def hc(mean_returns, cov_matrix, max_iterations=1000):
@@ -507,16 +610,44 @@ def hc(mean_returns, cov_matrix, max_iterations=1000):
     
     return current_weights, current_sharpe, score_history
 
+
+```
+
+* Fetch historical prices, compute daily percentage returns, and remove missing values.
+* Loop through each stock to estimate expected return.
+     + For every ticker, extract its cleaned return series.
+* Use ARIMA forecasting when sufficient data exists for longer series, estimate the next 6-month expected return using arima_next_6m().
+     + We selected major, highly liquid stocks, each stock would have far more than 30 trading days of return data
+     + However, if a stock has fewer than 30 observations, use its historical average return. This was never triggered.
+* Convert expected returns to a NumPy array
+* Prepares the vector of mean returns for optimization algorithms.
+* Compute the covariance matrix of asset returns required for portfolio risk and Sharpe ratio calculations.
+
+```{python}
 stock_data = fetch_data(stocks, start_date, end_date)
 returns = stock_data['Close'].pct_change().dropna()
-mean_returns = returns.mean()
+
+## Linking back to ARIMA
+mean_returns = []
+for s in stocks:
+    series = returns[s].dropna()
+    if len(series) < 30:
+        mean_returns.append(series.mean())
+    else:
+        mean_returns.append(arima_next_6m(series))  
+
+mean_returns = np.array(mean_returns)
+
 cov_matrix = returns.cov()
 
 ```
 
+
 ## Main Execution
 
 ```{python}
+
+# Main Execution
 start_time = time.time()
 # Run hill climbing
 best_weights, best_sharpe, score_history = hc(mean_returns, cov_matrix)
@@ -549,19 +680,19 @@ plt.show()
 
 -   The plot visualizes how the Sharpe ratio evolves over the iterations. This helps understand the performance of the hill climbing algorithm.
 
--   The weights are heavily concentrated in a few stocks, particularly: TSLA (Tesla), META (Facebook), and DIS (Walt Disney Co).
+* Interpreting the Sharpe Ratio
+     + A Sharpe ratio above 1 is usually considered acceptable
+     + Above 2 is very good
+     + Above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
 
--   A Sharpe ratio of 2.0667 is generally considered very good. A Sharpe ratio above 1 is usually considered acceptable, above 2 is very good, and above 3 is excellent, indicating that your portfolio offers a high return per unit of risk.
-
--   Our portfolio is highly concentrated in just 3 out of the 10 assets. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
-
+-   Our portfolio is highly concentrated in just a few assets, meaning that the weights are heavily concentrated in a few stocks. The algorithm has effectively zeroed out the remaining assets, which can either be a good or bad thing depending on the actual data.
     -   Pros: Concentration might mean that the algorithm has found a combination of assets that offer the best Sharpe ratio, meaning it is maximizing returns while minimizing risk.
     -   Cons: Concentrating in a few assets can increase the overall risk due to lack of diversification.
 
 ## Items To Consider
 
--   A Sharpe ratio of \> 2 is very good, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.
--   Whether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period.
+-   A Sharpe ratio of \> 3 is excellent, suggesting that the portfolio has a favorable balance of return vs. risk. This ratio indicates that for each unit of risk, your portfolio earns more than two times the return.
+-   Whether this Sharpe ratio is truly impressive depends on the quality and volatility of the returns in the dataset. A very high Sharpe ratio from a simple HC optimizer is unusual in real markets. Financial markets rarely produce consistently high Sharpe ratios, so the high value might indicate the presence of some anomaly, or it could be due to a limited timeframe or low volatility in the assets during this period. It may also indicate model overfitting, or a feature of the simulated behavior rather than tradable results
 -   Given the high concentration in a few stocks, there’s a risk that the algorithm might be overfitting to the specific data in the training period. This means the portfolio might perform very well during the period used for the analysis but might not generalize well to future periods.
 -   Things to Try Next:
     -   Backtesting: Test this portfolio over a different time period or a longer time horizon to see if it maintains its high Sharpe ratio.

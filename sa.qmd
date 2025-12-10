@@ -7,6 +7,11 @@ execute:
     executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
+```{r, echo=FALSE}
+library(reticulate)
+use_condaenv("CTBA", required = TRUE)
+```
+
 # What is a Metaheuristic Algorithm?
 
 -   One of the main attributes of a metaheuristic algorithm is that it performs a certain set of operators for a certain number of iterations to search for the optimal solution with great shrewdness.
@@ -531,36 +536,60 @@ plt.show()
 # Portfolio Diversification With SA
 
 ```{python}
-#Simulated Annealing Finance Example
+#Optimize the portfolio based on the ARIMA-predicted average daily return over the next 6 months.
+
+##Using ARIMA model to forecast returns in Simulated Annealing for Portfolio Optimization
+## Selected 6 months horizon for return prediction
+## Lots of options for tuning ARIMA parameters
+
+# Simulated Annealing Finance Example
 import yfinance as yf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
+from statsmodels.tsa.arima.model import ARIMA  
+import warnings
+# to ignore ARIMA warnings for cleaner output
+warnings.filterwarnings("ignore")  
+
 
 # Define the necessary global variables
 max_evals = 1000
 initial_temp = 10
 cooling_rate = 0.99
-min_temp = .0001
+min_temp = 0.0001
 
 # List of stocks and historical data
-stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA']
+stocks = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'NFLX', 'NVDA', 'META', 'DIS', 'BA', 'QQQ', 'VTI']
 start_date = '2023-12-01'
 end_date = '2025-12-01'
 
 # Fetch historical stock data
 def fetch_data(stocks, start_date, end_date):
     return yf.download(stocks, start=start_date, end=end_date, auto_adjust=True)
+
 stock_data = fetch_data(stocks, start_date, end_date)
 
+# --- ARIMA helper: forecast average daily return over next ~6 months (≈126 trading days) ---
+def arima_next_6m(series, order=(1, 1, 1), horizon=126):
+    series = np.asarray(series)
+    model = ARIMA(series, order=order)
+    model_fit = model.fit()
+    fc = model_fit.forecast(steps=horizon)  # array of predicted daily returns
+    return float(np.mean(fc))              # average predicted daily return
 
 # Evaluation Function (E): Portfolio performance calculation
 def portfolio_performance(weights, mean_returns, cov_matrix):
-    returns = np.sum(mean_returns * weights) * 252  # Annualized returns
-    risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk
-    sharpe_ratio = returns / risk  # Sharpe ratio
-    return returns, risk, sharpe_ratio
+     # Annualized returns
+     returns = np.sum(mean_returns * weights) * 252  
+     risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(252)  # Annualized risk
+     ##taking care of division by zero issue, which is rare but possible
+     if risk == 0:
+          sharpe_ratio = -np.inf
+     else:
+          sharpe_ratio = returns / risk  # Sharpe ratio
+     return returns, risk, sharpe_ratio
 
 # Initialization function (I)
 def initialize_portfolio(stocks):
@@ -573,7 +602,7 @@ def transition_portfolio(weights):
     new_weights = weights.copy()
     index = np.random.randint(len(weights))
     new_weights[index] = np.random.uniform(0, 1)
-    new_weights /= np.sum(new_weights)  
+    new_weights /= np.sum(new_weights)
     return new_weights
 
 # Determination function (D)
@@ -610,20 +639,33 @@ def simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_tem
 
     return best_weights, best_sharpe, sharpe_history
 
+# Compute returns from Close prices
 returns = stock_data['Close'].pct_change().dropna()
-mean_returns = returns.mean()
+
+# Build ARIMA-based mean_returns: predicted avg daily return over next 6 months
+mean_returns_list = []
+for s in stocks:
+    series = returns[s].dropna()
+    if len(series) < 30:  # Fallback if not enough data for ARIMA
+        mean_returns_list.append(series.mean())
+    else:
+        mean_returns_list.append(arima_next_6m(series))
+
+mean_returns = np.array(mean_returns_list)
 cov_matrix = returns.cov()
 
 # Run simulated annealing for portfolio optimization
 start_time = time.time()
-best_weights, best_sharpe, sharpe_history = simulated_annealing(stocks, mean_returns, cov_matrix, max_evals, initial_temp, cooling_rate)
+best_weights, best_sharpe, sharpe_history = simulated_annealing(
+    stocks, mean_returns, cov_matrix, max_evals, initial_temp, cooling_rate
+)
 end_time = time.time()
 execution_time = end_time - start_time
 
 # Plot the progress of the simulated annealing algorithm
 plt.figure(figsize=(10, 6))
 plt.plot(sharpe_history, marker='o', linestyle='-', color='b', label='Sharpe Ratio Progress')
-plt.title("Simulated Annealing Progress for Portfolio Optimization (Sharpe Ratio)")
+plt.title("Simulated Annealing Progress for Portfolio Optimization (Sharpe Ratio, 6-Month ARIMA)")
 plt.xlabel("Iteration")
 plt.ylabel("Sharpe Ratio")
 plt.grid(True)
@@ -636,6 +678,7 @@ for i, stock in enumerate(stocks):
     print(f"{stock}: {best_weights[i]:.4f}")
 print(f"Best Sharpe Ratio: {best_sharpe:.4f}")
 print(f"Execution time: {execution_time:.6f} seconds")
+
 ```
 
 ## Which Model is Better

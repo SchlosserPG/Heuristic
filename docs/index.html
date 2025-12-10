@@ -1,8 +1,987 @@
-<html xmlns="http://www.w3.org/1999/xhtml">    
-  <head>      
-    <title>Redirect to index.html</title>      
-    <meta http-equiv="refresh" content="0;URL='index.html'" />    
-  </head>    
-  <body> 
-  </body>  
-</html>     
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="BUAD5042: Schlosser">
+<meta name="dcterms.date" content="2025-12-01">
+
+<title>Heuristic Algorithms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./algo.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-64b801fe9b6685c0a799f7172ecad621.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XC0ZP42MWM"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-XC0ZP42MWM');
+
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Introduction to Heuristic Algorithms</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Heuristic Algorithms</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introduction to Heuristic Algorithms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./algo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Algorithm Design and Pseudocode</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Python for Heuristics &amp; NumPy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greedy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction to Greedy Algorithms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmark.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benchmark Optimization Problems</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./es.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exhaustive Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Hill Climbing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sa.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Simulated Annealing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ga.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Genetic Algorithms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Required Reading Materials</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a>
+  <ul class="collapse">
+  <li><a href="#course-goals" id="toc-course-goals" class="nav-link" data-scroll-target="#course-goals">Course Goals</a></li>
+  <li><a href="#required-book" id="toc-required-book" class="nav-link" data-scroll-target="#required-book">Required Book</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-metaheuristic-algorithms" id="toc-introduction-to-metaheuristic-algorithms" class="nav-link" data-scroll-target="#introduction-to-metaheuristic-algorithms">Introduction to Metaheuristic Algorithms</a></li>
+  <li><a href="#procedural-programming-vs-object-oriented-programming-oop" id="toc-procedural-programming-vs-object-oriented-programming-oop" class="nav-link" data-scroll-target="#procedural-programming-vs-object-oriented-programming-oop">Procedural Programming vs Object Oriented Programming (OOP)</a></li>
+  <li><a href="#libraries-to-note" id="toc-libraries-to-note" class="nav-link" data-scroll-target="#libraries-to-note">Libraries to Note</a></li>
+  <li><a href="#optimization-problems" id="toc-optimization-problems" class="nav-link" data-scroll-target="#optimization-problems">Optimization Problems</a></li>
+  <li><a href="#what-are-heuristic-algorithms" id="toc-what-are-heuristic-algorithms" class="nav-link" data-scroll-target="#what-are-heuristic-algorithms">What are Heuristic Algorithms?</a></li>
+  <li><a href="#heuristic-algorithms" id="toc-heuristic-algorithms" class="nav-link" data-scroll-target="#heuristic-algorithms">Heuristic Algorithms</a></li>
+  <li><a href="#types-of-heuristic-methods" id="toc-types-of-heuristic-methods" class="nav-link" data-scroll-target="#types-of-heuristic-methods">Types of Heuristic Methods</a></li>
+  <li><a href="#why-metaheuristics" id="toc-why-metaheuristics" class="nav-link" data-scroll-target="#why-metaheuristics">Why Metaheuristics?</a></li>
+  <li><a href="#organization-and-structure-of-the-metaheuristics-book" id="toc-organization-and-structure-of-the-metaheuristics-book" class="nav-link" data-scroll-target="#organization-and-structure-of-the-metaheuristics-book">Organization and Structure of the Metaheuristics Book</a></li>
+  <li><a href="#what-we-cover" id="toc-what-we-cover" class="nav-link" data-scroll-target="#what-we-cover">What We Cover</a></li>
+  <li><a href="#a-family-tree-of-metaheuristic-algorithms" id="toc-a-family-tree-of-metaheuristic-algorithms" class="nav-link" data-scroll-target="#a-family-tree-of-metaheuristic-algorithms">A family tree of metaheuristic algorithms</a></li>
+  <li><a href="#a-critical-question" id="toc-a-critical-question" class="nav-link" data-scroll-target="#a-critical-question">A Critical Question</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Heuristic Algorithms</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>BUAD5042: Schlosser </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 1, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="course-overview" class="level1">
+<h1>Course Overview</h1>
+<ul>
+<li>Most business problems are too large or too complex to be solved optimally, where the strict meaning of “optimal” means finding the provably best solution. Finding a solution that approximates the optimal solution is, therefore, the predominant mode of problem solving found in industry: these are called heuristic solutions. Many companies gain a competitive advantage by constructing heuristics that either find better solutions than their competitors or find solutions more quickly. This course focuses on achieving such results by programming custom algorithms, which are a sequence of steps taken to provide a solution to a problem.</li>
+</ul>
+<section id="course-goals" class="level2">
+<h2 class="anchored" data-anchor-id="course-goals">Course Goals</h2>
+<ul>
+<li>Develop a solid process for algorithm development.</li>
+<li>Enhance Python programming skills.</li>
+<li>Understand the structure of heuristic models, focusing on:
+<ul>
+<li>Hill climbing</li>
+<li>Simulated annealing</li>
+<li>Genetic algorithms</li>
+</ul></li>
+</ul>
+</section>
+<section id="required-book" class="level2">
+<h2 class="anchored" data-anchor-id="required-book">Required Book</h2>
+<p><strong>Handbook of Metaheuristic Algorithms</strong><br>
+Authors: Chun-Wei Tsai &amp; Ming-Chao Chiang<br>
+Publisher: Academic Press<br>
+</p>
+<ul>
+<li>Access the book free through O’Reilly’s website with school credentials.</li>
+<li>Python code is available on the <a href="https://github.com/cwtsaiai/metaheuristics_2023/tree/main/src/python">author’s GitHub</a>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="introduction-to-metaheuristic-algorithms" class="level1">
+<h1>Introduction to Metaheuristic Algorithms</h1>
+<ul>
+<li><p>The required textbook provides an overview of optimization and heuristic models and has a number of metaheuristic models. We will only go through a few in class, but this book may serve as a good resource in the future.</p></li>
+<li><p>Metaheuristic algorithms can be considered the epitome of unsupervised learning algorithms for the optimization of engineering and artificial intelligence problems.</p></li>
+<li><p>Examples include:</p>
+<ul>
+<li><strong>Simulated Annealing</strong> (SA)</li>
+<li><strong>Tabu Search</strong> (TS)</li>
+<li><strong>Genetic Algorithms</strong> (GA)</li>
+<li><strong>Ant Colony Optimization</strong> (ACO)</li>
+<li><strong>Particle Swarm Optimization</strong> (PSO)</li>
+<li><strong>Differential Evolution</strong> (DE)</li>
+</ul></li>
+<li><p>Distinct from most supervised learning algorithms that need labeled data to learn and construct determination models, metaheuristic algorithms inherit characteristics of unsupervised learning algorithms used for solving complex engineering optimization problems without labeled data, just like self-learning, to find solutions to complex problems.</p></li>
+<li><p>Although readers may be able to find source code for some metaheuristic algorithms on the Internet, the coding styles and explanations are generally quite different, and thus requiring expanded knowledge between theory and implementation.</p></li>
+<li><p>We will not cover the dept of knowledge in the book, and instead, just get a taste for metaheuristics. We will focus on process and how to adapt and make the right decisions given the problem type.</p></li>
+<li><p>We will also review Optimization, which is a lead into Heuristic Modelling.</p></li>
+</ul>
+<hr>
+</section>
+<section id="procedural-programming-vs-object-oriented-programming-oop" class="level1">
+<h1>Procedural Programming vs Object Oriented Programming (OOP)</h1>
+<ul>
+<li>Procedural Programming:
+<ul>
+<li>In Python, you can program .py files where the code is organized into functions, with data often being passed around between them.</li>
+<li>Functions perform specific tasks but do not group behavior and state (data) together.</li>
+<li>All the code tends to be written in one or a few large files, without much encapsulation or separation of concerns.</li>
+<li>The textbook uses OOP, I will supplement with procedural models.</li>
+</ul></li>
+<li>OOP:
+<ul>
+<li>In Python, you can use OOP to separate different parts of your code, such as algorithms, test cases, and libraries, by encapsulating them in different classes or modules. This leads to a more organized and maintainable codebase.</li>
+<li>What can you separate:
+<ul>
+<li>Algorithm (Core Logic): You encapsulate the algorithm or formula into a class or function within a class.</li>
+<li>Library (Utility Functions):Any utility functions or reusable logic can be put into a separate class (or module) that handles common operations.</li>
+<li>Test Cases (Validation):Testing is often done through separate classes or functions, typically in a separate module.</li>
+</ul></li>
+</ul></li>
+<li>Both are fine ways to program, but note that both approaches differ in regards to solving problems in Python. Procedural programming focuses on structuring code into functions and sequences of instructions, making it straightforward and ideal for simpler tasks or smaller projects. In contrast, OOP organizes code around objects, which encapsulate data and behavior, allowing for greater modularity, reuse, and scalability.</li>
+<li>While procedural programming excels in scenarios where tasks are linear, OOP excels in complex applications that benefit from abstraction and inheritance. Python supports both paradigms, letting developers choose the best approach based on the problem’s complexity and design requirements.</li>
+</ul>
+</section>
+<section id="libraries-to-note" class="level1">
+<h1>Libraries to Note</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/library.png" title="libraries" class="img-fluid figure-img"></p>
+<figcaption>libraries.py</figcaption>
+</figure>
+</div>
+</section>
+<section id="optimization-problems" class="level1">
+<h1>Optimization Problems</h1>
+<p>The goal of optimization is to find the best solution among many possible options within a solution space. The process generally involves:</p>
+<ol type="1">
+<li>Find possible solutions,</li>
+<li>Evaluate possible solutions to obtain qualities, and</li>
+<li>Compare qualities of solutions we have and</li>
+<li>Determine whether or not to repeat the process until an appropriate solution is found.</li>
+</ol>
+<ul>
+<li><p>Find good solutions; estimate these solutions; and finally use the information thus obtained to make a decision. OR</p></li>
+<li><p>Simply announce that the solution for the problem in question has been found.</p></li>
+<li><p>Thinking Through Optimization: What’s one part of your daily routine that you’d love to optimize? If you could use a heuristic to make it easier or faster, how would it work?</p></li>
+</ul>
+</section>
+<section id="what-are-heuristic-algorithms" class="level1">
+<h1>What are Heuristic Algorithms?</h1>
+<ul>
+<li>Heuristics are problem-solving methods that use a practical approach to reach solutions or decisions more quickly.
+<ul>
+<li>Simplified rules, shortcuts, or educated guesses that may not guarantee a perfect solution but are efficient.</li>
+</ul></li>
+<li>Algorithms are a sequence of steps providing a solution</li>
+<li>Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.
+<ul>
+<li>When exact optimization takes too long, heuristics provide good solutions fast enough for decision-making.</li>
+<li>Balance between speed and accuracy: Sacrifice a small amount of precision to gain major time savings.</li>
+</ul></li>
+</ul>
+</section>
+<section id="heuristic-algorithms" class="level1">
+<h1>Heuristic Algorithms</h1>
+<ul>
+<li>Algorithms
+<ul>
+<li>A sequence of steps providing a solution</li>
+</ul></li>
+<li>Heuristic
+<ul>
+<li>Not necessarily optimal, or “approximate”</li>
+</ul></li>
+<li>Heuristic Algorithms are used when optimal methods take too long, and a timely answer required for effective action.</li>
+</ul>
+</section>
+<section id="types-of-heuristic-methods" class="level1">
+<h1>Types of Heuristic Methods</h1>
+<ul>
+<li><p>Constructive Heuristics</p>
+<ul>
+<li>Builds a solution step-by-step.</li>
+<li>Example: Greedy Algorithms – making the best choice at each step.</li>
+</ul></li>
+<li><p>Improvement Heuristics</p>
+<ul>
+<li>Starts with an initial solution and makes iterative improvements.</li>
+<li>Example: Local Search – tweaking solutions to find better ones.</li>
+</ul></li>
+<li><p>Metaheuristics</p>
+<ul>
+<li>Higher-level procedures guiding other heuristics.</li>
+<li>Example: Genetic Algorithms, Simulated Annealing. # Example: Traveling salesman problem (TSP)</li>
+</ul></li>
+<li><p>Given a set of cities and the distance between each pair of cities, find the shortest path to visit each city and then return to the city of departure.</p></li>
+<li><p>To calculate how many paths there are in a TSP problem, an author might divide (n−1)! by 2 to account for the fact that in the Traveling Salesman Problem (TSP), routes that are the reverse of each other are considered equivalent.</p></li>
+<li><p>In this example, r1-r3 are unique routes and r4-r6 are direct reversals of r1-r3.</p></li>
+<li><p>This formula, (n−1)! /2 is commonly used when considering the TSP under the assumption that the direction of travel does not matter, which is often the case. <img src="Pictures/tsp1.png" title="TSP" class="img-fluid" alt="TSP Chart"></p></li>
+<li><p>Different paths for a truck driver in the case of four cities.</p></li>
+</ul>
+<div id="b8c1bc18" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Disable scientific notation in NumPy output </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an array from 3 to 10 (since you need (n-1)! for n=4..11)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> np.arange(<span class="dv">3</span>, <span class="dv">11</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use np.vectorize to apply math.factorial elementwise, then divide by 2</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> np.vectorize(factorial)(n) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># math.factorial() only works on one number at a time, but NumPy arrays are designed for operations that apply element-by-element automatically — if the function is a NumPy universal function, like np.sqrt, np.exp, np.add, etc. However, math.factorial() is not a NumPy function — it’s a plain Python function that expects a single integer. np.vectorize() acts as a wrapper around any regular Python function, turning it into something that behaves like a universal function. </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[      3.      12.      60.     360.    2520.   20160.  181440. 1814400.]</code></pre>
+</div>
+</div>
+<ul>
+<li>The number of routes are listed below in table form.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/tsp.png" title="tsp routes" class="img-fluid figure-img"></p>
+<figcaption>tsp routes</figcaption>
+</figure>
+</div>
+</section>
+<section id="why-metaheuristics" class="level1">
+<h1>Why Metaheuristics?</h1>
+<ul>
+<li>Unlike generating and checking all the candidate solutions systematically, the basic idea of metaheuristics is to find an approximate solution out of a very large solution space for a complex problem in a “reasonable time” via a “strategic guess.”
+<ul>
+<li>For most complex optimization problems, modern computers are incapable of finding the best solution using exhaustive search (ES) because the number of possible candidate solutions is simply way too large to be checked in a reasonable time.</li>
+<li>As long as it is impossible to check all solutions in the solution space of a complex optimization problem in a reasonable time, metaheuristic algorithms provide a possible solution to the problem in the sense that an approximate, or even optimal, solution can be found in a reasonable time.</li>
+</ul></li>
+</ul>
+</section>
+<section id="organization-and-structure-of-the-metaheuristics-book" class="level1">
+<h1>Organization and Structure of the Metaheuristics Book</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/Ch1Book.png" title="Overview" class="img-fluid figure-img"></p>
+<figcaption>Book Overview</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/Ch1Book2.png" title="Overview" class="img-fluid figure-img"></p>
+<figcaption>Book Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-we-cover" class="level1">
+<h1>What We Cover</h1>
+<ul>
+<li><p>How to Write and Read and Algorithm</p></li>
+<li><p>Summary of Optimization</p></li>
+<li><p>Travelling Salesman</p></li>
+<li><p>Greedy Algorithm</p></li>
+<li><p>Some Benchmark Problems</p></li>
+<li><p>Exhaustive Search</p></li>
+<li><p>Hill Climbing</p></li>
+<li><p>Metaheuristics</p>
+<ul>
+<li>Simulated Annealing</li>
+<li>Genetic Algorithm</li>
+</ul></li>
+<li><p>Algorithm -&gt; Pseudocode -&gt; Implementation in Python <img src="Pictures/Ch1Pseudo.png" title="Pseudocode" class="img-fluid" alt="Pseudocode"></p></li>
+</ul>
+</section>
+<section id="a-family-tree-of-metaheuristic-algorithms" class="level1">
+<h1>A family tree of metaheuristic algorithms</h1>
+<ul>
+<li><p>Besides summarizing Optimization and Heuristic Models, we will cover Simulated Annealing and Genetic Algorithms. Some example of Metaheuristics are below:</p></li>
+<li><p>Local Search-Based Metaheuristics</p>
+<ul>
+<li>Aim: Incrementally improve solutions by exploring the neighborhood of the current solution.</li>
+<li>Hill Climbing</li>
+<li>Simulated Annealing: Inspired by the annealing process in metallurgy. Balances exploration (random moves) and exploitation (accepting improvements), with a temperature parameter to control randomness.</li>
+<li>Tabu Search: Uses memory structures to avoid revisiting recently explored solutions.</li>
+</ul></li>
+<li><p>Evolutionary Computation</p>
+<ul>
+<li>Aim: Mimic natural evolutionary processes, working with populations of solutions.</li>
+<li>Genetic Algorithms (GA): Inspired by natural selection, combining selection, crossover, and mutation operators to evolve solutions.</li>
+<li>Differential Evolution: Operates by recombining population members based on differences between solution vectors.</li>
+</ul></li>
+<li><p>Swarm Intelligence</p>
+<ul>
+<li>Ant Colony Optimization (ACO): Mimics the foraging behavior of ants, using pheromone trails to guide the search.</li>
+<li>Cuckoo Search: Inspired by the brood parasitism of cuckoos.</li>
+<li>Particle Swarm Optimization (PSO): Inspired by social behaviors of animals, where individuals adjust their positions based on personal and social information.</li>
+<li>Artificial Bee Colony Algorithm: Based on foraging behavior of bees, balancing local and global search.</li>
+<li>Firefly Algorithm: Inspired by the attraction behavior of fireflies.</li>
+<li>Whale Optimization Algorithm: Mimics the bubble-net feeding behavior of humpback whales.</li>
+</ul></li>
+<li><p>Human Intelligence</p>
+<ul>
+<li>Harmony Search: Mimics the improvisation process of musicians, balancing between memory considerations and random adjustments.</li>
+</ul></li>
+<li><p>Nature-Inspired Algorithms: Inspired by various natural and biological phenomena.</p>
+<ul>
+<li>Artificial Immune System: Models the immune response, maintaining diversity and adapting to threats.</li>
+<li>Flower Pollination Algorithm: The Flower Pollination Algorithm (FPA) is a nature-inspired optimization technique based on the pollination behavior of flowering plants.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-critical-question" class="level1">
+<h1>A Critical Question</h1>
+<ul>
+<li>How do we choose an applicable metaheuristic algorithm for an optimization problem in question?</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./algo.html" class="pagination-link" aria-label="Algorithm Design and Pseudocode">
+        <span class="nav-page-text"><span class="chapter-title">Algorithm Design and Pseudocode</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

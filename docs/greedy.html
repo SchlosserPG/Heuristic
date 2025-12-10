@@ -314,6 +314,11 @@ window.Quarto = {
 </header>
 
 
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'reticulate' was built under R version 4.5.1</code></pre>
+</div>
+</div>
 <section id="optimization-problem" class="level1">
 <h1>Optimization Problem</h1>
 <ul>
@@ -382,35 +387,36 @@ window.Quarto = {
 <p>Where <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor\)</span> is the number of coins of denomination <span class="math inline">\(c_i\)</span> is used.</p>
 <p><span class="math inline">\(A\)</span> is reduced by the value <span class="math inline">\(\left\lfloor \frac{A}{c_i} \right\rfloor \times c_i\)</span></p>
 <p>After using as many <span class="math inline">\(c_i\)</span> denomination coins as possible. The process continues until <span class="math inline">\(A=0\)</span>, at which point the minimum number of coins required to make the total amount is found.</p>
-<div id="3be60a16" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> coin <span class="kw">in</span> coins:</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> amount <span class="op">&gt;=</span> coin:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            amount <span class="op">-=</span> coin</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            result.append(coin)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print the coins used</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Coins used: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the number of coins used</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(result)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get user input (Put in 70 to show answer, but can request information from user)</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>amount <span class="op">=</span> <span class="dv">70</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># amount = int(input("Enter the amount: "))</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Coin denominations</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the solution</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>num_coins <span class="op">=</span> greedy_coin_change(coins, amount)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum number of coins needed: </span><span class="sc">{</span>num_coins<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greedy_coin_change(coins, amount):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    coins.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> coin <span class="kw">in</span> coins:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> amount <span class="op">&gt;=</span> coin:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            amount <span class="op">-=</span> coin</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            result.append(coin)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print the coins used</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Coins used: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the number of coins used</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(result)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get user input (Put in 70 to show answer, but can request information from user)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>amount <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># amount = int(input("Enter the amount: "))</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Coin denominations</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>]</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the solution</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>num_coins <span class="op">=</span> greedy_coin_change(coins, amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Coins used: [25, 25, 10, 10]
-Minimum number of coins needed: 4</code></pre>
+<pre><code>Coins used: [25, 25, 10, 10]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum number of coins needed: </span><span class="sc">{</span>num_coins<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Minimum number of coins needed: 4</code></pre>
 </div>
 </div>
 </section>
@@ -509,12 +515,12 @@ Minimum number of coins needed: 4</code></pre>
 <ul>
 <li>A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries.</li>
 </ul>
-<div id="8d55b8f4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key1"</span>: <span class="st">"value1"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key2"</span>: <span class="st">"value2"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key3"</span>: <span class="st">"value3"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key1"</span>: <span class="st">"value1"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key2"</span>: <span class="st">"value2"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"key3"</span>: <span class="st">"value3"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>A dictionary of dictionaries is a nested data structure in Python where the values of a dictionary are themselves dictionaries. It allows for organizing hierarchical or complex data in a structured way. This type of dictionary is especially useful for representing relationships, groupings, or matrices where each primary key maps to another dictionary of key-value pairs.</p></li>
@@ -524,72 +530,74 @@ Minimum number of coins needed: 4</code></pre>
 <li>Inner Dictionary: Contains distances to other cities from that city.</li>
 </ul></li>
 </ul>
-<div id="2a3bd214" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City1'</span>: {<span class="st">'City2'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">10</span>},</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City2'</span>: {<span class="st">'City1'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">8</span>},</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City3'</span>: {<span class="st">'City1'</span>: <span class="dv">10</span>, <span class="st">'City2'</span>: <span class="dv">8</span>}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City1'</span>: {<span class="st">'City2'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">10</span>},</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City2'</span>: {<span class="st">'City1'</span>: <span class="dv">5</span>, <span class="st">'City3'</span>: <span class="dv">8</span>},</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">'City3'</span>: {<span class="st">'City1'</span>: <span class="dv">10</span>, <span class="st">'City2'</span>: <span class="dv">8</span>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Each key (e.g., ‘City1’) represents a location. Each inner dictionary provides distances to the other cities.</li>
 </ul>
-<div id="652bc4c4" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances matrix (symmetric)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Richmond'</span>: {<span class="st">'Petersburg'</span>: <span class="dv">25</span>, <span class="st">'Chesapeake'</span>: <span class="dv">95</span>, <span class="st">'Norfolk'</span>: <span class="dv">92</span>, <span class="st">'Newport News'</span>: <span class="dv">70</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">100</span>},</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Petersburg'</span>: {<span class="st">'Richmond'</span>: <span class="dv">25</span>, <span class="st">'Chesapeake'</span>: <span class="dv">85</span>, <span class="st">'Norfolk'</span>: <span class="dv">87</span>, <span class="st">'Newport News'</span>: <span class="dv">65</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">90</span>},</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Chesapeake'</span>: {<span class="st">'Richmond'</span>: <span class="dv">95</span>, <span class="st">'Petersburg'</span>: <span class="dv">85</span>, <span class="st">'Norfolk'</span>: <span class="dv">10</span>, <span class="st">'Newport News'</span>: <span class="dv">40</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">15</span>},</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Norfolk'</span>: {<span class="st">'Richmond'</span>: <span class="dv">92</span>, <span class="st">'Petersburg'</span>: <span class="dv">87</span>, <span class="st">'Chesapeake'</span>: <span class="dv">10</span>, <span class="st">'Newport News'</span>: <span class="dv">30</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">18</span>},</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Newport News'</span>: {<span class="st">'Richmond'</span>: <span class="dv">70</span>, <span class="st">'Petersburg'</span>: <span class="dv">65</span>, <span class="st">'Chesapeake'</span>: <span class="dv">40</span>, <span class="st">'Norfolk'</span>: <span class="dv">30</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">45</span>},</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Virginia Beach'</span>: {<span class="st">'Richmond'</span>: <span class="dv">100</span>, <span class="st">'Petersburg'</span>: <span class="dv">90</span>, <span class="st">'Chesapeake'</span>: <span class="dv">15</span>, <span class="st">'Norfolk'</span>: <span class="dv">18</span>, <span class="st">'Newport News'</span>: <span class="dv">45</span>}</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>start_city <span class="op">=</span> <span class="st">'Richmond'</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to find the nearest neighbor</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_nearest_neighbor(current_city, unvisited):</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>     nearest_city <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>     min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">'inf'</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> city <span class="kw">in</span> unvisited:</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> distances[current_city][city] <span class="op">&lt;</span> min_distance:</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>               min_distance <span class="op">=</span> distances[current_city][city]</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>          nearest_city <span class="op">=</span> city</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> nearest_city, min_distance</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Nearest Neighbor algorithm implementation</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_neighbor_tsp(start_city):</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>     unvisited <span class="op">=</span> cities.copy()</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>     unvisited.remove(start_city)</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>     current_city <span class="op">=</span> start_city</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>     route <span class="op">=</span> [start_city]</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>     total_distance <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>     <span class="cf">while</span> unvisited:</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>          next_city, distance <span class="op">=</span> find_nearest_neighbor(current_city, unvisited)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>          route.append(next_city)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>          total_distance <span class="op">+=</span> distance</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>          current_city <span class="op">=</span> next_city</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>          unvisited.remove(current_city)</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Return to the starting city</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>     total_distance <span class="op">+=</span> distances[current_city][start_city]</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>     route.append(start_city)</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> route, total_distance</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Running the algorithm starting from Richmond</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>route, total_distance <span class="op">=</span> nearest_neighbor_tsp(start_city)</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the result</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal route using Nearest Neighbor:"</span>, <span class="st">" -&gt; "</span>.join(route))</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total distance traveled:"</span>, total_distance, <span class="st">"miles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances matrix (symmetric)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Richmond'</span>: {<span class="st">'Petersburg'</span>: <span class="dv">25</span>, <span class="st">'Chesapeake'</span>: <span class="dv">95</span>, <span class="st">'Norfolk'</span>: <span class="dv">92</span>, <span class="st">'Newport News'</span>: <span class="dv">70</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">100</span>},</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Petersburg'</span>: {<span class="st">'Richmond'</span>: <span class="dv">25</span>, <span class="st">'Chesapeake'</span>: <span class="dv">85</span>, <span class="st">'Norfolk'</span>: <span class="dv">87</span>, <span class="st">'Newport News'</span>: <span class="dv">65</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">90</span>},</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Chesapeake'</span>: {<span class="st">'Richmond'</span>: <span class="dv">95</span>, <span class="st">'Petersburg'</span>: <span class="dv">85</span>, <span class="st">'Norfolk'</span>: <span class="dv">10</span>, <span class="st">'Newport News'</span>: <span class="dv">40</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">15</span>},</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Norfolk'</span>: {<span class="st">'Richmond'</span>: <span class="dv">92</span>, <span class="st">'Petersburg'</span>: <span class="dv">87</span>, <span class="st">'Chesapeake'</span>: <span class="dv">10</span>, <span class="st">'Newport News'</span>: <span class="dv">30</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">18</span>},</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Newport News'</span>: {<span class="st">'Richmond'</span>: <span class="dv">70</span>, <span class="st">'Petersburg'</span>: <span class="dv">65</span>, <span class="st">'Chesapeake'</span>: <span class="dv">40</span>, <span class="st">'Norfolk'</span>: <span class="dv">30</span>, <span class="st">'Virginia Beach'</span>: <span class="dv">45</span>},</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Virginia Beach'</span>: {<span class="st">'Richmond'</span>: <span class="dv">100</span>, <span class="st">'Petersburg'</span>: <span class="dv">90</span>, <span class="st">'Chesapeake'</span>: <span class="dv">15</span>, <span class="st">'Norfolk'</span>: <span class="dv">18</span>, <span class="st">'Newport News'</span>: <span class="dv">45</span>}</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>start_city <span class="op">=</span> <span class="st">'Richmond'</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to find the nearest neighbor</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_nearest_neighbor(current_city, unvisited):</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>     nearest_city <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>     min_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">'inf'</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> city <span class="kw">in</span> unvisited:</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> distances[current_city][city] <span class="op">&lt;</span> min_distance:</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>               min_distance <span class="op">=</span> distances[current_city][city]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>          nearest_city <span class="op">=</span> city</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> nearest_city, min_distance</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Nearest Neighbor algorithm implementation</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_neighbor_tsp(start_city):</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>     unvisited <span class="op">=</span> cities.copy()</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>     unvisited.remove(start_city)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>     current_city <span class="op">=</span> start_city</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>     route <span class="op">=</span> [start_city]</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>     total_distance <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>     <span class="cf">while</span> unvisited:</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>          next_city, distance <span class="op">=</span> find_nearest_neighbor(current_city, unvisited)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>          route.append(next_city)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>          total_distance <span class="op">+=</span> distance</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>          current_city <span class="op">=</span> next_city</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>          unvisited.remove(current_city)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Return to the starting city</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>     total_distance <span class="op">+=</span> distances[current_city][start_city]</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>     route.append(start_city)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> route, total_distance</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Running the algorithm starting from Richmond</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>route, total_distance <span class="op">=</span> nearest_neighbor_tsp(start_city)</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the result</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal route using Nearest Neighbor:"</span>, <span class="st">" -&gt; "</span>.join(route))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal route using Nearest Neighbor: Richmond -&gt; Virginia Beach -&gt; Newport News -&gt; Norfolk -&gt; Chesapeake -&gt; Petersburg -&gt; Richmond
-Total distance traveled: 190 miles</code></pre>
+<pre><code>Optimal route using Nearest Neighbor: Richmond -&gt; Virginia Beach -&gt; Newport News -&gt; Norfolk -&gt; Chesapeake -&gt; Petersburg -&gt; Richmond</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total distance traveled:"</span>, total_distance, <span class="st">"miles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total distance traveled: 190 miles</code></pre>
 </div>
 </div>
 </section>
@@ -610,78 +618,80 @@ Total distance traveled: 190 miles</code></pre>
 </ul></li>
 <li><p>min() normally compares entire values. But our values are tuples, not just numbers. So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() to only look at the first item in each tuple (the distance) when deciding which is smallest.</p></li>
 </ul>
-<div id="afdefd29" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nearest Neighbor with one restricted edge:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid S -&gt; C unless all other options are visited.</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> {</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S"</span>: {<span class="st">"S"</span>: <span class="dv">0</span>, <span class="st">"A"</span>: <span class="dv">4</span>, <span class="st">"B"</span>: <span class="dv">6</span>, <span class="st">"C"</span>: <span class="dv">2</span>},</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: {<span class="st">"S"</span>: <span class="dv">4</span>, <span class="st">"A"</span>: <span class="dv">0</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">5</span>},</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B"</span>: {<span class="st">"S"</span>: <span class="dv">6</span>, <span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">0</span>, <span class="st">"C"</span>: <span class="dv">4</span>},</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C"</span>: {<span class="st">"S"</span>: <span class="dv">2</span>, <span class="st">"A"</span>: <span class="dv">5</span>, <span class="st">"B"</span>: <span class="dv">4</span>, <span class="st">"C"</span>: <span class="dv">0</span>},</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the restricted edge written as a set of tuple pair. </span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>restricted_edges <span class="op">=</span> {(<span class="st">"S"</span>, <span class="st">"C"</span>)}</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_neighbor_with_constraint(start):</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> start</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> {start}</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [start]</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">len</span>(visited) <span class="op">&lt;</span> <span class="bu">len</span>(dist):</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        candidates <span class="op">=</span> [] </span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Look at all neighbors we haven’t visited yet and skip places we have visited</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> neighbor, d <span class="kw">in</span> dist[current].items(): </span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> neighbor <span class="kw">in</span> visited <span class="kw">or</span> neighbor <span class="op">==</span> current:</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Check if the edge (or road) is restricted</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            is_restricted <span class="op">=</span> (current, neighbor) <span class="kw">in</span> restricted_edges</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Adding this neighbor as a possible next step --- making a tuple with (distance, is_restricted, neighbor_name)</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>            candidates.append((d, is_restricted, neighbor)) </span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># separate restricted from unrestricted, preferring moves that are not restricted</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        unrestricted <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> candidates <span class="cf">if</span> <span class="kw">not</span> c[<span class="dv">1</span>]] </span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> unrestricted:</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>            <span class="co"># choose nearest unrestricted</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Remember that a lambda is just a tiny, one-line function you write inside another command.</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>            <span class="co"># In this case give n a candidate x, return its distance value x[0]</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>            d, _, nxt <span class="op">=</span> <span class="bu">min</span>(unrestricted, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>])</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>            <span class="co">#Because every candidate is stored like this:(distance, is_restricted, </span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>            <span class="co"># neighbor_name); x[0] = the distance; x[1] =whether restricted, and </span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            <span class="co"># x[2] = the neighbor name</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>            <span class="co"># must choose restricted (last resort)</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>            d, _, nxt <span class="op">=</span> <span class="bu">min</span>(candidates, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>])</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">#Move there and update the route</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        route.append(nxt)</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        visited.add(nxt)</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        total_distance <span class="op">+=</span> d</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> nxt</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># After all stops, return to the start</span></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    route.append(start)</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">+=</span> dist[current][start]</span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route, total_distance</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the algorithm</span></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>route, total <span class="op">=</span> nearest_neighbor_with_constraint(<span class="st">"S"</span>)</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Route:"</span>, <span class="st">" -&gt; "</span>.join(route))</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total distance:"</span>, total)</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="co">#### Note min() normally compares entire values. But our values are tuples, not just numbers. </span></span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="co"># So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() </span></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="co"># to only look at the first item in each tuple (the distance) when deciding which is smallest.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nearest Neighbor with one restricted edge:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid S -&gt; C unless all other options are visited.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S"</span>: {<span class="st">"S"</span>: <span class="dv">0</span>, <span class="st">"A"</span>: <span class="dv">4</span>, <span class="st">"B"</span>: <span class="dv">6</span>, <span class="st">"C"</span>: <span class="dv">2</span>},</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: {<span class="st">"S"</span>: <span class="dv">4</span>, <span class="st">"A"</span>: <span class="dv">0</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">5</span>},</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B"</span>: {<span class="st">"S"</span>: <span class="dv">6</span>, <span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">0</span>, <span class="st">"C"</span>: <span class="dv">4</span>},</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C"</span>: {<span class="st">"S"</span>: <span class="dv">2</span>, <span class="st">"A"</span>: <span class="dv">5</span>, <span class="st">"B"</span>: <span class="dv">4</span>, <span class="st">"C"</span>: <span class="dv">0</span>},</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the restricted edge written as a set of tuple pair. </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>restricted_edges <span class="op">=</span> {(<span class="st">"S"</span>, <span class="st">"C"</span>)}</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_neighbor_with_constraint(start):</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> start</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> {start}</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [start]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">len</span>(visited) <span class="op">&lt;</span> <span class="bu">len</span>(dist):</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        candidates <span class="op">=</span> [] </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Look at all neighbors we haven’t visited yet and skip places we have visited</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> neighbor, d <span class="kw">in</span> dist[current].items(): </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> neighbor <span class="kw">in</span> visited <span class="kw">or</span> neighbor <span class="op">==</span> current:</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Check if the edge (or road) is restricted</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>            is_restricted <span class="op">=</span> (current, neighbor) <span class="kw">in</span> restricted_edges</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Adding this neighbor as a possible next step --- making a tuple with (distance, is_restricted, neighbor_name)</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>            candidates.append((d, is_restricted, neighbor)) </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># separate restricted from unrestricted, preferring moves that are not restricted</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        unrestricted <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> candidates <span class="cf">if</span> <span class="kw">not</span> c[<span class="dv">1</span>]] </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> unrestricted:</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>            <span class="co"># choose nearest unrestricted</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Remember that a lambda is just a tiny, one-line function you write inside another command.</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>            <span class="co"># In this case give n a candidate x, return its distance value x[0]</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>            d, _, nxt <span class="op">=</span> <span class="bu">min</span>(unrestricted, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>])</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>            <span class="co">#Because every candidate is stored like this:(distance, is_restricted, </span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>            <span class="co"># neighbor_name); x[0] = the distance; x[1] =whether restricted, and </span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>            <span class="co"># x[2] = the neighbor name</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>            <span class="co"># must choose restricted (last resort)</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>            d, _, nxt <span class="op">=</span> <span class="bu">min</span>(candidates, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>])</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">#Move there and update the route</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        route.append(nxt)</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        visited.add(nxt)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>        total_distance <span class="op">+=</span> d</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> nxt</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># After all stops, return to the start</span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    route.append(start)</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">+=</span> dist[current][start]</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route, total_distance</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the algorithm</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>route, total <span class="op">=</span> nearest_neighbor_with_constraint(<span class="st">"S"</span>)</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Route:"</span>, <span class="st">" -&gt; "</span>.join(route))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Route: S -&gt; A -&gt; B -&gt; C -&gt; S
-Total distance: 13</code></pre>
+<pre><code>Route: S -&gt; A -&gt; B -&gt; C -&gt; S</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total distance:"</span>, total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total distance: 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#### Note min() normally compares entire values. But our values are tuples, not just numbers. </span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() </span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># to only look at the first item in each tuple (the distance) when deciding which is smallest.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="using-ai" class="level1">
