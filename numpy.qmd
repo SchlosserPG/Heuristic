@@ -11,9 +11,8 @@ library(reticulate)
 use_condaenv("CTBA", required = TRUE)
 ```
 
-# Coding Know-How
 
--   In the field of heuristic modeling, coding know-how is not just a tool—it’s an essential skill that enables you to experiment, adapt, and optimize solutions for complex, real-world problems. As we explore heuristic methods in this MSBA course, having a strong foundation in coding, especially in Python, will allow you to implement and test algorithms efficiently.
+-   In the field of heuristic algorithms, coding know-how is not just a tool—it’s an essential skill that enables you to experiment, adapt, and optimize solutions for complex, real-world problems. As we explore heuristic methods in this MSBA course, having a strong foundation in coding, especially in Python, will allow you to implement and test algorithms efficiently.
 -   Good coding practices, such as writing clear, modular code and incorporating meaningful comments, are critical for both readability and collaboration. By starting with simple Python examples that highlight these principles, we’ll build the groundwork for more sophisticated modeling tasks, from randomization techniques to optimization algorithms, equipping you with both technical skills and best practices for professional code development.
 
 What problems does this code have? ![program.py](Pictures/programPY.png "program.py")
