@@ -428,6 +428,21 @@ plt.show()
 -   Simulated Annealing is a more advanced version of hill climbing that sometimes accepts worse solutions to escape local optima. Will discuss later.
 
 # Hill Climbing with Finance
+* ARIMA is used as a forecasting pre-processing step to estimate future expected returns for each asset. Hill climbing then treats those forecasts as fixed inputs and optimizes portfolio weights to maximize the Sharpe ratio.
+* Steps in Model
+     + Download historical prices
+     + Compute historical daily returns
+     + For each stock
+          + Fit ARIMA
+          + Forecast 6 months
+          + Store one expected return
+     + Compute covariance matrix (historical)
+     + Run hill climbing
+          + Perturb weights
+          + Recompute Sharpe using fixed expected returns
+     + Return best weight vector
+
+
 
 * The code prints the best portfolio weights and the best Sharpe ratio found after the hill climbing process. The plot will show the improvement in the Sharpe ratio during the iterations.
 * In this project, ARIMA (AutoRegressive Integrated Moving Average) is used to generate forward-looking estimates of each stock’s daily return before running the hill climbing optimization. Instead of relying solely on historical averages, ARIMA fits a statistical time-series model to each stock’s past returns and forecasts the next expected return using its autoregressive (AR), differencing (I), and moving-average (MA) components.      
@@ -565,6 +580,7 @@ def arima_next_6m(series, order=(1, 1, 1), horizon=126):
      + Instead, you're estimating a long-term expected average daily return, which is a more stable quantity.
      + This is actually a better-behaved target for ARIMA.
 
+* In this code, ARIMA is used before hill climbing, to generate expected returns, and hill climbing then optimizes the weights only.
 
 ## Main Loop
 

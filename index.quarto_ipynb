@@ -14,7 +14,6 @@
         "\n",
         "\n",
         "\n",
-        "\n",
         "# Course Overview\n",
         "\n",
         "-   Most business problems are too large or too complex to be solved optimally, where the strict meaning of \"optimal\" means finding the provably best solution. Finding a solution that approximates the optimal solution is, therefore, the predominant mode of problem solving found in industry: these are called heuristic solutions. Many companies gain a competitive advantage by constructing heuristics that either find better solutions than their competitors or find solutions more quickly. This course focuses on achieving such results by programming custom algorithms, which are a sequence of steps taken to provide a solution to a problem.\n",
@@ -87,7 +86,7 @@
         "Looking at import statement alternatives: \n",
         "1. Import the entire package\n"
       ],
-      "id": "29b34eec"
+      "id": "1b230847"
     },
     {
       "cell_type": "code",
@@ -95,7 +94,7 @@
       "source": [
         "import numpy "
       ],
-      "id": "2a4cd0ee",
+      "id": "1a3551b5",
       "execution_count": null,
       "outputs": []
     },
@@ -105,7 +104,7 @@
       "source": [
         "2. Import with an alias\n"
       ],
-      "id": "678975a7"
+      "id": "b2f943a4"
     },
     {
       "cell_type": "code",
@@ -113,7 +112,7 @@
       "source": [
         "import numpy as np"
       ],
-      "id": "bedecb30",
+      "id": "6b558459",
       "execution_count": null,
       "outputs": []
     },
@@ -123,7 +122,7 @@
       "source": [
         "3. Import only a specific function or class\n"
       ],
-      "id": "29cca763"
+      "id": "a7084a45"
     },
     {
       "cell_type": "code",
@@ -131,7 +130,7 @@
       "source": [
         "from numpy import mean"
       ],
-      "id": "8b200df8",
+      "id": "acaeedae",
       "execution_count": null,
       "outputs": []
     },
@@ -141,7 +140,7 @@
       "source": [
         "4. Import multiple specific functions\n"
       ],
-      "id": "56ed4dc2"
+      "id": "c0fba56e"
     },
     {
       "cell_type": "code",
@@ -149,7 +148,7 @@
       "source": [
         "from numpy import array, mean, std"
       ],
-      "id": "d01b1dc2",
+      "id": "0131c67c",
       "execution_count": null,
       "outputs": []
     },
@@ -216,7 +215,7 @@
         "\n",
         "-   Different paths for a truck driver in the case of four cities.\n"
       ],
-      "id": "51221836"
+      "id": "b899bf2a"
     },
     {
       "cell_type": "code",
@@ -237,7 +236,7 @@
         "\n",
         "print(result)"
       ],
-      "id": "c77cf2a8",
+      "id": "4968cc2a",
       "execution_count": null,
       "outputs": []
     },
@@ -323,7 +322,7 @@
         "\n",
         "-   How do we choose an applicable metaheuristic algorithm for an optimization problem in question?"
       ],
-      "id": "491fba9e"
+      "id": "471086b7"
     }
   ],
   "metadata": {

@@ -504,7 +504,7 @@ window.Quarto = {
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Time elapsed: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)  <span class="co"># Print the elapsed time</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time elapsed: 0.014164 seconds</code></pre>
+<pre><code>Time elapsed: 0.018939 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the evolution of fitness over time</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -770,15 +770,15 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal x: </span><span class="sc">{</span>optimal_x<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal x: 2.995922749414404</code></pre>
+<pre><code>Optimal x: 2.9955504292571717</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>optimal_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal value: 9.015704850434698</code></pre>
+<pre><code>Optimal value: 9.015057081477519</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Execution time: 0.011009 seconds</code></pre>
+<pre><code>Execution time: 0.006539 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and hill climbing progress</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
@@ -814,6 +814,25 @@ window.Quarto = {
 <section id="hill-climbing-with-finance" class="level1">
 <h1>Hill Climbing with Finance</h1>
 <ul>
+<li>ARIMA is used as a forecasting pre-processing step to estimate future expected returns for each asset. Hill climbing then treats those forecasts as fixed inputs and optimizes portfolio weights to maximize the Sharpe ratio.</li>
+<li>Steps in Model
+<ul>
+<li>Download historical prices</li>
+<li>Compute historical daily returns</li>
+<li>For each stock
+<ul>
+<li>Fit ARIMA</li>
+<li>Forecast 6 months</li>
+<li>Store one expected return</li>
+</ul></li>
+<li>Compute covariance matrix (historical)</li>
+<li>Run hill climbing
+<ul>
+<li>Perturb weights</li>
+<li>Recompute Sharpe using fixed expected returns</li>
+</ul></li>
+<li>Return best weight vector</li>
+</ul></li>
 <li>The code prints the best portfolio weights and the best Sharpe ratio found after the hill climbing process. The plot will show the improvement in the Sharpe ratio during the iterations.</li>
 <li>In this project, ARIMA (AutoRegressive Integrated Moving Average) is used to generate forward-looking estimates of each stock’s daily return before running the hill climbing optimization. Instead of relying solely on historical averages, ARIMA fits a statistical time-series model to each stock’s past returns and forecasts the next expected return using its autoregressive (AR), differencing (I), and moving-average (MA) components.<br>
 </li>
@@ -956,6 +975,7 @@ window.Quarto = {
 <li>Instead, you’re estimating a long-term expected average daily return, which is a more stable quantity.</li>
 <li>This is actually a better-behaved target for ARIMA.</li>
 </ul></li>
+<li>In this code, ARIMA is used before hill climbing, to generate expected returns, and hill climbing then optimizes the weights only.</li>
 </ul>
 </section>
 <section id="main-loop-1" class="level2">
@@ -1087,11 +1107,11 @@ BA: 0.0000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best Sharpe Ratio: </span><span class="sc">{</span>best_sharpe<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Best Sharpe Ratio: 3.5422</code></pre>
+<pre><code>Best Sharpe Ratio: 3.5739</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Execution time: 0.027822 seconds</code></pre>
+<pre><code>Execution time: 0.028878 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the progress of the hill climbing algorithm (Sharpe ratio improvement)</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
