@@ -225,7 +225,6 @@ SET cities = <list of cities>
 SET distances = <distance matrix or dictionary>
 SET start_city = <initial city>
 
-
 ### FUNCTION to find the nearest unvisited city
 FUNCTION find_nearest_neighbor(current_city, unvisited, distances):
     SET nearest_city = None
@@ -235,29 +234,27 @@ FUNCTION find_nearest_neighbor(current_city, unvisited, distances):
         IF distances[current_city][city] < min_distance:
             SET min_distance = distances[current_city][city]
             SET nearest_city = city
-    
     RETURN nearest_city, min_distance
 
 ### FUNCTION to solve TSP using Nearest Neighbor algorithm
 FUNCTION nearest_neighbor_tsp(start_city, cities, distances):
-# Initialize list of unvisited cities
+    # Initialize list of unvisited cities
     SET unvisited = list of all cities EXCEPT start_city
     
-### Set starting point
+    # Set starting point
     SET current_city = start_city
     SET route = [start_city]
     SET total_distance = 0
     
- ### Visit all cities
+    # Visit all cities
     WHILE unvisited is NOT empty:
-        # Find the nearest unvisited city and travel to it
         SET next_city, distance = find_nearest_neighbor(current_city, unvisited, distances)
         ADD next_city to route
         INCREASE total_distance by distance
         SET current_city = next_city
-        REMOVE current_city from unvisited
+        REMOVE next_city from unvisited
 
-### Return to the starting city to complete the tour
+    # Return to the starting city to complete the tour
     INCREASE total_distance by distances[current_city][start_city]
     ADD start_city to route
     
@@ -267,7 +264,7 @@ FUNCTION nearest_neighbor_tsp(start_city, cities, distances):
 SET route, total_distance = nearest_neighbor_tsp(start_city, cities, distances)
 
 ### Output the result
-PRINT "Optimal route using Nearest Neighbor:", route
+PRINT "Route using Nearest Neighbor heuristic:", route
 PRINT "Total distance traveled:", total_distance
 
 ```
