@@ -32,44 +32,7 @@ print(sum(x1))
 print(sum(x2))
 ```
 
-# Writing Programs with Internal Functions
 
--   Indentation: Function statements must be indented.
--   Arguments: Variables passed from calling program to the function
-    -   a_list is an argument required by my_sum\
-    -   a_list assumes value of x passed from main
--   Return: a return statement sends variables back to main program\
--   Variable scope: where execution begins
-    -   The first un-indented line that is not a function definition or a global variable
-    -   a_list is defined only in the function when it runs
--   Place all functions above the “main” program
-    -   Must be defined before they are used
-
-```{python}
-def my_sum(a_list):
-    result = 0
-    for y in a_list:
-        result += y
-    return result
-    
-x = [0,1,2,3,4,5]
-print(my_sum(x))
-```
-
-# Understanding The Loop
-
-```{asis}
-for y in a_list:
-   result += y
-return result
-```
-
--   A loop is a way to repeat the same action for every item in a collection (like a list).
--   For y in a_list means, take each item in a_list one at a time, and call it y.
-    -   For example, if a_list is \[0, 1, 2, 3, 4, 5\], the loop will do the following:
-    -   First loop: set y = 0, result = 0 + 0 (result is now 0).
-    -   Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).
-    -   Third loop: then y = 2, result = 1 + 2 (result is now 3). and so on, until all the numbers in the list have been used.
 
 ![program.py](Pictures/programs.png "program.py")
 
@@ -138,7 +101,53 @@ print("Exponential Array:", exp_array)
 
 ```
 
--   np.exp from Simulated Annealing example
+
+## Taking a square root: np.sqrt()
+
+-   np.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.
+
+```{python}
+# Applying np.sqrt to the array
+sqrt_array = np.sqrt(array)
+print("Square Root Array:", sqrt_array)
+
+```
+
+-   The Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt, np.sum, and np.exp within its formula.
+
+```{python}
+def ackley(s):
+     a, b, c = 20, 0.2, 2 * np.pi
+     n = len(s)
+     sum_sq_term = np.sum(s**2)
+     cos_term = np.sum(np.cos(c * s))
+     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))
+     term2 = -np.exp(cos_term / n)
+     return term1 + term2 + a + np.e
+```
+
+# Random Number Generation
+* Heuristic algorithms use randomness to explore and diversify potential solutions efficiently. These random functions generate diverse candidate solutions or perturbations that guide the search process.
+     + Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations). 
+* Examples of Random Number Functions
+     + np.random.standard_normal() draws values from a normal distribution (mean = 0, sd = 1) to introduce controlled variation.
+     + np.random.rand() samples from a uniform [0, 1) distribution for balanced, unbiased exploration.
+     + np.random.uniform(a, b) samples uniformly over a specified range, allowing bounded randomization of parameters or positions.
+     + np.random.randint(low, high) produces random integer values within a range, often used to pick indices or discrete options in a population.
+
+## np.random.rand()
+-   The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive).
+-   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations).
+
+
+-   The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 \[0,1). It is saved in a variable rand_nums and the values in the variable are printed.
+
+```{python}
+rand_nums = np.random.rand(5)
+print(rand_nums)
+```
+
+## np Functions from Simulated Annealing example
 -   This function is part of a Simulated Annealing algorithm, specifically handling the temperature decay mechanism to decide whether to accept a new solution, even if it's worse than the current one. Here's a breakdown of the function based on the np.exp command and the logic:
     -   tmp_obj_val: The objective value of a new (temporary) solution.
     -   obj_val: The objective value of the current solution. temperature: The current temperature in the simulated annealing process, which controls how likely the algorithm is to accept worse solutions.
@@ -156,41 +165,6 @@ def determine(self, tmp_obj_val, obj_val, temperature):
 
 ```
 
-## Taking a square root: np.sqrt()
-
--   np.sqrt is a function in NumPy that returns the non-negative square root of an element-wise input array. It operates on each element of the array and computes the square root.
-
-```{python}
-# Applying np.sqrt to the array
-sqrt_array = np.sqrt(array)
-print("Square Root Array:", sqrt_array)
-
-```
-
--   The Ackley function is commonly used as a benchmark problem in optimization, and is known for its many local minima. The Ackley function uses the np.sqrt within its formula.
-
-```{python}
-def ackley(s):
-     a, b, c = 20, 0.2, 2 * np.pi
-     n = len(s)
-     sum_sq_term = np.sum(s**2)
-     cos_term = np.sum(np.cos(c * s))
-     term1 = -a * np.exp(-b * np.sqrt(sum_sq_term / n))
-     term2 = -np.exp(cos_term / n)
-     return term1 + term2 + a + np.e
-```
-
-## Random Number Generation
-
--   The np.random.rand function in NumPy generates random floating-point numbers from a uniform distribution between 0 (inclusive) and 1 (exclusive), meaning the generated numbers will always include 0 (inclusive) but never reach 1 (exclusive).
--   Random numbers are key to both genetic algorithms (mutation, crossover) and simulated annealing (random perturbations).
--   The example below selects uses np.random.rand() to generate 5 uniform random numbers between 0 and 1 \[0,1). It is saved in a variable rand_nums and the values in the variable are printed.
-
-```{python}
-rand_nums = np.random.rand(5)
-print(rand_nums)
-```
-
 ## Standard Normal Distribution
 
 -   The np.random.standard_normal function in NumPy generates random floating-point numbers from a standard normal (Gaussian) distribution, with a mean of 0 and a standard deviation of 1.
@@ -205,7 +179,8 @@ print("Random Standard Normal Values:", random_values)
 
 ## np.random.uniform
 
-*The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range.* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.
+* The np.random.uniform function in NumPy is used to generate random floating-point numbers drawn from a uniform distribution over a specified range. 
+* For example, in hill climbing, the algorithm often starts with a random solution that can be simulated with np.random.uniform.
 
 ```{python}
 # Generate a random starting point for the hill climbing algorithm
@@ -232,28 +207,31 @@ print(random_integers)
 ```
 
 -   We can use np.random.randint to generate a 2D array instead of a 1D array by specifying the size parameter as a tuple that indicates the shape of the array.
+* If only one number is given, np.random.randint generates values from 0 up to (but not including) that number. For example, the code below shows values from generated from 0 to 20 (exclusive) in a 3 row by 5 column view. 
+
 
 ```{python}
-random_2d_array = np.random.randint(10, 20, size=(3, 5)) 
+random_2d_array = np.random.randint(20, size=(3, 5)) 
 print(random_2d_array)
 ```
 
-## np.random.randint from Simulated Annealing
+## np.random.randint from Simulated Annealing (from One Max)
 
 -   This function, transit(), is used to modify a solution sol as part of a heuristic search process, likely for algorithms like genetic algorithms, hill climbing, or simulated annealing. The goal is to explore the solution space by introducing a small, random change (or "transition") to the current solution.
 
     -   The function takes a single argument, sol, which is likely a binary array or list (a list of 0s and 1s).
     -   t = sol.copy(): A copy of the solution sol is made, named t. This is important because we don't want to modify the original solution directly; instead, we work on the copy t.
     -   i = np.random.randint(len(sol)): The randint function from NumPy is used to randomly select an index i between 0 and the length of sol - 1. This selects a random position in the solution array.
-    -   t\[i\] \^= 1: This is a bitwise XOR operation. In the context of a binary solution (a list of 0s and 1s), it flips the value at index i:If t\[i\] is 0, it becomes 1.If t\[i\] is 1, it becomes 0. This operation introduces a small, random change to the solution by flipping one bit.
+    -   t[i] = 1 - t[i]: In the context of a binary solution (a list of 0s and 1s), this line flips the value at index i:If t[i] is 0, it becomes 1.If t[i] is 1, it becomes 0.This operation introduces a small, random change to the solution by flipping a single bit, which defines a neighboring solution in the search space.
+
     -   return t: After flipping one bit, the modified solution t is returned.
 
     ```{python}
     # Transition function (T)
     def transit(sol):
-        new_sol = sol.copy()
-        index = np.random.randint(len(sol))
-        new_sol[index] = 1 - new_sol[index]  # Flip a random bit
+        t = sol.copy()
+        i = np.random.randint(len(sol))
+        t[i] = 1 - t[i]  # Flip a random bit
         return new_sol
     ```
 
@@ -346,38 +324,7 @@ print("Max element index for each row:", max_index_row)
     \[4 <mark>5</mark> 1\]\
     \[0 <mark>6</mark> 2\]\]
 
-# Formula vs LaTex vs Python
-
--   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.
--   The formula is central in financial mathematics, particularly in the modeling of asset prices. This model is widely used to describe the evolution of stock prices and other financial assets over time in a stochastic (random) way. Here's a breakdown of the components and how they fit into finance:
-    -   Formula: $S_T = S_0 \exp((r - 0.5 \sigma^2) T + \sigma z \sqrt{T})$
-    -   In LaTex: S_T = S_0 \exp((r - 0.5 \sigma\^2) T + \sigma z \sqrt{T})
-    -   In Python this translates to the following: S_T = S_0 \* exp((r - 0.5 \* sigma \*\* 2) \* T + sigma \* z \* sqrt(T))
-
-# Calculating Wall Time
-
--   Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.
--   time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable.
-
-```{python}
-import time
-start_time = time.time()
-```
-
--   Execute the block of code you want to measure and end the time.
-
-```{python}
-end_time = time.time()
-```
-
--   Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time.
-
-```{python}
-elapsed_time = end_time - start_time
-print(f"Wall time: {elapsed_time:.2f} seconds")
-```
-
-## An Example Modelling Stock Prices
+## An Algorithm Modeling Stock Prices
 
 -   The model simulates a Geometric Brownian Motion (GBM), a widely used stochastic process in financial mathematics to model the evolution of stock prices over time. This process assumes that stock prices follow a log-normal distribution, incorporating key parameters such as the initial stock price (S0), risk-free rate (r), time horizon (T), and volatility (sigma).
 -   The model calculates the potential future stock prices (ST) using a mathematical formula that combines deterministic and random components, reflecting the inherent uncertainty and growth trends in financial markets. By generating a large number of simulated outcomes, the model enables analyses such as estimating expected returns, assessing risk, and valuing options, providing valuable insights for decision-making in finance.
@@ -391,6 +338,18 @@ $S_T = S_0 \exp\left( (r - 0.5 \sigma^2) T + \sigma Z \sqrt{T} \right)$
     -   $\sigma$: The volatility of the stock.
     -   $S_T$: The terminal stock price at time $T$.
     -   $Z$: A random variable drawn from a standard normal distribution.
+
+
+# Formula vs LaTex vs Python
+
+-   A numerical method used to approximate the solution of stochastic differential equations (SDEs) like the Geometric Brownian Motion (GBM). This method discretizes the continuous time process into small time steps and approximates the evolution of the stochastic process.
+-   The formula is central in financial mathematics, particularly in the modeling of asset prices. This model is widely used to describe the evolution of stock prices and other financial assets over time in a stochastic (random) way. Here's a breakdown of the components and how they fit into finance:
+    -   Formula: $S_T = S_0 \exp((r - 0.5 \sigma^2) T + \sigma z \sqrt{T})$
+    -   In LaTex: S_T = S_0 \exp((r - 0.5 \sigma\^2) T + \sigma z \sqrt{T})
+    -   In Python this translates to the following: S_T = S_0 \* exp((r - 0.5 \* sigma \*\* 2) \* T + sigma \* z \* sqrt(T))
+
+
+
 
 ## Comparing Model Clock Time With/Without NumPy
 
@@ -437,37 +396,7 @@ wall_time = end_time - start_time
 # Print timing information
 print(f"Wall time: {wall_time:.2f} s")
 ```
-### Why Underscore Conventions Matter
 
-* In the example above, the loop `for _ in range():` uses the underscore as a **throwaway variable**, signaling that the loop variable itself is not needed—only the repetition of the loop matters. This is a common Python convention that improves readability by making intent explicit. Similarly, you will see many programs and function definitions where unused parameters are replaced with an underscore (for example, `def handler(_, value):`), indicating that a particular argument is intentionally ignored. These small stylistic choices communicate purpose and clarity to anyone reading the code.See the table below for some direct uses of the underscore. 
-
-
-```{r, echo=FALSE, warning=FALSE}
-library(knitr)
-
-data <- data.frame(
-  Pattern = c(
-    "Single underscore: “ignore.”",
-    "Single underscore: “internal.”",
-    "Double underscore: “private inside a class.”",
-    "Double before & after: “special built-in behavior.”"
-  ),
-  Example = c(
-    "for _ in range(10):",
-    "_helper_function()",
-    "self.__secret",
-    "if __name__ == '__main__':"
-  ),
-  `Common Use in Python` = c(
-    "Used as a throwaway variable when the value isn’t needed. In the REPL, `_` also stores the last result.",
-    "Marks a variable or function as internal use only within a module or class (not imported with `*`).",
-    "Used for name mangling inside classes to make attributes harder to access from outside.",
-    "Common structure to run code only when the file is executed directly, not when it’s imported as a module."
-  )
-)
-
-kable(data, align = c('l', 'l', 'l'), caption = "Common Uses of the Underscore in Python")
-```
 
 ### With Numpy
 
@@ -508,7 +437,49 @@ print(f"Wall time: {wall_time:.2f} s")
 
 -   Mathematical operations like exp and sqrt are applied to entire arrays at once. These optimizations significantly reduce the wall time, as the process avoids Python-level overhead and directly utilizes optimized native code. As a result, the NumPy implementation is typically faster, making it better suited for tasks requiring a high volume of computations.
 
+### Why Underscore Conventions Matter
 
+* In the example above, the loop `for _ in range():` uses the underscore as a **throwaway variable**, signaling that the loop variable itself is not needed—only the repetition of the loop matters. This is a common Python convention that improves readability by making intent explicit. Similarly, you will see many programs and function definitions where unused parameters are replaced with an underscore (for example, `def handler(_, value):`), indicating that a particular argument is intentionally ignored. These small stylistic choices communicate purpose and clarity to anyone reading the code.See the table below for some direct uses of the underscore. 
+
+
+```{r, echo=FALSE, warning=FALSE}
+library(knitr)
+
+data <- data.frame(
+  Pattern = c(
+    "Single underscore: \"ignore\"",
+    "Single underscore: \"internal\"",
+    "Double underscore: \"name mangling in a class\"",
+    "Double before & after: \"special built-in behavior\""
+  ),
+  Example = c(
+    "for _ in range(10):",
+    "_helper_function()",
+    "self.__secret",
+    "if __name__ == \"__main__\":"
+  ),
+  `Common Use in Python` = c(
+    "Used as a throwaway variable when the value isn’t needed (e.g., loop counter you don’t use). In some interactive REPLs, `_` can store the last result.",
+    "Conventional signal that a function/variable is intended for internal use within a module (and is skipped by `from module import *`).",
+    "Triggers name mangling inside a class so attributes are harder to access accidentally from outside (e.g., `__secret` becomes `_MyClass__secret`).",
+    "Used for Python \"dunder\" names (double underscore). `__name__ == \"__main__\"` runs code only when the file is executed directly, not imported."
+  ),
+  `Code Snippet` = c(
+    ">>> 10 * 2\n20\n>>> _\n20",
+    "def _helper_function():\n    return \"internal use\"\n\ndef public_function():\n    return _helper_function()",
+    "class MyClass:\n    def __init__(self):\n        self.__secret = 42\n\nobj = MyClass()\n# obj.__secret  # AttributeError\nobj._MyClass__secret",
+    "def main():\n    print(\"Running as a script\")\n\nif __name__ == \"__main__\":\n    main()"
+  ),
+  check.names = FALSE
+)
+
+kable(
+  data,
+  align = c("l", "l", "l", "l"),
+  caption = "Common Uses of the Underscore in Python"
+)
+
+```
 
 # Using AI
 

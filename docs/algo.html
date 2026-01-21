@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -229,32 +263,29 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#algorithm-development-process" id="toc-algorithm-development-process" class="nav-link" data-scroll-target="#algorithm-development-process">Algorithm Development Process:</a></li>
   <li><a href="#understanding-the-structure-of-algorithms" id="toc-understanding-the-structure-of-algorithms" class="nav-link" data-scroll-target="#understanding-the-structure-of-algorithms">Understanding the Structure of Algorithms</a></li>
-  <li><a href="#understanding-the-structure-of-algorithms-flow-control" id="toc-understanding-the-structure-of-algorithms-flow-control" class="nav-link" data-scroll-target="#understanding-the-structure-of-algorithms-flow-control">Understanding the Structure of Algorithms: Flow Control</a></li>
   </ul></li>
+  <li><a href="#how-to-write-pseudocode" id="toc-how-to-write-pseudocode" class="nav-link" data-scroll-target="#how-to-write-pseudocode">How to Write Pseudocode</a>
+  <ul class="collapse">
+  <li><a href="#pseudocode-know-how" id="toc-pseudocode-know-how" class="nav-link" data-scroll-target="#pseudocode-know-how">Pseudocode Know-how</a></li>
+  <li><a href="#tips-for-writing-good-pseudocode" id="toc-tips-for-writing-good-pseudocode" class="nav-link" data-scroll-target="#tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</a></li>
+  <li><a href="#examples-of-pseudocode" id="toc-examples-of-pseudocode" class="nav-link" data-scroll-target="#examples-of-pseudocode">Examples of Pseudocode</a></li>
+  </ul></li>
+  <li><a href="#pseudocode-for-summing-numbers-greater-than-a-given-threshold" id="toc-pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="nav-link" data-scroll-target="#pseudocode-for-summing-numbers-greater-than-a-given-threshold">Pseudocode for summing numbers greater than a given threshold</a></li>
+  <li><a href="#pseudocode-for-finding-the-minimum-number-in-a-list" id="toc-pseudocode-for-finding-the-minimum-number-in-a-list" class="nav-link" data-scroll-target="#pseudocode-for-finding-the-minimum-number-in-a-list">Pseudocode for finding the minimum number in a list</a></li>
+  <li><a href="#basic-tsp-formulation-optimization" id="toc-basic-tsp-formulation-optimization" class="nav-link" data-scroll-target="#basic-tsp-formulation-optimization">Basic TSP Formulation (Optimization)</a></li>
+  <li><a href="#tsp-nearest-neighbor-algorithm-heuristic" id="toc-tsp-nearest-neighbor-algorithm-heuristic" class="nav-link" data-scroll-target="#tsp-nearest-neighbor-algorithm-heuristic">TSP Nearest Neighbor Algorithm (Heuristic):</a></li>
+  <li><a href="#code-like-pseudocode-for-tsp-nearest-neighbor-model-heuristic" id="toc-code-like-pseudocode-for-tsp-nearest-neighbor-model-heuristic" class="nav-link" data-scroll-target="#code-like-pseudocode-for-tsp-nearest-neighbor-model-heuristic">Code-Like Pseudocode for TSP Nearest Neighbor Model (Heuristic)</a></li>
+  <li><a href="#translate-pseudocode-into-code" id="toc-translate-pseudocode-into-code" class="nav-link" data-scroll-target="#translate-pseudocode-into-code">Translate Pseudocode into Code:</a></li>
   <li><a href="#deciphering-algorithmic-notation" id="toc-deciphering-algorithmic-notation" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation">Deciphering Algorithmic Notation</a>
   <ul class="collapse">
-  <li><a href="#deciphering-algorithmic-notation-pseudocode-vs.-code" id="toc-deciphering-algorithmic-notation-pseudocode-vs.-code" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation-pseudocode-vs.-code">Deciphering Algorithmic Notation: Pseudocode vs.&nbsp;Code</a></li>
   <li><a href="#deciphering-algorithmic-notation-mathematical-symbols" id="toc-deciphering-algorithmic-notation-mathematical-symbols" class="nav-link" data-scroll-target="#deciphering-algorithmic-notation-mathematical-symbols">Deciphering Algorithmic Notation: Mathematical Symbols</a></li>
-  <li><a href="#design-paradigms" id="toc-design-paradigms" class="nav-link" data-scroll-target="#design-paradigms">Design Paradigms</a></li>
   </ul></li>
-  <li><a href="#introduction-to-algorithm-symbols" id="toc-introduction-to-algorithm-symbols" class="nav-link" data-scroll-target="#introduction-to-algorithm-symbols">Introduction to Algorithm Symbols</a>
+  <li><a href="#calculating-wall-time" id="toc-calculating-wall-time" class="nav-link" data-scroll-target="#calculating-wall-time">Calculating Wall Time</a></li>
+  <li><a href="#writing-programs-with-internal-functions" id="toc-writing-programs-with-internal-functions" class="nav-link" data-scroll-target="#writing-programs-with-internal-functions">Writing Programs with Internal Functions</a>
   <ul class="collapse">
-  <li><a href="#common-symbols-in-algorithms" id="toc-common-symbols-in-algorithms" class="nav-link" data-scroll-target="#common-symbols-in-algorithms">Common Symbols in Algorithms</a></li>
-  <li><a href="#summation-and-loop-example" id="toc-summation-and-loop-example" class="nav-link" data-scroll-target="#summation-and-loop-example">Summation and Loop Example</a></li>
-  <li><a href="#conditional-statements-and-recursion" id="toc-conditional-statements-and-recursion" class="nav-link" data-scroll-target="#conditional-statements-and-recursion">Conditional Statements and Recursion</a></li>
-  <li><a href="#big-o-notation-and-algorithm-complexity" id="toc-big-o-notation-and-algorithm-complexity" class="nav-link" data-scroll-target="#big-o-notation-and-algorithm-complexity">Big-O Notation and Algorithm Complexity</a></li>
-  <li><a href="#basic-tsp-formulation" id="toc-basic-tsp-formulation" class="nav-link" data-scroll-target="#basic-tsp-formulation">Basic TSP Formulation</a></li>
-  <li><a href="#tsp-approximation-algorithm" id="toc-tsp-approximation-algorithm" class="nav-link" data-scroll-target="#tsp-approximation-algorithm">TSP Approximation Algorithm</a></li>
-  <li><a href="#heuristic-nearest-neighbor-example" id="toc-heuristic-nearest-neighbor-example" class="nav-link" data-scroll-target="#heuristic-nearest-neighbor-example">Heuristic Nearest Neighbor Example:</a></li>
+  <li><a href="#understanding-the-loop" id="toc-understanding-the-loop" class="nav-link" data-scroll-target="#understanding-the-loop">Understanding The Loop</a></li>
+  <li><a href="#the-return-statement-inside-functions" id="toc-the-return-statement-inside-functions" class="nav-link" data-scroll-target="#the-return-statement-inside-functions">The Return Statement Inside Functions</a></li>
   </ul></li>
-  <li><a href="#pseudocode-know-how" id="toc-pseudocode-know-how" class="nav-link" data-scroll-target="#pseudocode-know-how">Pseudocode Know-how</a>
-  <ul class="collapse">
-  <li><a href="#tips-for-writing-good-pseudocode" id="toc-tips-for-writing-good-pseudocode" class="nav-link" data-scroll-target="#tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  </ul></li>
-  <li><a href="#pseudocode-for-finding-the-minimum-number-in-a-list" id="toc-pseudocode-for-finding-the-minimum-number-in-a-list" class="nav-link" data-scroll-target="#pseudocode-for-finding-the-minimum-number-in-a-list">Pseudocode for finding the minimum number in a list</a></li>
-  <li><a href="#pseudocode-for-summing-numbers-greater-than-a-given-threshold" id="toc-pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="nav-link" data-scroll-target="#pseudocode-for-summing-numbers-greater-than-a-given-threshold">Pseudocode for summing numbers greater than a given threshold</a></li>
-  <li><a href="#pseudocode-for-tsp-nearest-neighbor-model" id="toc-pseudocode-for-tsp-nearest-neighbor-model" class="nav-link" data-scroll-target="#pseudocode-for-tsp-nearest-neighbor-model">Pseudocode for TSP Nearest Neighbor Model</a></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
@@ -351,21 +382,39 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="algorithm-development-process">Algorithm Development Process:</h2>
 <ul>
 <li><p>What should you do first?</p></li>
-<li><p>0: Think of a conceptual approach</p></li>
-<li><p>1: Write step-by-step outline</p>
+<li><p>0: Think of a conceptual approach</p>
 <ul>
-<li>In words (maybe pseudo code)</li>
-<li>Focus on sound logic</li>
+<li>AI can help clarify the problem or suggest high-level strategies</li>
+<li>You must decide what the algorithm is trying to achieve and why</li>
 </ul></li>
-<li><p>2: Plan programming implementation</p>
+<li><p>1: Step-by-step outline (AI-assisted)</p>
 <ul>
-<li>Choose appropriate data structures + Speed, memory, convenience</li>
-<li>Consider functions, which kind of loops</li>
+<li>AI can help draft pseudocode or outlines</li>
+<li>You should verify logical flow and constraints</li>
 </ul></li>
-<li><p>3: Write the program and debug</p>
+<li><p>2: Implementation planning (AI-accelerated)</p>
 <ul>
-<li>Use the outline as comment statements</li>
-<li>Write your algorithms in chunks, write a line, then test it</li>
+<li>AI can suggest:
+<ul>
+<li>Data structures</li>
+<li>Loop patterns</li>
+<li>Function decomposition</li>
+</ul></li>
+<li>You evaluate trade-offs: speed, memory, readability</li>
+</ul></li>
+<li><p>3: Coding &amp; debugging (AI as pair programmer)</p>
+<ul>
+<li>AI can:
+<ul>
+<li>Generate boilerplate code</li>
+<li>Help interpret error messages</li>
+</ul></li>
+<li>You must:
+<ul>
+<li>Test incrementally</li>
+<li>Validate correctness</li>
+<li>Ensure alignment with the original logic</li>
+</ul></li>
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
@@ -396,29 +445,194 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="understanding-the-structure-of-algorithms-flow-control" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-the-structure-of-algorithms-flow-control">Understanding the Structure of Algorithms: Flow Control</h2>
+</section>
+<section id="how-to-write-pseudocode" class="level1">
+<h1>How to Write Pseudocode</h1>
 <ul>
-<li>Determine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).
+<li>Define the problem:
 <ul>
-<li>Which data types should we use?
-<ul>
-<li>Begin to consider speed, memory usage, convenience tradeoffs</li>
+<li>Start by clearly understanding what the algorithm should do.</li>
 </ul></li>
-<li>Finer details of data organization
+<li>Break the problem into steps:
 <ul>
-<li>What fields for dictionary labels?</li>
-<li>How should lists be sorted, if at all?</li>
+<li>Write the steps in logical order.</li>
+<li>Think in terms of inputs, processing, and outputs.</li>
 </ul></li>
-<li>Loop types
+<li>Use simple control structures:
 <ul>
-<li>Should we use a for or while loop?</li>
-<li>How to we increase the ease of coding and development?</li>
+<li>IF, ELSE, FOR, WHILE are commonly used.</li>
 </ul></li>
-<li>Should we use functions?</li>
+<li>Clearly show decision points and iterations.</li>
+<li>Be clear and concise:
+<ul>
+<li>Avoid unnecessary details (e.g., language-specific syntax).</li>
+<li>Focus on the algorithm’s logic rather than code specifics.</li>
+</ul></li>
+<li>Test your pseudocode:
+<ul>
+<li>Mentally trace through the steps to ensure they make sense.</li>
+<li>Make sure it covers all cases (e.g., edge cases, conditions)</li>
+</ul></li>
+<li>AI can help draft pseudocode, but you are responsible for validating the logic.</li>
+</ul>
+<section id="pseudocode-know-how" class="level2">
+<h2 class="anchored" data-anchor-id="pseudocode-know-how">Pseudocode Know-how</h2>
+<ul>
+<li><p>Don’t include code-specific features such as variable declarations, data types, or specific keywords.</p></li>
+<li><p>Focus on what the algorithm should do, not how to implement it.</p></li>
+<li><p>Use pseudocode to outline the flow and logic of the solution.</p></li>
+<li><p>Think of pseudocode as a blueprint that can be implemented in any programming language</p></li>
+<li><p>Bad: int sum = 0; for (i=0; i &lt; n; i++) sum += arr[i];</p></li>
+<li><p>Good:</p></li>
+<li><p>Below is written in plain english pseudocode</p></li>
+</ul>
+<div class="cell">
+<p>SET total to 0 FOR each element in the list ADD element to total RETURN total</p>
+</div>
+<ul>
+<li>Below the pseudocode is written more code like (also correct):</li>
+</ul>
+<div class="cell">
+<p>SET sum = 0 FOR each element in the list sum = sum + number RETURN sum</p>
+</div>
+</section>
+<section id="tips-for-writing-good-pseudocode" class="level2">
+<h2 class="anchored" data-anchor-id="tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</h2>
+<ul>
+<li>Maintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.</li>
+<li>Be clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.</li>
+<li>Pseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.</li>
+</ul>
+</section>
+<section id="examples-of-pseudocode" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-pseudocode">Examples of Pseudocode</h2>
+<ul>
+<li>This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.</li>
+<li>edge cases: an empty list, all even numbers, or no numbers greater than the threshold.</li>
+</ul>
+</section>
+</section>
+<section id="pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="level1 cell">
+<h1>Pseudocode for summing numbers greater than a given threshold</h1>
+<p>SET sum = 0 FOR each number IN list: IF number &gt; threshold: SET sum = sum + number RETURN sum</p>
+</section>
+<ul>
+<li>This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.</li>
+</ul>
+<section id="pseudocode-for-finding-the-minimum-number-in-a-list" class="level1 cell">
+<h1>Pseudocode for finding the minimum number in a list</h1>
+<p>SET min_number = Infinity FOR each number IN list: IF number &lt; min_number: SET min_number = number RETURN min_number</p>
+</section>
+<section id="basic-tsp-formulation-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="basic-tsp-formulation-optimization">Basic TSP Formulation (Optimization)</h2>
+<ul>
+<li><p><strong>Objective Function</strong>: <span class="math display">\[
+\text{Minimize} \quad Z = \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
+\]</span></p>
+<ul>
+<li><strong>Explanation</strong>: This formula represents the objective function of the TSP, where <span class="math inline">\(c_{ij}\)</span> is the cost (or distance) of traveling from city <span class="math inline">\(i\)</span> to city <span class="math inline">\(j\)</span>, and <span class="math inline">\(x_{ij}\)</span> is a binary variable that equals 1 if the path from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.</li>
+</ul></li>
+<li><p><strong>Constraints</strong>:</p></li>
+<li><p><span class="math inline">\(\sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{i=1, i \neq j}^{n} x_{ij} = 1 \quad \forall j\)</span></p></li>
+<li><p><span class="math inline">\(x_{ij} \in \{0, 1\}\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: The first constraint ensures that each city <span class="math inline">\(i\)</span> is exited exactly once, and the second constraint ensures that each city <span class="math inline">\(j\)</span> is entered exactly once. The binary constraint on <span class="math inline">\(x_{ij}\)</span> ensures that the solution only includes valid paths.</li>
 </ul></li>
 </ul>
 </section>
+<section id="tsp-nearest-neighbor-algorithm-heuristic" class="level2">
+<h2 class="anchored" data-anchor-id="tsp-nearest-neighbor-algorithm-heuristic">TSP Nearest Neighbor Algorithm (Heuristic):</h2>
+<p><span class="math inline">\(Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}\)</span></p>
+<ul>
+<li><strong>Explanation</strong>: This is the cost calculation for the nearest neighbor heuristic, where <span class="math inline">\(\text{NN}(i)\)</span> denotes the nearest neighbor of city <span class="math inline">\(i\)</span>. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.</li>
+</ul>
+</section>
+<section id="code-like-pseudocode-for-tsp-nearest-neighbor-model-heuristic" class="level2">
+<h2 class="anchored" data-anchor-id="code-like-pseudocode-for-tsp-nearest-neighbor-model-heuristic">Code-Like Pseudocode for TSP Nearest Neighbor Model (Heuristic)</h2>
+<ul>
+<li>Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.</li>
+<li>Output: It outputs the route and the total distance traveled.</li>
+</ul>
+<div class="cell">
+<section id="inputs" class="level3">
+<h3 class="anchored" data-anchor-id="inputs">inputs</h3>
+<p>SET cities = <list of="" cities=""> SET distances = <distance matrix="" or="" dictionary=""> SET start_city = <initial city=""></initial></distance></list></p>
+</section>
+<section id="function-to-find-the-nearest-unvisited-city" class="level3">
+<h3 class="anchored" data-anchor-id="function-to-find-the-nearest-unvisited-city">FUNCTION to find the nearest unvisited city</h3>
+<p>FUNCTION find_nearest_neighbor(current_city, unvisited, distances): SET nearest_city = None SET min_distance = infinity</p>
+<pre><code>FOR each city IN unvisited:
+    IF distances[current_city][city] &lt; min_distance:
+        SET min_distance = distances[current_city][city]
+        SET nearest_city = city
+
+RETURN nearest_city, min_distance</code></pre>
+</section>
+<section id="function-to-solve-tsp-using-nearest-neighbor-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="function-to-solve-tsp-using-nearest-neighbor-algorithm">FUNCTION to solve TSP using Nearest Neighbor algorithm</h3>
+<p>FUNCTION nearest_neighbor_tsp(start_city, cities, distances): # Initialize list of unvisited cities SET unvisited = list of all cities EXCEPT start_city</p>
+</section>
+<section id="set-starting-point" class="level3">
+<h3 class="anchored" data-anchor-id="set-starting-point">Set starting point</h3>
+<pre><code>SET current_city = start_city
+SET route = [start_city]
+SET total_distance = 0</code></pre>
+<p>### Visit all cities WHILE unvisited is NOT empty: # Find the nearest unvisited city and travel to it SET next_city, distance = find_nearest_neighbor(current_city, unvisited, distances) ADD next_city to route INCREASE total_distance by distance SET current_city = next_city REMOVE current_city from unvisited</p>
+</section>
+<section id="return-to-the-starting-city-to-complete-the-tour" class="level3">
+<h3 class="anchored" data-anchor-id="return-to-the-starting-city-to-complete-the-tour">Return to the starting city to complete the tour</h3>
+<pre><code>INCREASE total_distance by distances[current_city][start_city]
+ADD start_city to route
+
+RETURN route, total_distance</code></pre>
+</section>
+<section id="run-the-tsp-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-tsp-algorithm">Run the TSP algorithm</h3>
+<p>SET route, total_distance = nearest_neighbor_tsp(start_city, cities, distances)</p>
+</section>
+<section id="output-the-result" class="level3">
+<h3 class="anchored" data-anchor-id="output-the-result">Output the result</h3>
+<p>PRINT “Optimal route using Nearest Neighbor:”, route PRINT “Total distance traveled:”, total_distance</p>
+</section>
+</div>
+</section>
+<section id="translate-pseudocode-into-code" class="level1">
+<h1>Translate Pseudocode into Code:</h1>
+<ul>
+<li>Determine how the algorithm progresses through its steps and notice the flow control structures like loops (for, while) and conditionals (if, else).
+<ul>
+<li>How to we increase the ease of coding and development?</li>
+<li>Begin to consider speed, memory usage, convenience tradeoffs
+<ul>
+<li>Identify variables and understand their roles (e.g., counters, accumulators).</li>
+<li>Which data types should we use?</li>
+<li>Which fields for dictionary labels?</li>
+<li>How should lists be sorted, if at all?</li>
+<li>Should we use a for or while loop?</li>
+<li>Should we use functions?</li>
+</ul></li>
+</ul></li>
+<li>Program in chunks
+<ul>
+<li>Test each chunk before moving on</li>
+<li>Use functions where reasonable
+<ul>
+<li>Functions are easier to test</li>
+</ul></li>
+</ul></li>
+<li>Check code where solutions are known
+<ul>
+<li>Small problems</li>
+<li>Obvious solutions</li>
+</ul></li>
+<li>Debug often
+<ul>
+<li>Create breakpoints where needed</li>
+<li>Check variables in console</li>
+<li>Add print statements</li>
+</ul></li>
+</ul>
 </section>
 <section id="deciphering-algorithmic-notation" class="level1">
 <h1>Deciphering Algorithmic Notation</h1>
@@ -445,34 +659,6 @@ window.Quarto = {
 <li>Takes a little more memory than lists</li>
 </ul></li>
 </ul>
-<section id="deciphering-algorithmic-notation-pseudocode-vs.-code" class="level2">
-<h2 class="anchored" data-anchor-id="deciphering-algorithmic-notation-pseudocode-vs.-code">Deciphering Algorithmic Notation: Pseudocode vs.&nbsp;Code</h2>
-<ul>
-<li>Recognize that many algorithms are written in pseudocode, a high-level description that isn’t tied to any specific programming language.</li>
-<li>Some feel that with Python, the pseudo-code step would not be necessary anymore</li>
-<li>Translate pseudocode into actual code if needed.
-<ul>
-<li>Program in chunks</li>
-<li>Test each chunk before moving on</li>
-<li>Use functions where reasonable
-<ul>
-<li>Easier to test</li>
-</ul></li>
-</ul></li>
-<li>Check code where solutions are known
-<ul>
-<li>Small problems</li>
-<li>Obvious solutions</li>
-</ul></li>
-<li>Debug Often
-<ul>
-<li>Breakpoints</li>
-<li>Check variables in console</li>
-<li>Variable explorer</li>
-<li>Print statements</li>
-</ul></li>
-</ul>
-</section>
 <section id="deciphering-algorithmic-notation-mathematical-symbols" class="level2">
 <h2 class="anchored" data-anchor-id="deciphering-algorithmic-notation-mathematical-symbols">Deciphering Algorithmic Notation: Mathematical Symbols</h2>
 <ul>
@@ -494,222 +680,126 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="design-paradigms" class="level2">
-<h2 class="anchored" data-anchor-id="design-paradigms">Design Paradigms</h2>
-<ul>
-<li>Algorithms can be based on:
-<ul>
-<li>Intuitive ideas</li>
-<li>Math</li>
-</ul></li>
-<li>Optimization
-<ul>
-<li>Possibly with calculus analysis (e.g., gradients)</li>
-<li>Heuristic model analysis</li>
-<li>Dynamic programming</li>
-</ul></li>
-</ul>
 </section>
-</section>
-<section id="introduction-to-algorithm-symbols" class="level1">
-<h1>Introduction to Algorithm Symbols</h1>
+<section id="calculating-wall-time" class="level1">
+<h1>Calculating Wall Time</h1>
 <ul>
-<li><strong>Variables</strong>: Represent inputs, outputs, or intermediate values.
-<ul>
-<li>(<span class="math inline">\(x\)</span>): A common symbol for an input variable.</li>
-<li>(<span class="math inline">\(y\)</span>): Often represents an output variable.</li>
-<li>(<span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, <span class="math inline">\(k\)</span>): Typically used as indices in loops.</li>
-</ul></li>
-<li><strong>Sets</strong>: Collections of elements.
-<ul>
-<li>(<span class="math inline">\(S\)</span>): A set, e.g., ( S = {1, 2, 3} ).</li>
-<li>(<span class="math inline">\(\mathbb{N}\)</span>): The set of natural numbers.</li>
-<li>(<span class="math inline">\(\in\)</span>): “An element of”, used to denote membership in a set.</li>
-</ul></li>
-<li><strong>Operators</strong>: Perform operations on variables or sets.
-<ul>
-<li>(<span class="math inline">\(+, -, \times, /\)</span> ): Basic arithmetic operators.</li>
-<li>(<span class="math inline">\(\cup\)</span>): Union of two sets.</li>
-<li>(<span class="math inline">\(\cap\)</span>): Intersection of two sets.</li>
-<li>(<span class="math inline">\(\subseteq\)</span>): Subset relation.</li>
-</ul></li>
-</ul>
-<hr>
-<section id="common-symbols-in-algorithms" class="level2">
-<h2 class="anchored" data-anchor-id="common-symbols-in-algorithms">Common Symbols in Algorithms</h2>
-<ul>
-<li><strong>Mathematical Symbols</strong>:
-<ul>
-<li><span class="math inline">\(\forall\)</span>: “For all”, used in universal quantification.</li>
-<li><span class="math inline">\(\exists\)</span>: “There exists”, used in existential quantification.</li>
-<li><span class="math inline">\(\sum_{i=1}^n x_i\)</span>: Summation from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
-<li><span class="math inline">\(\prod_{i=1}^n x_i\)</span>: Product from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
-</ul></li>
-<li><strong>Logical Symbols</strong>:
-<ul>
-<li><span class="math inline">\(\land\)</span>: Logical AND.</li>
-<li><span class="math inline">\(\lor\)</span>: Logical OR.</li>
-<li><span class="math inline">\(\neg\)</span>: Logical NOT.</li>
-<li><span class="math inline">\(\implies\)</span>: Logical implication.</li>
-</ul></li>
-<li><strong>Algorithm-Specific Notation</strong>:
-<ul>
-<li><span class="math inline">\(O(n)\)</span>: Big-O notation, representing algorithm complexity.</li>
-<li><span class="math inline">\(P \leftarrow Q\)</span>: Assign the value of <span class="math inline">\(Q\)</span> to <span class="math inline">\(P\)</span>.</li>
-<li><strong>for</strong> <span class="math inline">\(i = 1\)</span> <strong>to</strong> <span class="math inline">\(n\)</span>: A loop from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>.</li>
-<li><strong>if</strong> <span class="math inline">\((condition)\)</span>: A conditional statement.</li>
-</ul></li>
-</ul>
-</section>
-<section id="summation-and-loop-example" class="level2">
-<h2 class="anchored" data-anchor-id="summation-and-loop-example">Summation and Loop Example</h2>
-<ul>
-<li><p><strong>Summation Formula</strong>: <span class="math inline">\(S = \sum_{i=1}^{n} i = 1 + 2 + 3 + \dots + n\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula calculates the sum of the first <span class="math inline">\(n\)</span> natural numbers. The symbol <span class="math inline">\(\sum\)</span> represents the summation, and <span class="math inline">\(i\)</span> is the index that runs from 1 to <span class="math inline">\(n\)</span>.</li>
-</ul></li>
-<li><p><strong>Nested Loop Calculation</strong>: <span class="math inline">\(T = \sum_{i=1}^{n} \sum_{j=1}^{m} (i \times j)\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula represents a nested summation where <span class="math inline">\(i\)</span> runs from 1 to <span class="math inline">\(n\)</span> and <span class="math inline">\(j\)</span> runs from 1 to <span class="math inline">\(m\)</span>. It calculates the sum of the product of <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> over these ranges.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="conditional-statements-and-recursion" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-statements-and-recursion">Conditional Statements and Recursion</h2>
-<ul>
-<li><p><strong>Conditional Formula</strong>: <span class="math display">\[
-f(x) =
-\begin{cases}
-0 &amp; \text{if } x &lt; 0 \\
-1 &amp; \text{if } x \geq 0
-\end{cases}
-\]</span></p>
-<ul>
-<li><strong>Explanation</strong>: This piecewise function returns 0 if ( x ) is less than 0, and 1 if ( x ) is greater than or equal to 0. It’s an example of a conditional statement in algorithmic form.</li>
-</ul></li>
-<li><p><strong>Recursive Formula</strong>: <span class="math display">\[
-F(n) =
-\begin{cases}
-1 &amp; \text{if } n = 1 \\
-n \times F(n-1) &amp; \text{if } n &gt; 1
-\end{cases}
-\]</span></p>
-<ul>
-<li><strong>Explanation</strong>: This is a recursive definition of the factorial function. For ( n = 1 ), ( F(n) = 1 ). For ( n &gt; 1 ), ( F(n) ) is defined as ( n ) times the factorial of ( n-1 ).</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="big-o-notation-and-algorithm-complexity" class="level2">
-<h2 class="anchored" data-anchor-id="big-o-notation-and-algorithm-complexity">Big-O Notation and Algorithm Complexity</h2>
-<ul>
-<li><p><strong>Big-O Notation Example</strong>: <span class="math inline">\(T(n) = O(n^2)\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula describes the time complexity of an algorithm, where<span class="math inline">\(T(n)\)</span> represents the runtime as a function of input size <span class="math inline">\(n\)</span>. The notation <span class="math inline">\(O(n^2)\)</span> indicates that the algorithm’s runtime grows quadratically with the size of the input.</li>
-</ul></li>
-<li><p><strong>Logarithmic Complexity</strong>: <span class="math inline">\(T(n) = O(\log n)\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula represents an algorithm with logarithmic time complexity. The runtime increases logarithmically as the input size <span class="math inline">\(n\)</span> increases, which is common in algorithms like binary search.</li>
-</ul></li>
-</ul>
-</section>
-<section id="basic-tsp-formulation" class="level2">
-<h2 class="anchored" data-anchor-id="basic-tsp-formulation">Basic TSP Formulation</h2>
-<ul>
-<li><p><strong>Objective Function</strong>: <span class="math display">\[
-\text{Minimize} \quad Z = \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
-\]</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula represents the objective function of the TSP, where <span class="math inline">\(c_{ij}\)</span> is the cost (or distance) of traveling from city <span class="math inline">\(i\)</span> to city <span class="math inline">\(j\)</span>, and <span class="math inline">\(x_{ij}\)</span> is a binary variable that equals 1 if the path from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> is included in the solution and 0 otherwise. The goal is to minimize the total travel cost.</li>
-</ul></li>
-<li><p><strong>Constraints</strong>:</p></li>
-<li><p><span class="math inline">\(\sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i\)</span></p></li>
-<li><p><span class="math inline">\(\sum_{i=1, i \neq j}^{n} x_{ij} = 1 \quad \forall j\)</span></p></li>
-<li><p><span class="math inline">\(x_{ij} \in \{0, 1\}\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: The first constraint ensures that each city <span class="math inline">\(i\)</span> is exited exactly once, and the second constraint ensures that each city <span class="math inline">\(j\)</span> is entered exactly once. The binary constraint on <span class="math inline">\(x_{ij}\)</span> ensures that the solution only includes valid paths.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="tsp-approximation-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="tsp-approximation-algorithm">TSP Approximation Algorithm</h2>
-<ul>
-<li><p><strong>Approximation Algorithm Cost</strong>: <span class="math inline">\(Z \leq 2 \times \text{OPT}\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This formula represents the performance guarantee of a 2-approximation algorithm for the TSP, where <span class="math inline">\(Z\)</span> is the cost of the approximate solution and <span class="math inline">\(\text{OPT}\)</span> is the cost of the optimal solution. It guarantees that the approximate solution will be at most twice as costly as the optimal solution.</li>
-</ul></li>
-</ul>
-</section>
-<section id="heuristic-nearest-neighbor-example" class="level2">
-<h2 class="anchored" data-anchor-id="heuristic-nearest-neighbor-example">Heuristic Nearest Neighbor Example:</h2>
-<p><span class="math inline">\(Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}\)</span></p>
-<ul>
-<li><strong>Explanation</strong>: This is the cost calculation for the nearest neighbor heuristic, where <span class="math inline">\(\text{NN}(i)\)</span> denotes the nearest neighbor of city <span class="math inline">\(i\)</span>. The tour starts at a city, repeatedly visits the nearest unvisited city, and returns to the starting city.</li>
-</ul>
-</section>
-</section>
-<section id="pseudocode-know-how" class="level1">
-<h1>Pseudocode Know-how</h1>
-<ul>
-<li><p>Don’t include code-specific features such as variable declarations, data types, or specific keywords.</p></li>
-<li><p>Focus on what the algorithm should do, not how to implement it.</p></li>
-<li><p>Use pseudocode to outline the flow and logic of the solution.</p></li>
-<li><p>Think of pseudocode as a blueprint that can be implemented in any programming language</p></li>
-<li><p>Bad: int sum = 0; for (i=0; i &lt; n; i++) sum += arr[i];</p></li>
-<li><p>Good: SET sum = 0, FOR each element in the list, sum = sum + number</p></li>
-</ul>
-<section id="tips-for-writing-good-pseudocode" class="level2">
-<h2 class="anchored" data-anchor-id="tips-for-writing-good-pseudocode">Tips for Writing Good Pseudocode</h2>
-<ul>
-<li>Maintain consistent terms throughout: Use the same terminology for variables, functions, and processes. If you define a variable as total, always refer to it as total, not sum later on.</li>
-<li>Be clear on naming: Use descriptive names for variables, functions, and operations to make your pseudocode intuitive.</li>
-<li>Pseudocode should be easy to understand after a single read-through. If it feels too complex, break it down further.</li>
-</ul>
-</section>
-<section id="examples" class="level2">
-<h2 class="anchored" data-anchor-id="examples">Examples</h2>
-<ul>
-<li>This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.</li>
-</ul>
-</section>
-</section>
-<section id="pseudocode-for-finding-the-minimum-number-in-a-list" class="level1 cell">
-<h1>Pseudocode for finding the minimum number in a list</h1>
-<p>SET min_number = Infinity FOR each number IN list: IF number &lt; min_number: SET min_number = number RETURN min_number</p>
-</section>
-<ul>
-<li>This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.</li>
-<li>edge cases: an empty list, all even numbers, or no numbers greater than the threshold.</li>
-</ul>
-<section id="pseudocode-for-summing-numbers-greater-than-a-given-threshold" class="level1 cell">
-<h1>Pseudocode for summing numbers greater than a given threshold</h1>
-<p>SET sum = 0 FOR each number IN list: IF number &gt; threshold: SET sum = sum + number RETURN sum</p>
-</section>
-<section id="pseudocode-for-tsp-nearest-neighbor-model" class="level2">
-<h2 class="anchored" data-anchor-id="pseudocode-for-tsp-nearest-neighbor-model">Pseudocode for TSP Nearest Neighbor Model</h2>
-<ul>
-<li>Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.</li>
-<li>Output: It outputs the route and the total distance traveled.</li>
+<li>Wall time refers to the real-world time that elapses from the start to the end of a process or block of code.</li>
+<li>time.time(): Returns the current time in seconds since the epoch (January 1, 1970). This uses the time module. When running, save it to a start_time variable.</li>
 </ul>
 <div class="cell">
-<p>#inputs SET cities = <list of="" cities=""> SET distances = <distance matrix="" or="" dictionary=""> SET start_city = <initial city=""></initial></distance></list></p>
-<section id="function-to-find-the-nearest-unvisited-city" class="level1">
-<h1>FUNCTION to find the nearest unvisited city</h1>
-<p>FUNCTION find_nearest_neighbor(current_city, unvisited, distances): SET nearest_city = None SET min_distance = infinity</p>
-<pre><code>FOR each city IN unvisited:
-    IF distances[current_city][city] &lt; min_distance:
-        SET min_distance = distances[current_city][city]
-        SET nearest_city = city
-
-RETURN nearest_city, min_distance</code></pre>
-</section>
-<section id="function-to-solve-tsp-using-nearest-neighbor-algorithm" class="level1">
-<h1>FUNCTION to solve TSP using Nearest Neighbor algorithm</h1>
-<p>FUNCTION nearest_neighbor_tsp(start_city, cities, distances): # Initialize list of unvisited cities SET unvisited = list of all cities EXCEPT start_city</p>
-</section>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>Execute the block of code you want to measure and end the time.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Subtract the start time from the end time to get the elapsed wall time and then print the elapsed time.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>elapsed_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wall time: </span><span class="sc">{</span>elapsed_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Wall time: 0.02 seconds</code></pre>
+</div>
+</div>
+</section>
+<section id="writing-programs-with-internal-functions" class="level1">
+<h1>Writing Programs with Internal Functions</h1>
+<ul>
+<li>Indentation: Function statements must be indented</li>
+<li>Arguments: Variables passed from calling program to the function
+<ul>
+<li>a_list is an argument required by my_sum<br>
+</li>
+<li>a_list assumes value of x passed from main</li>
+</ul></li>
+<li>Return: a return statement sends variables back to main program<br>
+</li>
+<li>Variable scope: where execution begins
+<ul>
+<li>The first unindented line that is not a function definition or a global variable</li>
+<li>a_list is defined only in the function when it runs</li>
+</ul></li>
+<li>Place all functions above the “main” program
+<ul>
+<li>Must be defined before they are used</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_sum(a_list):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     result <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> y <span class="kw">in</span> a_list:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>          result <span class="op">+=</span> y</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> result</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_sum(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>15</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="understanding-the-loop" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-loop">Understanding The Loop</h2>
+<ul>
+<li>A loop is a way to repeat the same action for every item in a collection (like a list).</li>
+<li>For y in a_list means, take each item in a_list one at a time, and call it y.</li>
+</ul>
+<div class="cell">
+<pre><code> for y in a_list:
+      result += y
+ return result</code></pre>
+</div>
+<ul>
+<li>For example, if a_list is [0, 1, 2, 3, 4, 5], the loop will do the following:
+<ul>
+<li>First loop: set y = 0, result = 0 + 0 (result is now 0).<br>
+</li>
+<li>Second loop: Then, set y = 1, result = 0 + 1 (result is now 1).<br>
+</li>
+<li>Third loop: then y = 2, result = 1 + 2 (result is now 3).</li>
+<li>and so on, until all the numbers in the list have been used.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-return-statement-inside-functions" class="level2">
+<h2 class="anchored" data-anchor-id="the-return-statement-inside-functions">The Return Statement Inside Functions</h2>
+<ul>
+<li>You need a RETURN statement when an algorithm or function is expected to produce an output that will be used later.</li>
+<li>If something needs to come back out of the algorithm, use RETURN. * For example:
+<ul>
+<li>Evaluation functions need RETURN (score, cost, fitness)</li>
+<li>Move / neighbor functions often return a new solution</li>
+<li>Search loops may return best solution found</li>
+</ul></li>
+<li>You DO need RETURN when:
+<ul>
+<li>The algorithm computes a value (sum, average, best solution, prediction)</li>
+<li>The result will be stored, printed, or passed to another step</li>
+<li>You are writing a function (not just a sequence of actions)</li>
+<li>The algorithm’s purpose is to output a value, so a return is needed</li>
+</ul></li>
+</ul>
+<div class="cell">
+<p>SET total to 0 FOR each element in the list ADD element to total RETURN total</p>
+</div>
+<ul>
+<li>You DO NOT need RETURN when:
+<ul>
+<li>The algorithm only performs actions</li>
+<li>Results are displayed, saved, or modify something in place</li>
+<li>You are describing a procedure, not a function</li>
+<li>Nothing is handed back for later use.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<p>FOR each student PRINT student name</p>
+</div>
+</section>
 </section>
 <section id="using-ai" class="level1">
 <h1>Using AI</h1>

@@ -2,9 +2,15 @@
 title: "Introduction to Heuristic Algorithms"
 author: "BUAD5042: Schlosser"
 format: html
-runtime: python
+execute:
+  python:
+    executable: "C:/Users/pamel/anaconda3/envs/CTBA/python.exe"
 ---
 
+```{r, echo=FALSE, warning=FALSE}
+library(reticulate)
+use_condaenv("CTBA", required = TRUE)
+```
 # Course Overview
 
 -   Most business problems are too large or too complex to be solved optimally, where the strict meaning of "optimal" means finding the provably best solution. Finding a solution that approximates the optimal solution is, therefore, the predominant mode of problem solving found in industry: these are called heuristic solutions. Many companies gain a competitive advantage by constructing heuristics that either find better solutions than their competitors or find solutions more quickly. This course focuses on achieving such results by programming custom algorithms, which are a sequence of steps taken to provide a solution to a problem.
@@ -52,7 +58,7 @@ Publisher: Academic Press\
 
 -   We will also review Optimization, which is a lead into Heuristic Modelling.
 
-------------------------------------------------------------------------
+
 
 # Procedural Programming vs Object Oriented Programming (OOP)
 
