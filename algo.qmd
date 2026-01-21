@@ -295,19 +295,23 @@ PRINT "Total distance traveled:", total_distance
 
 # Deciphering Algorithmic Notation
 
--   Variables and Data Types:
-    -   Identify variables and understand their roles (e.g., counters, accumulators).
-    -   Pay attention to the data types being used (e.g., integers, lists).
--   Lists
-    -   Good if you are going to iterate through the entire list
-    -   Methods: sort, iterable, reverse, append
--   Tuples
-    -   Similar to lists, but when the data shouldn’t change
-    -   Immutable
-    -   Not many built-in methods
--   Dictionaries
-    -   Fast random access: lookup by key
-    -   Takes a little more memory than lists
+* Pay attention to the data types being used (e.g., integers, strings, lists, dictionaries). Note that the operations you need matter more than how the data looks. 
+* Lists
+     + Best when you will iterate through the entire collection
+     + Ordered and mutable
+     + Common Methods: sort, reverse, append
+     + Ideal when values may change or be reordered
+* Tuples
+     + Similar to lists, but used when the data shouldn’t change
+     + Immutable 
+     + Fewer built-in methods
+     + Useful for fixed records (e.g., coordinates)
+* Dictionaries
+     + Best for fast random access using a key
+Keys must be unique
+     + Slightly more overhead than lists
+     + Ideal when data has meaningful labels (key-value pairs)
+
 
 
 

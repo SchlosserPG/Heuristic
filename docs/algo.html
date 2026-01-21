@@ -637,26 +637,26 @@ RETURN route, total_distance</code></pre>
 <section id="deciphering-algorithmic-notation" class="level1">
 <h1>Deciphering Algorithmic Notation</h1>
 <ul>
-<li>Variables and Data Types:
-<ul>
-<li>Identify variables and understand their roles (e.g., counters, accumulators).</li>
-<li>Pay attention to the data types being used (e.g., integers, lists).</li>
-</ul></li>
+<li>Pay attention to the data types being used (e.g., integers, strings, lists, dictionaries). Note that the operations you need matter more than how the data looks.</li>
 <li>Lists
 <ul>
-<li>Good if you are going to iterate through the entire list</li>
-<li>Methods: sort, iterable, reverse, append</li>
+<li>Best when you will iterate through the entire collection</li>
+<li>Ordered and mutable</li>
+<li>Common Methods: sort, reverse, append</li>
+<li>Ideal when values may change or be reordered</li>
 </ul></li>
 <li>Tuples
 <ul>
-<li>Similar to lists, but when the data shouldn’t change</li>
+<li>Similar to lists, but used when the data shouldn’t change</li>
 <li>Immutable</li>
-<li>Not many built-in methods</li>
+<li>Fewer built-in methods</li>
+<li>Useful for fixed records (e.g., coordinates)</li>
 </ul></li>
 <li>Dictionaries
 <ul>
-<li>Fast random access: lookup by key</li>
-<li>Takes a little more memory than lists</li>
+<li>Best for fast random access using a key Keys must be unique</li>
+<li>Slightly more overhead than lists</li>
+<li>Ideal when data has meaningful labels (key-value pairs)</li>
 </ul></li>
 </ul>
 <section id="deciphering-algorithmic-notation-mathematical-symbols" class="level2">
