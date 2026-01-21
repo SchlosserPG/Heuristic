@@ -134,15 +134,16 @@ use_condaenv("CTBA", required = TRUE)
 -   Bad: int sum = 0; for (i=0; i \< n; i++) sum += arr\[i\];
 
 -   Good: 
-* Below is written in plain english pseudocode
-```{asis}
+```{python, eval=FALSE}
+# Below is written in plain english pseudocode
 SET total to 0
 	FOR each element in the list
 	ADD element to total
 RETURN total
 ```
-* Below the pseudocode is written more code like (also correct): 
-```{asis}
+```{python, eval=FALSE}
+# Below the pseudocode is written more code like (also correct): 
+
 SET sum = 0
 FOR each element in the list
     sum = sum + number
@@ -163,7 +164,7 @@ RETURN sum
 -   This pseudocode below calculates the sum of all numbers in the list that are greater than a specified threshold by iterating through the list and adding qualifying numbers to the sum.
 -   edge cases: an empty list, all even numbers, or no numbers greater than the threshold.
 
-```{asis}
+```{python, eval=FALSE}
 # Pseudocode for summing numbers greater than a given threshold
 SET sum = 0
 FOR each number IN list:
@@ -175,7 +176,7 @@ RETURN sum
 
 -   This pseudocode finds the smallest number in a given list by iterating through all elements and updating the min_number whenever a smaller number is found.
 
-```{asis}
+```{python, eval=FALSE}
 # Pseudocode for finding the minimum number in a list
 SET min_number = Infinity
 FOR each number IN list:
@@ -218,7 +219,7 @@ $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \text{NN}(1)}$
 -   Nearest Neighbor Heuristic: The algorithm works by greedily choosing the nearest unvisited city until all cities are visited, then returning to the start city.
 -   Output: It outputs the route and the total distance traveled.
 
-```{asis}
+```{python, eval=FALSE}
 ### inputs
 SET cities = <list of cities>
 SET distances = <distance matrix or dictionary>
