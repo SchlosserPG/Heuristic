@@ -273,14 +273,15 @@ window.Quarto = {
   </ul></li>
   <li><a href="#combinatorial-optimization-problems-cops" id="toc-combinatorial-optimization-problems-cops" class="nav-link" data-scroll-target="#combinatorial-optimization-problems-cops">Combinatorial Optimization Problems (COPs)</a>
   <ul class="collapse">
-  <li><a href="#traveling-salesman-algorithm" id="toc-traveling-salesman-algorithm" class="nav-link" data-scroll-target="#traveling-salesman-algorithm">Traveling Salesman Algorithm</a>
-  <ul class="collapse">
+  <li><a href="#traveling-salesman-algorithm" id="toc-traveling-salesman-algorithm" class="nav-link" data-scroll-target="#traveling-salesman-algorithm">Traveling Salesman Algorithm</a></li>
+  </ul></li>
   <li><a href="#greedy-tsp-solution-using-nearest-neighbor" id="toc-greedy-tsp-solution-using-nearest-neighbor" class="nav-link" data-scroll-target="#greedy-tsp-solution-using-nearest-neighbor">Greedy TSP Solution using Nearest Neighbor</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a></li>
+  <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a>
+  <ul class="collapse">
   <li><a href="#dictionary-vs-dictionary-of-dictionaries" id="toc-dictionary-vs-dictionary-of-dictionaries" class="nav-link" data-scroll-target="#dictionary-vs-dictionary-of-dictionaries">Dictionary vs Dictionary of Dictionaries</a></li>
-  <li><a href="#adding-constraints" id="toc-adding-constraints" class="nav-link" data-scroll-target="#adding-constraints">Adding Constraints</a></li>
+  <li><a href="#tsp-local-cities-example" id="toc-tsp-local-cities-example" class="nav-link" data-scroll-target="#tsp-local-cities-example">TSP Local Cities Example</a></li>
+  </ul></li>
+  <li><a href="#tsp-nn-with-constraints" id="toc-tsp-nn-with-constraints" class="nav-link" data-scroll-target="#tsp-nn-with-constraints">TSP NN with Constraints</a></li>
   <li><a href="#nearest-neighbor-using-dataset" id="toc-nearest-neighbor-using-dataset" class="nav-link" data-scroll-target="#nearest-neighbor-using-dataset">Nearest Neighbor using Dataset</a></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
@@ -482,8 +483,10 @@ window.Quarto = {
 <figcaption>Greedy Map</figcaption>
 </figure>
 </div>
-<section id="greedy-tsp-solution-using-nearest-neighbor" class="level3">
-<h3 class="anchored" data-anchor-id="greedy-tsp-solution-using-nearest-neighbor">Greedy TSP Solution using Nearest Neighbor</h3>
+</section>
+</section>
+<section id="greedy-tsp-solution-using-nearest-neighbor" class="level1">
+<h1>Greedy TSP Solution using Nearest Neighbor</h1>
 <ul>
 <li><p>Start at Richmond. Find the nearest city. From Richmond, the nearest city is Petersburg (25 miles). Move to Petersburg.</p></li>
 <li><p>From Petersburg, find the nearest unvisited city, which is Newport News (65 miles). Move to Newport News .</p></li>
@@ -501,13 +504,10 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-</section>
-</section>
 <section id="tsp-python-implementation" class="level1">
 <h1>TSP Python Implementation</h1>
-</section>
-<section id="dictionary-vs-dictionary-of-dictionaries" class="level1">
-<h1>Dictionary vs Dictionary of Dictionaries</h1>
+<section id="dictionary-vs-dictionary-of-dictionaries" class="level2">
+<h2 class="anchored" data-anchor-id="dictionary-vs-dictionary-of-dictionaries">Dictionary vs Dictionary of Dictionaries</h2>
 <ul>
 <li>A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries.</li>
 </ul>
@@ -536,6 +536,9 @@ window.Quarto = {
 <ul>
 <li>Each key (e.g., ‘City1’) represents a location. Each inner dictionary provides distances to the other cities.</li>
 </ul>
+</section>
+<section id="tsp-local-cities-example" class="level2">
+<h2 class="anchored" data-anchor-id="tsp-local-cities-example">TSP Local Cities Example</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cities and distances between them</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">'Richmond'</span>, <span class="st">'Petersburg'</span>, <span class="st">'Chesapeake'</span>, <span class="st">'Norfolk'</span>, <span class="st">'Newport News'</span>, <span class="st">'Virginia Beach'</span>]</span>
@@ -597,8 +600,9 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="adding-constraints" class="level1">
-<h1>Adding Constraints</h1>
+</section>
+<section id="tsp-nn-with-constraints" class="level1">
+<h1>TSP NN with Constraints</h1>
 <ul>
 <li><p>A constraint is a rule that limits which edges or routes you are allowed to take.</p></li>
 <li><p>In our algorithm, we can use a restricted edge is an edge we prefer not to use. In this case, we only use restricted edges when no unrestricted options remain.</p></li>

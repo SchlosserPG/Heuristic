@@ -144,7 +144,7 @@ Nearest Neighbor (Greedy): $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \te
 
 ![Greedy Map](Pictures/GreedyMap.png "Greedy Map")
 
-### Greedy TSP Solution using Nearest Neighbor
+# Greedy TSP Solution using Nearest Neighbor
 
 -   Start at Richmond. Find the nearest city. From Richmond, the nearest city is Petersburg (25 miles). Move to Petersburg.
 
@@ -166,7 +166,7 @@ Nearest Neighbor (Greedy): $Z = \sum_{i=1}^{n-1} c_{i, \text{NN}(i)} + c_{n, \te
 
 # TSP Python Implementation
 
-# Dictionary vs Dictionary of Dictionaries
+## Dictionary vs Dictionary of Dictionaries
 
 -   A dictionary in Python is a built-in data structure that stores data in key-value pairs. It is unordered, mutable, and indexed by unique keys. The structure is enclosed within curly braces {}. Each key is associated with a value, and the two are separated by a colon :. Keys must be immutable types like strings, numbers, or tuples, while values can be of any data type, including other dictionaries.
 
@@ -195,6 +195,7 @@ distances = {
 
 -   Each key (e.g., 'City1') represents a location. Each inner dictionary provides distances to the other cities.
 
+## TSP Local Cities Example
 ```{python}
 
 # Define the cities and distances between them
@@ -253,7 +254,7 @@ print("Total distance traveled:", total_distance, "miles")
 
 ```
 
-# Adding Constraints
+# TSP NN with Constraints
 
 -   A constraint is a rule that limits which edges or routes you are allowed to take.
 -   In our algorithm, we can use a restricted edge is an edge we prefer not to use. In this case, we only use restricted edges when no unrestricted options remain.
