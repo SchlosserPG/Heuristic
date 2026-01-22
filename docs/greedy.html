@@ -281,6 +281,7 @@ window.Quarto = {
   <li><a href="#tsp-python-implementation" id="toc-tsp-python-implementation" class="nav-link" data-scroll-target="#tsp-python-implementation">TSP Python Implementation</a></li>
   <li><a href="#dictionary-vs-dictionary-of-dictionaries" id="toc-dictionary-vs-dictionary-of-dictionaries" class="nav-link" data-scroll-target="#dictionary-vs-dictionary-of-dictionaries">Dictionary vs Dictionary of Dictionaries</a></li>
   <li><a href="#adding-constraints" id="toc-adding-constraints" class="nav-link" data-scroll-target="#adding-constraints">Adding Constraints</a></li>
+  <li><a href="#nearest-neighbor-using-dataset" id="toc-nearest-neighbor-using-dataset" class="nav-link" data-scroll-target="#nearest-neighbor-using-dataset">Nearest Neighbor using Dataset</a></li>
   <li><a href="#using-ai" id="toc-using-ai" class="nav-link" data-scroll-target="#using-ai">Using AI</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
@@ -687,6 +688,90 @@ window.Quarto = {
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#### Note min() normally compares entire values. But our values are tuples, not just numbers. </span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># So instead of comparing (distance, is_restricted, neighbor_name) directly, we tell min() </span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># to only look at the first item in each tuple (the distance) when deciding which is smallest.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nearest-neighbor-using-dataset" class="level1">
+<h1>Nearest Neighbor using Dataset</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load with first column as index</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Always do a check on the data file to ensure it's clean and ready to use. </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check how the data loaded. </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/twentylocations.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (Optional) clean labels</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> df.index.<span class="bu">str</span>.strip()</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.strip()</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Turn into dict-of-dicts keyed by row (L1, L2, …)</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> df.to_dict(orient<span class="op">=</span><span class="st">"index"</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)          <span class="co"># should be (20, 20)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(20, 20)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())         <span class="co"># should show L1…L5 rows and columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          L1  L2  L3  L4  L5  L6  L7  ...  L14  L15  L16  L17  L18  L19  L20
+Location                              ...                                   
+L1         0  12  18  25  22  30  17  ...   24   29   15   20   23   27   31
+L2        12   0  10  20  18  25  22  ...   28   24   18   22   26   29   32
+L3        18  10   0  15  12  22  19  ...   26   21   19   24   27   30   33
+L4        25  20  15   0  14  18  23  ...   19   25   23   28   30   32   35
+L5        22  18  12  14   0  20  16  ...   17   24   18   21   25   27   30
+
+[5 rows x 20 columns]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>start_location <span class="op">=</span> <span class="st">"L1"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nearest_neighbor(start, dist):</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> start</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> {start}</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [start]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Repeat until all locations are visited</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">len</span>(visited) <span class="op">&lt;</span> <span class="bu">len</span>(dist):</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        best_neighbor <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        best_distance <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Look at all neighbors of the current location</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> neighbor, d <span class="kw">in</span> dist[current].items():</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> neighbor <span class="kw">in</span> visited:</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span>  <span class="co"># skip locations we've already visited</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Choose the unvisited neighbor with the smallest distance</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> best_distance <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> d <span class="op">&lt;</span> best_distance:</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>                best_distance <span class="op">=</span> d</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>                best_neighbor <span class="op">=</span> neighbor</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Move to the chosen neighbor</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        route.append(best_neighbor)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        visited.add(best_neighbor)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        total_distance <span class="op">+=</span> best_distance</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> best_neighbor</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return to the starting location at the end</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    total_distance <span class="op">+=</span> dist[current][start]</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    route.append(start)</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route, total_distance</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>route, total <span class="op">=</span> nearest_neighbor(start_location, dist)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Nearest Neighbor route starting at"</span>, start_location, <span class="st">":"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nearest Neighbor route starting at L1 :</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">" -&gt; "</span>.join(route))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>L1 -&gt; L2 -&gt; L3 -&gt; L5 -&gt; L4 -&gt; L9 -&gt; L8 -&gt; L7 -&gt; L6 -&gt; L10 -&gt; L12 -&gt; L15 -&gt; L16 -&gt; L17 -&gt; L18 -&gt; L19 -&gt; L20 -&gt; L14 -&gt; L13 -&gt; L11 -&gt; L1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total distance:"</span>, total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total distance: 313</code></pre>
+</div>
 </div>
 </section>
 <section id="using-ai" class="level1">

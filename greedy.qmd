@@ -340,6 +340,68 @@ print("Total distance:", total)
 
 ```
 
+# Nearest Neighbor using Dataset
+
+```{python}
+import pandas as pd
+
+# Load with first column as index
+# Always do a check on the data file to ensure it's clean and ready to use. 
+# Check how the data loaded. 
+df = pd.read_csv("data/twentylocations.csv", index_col=0)
+
+# (Optional) clean labels
+df.index = df.index.str.strip()
+df.columns = df.columns.str.strip()
+
+# Turn into dict-of-dicts keyed by row (L1, L2, …)
+dist = df.to_dict(orient="index")
+
+print(df.shape)          # should be (20, 20)
+print(df.head())         # should show L1…L5 rows and columns
+
+start_location = "L1"
+
+def nearest_neighbor(start, dist):
+    current = start
+    visited = {start}
+    route = [start]
+    total_distance = 0
+
+    # Repeat until all locations are visited
+    while len(visited) < len(dist):
+        best_neighbor = None
+        best_distance = None
+
+        # Look at all neighbors of the current location
+        for neighbor, d in dist[current].items():
+            if neighbor in visited:
+                continue  # skip locations we've already visited
+
+            # Choose the unvisited neighbor with the smallest distance
+            if best_distance is None or d < best_distance:
+                best_distance = d
+                best_neighbor = neighbor
+
+        # Move to the chosen neighbor
+        route.append(best_neighbor)
+        visited.add(best_neighbor)
+        total_distance += best_distance
+        current = best_neighbor
+
+    # Return to the starting location at the end
+    total_distance += dist[current][start]
+    route.append(start)
+
+    return route, total_distance
+
+route, total = nearest_neighbor(start_location, dist)
+
+print("Nearest Neighbor route starting at", start_location, ":")
+print(" -> ".join(route))
+print("Total distance:", total)
+```
+
 # Using AI
 
 -   Use the following prompt on a generative AI, like chatGPT, to learn more about the topics covered.
