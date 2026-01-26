@@ -365,8 +365,8 @@ start_location = "L1"
 
 def nearest_neighbor(start, dist):
     current = start
-    visited = {start}
-    route = [start]
+    visited = {start} ##visited is a set because we only care about membership, not order. Asks "Have I been here?"  
+    route = [start] ## route is a list because we do care about order. Asks: What order did I visit? 
     total_distance = 0
 
     # Repeat until all locations are visited
