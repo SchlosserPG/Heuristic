@@ -269,6 +269,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#tournament-selection-example" id="toc-tournament-selection-example" class="nav-link" data-scroll-target="#tournament-selection-example">Tournament Selection Example</a></li>
   </ul></li>
+  <li><a href="#controlling-selection-pressure" id="toc-controlling-selection-pressure" class="nav-link" data-scroll-target="#controlling-selection-pressure">Controlling Selection Pressure</a></li>
   </ul></li>
   <li><a href="#transition-operator" id="toc-transition-operator" class="nav-link" data-scroll-target="#transition-operator">Transition Operator</a>
   <ul class="collapse">
@@ -546,8 +547,25 @@ window.Quarto = {
 <li>F1 is added again.</li>
 </ul></li>
 </ul>
-<p><img src="Pictures/gaselection.png" title="Genetic Algorithm Selection Example" class="img-fluid" alt="GA Selection Example"> ### Controlling Selection Pressure * Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. * Larger tournaments (e.g., num_players &gt;= 3) favor stronger individuals. + Increases selection pressure because there’s a higher chance that fitter individuals will be included and selected. + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions. * Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/gaselection.png" title="Genetic Algorithm Selection Example" class="img-fluid figure-img"></p>
+<figcaption>GA Selection Example</figcaption>
+</figure>
+</div>
 </section>
+</section>
+<section id="controlling-selection-pressure" class="level2">
+<h2 class="anchored" data-anchor-id="controlling-selection-pressure">Controlling Selection Pressure</h2>
+<ul>
+<li>Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones.</li>
+<li>Larger tournaments (e.g., num_players &gt;= 3) favor stronger individuals.
+<ul>
+<li>Increases selection pressure because there’s a higher chance that fitter individuals will be included and selected.</li>
+<li>This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions.</li>
+</ul></li>
+<li>Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.</li>
+</ul>
 </section>
 </section>
 <section id="transition-operator" class="level1">
@@ -578,12 +596,12 @@ window.Quarto = {
 <section id="example-of-crossover" class="level2">
 <h2 class="anchored" data-anchor-id="example-of-crossover">Example of Crossover</h2>
 <ul>
-<li><p>F1 (Parent 1) = 10101 | 01010</p></li>
-<li><p>F3 (Parent 2) = 11001 | 10011</p></li>
+<li><p>F1 (Parent 1) = 11001 | 10011</p></li>
+<li><p>F3 (Parent 2) = 10101 | 01010</p></li>
 <li><p>Let’s choose crossover point or index = 5 , which means after the fifth bit</p>
 <ul>
-<li>Child 1 = 10101 | 10011 → “1010110011”</li>
-<li>Child 2 = 11001 | 01010 → “1100101010“</li>
+<li>Child 1 = 11001 | 01010 → “1100101010”</li>
+<li>Child 2 = 10101 | 10011 → “1010110011”</li>
 </ul></li>
 <li><p>Now, these offspring can replace some individuals in the population or undergo mutation before the next iteration.</p></li>
 </ul>
@@ -940,7 +958,7 @@ window.Quarto = {
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Execution time: 0.100209 seconds</code></pre>
+<pre><code>Execution time: 0.103319 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the progress of the genetic algorithm</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -1151,15 +1169,15 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output (O)</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal solution: </span><span class="sc">{</span>best_solution<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal solution: [0.04302532]</code></pre>
+<pre><code>Optimal solution: [-0.0274587]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal value: </span><span class="sc">{</span>best_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optimal value: 0.26831640480033814</code></pre>
+<pre><code>Optimal value: 0.149591547125429</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Execution time for Genetic Algorithm: </span><span class="sc">{</span>execution_time<span class="sc">:.6f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Execution time for Genetic Algorithm: 0.118076 seconds</code></pre>
+<pre><code>Execution time for Genetic Algorithm: 0.120327 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Ackley function and genetic algorithm progress</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
