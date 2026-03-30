@@ -12,7 +12,6 @@ library(reticulate)
 use_condaenv("CTBA", required = TRUE)
 ```
 
-
 **If you could ‘mutate’ one skill you have to be even better, which one would it be? And if you could ‘crossover’ with someone else’s skill, what would you pick?**
 
 -   Genetic Algorithms (GAs) are optimization techniques inspired by the process of natural selection by evolving solutions through selection, crossover, and mutation, just as genes pass traits through generations to optimize survival.
@@ -172,15 +171,15 @@ use_condaenv("CTBA", required = TRUE)
     -   F1 (6) vs. F3 (5) → F1 wins.
     -   F1 is added again.
 
-![GA Selection Example](Pictures/gaselection.png "Genetic Algorithm Selection Example")  
+![GA Selection Example](Pictures/gaselection.png "Genetic Algorithm Selection Example")
 
-## Controlling Selection Pressure 
+## Controlling Selection Pressure
 
-* Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones. 
-* Larger tournaments (e.g., num_players \>= 3) favor stronger individuals. 
-     + Increases selection pressure because there's a higher chance that fitter individuals will be included and selected. 
-     + This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions. 
-* Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.
+-   Selection Pressure refers to the degree to which fitter individuals are favored for reproduction over less fit ones.
+-   Larger tournaments (e.g., num_players \>= 3) favor stronger individuals.
+    -   Increases selection pressure because there's a higher chance that fitter individuals will be included and selected.
+    -   This can lead to faster convergence but may reduce genetic diversity, risking premature convergence to suboptimal solutions.
+-   Smaller tournaments (e.g., num_players = 2) introduce more randomness. + Decreases selection pressure, allowing less fit individuals a better chance to be selected. This maintains diversity and promotes exploration but may slow down convergence.
 
 # Transition Operator
 
@@ -629,40 +628,59 @@ def select(curr_pop, curr_obj_vals, num_players):
 
 -   In genetic algorithms, the transition function refers to the combined operations of crossover and mutation that generate a new population (offspring) from the current population. The transition function first applies crossover to exchange genetic material between selected parent solutions, creating new offspring, and then applies mutation to introduce small random changes in the offspring, maintaining diversity and enabling exploration of the solution space. This ensures a balance between exploitation of good solutions (via crossover) and exploration of new solutions (via mutation).
 
--   Crossover: Pairs of solutions from the selected population are combined to create new offspring by mixing parts of the parent solutions.
+-   Because the Ackley problem uses **real-valued** solutions (continuous numbers between -10 and 10) rather than binary bit strings, we use **arithmetic (blend) crossover** instead of the single-point crossover used in the One-Max problem.
 
--   A new population (new_pop) is initialized as a copy of the current population (pop). The loop iterates over the population in pairs. For each pair, a random number is generated using np.random.rand(). If this number is less than the crossover_rate, crossover occurs:
+-   Arithmetic crossover works by blending the two parent values using a random mixing factor $\alpha \in [0, 1]$:
 
-    -   A crossover point is chosen randomly (here, using np.random.randint(0, pop.shape\[1\]), which specifies where the two parent solutions will exchange segments. The segments of the two parent solutions from the crossover point onward are swapped, creating two new offspring solutions.
+    -   $\text{child}_1 = \alpha \cdot \text{parent}_1 + (1 - \alpha) \cdot \text{parent}_2$
+    -   $\text{child}_2 = \alpha \cdot \text{parent}_2 + (1 - \alpha) \cdot \text{parent}_1$
 
-    -   If the random number is greater than the crossover_rate, no crossover occurs, and the parent solutions remain unchanged. The function returns the new_pop containing the modified population after applying the crossover operation.
+-   $\alpha$ is drawn uniformly from $[0, 1]$ for each pair, so offspring always lie between the two parents. This is appropriate for continuous solution spaces because it smoothly blends parental values rather than swapping discrete chunks.
 
-    ```{python}
-    # Transition function (T): Crossover and Mutation
-    # Crossover function (T)
-    def crossover(pop, crossover_rate):
-        new_pop = pop.copy()
-        for i in range(0, len(pop) - 1, 2):
-            if np.random.rand() < crossover_rate:
-                crossover_point = np.random.randint(0, pop.shape[1])
-                new_pop[i, crossover_point:], new_pop[i + 1, crossover_point:] = (
-                    pop[i + 1, crossover_point:], 
-                    pop[i, crossover_point:]
-                )
-        return new_pop
-    ```
+-   The loop iterates over the population in pairs. For each pair, if a random number is less than the `crossover_rate`, crossover occurs using the blending formula. Otherwise, the parents pass through unchanged. The function returns the new population after crossover.
+
+```{python}
+# Transition function (T): Crossover and Mutation
+# Uses arithmetic (blend) crossover for real-valued solutions. It creates two offspring
+# by blending the parent solutions based on a random factor alpha.
+def crossover(population, crossover_rate):
+    new_population = population.copy()
+    for i in range(0, len(population) - 1, 2):
+        if random.random() < crossover_rate:
+            alpha = np.random.rand()
+            parent1 = population[i]
+            parent2 = population[i + 1]
+            child1 = alpha * parent1 + (1 - alpha) * parent2
+            child2 = alpha * parent2 + (1 - alpha) * parent1
+            new_population[i] = child1
+            new_population[i + 1] = child2
+    return new_population
+```
 
 ## Transition (T): Mutation Function
 
 -   Mutation: Random mutations are introduced in the offspring solutions to maintain diversity and avoid premature convergence.
--   It introduces random changes to a population of solutions in a genetic algorithm. It iterates over each individual in the population (pop) and, with a probability specified by the mutation_rate, replaces the current individual with a new value randomly drawn from a uniform distribution between -10 and 10. This random alteration helps maintain diversity in the population, enabling the genetic algorithm to explore new areas of the solution space and avoid premature convergence. The modified population is returned at the end of the function. This introduces large jumps (not a small step size) since any value can be replaced.
+
+-   Because we are working in a **continuous** solution space, we use **Gaussian mutation** rather than a random replacement. Each individual is mutated with a probability specified by `mutation_rate`. When mutation occurs, a small random value drawn from a normal distribution $\mathcal{N}(0, \sigma)$ is **added** to the current value:
+
+    $$x_{\text{new}} = x_{\text{old}} + \mathcal{N}(0, \sigma)$$
+
+-   The parameter $\sigma$ (sigma) controls the **step size** — how far from the current value the mutation can move. A small $\sigma$ (e.g., 0.5) produces small perturbations, allowing fine-grained local exploration. A large $\sigma$ produces bigger jumps, allowing more exploration of the broader solution space. This is fundamentally different from the uniform random replacement used in some earlier versions, which could produce large, disruptive jumps regardless of where the current solution is. Gaussian mutation is gentler and more directed, nudging solutions in small steps rather than teleporting them.
+
+-   In the code below, `sigma=0.5` means mutations will typically shift the value by about ±0.5 units.
 
 ```{python}
-# Mutation function (M)
-def mutation(pop, mutation_rate):
+# Mutation function (T)
+# Applies Gaussian mutation to the population. Each individual has a chance
+# to be mutated based on the mutation_rate. If selected for mutation, a small
+# random value drawn from a normal distribution N(0, sigma) is added to it,
+# allowing for controlled exploration of the solution space.
+# sigma is the standard deviation of the normal distribution, which controls
+# the extent of the mutation step size.
+def mutation(pop, mutation_rate, sigma=0.5):
     for i in range(len(pop)):
         if np.random.rand() < mutation_rate:
-            pop[i] = np.random.uniform(-10, 10)
+            pop[i] += np.random.normal(0, sigma)
     return pop
 ```
 
@@ -683,7 +701,7 @@ def genetic_algorithm():
         
         selected_pop = select(pop, obj_vals, num_players)
         offspring_pop = crossover(selected_pop, crossover_rate)
-        mutated_pop = mutation(offspring_pop, mutation_rate)
+        mutated_pop = mutation(offspring_pop, mutation_rate, sigma=0.5)
         
         pop = mutated_pop  
     return best_sol, best_obj_val
